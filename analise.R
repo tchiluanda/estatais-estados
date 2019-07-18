@@ -178,7 +178,7 @@ graf_empXsetor <- ggplot(combinacao_est_seg%>%select(-geometry)) +
 
 ggsave(plot = graf_empXsetor, "heatmap.png", h = 7.5, w = 6, type = "cairo-png")
 
-plot_gg(graf_empXsetor,multicore=TRUE,width=6,height=7.5,scale=400)
+plot_gg(graf_empXsetor,multicore=TRUE,width=6,height=8,scale=400)
 
 
 
