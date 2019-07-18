@@ -1,0 +1,74 @@
+div.abertura {
+    width: 100%
+}
+
+img.logo-tt {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 20px;
+}
+
+img.abertura {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    object-fit: cover;
+    filter: blur(5px);
+}
+
+div.sobre-imagem {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 620px;
+}
+
+div.sobre-imagem h1 {
+    font-size: 4rem;
+    margin: 0;
+    line-height: 1.2;
+    color: #FDE725;
+}
+
+div.sobre-imagem h2 {
+    font-weight: normal;
+    color: ghostwhite;
+    margin: 0;
+}
+
+div.sobre-imagem p {
+    font-weight: normal;
+    color: white;
+}
+
+body {
+    font-family: 'Lora', serif;
+}
+
+div.content {
+    max-width: 620px;
+    /*width: 100%;*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+div.content img.plot {
+    margin: auto;
+    display: block;
+}
+
+
+div.destaque {
+    background-color: #333;
+    color: lightcoral;
+    padding: 10px;
+}
+
+div.destaque p {
+    margin: auto;
+    max-width: 620px;
+}
