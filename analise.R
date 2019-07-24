@@ -7,6 +7,7 @@
 
 ######### TO DO
 # * retirar ticks dos gráficos de barra
+# * companhia de mineração e a agência de fomento de TO estão como "OUTRO".
 
 library(rayshader)
 library(ggplot2)
@@ -176,13 +177,82 @@ graf_empXsetor <- ggplot(combinacao_est_seg%>%select(-geometry)) +
   scale_fill_viridis(direction = -1, na.value="ghostwhite", breaks = 1:max(combinacao_est_seg$qde, na.rm = T)) +
   labs(x = NULL, y = NULL, title = "Quantidade de empresas estatais por estado e setor", fill = "Quantidade") +
   tema() + theme(legend.position = "right") +
-  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
+  theme(axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0.5),
         axis.text.y = element_text(vjust = 0.5),
         axis.ticks = element_blank())
 
 ggsave(plot = graf_empXsetor, "heatmap.png", h = 7.5, w = 6, type = "cairo-png")
 
-plot_gg(graf_empXsetor,multicore=TRUE,width=6,height=8,scale=400)
+
+#  rayshader --------------------------------------------------------------
+
+plot_gg(graf_empXsetor+theme(legend.position = 'none'),multicore=TRUE,width=5.6,height=8,scale=400)
+
+#render_depth(focallength=100,focus=0.72)
+render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
+# só muda zoom
+render_camera(fov = 80, zoom = .55, theta = 0, phi = 90)
+# só muda theta
+render_camera(fov = 80, zoom = .55, theta = -90, phi = 90)
+# so muda phi
+render_camera(fov = 80, zoom = .55, theta = -90, phi = 0)
+
+render_camera(fov = 80, zoom = .55, theta = -90, phi = 30)
+
+render_camera(fov = 80, zoom = .55, theta = -45, phi = 30)
+
+render_camera(fov = 80, zoom = .55, theta = 0, phi = 30)
+
+render_camera(fov = 80, zoom = .55, theta = 0, phi = 0)
+
+render_camera(fov = 80, zoom = .55, theta = 0, phi = 90)
+
+render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
+
+# phi: azimuth
+# theta: rotação
+# dá para passar vetores de zoom, fov, theta e phi para fazer a câmera passear.
+
+# como gerar os vetores?
+
+# vetores de "check points":
+pontos_zoom  <- c(.65, .55, .55, .55, .55, .55, .55, .55, .55, .65)
+pontos_theta <- c(0, 0, -90, -90, -90, -45, 0, 0, 0, 0)
+pontos_phi   <- c(90, 90, 90, 0, 30, 30, 30, 0, 90, 90)
+
+# parâmetros
+qde_frames <- 360
+length(pontos_zoom)
+tamanho_int = qde_frames / (length(pontos_zoom)-1)
+
+# função para gerar vetores
+gera_vetor_interpolado <- function(vetor, tamanho_int){
+  result <- NULL
+  for (i in 1:(length(vetor)-1)) {
+    inicio    <- vetor[i]
+    fim       <- vetor[i+1]
+    intervalo <- fim-inicio
+    passo     <- intervalo / tamanho_int
+    
+    if (inicio == fim) sequencia <- rep(inicio, tamanho_int+1)
+    else sequencia <- seq(inicio, fim, by = passo)
+    
+    #print(paste(inicio, fim, intervalo, passo, length(sequencia)))
+    result <- c(result, sequencia[-(tamanho_int+1)])
+  }
+  return(result)
+}
+
+vet_zoom <- gera_vetor_interpolado(pontos_zoom, tamanho_int)
+vet_theta <- gera_vetor_interpolado(pontos_theta, tamanho_int)
+vet_phi <- gera_vetor_interpolado(pontos_phi, tamanho_int)
+
+render_snapshot("heatmap_deitado.png")
+render_movie("heatmap.mp4", type = "custom", frames = qde_frames, fps = 30,
+             phi = vet_phi, theta = vet_theta, zoom = vet_zoom, fov = 80)
+
+#
+#render_camera()
 
 
 
@@ -398,37 +468,3 @@ mapa <- ggplot(mapa_dados) +
         plot.background = element_blank(),
         panel.background = element_blank())
 
-#render_depth(focallength=100,focus=0.72)
-
-plot_gg(mapa,multicore=TRUE,width=12,height=12,scale=350)
-render_camera(fov = 70, zoom = 0.5, theta = 20, phi = 35)
-render_camera(fov = 75, zoom = 0.45, theta = 0, phi = 40)
-render_camera(fov = 45, zoom = 0.35, theta = 0, phi = 30)
-render_camera(fov = 45, zoom = 0.35, theta = 10, phi = 50)
-render_camera(fov = 90, zoom = 0.15, theta = 10, phi = 20)
-
-render_camera(fov = 45, zoom = 0.25, theta = 0, phi = 30)
-render_camera(fov = 15, zoom = 0.25, theta = 0, phi = 30)
-render_camera(fov = 45, zoom = 0.45, theta = 10, phi = 40)
-render_camera(fov = 45, zoom = 0.35, theta = 10, phi = 40)
-# phi: azimuth
-# theta: rotação
-# dá para passar vetores de zoom, fov, theta e phi para fazer a câmera passear.
-render_snapshot("brasil3d.png")
-render_movie("heatmap.mp4")
-
-#
-#render_camera()
-
-
-
-# gg = ggplot(diamonds, aes(x, depth)) +
-#   stat_density_2d(aes(fill = stat(nlevel)), 
-#                   geom = "polygon",
-#                   n = 100,bins = 10,contour = TRUE) +
-#   facet_wrap(clarity~.) +
-#   scale_fill_viridis_c(option = "A")
-# plot_gg(gg,multicore=TRUE,width=5,height=5,scale=250)
-
-# ver:
-# https://github.com/kraaijenbrink/warmingstripes-3d/blob/master/animate.r
