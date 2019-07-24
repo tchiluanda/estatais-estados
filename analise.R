@@ -4,6 +4,10 @@
 
 # https://www.tylermw.com/3d-ggplots-with-rayshader/
 
+
+######### TO DO
+# * retirar ticks dos gráficos de barra
+
 library(rayshader)
 library(ggplot2)
 library(readxl)
@@ -38,7 +42,7 @@ tema <- function(){
 
 setwd("~/GitHub/estatais-estados")
 
-dados_empresas_raw <- read_excel("./dados/Estatais.xlsx") %>%
+dados_empresas_raw <- read_excel("./dados/Estatais_rev.xlsx") %>%
   mutate(PL = as.numeric(PL),
          lucros = as.numeric(`Lucros / Prejuízos`)) %>%
   rename(dep = `Dependência`,
