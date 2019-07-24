@@ -197,15 +197,15 @@ render_camera(fov = 80, zoom = .55, theta = -90, phi = 90)
 # so muda phi
 render_camera(fov = 80, zoom = .55, theta = -90, phi = 0)
 
-render_camera(fov = 80, zoom = .55, theta = -90, phi = 30)
+render_camera(fov = 80, zoom = .55, theta = -90, phi = 30) # tirar
 
 render_camera(fov = 80, zoom = .55, theta = -45, phi = 30)
 
 render_camera(fov = 80, zoom = .55, theta = 0, phi = 30)
 
-render_camera(fov = 80, zoom = .55, theta = 0, phi = 0)
+render_camera(fov = 80, zoom = .55, theta = 0, phi = 0) # tirar
 
-render_camera(fov = 80, zoom = .55, theta = 0, phi = 90)
+render_camera(fov = 80, zoom = .55, theta = 0, phi = 90) # tirar
 
 render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
 
@@ -216,13 +216,13 @@ render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
 # como gerar os vetores?
 
 # vetores de "check points":
-pontos_zoom  <- c(.65, .55, .55, .55, .55, .55, .55, .55, .55, .65)
-pontos_theta <- c(0, 0, -90, -90, -90, -45, 0, 0, 0, 0)
-pontos_phi   <- c(90, 90, 90, 0, 30, 30, 30, 0, 90, 90)
+pontos_zoom  <- c(.65, .55, .55, .55, .55, .55, .65)
+pontos_theta <- c(0, 0, -90, -90, -45, 0, 0)
+pontos_phi   <- c(90, 90, 90, 0, 30, 30, 90)
 
 # parâmetros
 qde_frames <- 360
-length(pontos_zoom)
+
 tamanho_int = qde_frames / (length(pontos_zoom)-1)
 
 # função para gerar vetores
