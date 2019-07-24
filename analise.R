@@ -186,9 +186,8 @@ ggsave(plot = graf_empXsetor, "heatmap.png", h = 7.5, w = 6, type = "cairo-png")
 
 #  rayshader --------------------------------------------------------------
 
-plot_gg(graf_empXsetor+theme(legend.position = 'none'),multicore=TRUE,width=5.6,height=8,scale=400)
+plot_gg(graf_empXsetor+theme(legend.position = 'none'),multicore=TRUE,width=5.7,height=8,scale=400)
 
-#render_depth(focallength=100,focus=0.72)
 render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
 # só muda zoom
 render_camera(fov = 80, zoom = .55, theta = 0, phi = 90)
@@ -216,9 +215,9 @@ render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
 # como gerar os vetores?
 
 # vetores de "check points":
-pontos_zoom  <- c(.65, .55, .55, .55, .55, .55, .65)
-pontos_theta <- c(0, 0, -90, -90, -45, 0, 0)
-pontos_phi   <- c(90, 90, 90, 0, 30, 30, 90)
+pontos_zoom  <- c(.65, .55, .55, .55, .55, .65)
+pontos_theta <- c(0, 0, -90, -90, -45, 0)
+pontos_phi   <- c(90, 90, 90, 0, 30, 90)
 
 # parâmetros
 qde_frames <- 360
@@ -247,8 +246,9 @@ vet_zoom <- gera_vetor_interpolado(pontos_zoom, tamanho_int)
 vet_theta <- gera_vetor_interpolado(pontos_theta, tamanho_int)
 vet_phi <- gera_vetor_interpolado(pontos_phi, tamanho_int)
 
-render_snapshot("heatmap_deitado.png")
-render_movie("heatmap.mp4", type = "custom", frames = qde_frames, fps = 30,
+render_snapshot("heatmap_perspectiva.png")
+render_depth(focallength=40,focus=0.69)
+render_movie("heatmap1.mp4", type = "custom", frames = qde_frames, fps = 30,
              phi = vet_phi, theta = vet_theta, zoom = vet_zoom, fov = 80)
 
 #
