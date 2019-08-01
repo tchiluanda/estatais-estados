@@ -36,14 +36,21 @@ tema <- function(){
       axis.ticks.length = unit(.25, "cm"),
       axis.title = element_text(size = 8, colour = "grey20"),
       legend.position = 'none',
-      legend.text = element_text(size = 8),
+      legend.text = element_text(size = 8, family = "Source Sans Pro"),
       legend.title = element_text(size = 9, family = "Source Sans Pro")
+      )
+}
+
+tema_barra <- function(){
+  tema() +
+    theme(
+      axis.ticks = element_blank()
       )
 }
 
 setwd("~/GitHub/estatais-estados")
 
-dados_empresas_raw <- read_excel("./dados/Estatais_rev.xlsx") %>%
+dados_empresas_raw <- read_excel("./dados/Estatais_rev2.xlsx") %>%
   mutate(PL = as.numeric(PL),
          lucros = as.numeric(`Lucros / Prejuízos`)) %>%
   rename(dep = `Dependência`,
@@ -127,6 +134,9 @@ graf_mapa_comp <- ggplot(combinacao_est_seg, aes(group = State))+# %>% filter(se
         plot.background = element_blank(),
         panel.background = element_blank())
 
+graf_mapa_comp + facet_wrap(~seg)
+ggsave(plot = last_plot(), "segmentos_facet.png", width = 12, height = 8, dpi = 400, type = "cairo-png")
+
 # graf_mapa_comp + geom_text(aes(label = State), x = -15, y = -47, size = 10)
 
 graf_mapa_gif <- graf_mapa_comp + transition_states(states = seg,
@@ -169,10 +179,23 @@ anim_save("mapa.gif", animation = last_animation())
 # animate(gif_segmentos, nframes = nrow(segmentos)*30, fps = 10, type = "cairo")
 
 
+
+
 # heatmap estados x setor -------------------------------------------------
 
 
 graf_empXsetor <- ggplot(combinacao_est_seg%>%select(-geometry)) +
+  geom_tile(aes(x = seg, y = reorder(nome, desc(nome)), fill = factor(qde, levels = 1:7)), color = "white") +
+  scale_fill_viridis_d(direction = -1, na.value="ghostwhite", breaks = 1:max(combinacao_est_seg$qde, na.rm = T), drop = FALSE) +
+  labs(x = NULL, y = NULL, title = "Quantidade de empresas estatais por estado e setor", fill = "Quantidade") +
+  tema() + theme(legend.position = "right") +
+  theme(axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0.5),
+        axis.text.y = element_text(vjust = 0.5),
+        axis.ticks = element_blank())
+
+# no grafico acima, forcei um factor para a legenda ficar mais bonita. só por isso que repeti todo o código :/
+
+graf_empXsetor_ray <- ggplot(combinacao_est_seg%>%select(-geometry)) +
   geom_tile(aes(x = seg, y = reorder(nome, desc(nome)), fill = qde), color = "white") +
   scale_fill_viridis(direction = -1, na.value="ghostwhite", breaks = 1:max(combinacao_est_seg$qde, na.rm = T)) +
   labs(x = NULL, y = NULL, title = "Quantidade de empresas estatais por estado e setor", fill = "Quantidade") +
@@ -183,10 +206,9 @@ graf_empXsetor <- ggplot(combinacao_est_seg%>%select(-geometry)) +
 
 ggsave(plot = graf_empXsetor, "heatmap.png", h = 7.5, w = 6, type = "cairo-png")
 
-
 #  rayshader --------------------------------------------------------------
 
-plot_gg(graf_empXsetor+theme(legend.position = 'none'),multicore=TRUE,width=5.7,height=8,scale=400)
+plot_gg(graf_empXsetor_ray+theme(legend.position = 'none'),multicore=TRUE,width=5.7,height=8,scale=400)
 
 render_camera(fov = 80, zoom = .65, theta = 0, phi = 90)
 # só muda zoom
