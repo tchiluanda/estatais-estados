@@ -32,8 +32,8 @@ tema <- function(){
       plot.caption = element_text(face = "italic"),
       panel.grid.major = element_blank(), 
       panel.grid.minor = element_blank(),
-      axis.ticks = element_line(size = 0.5),
-      axis.ticks.length = unit(.25, "cm"),
+      axis.ticks = element_line(size = 0.4),
+      axis.ticks.length = unit(.2, "cm"),
       axis.title = element_text(size = 8, colour = "grey20"),
       legend.position = 'none',
       legend.text = element_text(size = 8, family = "Source Sans Pro"),
@@ -44,7 +44,7 @@ tema <- function(){
 tema_barra <- function(){
   tema() +
     theme(
-      axis.ticks = element_blank()
+      axis.ticks.y = element_blank()
       )
 }
 
@@ -244,7 +244,8 @@ pontos_phi   <- c(90, 90, 90, 0, 30, 90)
 # parâmetros
 qde_frames <- 360
 
-tamanho_int = qde_frames / (length(pontos_zoom)-1)
+tamanho_int <- round(qde_frames / (length(pontos_zoom)-1),0)
+qde_frames <- tamanho_int * (length(pontos_zoom)-1)
 
 # função para gerar vetores
 gera_vetor_interpolado <- function(vetor, tamanho_int){
@@ -280,31 +281,34 @@ render_movie("heatmap1.mp4", type = "custom", frames = qde_frames, fps = 30,
 
 # graficos de barra - quantidades -----------------------------------------
 
-
-
 qde_empresas_seg <- dados_empresas %>% 
   group_by(seg, dep) %>%
   summarise(qde = n()) %>%
   ungroup() %>%
   group_by(seg) %>%
   mutate(qde_tot = sum(qde),
-         dep = factor(dep, levels = c("Dependente", "Não Dependente"))) %>%
+         dep = factor(dep, levels = c("Dependente", "Não Dependente", "Não Informado"))) %>%
   filter(!is.na(seg))
+
+vetor_cores_dep <- c("Dependente" = "#f2ac29",
+                     "Não Dependente" = "#718c35",
+                     "Não Informado" = "#5c4b51")
 
 graf_qde_emp <- 
   ggplot(qde_empresas_seg, aes(x = reorder(seg, qde_tot), y = qde, fill = dep)) +
   geom_col(width = 0.65, position = position_stack(reverse = TRUE)) +
   geom_text(aes(label = qde, y = qde), 
             vjust = 0.35, position = position_stack(vjust = 0.5, reverse = TRUE),
-            family = "Source Sans Pro", size = 3, color = "darkgrey") +
-  geom_text(aes(label = qde_tot, y = qde_tot + 1), 
+            family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
+  geom_text(aes(label = qde_tot), y = -1,
             vjust = 0.35, check_overlap = TRUE,
-            family = "Source Sans Pro", size = 4, color = "dimgrey") +  
+            family = "Source Sans Pro", size = 3.5, color = "dimgrey") +  
   coord_flip() +
-  scale_fill_viridis_d() +
-  scale_color_viridis_d() +
+  scale_fill_manual(values = vetor_cores_dep) +
+  #scale_fill_viridis_d() +
+  #scale_color_viridis_d() +
   labs(x = NULL, y = NULL, title = "Quantidade de empresas por segmento", fill = NULL) +
-  tema() + theme(axis.text = element_text(size = 9),
+  tema_barra() + theme(axis.text = element_text(size = 9),
                  legend.position = "top")
 
 ggsave(plot = graf_qde_emp, "qde_seg.png", h = 7.5, w = 6, type = "cairo-png")
@@ -317,7 +321,7 @@ qde_empresas_est <- mapa_dados %>%
   ungroup() %>%
   group_by(nome) %>%
   mutate(qde_tot = sum(qde),
-         dep = factor(dep, levels = c("Dependente", "Não Dependente"))) %>%
+         dep = factor(dep, levels = c("Dependente", "Não Dependente", "Não Informado"))) %>%
   filter(!is.na(dep))
 
 graf_qde_emp_est <- 
@@ -325,16 +329,16 @@ graf_qde_emp_est <-
   geom_col(width = 0.65, position = position_stack(reverse = TRUE)) +
   geom_text(aes(label = qde, y = qde), 
             vjust = 0.35, position = position_stack(vjust = 0.5, reverse = TRUE),
-            family = "Source Sans Pro", size = 3, color = "darkgrey") +
-  geom_text(aes(label = qde_tot, y = qde_tot + 1), 
+            family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
+  geom_text(aes(label = qde_tot), y = -.5, 
             vjust = 0.35, check_overlap = TRUE,
-            family = "Source Sans Pro", size = 4, color = "dimgrey") +  
+            family = "Source Sans Pro", size = 3.5, color = "dimgrey") +  
   coord_flip() +
-  scale_fill_viridis_d() +
-  scale_color_viridis_d() +
-  labs(x = NULL, y = NULL, title = "Quantidade de empresas por Estado", fill = NULL,
-       caption = "Ceará, Minas Gerais e Amapá não enviaram as ") +
-  tema() + theme(axis.text = element_text(size = 9),
+  scale_fill_manual(values = vetor_cores_dep) +
+  #scale_fill_viridis_d() +
+  #scale_color_viridis_d() +
+  labs(x = NULL, y = NULL, title = "Quantidade de empresas por Estado", fill = NULL) +
+  tema_barra() + theme(axis.text = element_text(size = 9),
                  legend.position = "top")
 
 ggsave(plot = graf_qde_emp_est, "qde_est.png", h = 7.5, w = 6, type = "cairo-png")
