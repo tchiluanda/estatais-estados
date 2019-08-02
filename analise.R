@@ -443,14 +443,15 @@ sumario_roe <- dados_roe %>%
   mutate(pct_qde = percent(qde/sum(qde))) %>%
   ungroup() %>%
   mutate(
-    params = case_when(dep == "Dependente" ~ "0.8 | das \ndependentes | right",
-                       dep == "Não Dependente" ~ "2.4 | das não \ndependentes | left",
+    params = case_when(dep == "Dependente" ~ "-0.2 | das \ndependentes",
+                       dep == "Não Dependente" ~ "0.4 | das não \ndependentes",
                        dep == "Não Informado" ~ ""),
     y = case_when(cat_ROE == "bem_neg" ~ -0.75,
                   cat_ROE == "neg" ~ -0.25,
                   cat_ROE == "pos" ~  0.25,
                   cat_ROE == "bem_pos" ~  0.75)) %>%
-  separate(params, sep = "\\|", into = c("x", "texto", "hjust"))
+  separate(params, sep = "\\|", into = c("x", "texto")) %>%
+  mutate(x = as.numeric(x))
 
  
 roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep)) +
@@ -461,10 +462,11 @@ roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep)) +
   geom_hline(yintercept = 0, linetype = "dotted") +
   geom_hline(yintercept = 0.5, linetype = "dotted") +
   geom_hline(yintercept = -0.5, linetype = "dotted") +
-  annotate("text", x = 0.8, y = 0.25, vjust = "center",
-           label = "40% das \ndependentes", hjust = "right", family = "Lora", color = cor_anotacoes, size = 3) +
-  annotate("text", x = 2.4, y = 0.25, vjust = "center",
-           label = "30% das não\ndependentes", hjust = "left", family = "Lora", color = cor_anotacoes, size = 3) +
+  geom_text(data = sumario_roe, aes(x = dep, y = y, label = paste0(pct_qde, texto),
+                                    color = cat_ROE, nudge_x = x),
+            hjust = "inward", vjust = "center", family = "Lora", size = 3) +
+  # annotate("text", x = 0.8, y = 0.25, vjust = "center", label = "40% das \ndependentes", hjust = "right", family = "Lora", color = cor_anotacoes, size = 3) +
+  # annotate("text", x = 2.4, y = 0.25, vjust = "center", label = "30% das não\ndependentes", hjust = "left", family = "Lora", color = cor_anotacoes, size = 3) +
   labs(title = "Distribuição do ROE das empresas", x = NULL, y = NULL) +
   scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
   tema()
