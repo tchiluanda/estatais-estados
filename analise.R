@@ -405,10 +405,13 @@ qde_empresas_PL_neg <- length(which(dados_empresas$PL<=0))
 dados_roe <- dados_empresas %>%
   filter(PL > 0) %>%
   mutate(result = as.numeric(`Lucros / Prejuízos`),
-         ROE = result / PL) %>%
+         ROE = result / PL,
+         PL_formatado = format(PL, big.mark = ".", decimal.mark = ',', scientific = FALSE)) %>%
   filter(!is.na(ROE)) %>%
-  mutate(texto_hover = paste0(emp, ' (', Estado, ')\n',
-                              'PL: R$ ', format(PL, big.mark = '.', decimal.mark = ","), '\n',
+  mutate(Empresa = paste0(emp, ' (', Estado, ')\n',
+                              'Dependência: ', dep, '\n',
+                              'Setor: ', seg, '\n',
+                              'PL: R$ ', PL_formatado, '\n',
                               'Lucros / Prejuízos no ano: R$ ', format(result, big.mark = '.', decimal.mark = ","), '\n',
                               'ROE: ', percent(round(ROE,4))),
          cat_ROE = cut(ROE, breaks = c(-Inf, -0.5, 0, 0.5, Inf), 
@@ -442,40 +445,77 @@ sumario_roe <- dados_roe %>%
   group_by(dep) %>%
   mutate(pct_qde = percent(qde/sum(qde))) %>%
   ungroup() %>%
-  mutate(
-    params = case_when(dep == "Dependente" ~ "-0.2 | das \ndependentes",
-                       dep == "Não Dependente" ~ "0.4 | das não \ndependentes",
-                       dep == "Não Informado" ~ ""),
-    y = case_when(cat_ROE == "bem_neg" ~ -0.75,
+  mutate(y = case_when(cat_ROE == "bem_neg" ~ -0.75,
                   cat_ROE == "neg" ~ -0.25,
                   cat_ROE == "pos" ~  0.25,
-                  cat_ROE == "bem_pos" ~  0.75)) %>%
-  separate(params, sep = "\\|", into = c("x", "texto")) %>%
-  mutate(x = as.numeric(x))
+                  cat_ROE == "bem_pos" ~  0.75))
 
- 
-roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep)) +
-  #geom_jitter() +
-  #annotate("rect", ymin = quantile(dados_roe$ROE, 0.1), ymax = quantile(dados_roe$ROE, 0.9), fill = 'YellowGreen', xmin = -Inf, xmax = +Inf, alpha = 0.1) +
+dados_roe %>% filter(ROE > 2 | ROE < -2) %>% select(emp, Estado, ROE)
+
+dados_roe %>% ggplot() + 
+  #geom_histogram(aes(ROE), bins = 100) +
+  geom_density(aes(ROE, fill = dep)) +
+  scale_x_continuous(labels = percent) +
+  tema()
+
+# esse sim 
+roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep, 
+                             label = Empresa)) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "Gainsboro") +
+  geom_hline(yintercept = 0.5, linetype = "dotted", color = "Gainsboro") +
+  geom_hline(yintercept = -0.5, linetype = "dotted", color = "Gainsboro") +
   geom_beeswarm() + #aes(size = PL), 
   scale_color_manual(values = cores_escala) +
-  geom_hline(yintercept = 0, linetype = "dotted") +
-  geom_hline(yintercept = 0.5, linetype = "dotted") +
-  geom_hline(yintercept = -0.5, linetype = "dotted") +
-  geom_text(data = sumario_roe, aes(x = dep, y = y, label = paste0(pct_qde, texto),
-                                    color = cat_ROE, nudge_x = x),
-            hjust = "inward", vjust = "center", family = "Lora", size = 3) +
-  # annotate("text", x = 0.8, y = 0.25, vjust = "center", label = "40% das \ndependentes", hjust = "right", family = "Lora", color = cor_anotacoes, size = 3) +
-  # annotate("text", x = 2.4, y = 0.25, vjust = "center", label = "30% das não\ndependentes", hjust = "left", family = "Lora", color = cor_anotacoes, size = 3) +
-  labs(title = "Distribuição do ROE das empresas", x = NULL, y = NULL) +
+  geom_text(data = sumario_roe, 
+            aes(y = ifelse(dep == "Dependente", y, NA),
+                label = paste0(pct_qde, ' das \nDependentes'),
+                color = cat_ROE),
+            x = 0.6, # 0.8 para estático
+            hjust = "right", vjust = "center", family = "Lora", size = 3) +
+  geom_text(data = sumario_roe, 
+            aes(y = ifelse(dep == "Não Dependente", y, NA),
+                label = paste0(pct_qde, ' das não\nDependentes'),
+                color = cat_ROE),
+            x = 2.6, # 2.4 para estático
+            hjust = "left", vjust = "center", family = "Lora", size = 3) +
+  labs(title = "Distribuição do ROE das empresas", x = NULL, y = NULL,
+       caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB)\n e a Companhia de Desenvolvimento Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%.") +
   scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
   tema()
 
-ggsave(plot = roe, "roe.png", h = 7.5, w = 6, type = "cairo-png")
+
+
+ggsave(plot = roe, "roe.png", h = 7, w = 7, type = "cairo-png")
+
+roe_bee <- ggplotly(roe, tooltip = 'Empresa') %>%
+  config(displayModeBar = FALSE)
+
+htmlwidgets::saveWidget(partial_bundle(roe_bee), file = "roe_bee.html")
+
+
+# mapa resultado----------------------------------------------------------------
+
+mapa_res <- mapa_dados %>% group_by(nome) %>% summarise(res = sum(`Resultado para o Estado Acionista`, na.rm = TRUE))
+
+mapa_res_graf <- ggplot(mapa_res) + 
+  geom_sf(aes(fill = -res), color = NA) + 
+  scale_fill_continuous_sequential(palette = "Peach", 
+                                   rev = TRUE, 
+                                   labels = function(x){
+                                     format(round(x/1e6, 0), big.mark = ".",
+                                            decimal.mark = ",")}) + 
+  labs(fill = "Resultado negativo\n(R$ milhões)", title = "Resultado Consolidado das estatais para o Estado") +
+  tema_mapa() + 
+  theme(legend.position = 'left')
+
+ggsave(plot = mapa_res_graf, file = "mapa_res.png", type = "cairo-png", width = 8, height = 7)
+
+mapa_res %>% arrange(res)
+
 
 # plotly ------------------------------------------------------------------
 
-dados_roe %>% arrange(ROE)
+# dados_roe %>% arrange(ROE)
 
 
 library(plotly)
