@@ -48,6 +48,17 @@ tema_barra <- function(){
       )
 }
 
+tema_mapa <- function() {
+  tema() +
+    theme(axis.line = element_blank(),
+          axis.text = element_blank(),
+          axis.ticks = element_blank(),
+          legend.position = "none",
+          legend.text = element_text(size = 10),
+          plot.background = element_blank(),
+          panel.background = element_blank())
+}
+
 setwd("~/GitHub/estatais-estados")
 
 dados_empresas_raw <- read_excel("./dados/Estatais_rev2.xlsx") %>%
@@ -344,45 +355,109 @@ graf_qde_emp_est <-
 ggsave(plot = graf_qde_emp_est, "qde_est.png", h = 7.5, w = 6, type = "cairo-png")
 
 
+# cartogram ---------------------------------------------------------------
+
+# ggplot(qde_empresas_est) + geom_sf(aes(fill = factor(qde)), color = NA) + scale_fill_viridis_d(direction = -1) + tema_mapa()
+
+library(cartogram)
+# https://github.com/sjewo/cartogram
+
+mapa_regiao <- get_brmap("Region") 
+
+qde_regiao <- dados_empresas %>%
+  group_by(CODUF) %>%
+  summarise(qde = n()) %>%
+  ungroup() %>%
+  right_join(mapa, by = c("CODUF" = "State")) %>% # Nota
+  group_by(Region) %>%
+  summarise(qde = sum(qde))
+
+# Nota: pura preguiça aqui de aproveitar a região do df "mapa".
+
+mapa_cartograma <- mapa_regiao %>% left_join(qde_regiao)
+mp_sf <- as_Spatial(mapa_cartograma)
+mapa_deform <- cartogram_cont(mp_sf, 'qde', 3)
+
+# plot(mapa_deform)
+
+mp_def <- sf::st_as_sf(mapa_deform)
+
+cartograma <- ggplot(mp_def, aes(geometry = geometry)) + 
+  geom_sf(aes(fill = qde), color = NA) +
+  geom_sf_label(aes(label = qde), #color = qde), 
+                color = "grey20",
+                family = "Source Sans Pro",
+                fill = "ghostwhite", label.size = 0, 
+                label.r = unit(0.67, 'lines'),
+                label.padding = unit(0.35, "lines")) +
+  scale_fill_viridis(option = "viridis", direction = -1) +
+  #scale_color_viridis(option = "viridis", direction = -1, guides) +
+  labs(fill = "Quantidade", title = "O Brasil conforme a quantidade de estatais estaduais por Região", x = NULL, y = NULL) +
+  #guides(color = "none") +
+  tema_mapa() + theme(legend.position = 'left')
+
+ggsave(plot = cartograma, file = "cartograma.png", type = "cairo-png", width = 8, height = 7)
+
 
 # ROE ---------------------------------------------------------------------
+qde_empresas_PL_neg <- length(which(dados_empresas$PL<=0))
 
 dados_roe <- dados_empresas %>%
-  filter(PL != 0) %>%
+  filter(PL > 0) %>%
   mutate(result = as.numeric(`Lucros / Prejuízos`),
          ROE = result / PL) %>%
   filter(!is.na(ROE)) %>%
   mutate(texto_hover = paste0(emp, ' (', Estado, ')\n',
                               'PL: R$ ', format(PL, big.mark = '.', decimal.mark = ","), '\n',
                               'Lucros / Prejuízos no ano: R$ ', format(result, big.mark = '.', decimal.mark = ","), '\n',
-                              'ROE: ', percent(round(ROE,4))))
+                              'ROE: ', percent(round(ROE,4))),
+         cat_ROE = cut(ROE, breaks = c(-Inf, -0.5, 0, 0.5, Inf), 
+                       labels = c("bem_neg", "neg", "pos", "bem_pos")))
+
+summary(dados_roe$ROE)[c("Min.", "Max.")]
 
 library(ggbeeswarm)
+library(colorspace)
+library(RColorBrewer)
 
-roe <- ggplot(dados_roe, aes(y = ROE, color = ROE, x = dep)) +
+seq(summary(dados_roe$ROE)[c("Min.")], 
+    summary(dados_roe$ROE)[c("Max.")],
+    by = 0.5)
+    
+
+define_breaks <- function(limits) {
+  seq(round(limits[1],0), round(limits[2],0), by = 0.5)
+  }
+
+cor_anotacoes <- "#3b7302"
+
+
+roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep)) +
   #geom_jitter() +
-  annotate("rect", ymin = quantile(dados_roe$ROE, 0.1), ymax = quantile(dados_roe$ROE, 0.9), fill = "lavender", xmin = -Inf, xmax = +Inf, alpha = 0.5) +
-  geom_beeswarm() +
-  scale_color_viridis(option = "magma") +
+  #annotate("rect", ymin = quantile(dados_roe$ROE, 0.1), ymax = quantile(dados_roe$ROE, 0.9), fill = 'YellowGreen', xmin = -Inf, xmax = +Inf, alpha = 0.1) +
+  geom_beeswarm(alpha = 1) + #aes(size = PL), 
+  scale_color_discrete_diverging(palette = "Blue-Red 2", rev = TRUE) +
+  #scale_color_distiller(palette = "Spectral") +
   geom_hline(yintercept = quantile(dados_roe$ROE, 0.9), linetype = "dotted") +
   geom_hline(yintercept = quantile(dados_roe$ROE, 0.1), linetype = "dotted") +
   annotate("text", x = 0.2, y = quantile(dados_roe$ROE, 0.9), vjust = -0.5,
-           label = percent(quantile(dados_roe$ROE, 0.9), accuracy = 0.1), hjust = "inward", family = "Lora", color = "dimgrey", size = 3.5) +
+           label = percent(quantile(dados_roe$ROE, 0.9), accuracy = 0.1), hjust = "inward", family = "Lora", color = cor_anotacoes, size = 3.5) +
   annotate("text", x = 0.2, y = quantile(dados_roe$ROE, 0.1), vjust = 1.4,
-           label = percent(quantile(dados_roe$ROE, 0.1), accuracy = 0.1), hjust = "inward", family = "Lora", color = "dimgrey", size = 3.5) +
-  annotate("curve", x = 0.5, xend = 0.75, 
-           yend = 5, y = quantile(dados_roe$ROE, 0.5),
-           curvature = -0.2, linetype = "dotted", color = "grey20") +
-  labs(title = "Distribuição do ROE das empresas") +
-  scale_y_continuous(labels = percent) +
-  annotate("text", x = 0.75, y = 5,
-           label = "80% das empresas têm ROE nessa faixa", hjust = "inward", family = "Lora", size = 3, color = "dimgrey", fontface = "italic") +
+           label = percent(quantile(dados_roe$ROE, 0.1), accuracy = 0.1), hjust = "inward", family = "Lora", color = cor_anotacoes, size = 3.5) +
+  annotate("curve", x = 0.5, xend = 0.55, 
+           yend = 1, y = quantile(dados_roe$ROE, 0.5),
+           curvature = -0.2, linetype = "dotted", color = cor_anotacoes) +
+  labs(title = "Distribuição do ROE das empresas", x = NULL, y = NULL) +
+  scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
+  annotate("text", x = 0.55, y = 1,
+           label = "80% das empresas têm ROE nessa faixa", hjust = "inward", family = "Lora", size = 3, color = cor_anotacoes, fontface = "italic") +
   tema()
 
 ggsave(plot = roe, "roe.png", h = 7.5, w = 6, type = "cairo-png")
 
 # plotly ------------------------------------------------------------------
 
+dados_roe %>% arrange(ROE)
 
 
 library(plotly)
