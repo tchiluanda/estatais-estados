@@ -431,26 +431,42 @@ define_breaks <- function(limits) {
 
 cor_anotacoes <- "#3b7302"
 
+cores_escala <- c("bem_neg" = "#912849",
+                  "neg"     = "#ff7270",
+                  "pos"     = "#91c1cc",
+                  "bem_pos" = "#375e8b")
 
+sumario_roe <- dados_roe %>%
+  group_by(cat_ROE, dep) %>%
+  summarise(qde = n()) %>%
+  group_by(dep) %>%
+  mutate(pct_qde = percent(qde/sum(qde))) %>%
+  ungroup() %>%
+  mutate(
+    params = case_when(dep == "Dependente" ~ "0.8 | das \ndependentes | right",
+                       dep == "Não Dependente" ~ "2.4 | das não \ndependentes | left",
+                       dep == "Não Informado" ~ ""),
+    y = case_when(cat_ROE == "bem_neg" ~ -0.75,
+                  cat_ROE == "neg" ~ -0.25,
+                  cat_ROE == "pos" ~  0.25,
+                  cat_ROE == "bem_pos" ~  0.75)) %>%
+  separate(params, sep = "\\|", into = c("x", "texto", "hjust"))
+
+ 
 roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep)) +
   #geom_jitter() +
   #annotate("rect", ymin = quantile(dados_roe$ROE, 0.1), ymax = quantile(dados_roe$ROE, 0.9), fill = 'YellowGreen', xmin = -Inf, xmax = +Inf, alpha = 0.1) +
-  geom_beeswarm(alpha = 1) + #aes(size = PL), 
-  scale_color_discrete_diverging(palette = "Blue-Red 2", rev = TRUE) +
-  #scale_color_distiller(palette = "Spectral") +
-  geom_hline(yintercept = quantile(dados_roe$ROE, 0.9), linetype = "dotted") +
-  geom_hline(yintercept = quantile(dados_roe$ROE, 0.1), linetype = "dotted") +
-  annotate("text", x = 0.2, y = quantile(dados_roe$ROE, 0.9), vjust = -0.5,
-           label = percent(quantile(dados_roe$ROE, 0.9), accuracy = 0.1), hjust = "inward", family = "Lora", color = cor_anotacoes, size = 3.5) +
-  annotate("text", x = 0.2, y = quantile(dados_roe$ROE, 0.1), vjust = 1.4,
-           label = percent(quantile(dados_roe$ROE, 0.1), accuracy = 0.1), hjust = "inward", family = "Lora", color = cor_anotacoes, size = 3.5) +
-  annotate("curve", x = 0.5, xend = 0.55, 
-           yend = 1, y = quantile(dados_roe$ROE, 0.5),
-           curvature = -0.2, linetype = "dotted", color = cor_anotacoes) +
+  geom_beeswarm() + #aes(size = PL), 
+  scale_color_manual(values = cores_escala) +
+  geom_hline(yintercept = 0, linetype = "dotted") +
+  geom_hline(yintercept = 0.5, linetype = "dotted") +
+  geom_hline(yintercept = -0.5, linetype = "dotted") +
+  annotate("text", x = 0.8, y = 0.25, vjust = "center",
+           label = "40% das \ndependentes", hjust = "right", family = "Lora", color = cor_anotacoes, size = 3) +
+  annotate("text", x = 2.4, y = 0.25, vjust = "center",
+           label = "30% das não\ndependentes", hjust = "left", family = "Lora", color = cor_anotacoes, size = 3) +
   labs(title = "Distribuição do ROE das empresas", x = NULL, y = NULL) +
   scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
-  annotate("text", x = 0.55, y = 1,
-           label = "80% das empresas têm ROE nessa faixa", hjust = "inward", family = "Lora", size = 3, color = cor_anotacoes, fontface = "italic") +
   tema()
 
 ggsave(plot = roe, "roe.png", h = 7.5, w = 6, type = "cairo-png")
