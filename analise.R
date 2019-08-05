@@ -401,8 +401,19 @@ cartograma <- ggplot(mp_def, aes(geometry = geometry)) +
 ggsave(plot = cartograma, file = "cartograma.png", type = "cairo-png", width = 8, height = 7)
 
 
-# ROE ---------------------------------------------------------------------
+# ROE - beeswarm--------------------------------------------------------------
+
+library(plotly)
+
 qde_empresas_PL_neg <- length(which(dados_empresas$PL<=0))
+
+top_segs <- dados_qde %>% 
+  group_by(seg) %>% 
+  summarise(qde = sum(qde)) %>% 
+  arrange(desc(qde)) %>%
+  filter(qde >= 10 & seg != "OUTRO")
+
+principais_segmentos <- top_segs$seg
 
 dados_roe <- dados_empresas %>%
   filter(PL > 0) %>%
@@ -417,7 +428,8 @@ dados_roe <- dados_empresas %>%
                               'Lucros / Prejuízos no ano: R$ ', format(result, big.mark = '.', decimal.mark = ","), '\n',
                               'ROE: ', percent(round(ROE,4))),
          cat_ROE = cut(ROE, breaks = c(-Inf, -0.5, 0, 0.5, Inf), 
-                       labels = c("bem_neg", "neg", "pos", "bem_pos")))
+                       labels = c("bem_neg", "neg", "pos", "bem_pos")),
+         seg_principais = ifelse(seg %in% principais_segmentos, seg, "Demais"))
 
 summary(dados_roe$ROE)[c("Min.", "Max.")]
 
@@ -490,6 +502,23 @@ roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep,
 
 ggsave(plot = roe, "roe.png", h = 7, w = 10, type = "cairo-png")
 
+# teste facet
+
+roe_facet <- ggplot(dados_roe %>% filter(dep != "Não Informado"), aes(y = ROE, color = cat_ROE, x = dep, 
+                             label = Empresa)) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "Gainsboro") +
+  geom_hline(yintercept = 0.5, linetype = "dotted", color = "Gainsboro") +
+  geom_hline(yintercept = -0.5, linetype = "dotted", color = "Gainsboro") +
+  geom_beeswarm() + #aes(size = PL), 
+  scale_color_manual(values = cores_escala) +
+  labs(title = "Distribuição do ROE das empresas do estados", x = NULL, y = NULL,
+       subtitle = "Detalhando por setor",
+       caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB) e a Companhia de Desenvolvimento\n Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%, além de outras 50 empresas com Patrimônio Líquido negativo.") +
+  scale_y_continuous(labels = percent, limits = c(-2,2), breaks = c(-0.5, 0, 0.5)) +
+  tema() + facet_wrap(~seg_principais)
+
+ggsave(plot = roe_facet, "roe_facet.png", h = 7, w = 10, type = "cairo-png")
+
 
 # para plotly, copiei o código e tirei as anotações
 
@@ -524,6 +553,101 @@ roe_bee <- ggplotly(roe_plotly, tooltip = 'Empresa') %>%
 htmlwidgets::saveWidget(partial_bundle(roe_bee), file = "roe_bee.html")
 
 
+# ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = seg_principais, shape = dep)) + 
+#   scale_color_manual(values = cores_escala) +
+#   geom_jitter() +
+#   tema()
+
+
+# ROE - sumário -----------------------------------------------------------
+
+dados_roe_sum <- dados_roe %>%
+  filter(dep != "Não Informado") %>%
+  mutate(ROE_pos_neg = ifelse(ROE > 0, "ROE Positivo", "ROE Negativo")) %>%
+  group_by(seg_principais, dep, ROE_pos_neg) %>%
+  summarise(qde = n()) %>%
+  ungroup() %>%
+  group_by(seg_principais, dep) %>%
+  mutate(qde_seg_dep = sum(qde),
+         pct = qde/qde_seg_dep)
+  
+
+roe_sumario <- ggplot(dados_roe_sum, aes(y = qde, x = seg_principais, fill = ROE_pos_neg)) + 
+  geom_col(width = 0.5) + 
+  geom_text(aes(label = qde), vjust = 0.35, position = position_stack(vjust = 0.5), family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
+  geom_text(aes(label = percent(pct), 
+                y = ifelse(ROE_pos_neg == "ROE Positivo", qde_seg_dep + 0.5, NA)),
+            vjust = 0.4, hjust = "left", family = "Source Sans Pro", size = 3, color = cores_escala[4]) +
+  scale_y_continuous(expand = expand_scale(mult = c(0, .15))) +
+  coord_flip() + 
+  tema_barra() + 
+  theme(legend.position = "bottom", axis.line.x = element_blank(),
+        axis.text.x = element_blank(), axis.ticks.x = element_blank()) +
+  labs(x = NULL, y = NULL, fill = NULL, 
+       title = "Quantitativo de empresas com ROE positivo ou negativo por setor",
+       subtitle = "O percentual indica a proporção de empresas com ROE positivo no setor, por tipo de dependência") +
+  scale_fill_manual(values = c("ROE Negativo" = "#912849", 
+                               "ROE Positivo" = "#375e8b")) +
+  facet_wrap(~dep)
+
+ggsave(plot = roe_sumario, "roe_sumario.png", h = 7, w = 9, type = "cairo-png")
+
+ggplot(dados_roe_sum, aes(x = ROE, 
+                          y = reorder(seg_principais, ROE_med), 
+                          color = cat_ROE)) + 
+  # annotate("rect", xmin = -2, xmax = -0.5, 
+  #          ymin = -Inf, ymax = Inf, fill = cores_escala[1], alpha = 0.1) +
+  # annotate("rect", xmin = -0.5, xmax = 0, 
+  #          ymin = -Inf, ymax = Inf, fill = cores_escala[2], alpha = 0.1) +
+  # annotate("rect", xmin = 0, xmax = 0.5, 
+  #          ymin = -Inf, ymax = Inf, fill = cores_escala[3], alpha = 0.1) +
+  # annotate("rect", xmin = 0.5, xmax = Inf, 
+  #          ymin = -Inf, ymax = Inf, fill = cores_escala[4], alpha = 0.1) +
+  geom_tile(aes(x = ROE_med), color = "grey") +
+  geom_point(alpha = 0.5, size = 2) +
+  scale_color_manual(values = cores_escala) +
+  scale_x_continuous(limits = c(-2,2)) +
+  tema_barra() + facet_wrap(~dep)
+
+# ROE - scatter ------------------------------------------------------------------
+
+roe_plotly_log <- plot_ly(dados_roe, 
+                          x = ~result, 
+                          y = ~PL, 
+                          text = ~Empresa, 
+                          color = ~dep, 
+                          size = ~ROE,
+                          fill = "black",
+                          hoverinfo = "text",
+                          alpha = 0.95) %>% 
+  add_markers(sizes = c(1, 100),
+              colors = viridis(2)) %>%
+  layout(xaxis = list(title = "Lucros / Prejuízos (R$)",
+                      type = 'log'),
+         yaxis = list(title = "Patrimônio Líquido (R$)", 
+                      type = 'log')) %>%
+  config(displayModeBar = FALSE)
+
+
+roe_plotly <- plot_ly(dados_roe, 
+                      x = ~result, 
+                      y = ~PL, 
+                      text = ~Empresa, 
+                      color = ~dep, 
+                      size = ~ROE,
+                      fill = "black",
+                      hoverinfo = "text",
+                      alpha = 0.95) %>% 
+  add_markers(sizes = c(1, 100),
+              colors = viridis(2)) %>%
+  layout(xaxis = list(title = "Lucros / Prejuízos (R$)"),
+         yaxis = list(title = "Patrimônio Líquido (R$)")) %>%
+  config(displayModeBar = FALSE)
+
+htmlwidgets::saveWidget(partial_bundle(roe_plotly_log), file = "roe_log.html")
+htmlwidgets::saveWidget(partial_bundle(roe_plotly), file = "roe.html")
+
+
 # mapa resultado----------------------------------------------------------------
 
 mapa_res <- mapa_dados %>% group_by(nome) %>% summarise(res = sum(`Resultado para o Estado Acionista`, na.rm = TRUE))
@@ -541,48 +665,6 @@ mapa_res_graf <- ggplot(mapa_res) +
 
 ggsave(plot = mapa_res_graf, file = "mapa_res.png", type = "cairo-png", width = 8, height = 7)
 
-# mapa_res %>% arrange(res)
 
 
-# plotly ------------------------------------------------------------------
 
-# dados_roe %>% arrange(ROE)
-
-
-library(plotly)
-
-roe_plotly_log <- plot_ly(dados_roe, 
-        x = ~result, 
-        y = ~PL, 
-        text = ~texto_hover, 
-        color = ~dep, 
-        size = ~ROE,
-        fill = "black",
-        hoverinfo = "text",
-        alpha = 0.95) %>% 
-  add_markers(sizes = c(1, 100),
-              colors = viridis(2)) %>%
-  layout(xaxis = list(title = "Lucros / Prejuízos (R$)",
-                      type = 'log'),
-         yaxis = list(title = "Patrimônio Líquido (R$)", 
-                      type = 'log')) %>%
-  config(displayModeBar = FALSE)
-
-
-roe_plotly <- plot_ly(dados_roe, 
-        x = ~result, 
-        y = ~PL, 
-        text = ~texto_hover, 
-        color = ~dep, 
-        size = ~ROE,
-        fill = "black",
-        hoverinfo = "text",
-        alpha = 0.95) %>% 
-  add_markers(sizes = c(1, 100),
-              colors = viridis(2)) %>%
-  layout(xaxis = list(title = "Lucros / Prejuízos (R$)"),
-         yaxis = list(title = "Patrimônio Líquido (R$)")) %>%
-  config(displayModeBar = FALSE)
-
-htmlwidgets::saveWidget(partial_bundle(roe_plotly_log), file = "roe_log.html")
-htmlwidgets::saveWidget(partial_bundle(roe_plotly), file = "roe.html")
