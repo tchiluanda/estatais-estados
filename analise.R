@@ -79,6 +79,7 @@ dados_empresas <- dados_empresas_raw %>% left_join(tab_uf, by = c("Estado" = "UF
 # mapas -------------------------------------------------------------------
 
 mapa <- get_brmap("State") 
+# mapa %>% as.data.frame() %>% .[c("State", "Region")] %>% write.csv2("reg.csv")
 
 mapa_dados <- mapa %>% 
   inner_join(dados_empresas, by = c("State" = "CODUF"))
@@ -313,7 +314,7 @@ graf_qde_emp <-
             family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
   geom_text(aes(label = qde_tot), y = -1,
             vjust = 0.35, check_overlap = TRUE,
-            family = "Source Sans Pro", size = 3.5, color = "dimgrey") +  
+            family = "Source Sans Pro", size = 3.5, color = "grey") +  
   coord_flip() +
   scale_fill_manual(values = vetor_cores_dep) +
   #scale_fill_viridis_d() +
@@ -343,7 +344,7 @@ graf_qde_emp_est <-
             family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
   geom_text(aes(label = qde_tot), y = -.5, 
             vjust = 0.35, check_overlap = TRUE,
-            family = "Source Sans Pro", size = 3.5, color = "dimgrey") +  
+            family = "Source Sans Pro", size = 3.5, color = "grey") +  
   coord_flip() +
   scale_fill_manual(values = vetor_cores_dep) +
   #scale_fill_viridis_d() +
@@ -452,11 +453,11 @@ sumario_roe <- dados_roe %>%
 
 dados_roe %>% filter(ROE > 2 | ROE < -2) %>% select(emp, Estado, ROE)
 
-dados_roe %>% ggplot() + 
-  #geom_histogram(aes(ROE), bins = 100) +
-  geom_density(aes(ROE, fill = dep)) +
-  scale_x_continuous(labels = percent) +
-  tema()
+# dados_roe %>% ggplot() + 
+#   #geom_histogram(aes(ROE), bins = 100) +
+#   geom_density(aes(ROE, fill = dep)) +
+#   scale_x_continuous(labels = percent) +
+#   tema()
 
 # esse sim 
 roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep, 
