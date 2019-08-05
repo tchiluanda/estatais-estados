@@ -19,6 +19,7 @@ library(viridis)
 library(extrafont)
 library(gganimate)
 library(scales)
+library(plotly)
 
 loadfonts()
 
@@ -467,6 +468,8 @@ roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep,
   geom_hline(yintercept = -0.5, linetype = "dotted", color = "Gainsboro") +
   geom_beeswarm() + #aes(size = PL), 
   scale_color_manual(values = cores_escala) +
+  annotate("rect", xmin = 0, xmax = 1.5, ymin = -0.5, ymax = 0, alpha = 0.2, fill = "khaki") +
+  annotate("rect", xmin = 1.5, xmax = 2.9, ymin = 0, ymax = 0.5, alpha = 0.2, fill = "khaki") +
   geom_text(data = sumario_roe, 
             aes(y = ifelse(dep == "Dependente", y, NA),
                 label = paste0(pct_qde, ' das \nDependentes'),
@@ -479,16 +482,43 @@ roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep,
                 color = cat_ROE),
             x = 2.6, # 2.4 para estático
             hjust = "left", vjust = "center", family = "Lora", size = 3) +
-  labs(title = "Distribuição do ROE das empresas", x = NULL, y = NULL,
-       caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB)\n e a Companhia de Desenvolvimento Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%.") +
+  labs(title = "Distribuição do ROE das empresas do estados", x = NULL, y = NULL,
+       subtitle = "Mais de 60% das dependentes têm ROE negativo, mais de 60% das não dependentes têm ROE positivo",
+       caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB) e a Companhia de Desenvolvimento\n Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%, além de outras 50 empresas com Patrimônio Líquido negativo.") +
   scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
   tema()
 
+ggsave(plot = roe, "roe.png", h = 7, w = 10, type = "cairo-png")
 
 
-ggsave(plot = roe, "roe.png", h = 7, w = 7, type = "cairo-png")
+# para plotly, copiei o código e tirei as anotações
 
-roe_bee <- ggplotly(roe, tooltip = 'Empresa') %>%
+roe_plotly <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep, 
+                             label = Empresa)) +
+  geom_hline(yintercept = 0, linetype = "dotted", color = "Gainsboro") +
+  geom_hline(yintercept = 0.5, linetype = "dotted", color = "Gainsboro") +
+  geom_hline(yintercept = -0.5, linetype = "dotted", color = "Gainsboro") +
+  geom_beeswarm() + #aes(size = PL), 
+  scale_color_manual(values = cores_escala) +
+  geom_text(data = sumario_roe, 
+            aes(y = ifelse(dep == "Dependente", y, NA),
+                label = paste0(pct_qde, ' das \nDependentes'),
+                color = cat_ROE),
+            x = 0.6, # 0.8 para estático
+            hjust = "right", vjust = "center", family = "Lora", size = 3) +
+  geom_text(data = sumario_roe, 
+            aes(y = ifelse(dep == "Não Dependente", y, NA),
+                label = paste0(pct_qde, ' das não\nDependentes'),
+                color = cat_ROE),
+            x = 2.6, # 2.4 para estático
+            hjust = "left", vjust = "center", family = "Lora", size = 3) +
+  labs(title = "Distribuição do ROE das empresas do estados", x = NULL, y = NULL,
+       subtitle = "Mais de 60% das dependentes têm ROE negativo, mais de 60% das não dependentes têm ROE positivo",
+       caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB) e a Companhia de Desenvolvimento\n Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%, além de outras 50 empresas com Patrimônio Líquido negativo.") +
+  scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
+  tema()
+
+roe_bee <- ggplotly(roe_plotly, tooltip = 'Empresa') %>%
   config(displayModeBar = FALSE)
 
 htmlwidgets::saveWidget(partial_bundle(roe_bee), file = "roe_bee.html")
@@ -511,7 +541,7 @@ mapa_res_graf <- ggplot(mapa_res) +
 
 ggsave(plot = mapa_res_graf, file = "mapa_res.png", type = "cairo-png", width = 8, height = 7)
 
-mapa_res %>% arrange(res)
+# mapa_res %>% arrange(res)
 
 
 # plotly ------------------------------------------------------------------
@@ -556,75 +586,3 @@ roe_plotly <- plot_ly(dados_roe,
 
 htmlwidgets::saveWidget(partial_bundle(roe_plotly_log), file = "roe_log.html")
 htmlwidgets::saveWidget(partial_bundle(roe_plotly), file = "roe.html")
-
-ggplot(dados_roe, aes(x = result, y = PL, size = ROE, fill = dep)) +
-  geom_point() +
-  scale_fill_viridis_d() +
-  tema()
-  
-
-mapa_qde <- mapa_dados %>%
-  group_by(State) %>%
-  summarise(qde = n())
-
-graf_mapa_qde <- ggplot(mapa_qde)+ #%>% filter(seg == "SANEAMENTO")) + 
-  geom_sf(aes(fill = qde, geometry = geometry), color = NA) + 
-  scale_fill_viridis(direction = -1,
-                     option = "magma",
-                     na.value="ghostwhite"
-                     )+
-  labs(title = "Quantidade de empresas estatais em cada estado",
-       fill = "Quantidade") +
-  tema() + 
-  theme(axis.line = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        text = element_text(family = "Source Sans Pro"),
-        legend.position = "bottom",
-        plot.background = element_blank(),
-        panel.background = element_blank())
-
-
-library(ggbeeswarm)
-
-ggplot(dados_empresas, aes(y = PL, x = `Dependência`, color = (PL > 0), size = PL,
-                           alpha = 0.5)) +
-         #geom_jitter()+
-  geom_beeswarm()+
-        #geom_quasirandom(varwidth = TRUE, alpha = 0.5, size = 2) +
-  scale_y_log10() +
-         theme_minimal()
-
-
-
-ggplot(dados_empresas, aes(y = ))
-
-ggplot(dados_empresas, aes(x = Segmento))
-
-
-    
-mapa_dados <- mapa %>% 
-  inner_join(dados_ibge, c("City" = "CodMun")) %>% 
-  rename(pop = `POP EST`,
-         catPop = `CLASSE POP`)
-
-# como a área inteira do município é projetada, o mais lógico talvez fosse usar a densidade média no município, e não a população.
-
-mapa <- ggplot(mapa_dados) + 
-  geom_sf(aes(fill = pop), color = NA) + 
-  scale_fill_viridis(direction = -1,
-                     option = "magma",
-                     #breaks = c(1e3, 100e3, 10000e3),
-                     #trans = "log", #para usar uma escala de log
-                     labels = function(x){format(x/1e6, decimal.mark = ",", big.mark = ".")}) + 
-  labs(fill = "População \n(milhões)") +
-  theme_classic() + 
-  theme(axis.line = element_blank(),
-        axis.text = element_blank(),
-        axis.ticks = element_blank(),
-        text = element_text(family = "Source Sans Pro"),
-        legend.position = "none",
-        legend.text = element_text(size = 10),
-        plot.background = element_blank(),
-        panel.background = element_blank())
-
