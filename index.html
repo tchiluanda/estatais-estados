@@ -6,14 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="estilo.css">
-    <title>Com quantas empresas se faz um Estado?</title>
+    <title>As empresas do estados brasileiros</title>
 </head>
 <body>
     <div class="abertura">
         <img class="abertura" src="capa.jpg" alt="trem do metrô de São Paulo"/>
         <img class="logo-tt" src="tt-logo-int.png" alt="logo do Tesouro Nacional Transparente">
         <div class="sobre-imagem">
-            <h1><span>Com quantas empresas se faz um Estado?</span></h1>
+            <h1><span>As empresas dos estados brasileiros</span></h1>
             <h2>Uma análise dos dados declarados pelos Estados brasileiros a respeito de suas empresas estatais</h2>
             <p>Todo ano, os municípios precisam informar ao Tesouro Nacional dados fiscais como despesas e bla bla bla bla bla bla.</p>
         </div>
@@ -23,17 +23,20 @@
         <p>Um município é uma unidade territorial, é um pedacinho do Brasil. Até onde "recortamos" o mapa do Brasil para chegar num pedaço que possamos chamar de "município"? Na verdade, esse recorte é definido de forma mais ou menos arbritrária. O Brasil possui 5.570 municípios.</p>
         <p>Temos municípios com área menor do que Copacabana [Copacabana: 4.1km^2, Santa Cruz de Minas, 3.5 km^2, Águas de Minas]. Temos municípios maiores do que estados inteiros. Na verdade, temos um município que é maior do que onze estados brasileiros [Altamira, Para]. Maior até que a soma das áreas dos cinco menores estados!</p>
 
-        <h2>Um panorama das estatais do Estados</h2>
+        <h2>Com quantas estatais se faz um estado?</h2>
 
         <p>Temos municípios cuja população não ocuparia nem metade do Theatro Municipal de São Paulo. Precisaríamos juntar todas as pessoas dos 60 menores municípios para encher o Maracanã (considerando a capacidade atual -- se considerarmos a lendária capacidade de 200 mil pessoas, precisaríamos de todas as pessoas dos 120 menores municípios). Por outro lado, temos o município de São Paulo (sem considerar sua região metropolitana) com mais gente do que os sete estados menos populosos somados. Na verdade, esse município é mais populoso do que países da América do Sul como  Bolívia, Paraguai e Uruguai (o Rio de Janeiro também é mais populoso do que esses dois últimos).</p>
 
         <img class="plot" src="mapa.gif" alt="Visualização dos estados que possuem determinados tipos de empresas">
+
     </div>
 
         <div class="destaque">
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa hic suscipit dolore non eum repellendus laudantium odit fuga nostrum eius iste dolor doloribus vero sequi, minus eaque sit eligendi voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero velit itaque, laborum doloribus nemo repudiandae vitae voluptate, iure pariatur nam voluptatibus laudantium architecto, accusantium optio? Ratione libero omnis ipsa rem!</p>
         </div>
     <div class="content">   
+
+        <img class="plot" src="segmentos_facet_plot.png" alt="Visualização do ROE das empresas" style="width: 100%;">
 
         <p>Architecto, quod! Neque accusantium quas libero nostrum ad quam officiis, est laborum distinctio consequatur error laudantium odit veniam asperiores ratione dolore repellendus deserunt totam ducimus adipisci! Officia suscipit eos corporis!
         Quas ratione quis fugiat? Alias, vel. Recusandae hic asperiores architecto similique suscipit ut, possimus, quaerat quas porro consectetur inventore sed fuga deserunt aut labore rerum voluptatum molestiae aspernatur reiciendis laborum!</p>
@@ -54,14 +57,32 @@
 
         <img class="plot" src="heatmap.png" alt="Visualização da quantidade de empresas por estado e setor" style="width: 100%;">
 
-        <h2>Uma análise do ROE</h2>
+        <p>Podemos reimaginar o mapa do Brasil com as regiões deformadas de acordo com a quantidade de empresas</p>
+        
+        <img class="plot" src="cartograma.png" alt="Visualização da quantidade de empresas por estado e setor" style="width: 100%;">
+
+        <h2>O estado empreendedor</h2>
 
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus natus repellat magni doloremque eos asperiores, facere, est accusamus fugit qui ratione! Iure quisquam cum, at obcaecati exercitationem enim velit iusto?
         </p>
         
         <img class="plot" src="roe.png" alt="Visualização do ROE das empresas" style="width: 100%;">
 
+        <p>Segmentando o gráfico para os principais setores:</p>
+
+        <img class="plot" src="roe_facet.png" alt="Visualização do ROE das empresas" style="width: 100%;">
+
+        <p>Um sumário dessas informações</p>
+    
+    </div>
+
+        <img class="plot plot-oversized" src="roe_sumario.png" alt="Visualização do ROE das empresas" style="width: 75%;">
+
+    <div class="content">
+
         <p>Abaixo, podemos experimentar com interatividade</p>
+
+        <iframe src="roe_bee.html" frameborder="0" width="700" height="600"></iframe>
 
         <h3>ROE interativo em escala normal</h3>
 
@@ -74,6 +95,12 @@
         <h3>ROE interativo em escala log</h3>
 
         <iframe src="roe_log.html" frameborder="0" width="700" height="600"></iframe>
+
+        <h2>O estado acionista</h2>
+
+        <p>Contribuição líquida das empresas para os estados</p>
+
+        <img class="plot" src="mapa_res.png" alt="Visualização do ROE das empresas" style="width: 100%;">
 
 
 

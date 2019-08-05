@@ -31,7 +31,7 @@ div.sobre-imagem h1 {
     font-size: 4rem;
     margin: 0;
     line-height: 1.2;
-    color: #FDE725;
+    color: #f2ac29;
 }
 
 div.sobre-imagem h2 {
@@ -56,7 +56,16 @@ div.content {
     margin-right: auto;
 }
 
+div.content h2 {
+    color: #718c35;
+}
+
 div.content img.plot {
+    margin: auto;
+    display: block;
+}
+
+img.plot-oversized {
     margin: auto;
     display: block;
 }
