@@ -153,7 +153,28 @@ graf_mapa_comp <- ggplot(combinacao_est_seg, aes(group = State))+# %>% filter(se
 graf_mapa_comp + facet_wrap(~seg)
 ggsave(plot = last_plot(), "segmentos_facet.png", width = 12, height = 8, dpi = 400, type = "cairo-png")
 
-# graf_mapa_comp + geom_text(aes(label = State), x = -15, y = -47, size = 10)
+## teste labels
+
+graf_mapa_labels <- ggplot(combinacao_est_seg, aes(group = State)) +
+  geom_sf(aes(fill = ifelse(qde > 0, seg, NA), geometry = geometry), color = "ghostwhite") + 
+  geom_text(aes(label = "Estados que possuem empresas do setor de ", 
+                y = 8, x = -75), 
+            color = "dimgrey", check_overlap = TRUE,
+            family = "Lora", fontface = "plain", size = 4, 
+            hjust = "left") +
+  geom_text(aes(label = seg, y = 8, x = -45, color = seg), 
+            check_overlap = TRUE, family = "Lora", fontface = "bold",
+            size = 4, hjust = "left") +
+  scale_fill_viridis_d(direction = 1,
+                       option = "plasma", na.value = "#EFEFEF") +
+  scale_color_viridis_d(direction = 1,
+                       option = "plasma", na.value = "#EFEFEF") +
+  labs(x = NULL, y = NULL) +
+  tema_mapa()
+
+## fim teste
+
+
 
 graf_mapa_gif <- graf_mapa_comp + transition_states(states = seg,
                                     transition_length = 1,
