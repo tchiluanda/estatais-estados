@@ -20,6 +20,9 @@ library(extrafont)
 library(gganimate)
 library(scales)
 library(plotly)
+library(ggbeeswarm)
+library(colorspace)
+library(RColorBrewer)
 
 loadfonts()
 
@@ -416,7 +419,7 @@ top_segs <- dados_qde %>%
 principais_segmentos <- top_segs$seg
 
 dados_roe <- dados_empresas %>%
-  filter(PL > 0) %>%
+  filter(PL > 0 & dep != "Não Informado") %>%
   mutate(result = as.numeric(`Lucros / Prejuízos`),
          ROE = result / PL,
          PL_formatado = format(PL, big.mark = ".", decimal.mark = ',', scientific = FALSE)) %>%
@@ -432,10 +435,6 @@ dados_roe <- dados_empresas %>%
          seg_principais = ifelse(seg %in% principais_segmentos, seg, "Demais"))
 
 summary(dados_roe$ROE)[c("Min.", "Max.")]
-
-library(ggbeeswarm)
-library(colorspace)
-library(RColorBrewer)
 
 seq(summary(dados_roe$ROE)[c("Min.")], 
     summary(dados_roe$ROE)[c("Max.")],
