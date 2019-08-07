@@ -62,7 +62,7 @@ section.content h2 {
     color: #718c35;
 }
 
-section.content img.plot {
+section.content img.plot, img.plot {
     display: block;
     width: 100%;
     margin: auto;
