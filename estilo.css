@@ -68,16 +68,16 @@ section.content figure.plot-container {
     margin: 0;
 }
 
-section.content figure.plot-container img.plot {
+section.content figure.plot-container img.plot, img.plot {
     display: block;
     width: 100%;
     margin: auto;
 }
 
-section.content figure.plot-container h2.plot-title {
+section.content figure.plot-container h3.plot-title {
     border-left: 5px solid goldenrod;
     padding-left: 20px;
-    font-size: 14px;
+    font-size: 18px;
 }
 
 section.content video {
