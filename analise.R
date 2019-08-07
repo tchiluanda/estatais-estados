@@ -162,7 +162,7 @@ graf_mapa_labels <- ggplot(combinacao_est_seg, aes(group = State)) +
             color = "dimgrey", check_overlap = TRUE,
             family = "Lora", fontface = "plain", size = 4, 
             hjust = "left") +
-  geom_text(aes(label = seg, y = 8, x = -45, color = seg), 
+  geom_text(aes(label = seg, y = 8, x = -52, color = seg), # no chute
             check_overlap = TRUE, family = "Lora", fontface = "bold",
             size = 4, hjust = "left") +
   scale_fill_viridis_d(direction = 1,
@@ -174,17 +174,15 @@ graf_mapa_labels <- ggplot(combinacao_est_seg, aes(group = State)) +
 
 ## fim teste
 
-
-
-graf_mapa_gif <- graf_mapa_comp + transition_states(states = seg,
+graf_mapa_gif <- graf_mapa_labels + transition_states(states = seg,
                                     transition_length = 1,
-                                    state_length = 3) +
-  labs(title = "Estados que possuem empresas do setor de {closest_state}") +
-  theme(title = element_text(size = 13, face = "plain"))
+                                    state_length = 3) #+
+  # labs(title = "Estados que possuem empresas do setor de {closest_state}") +
+  # theme(title = element_text(size = 13, face = "plain"))
 
 animate(graf_mapa_gif, nframes = nrow(segmentos)*20, fps = 8, type = "cairo")
 
-anim_save("mapa.gif", animation = last_animation())
+anim_save("./gifs/mapa.gif", animation = last_animation())
 
 # graf_mapa_comp2 <- ggplot(combinacao_est_seg)+ #%>% filter(seg == "SANEAMENTO")) + 
 #   geom_sf(aes(fill = seg, geometry = geometry)) + 
