@@ -78,6 +78,7 @@ section.content figure.plot-container h3.plot-title {
     border-left: 5px solid goldenrod;
     padding-left: 20px;
     font-size: 18px;
+    color: #444;
 }
 
 section.content video {
