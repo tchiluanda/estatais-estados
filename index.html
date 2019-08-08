@@ -9,43 +9,68 @@
     <title>As empresas do estados brasileiros</title>
 </head>
 <body>
+
     <header class="abertura">
         <img class="abertura" src="capa.jpg" alt="trem do metrô de São Paulo"/>
         <img class="logo-tt" src="tt-logo-int.png" alt="logo do Tesouro Nacional Transparente">
         <div class="sobre-imagem">
-            <h1><span>As empresas dos estados brasileiros</span></h1>
-            <h2>Uma análise dos dados declarados pelos Estados brasileiros a respeito de suas empresas estatais</h2>
-            <p>Todo ano, os municípios precisam informar ao Tesouro Nacional dados fiscais como despesas e bla bla bla bla bla bla.</p>
+            <h1><span>As empresas dos Estados brasileiros</span></h1>
+            <h2>Um panorama das empresas estatais estaduais</h2>
+            <p>Pela primeira vez na história, são consolidadas e apresentadas informações detalhadas sobre as empresas estatais estaduais.</p>
         </div>
     </header>
+
     <section class="content">
-        <p>O Brasil é um país com três níveis de governo. Isso quer dizer que existem Governo Federal, Governos Estaduais e Governos Municipais (e Governo Distrital, que, para o Distrito Federal, é uma espécie de mistura de Governo Estadual e Muicipal). Mas, no final das contas, as pessoas nascem, vivem e morrem em municípios. O governo municipal &mdash; a prefeitura e a câmara de vereadores -- é a representação mais concreta dessa entidade um tanto abstrata que chamamos de "governo".</p>
-        <p>Um município é uma unidade territorial, é um pedacinho do Brasil. Até onde "recortamos" o mapa do Brasil para chegar num pedaço que possamos chamar de "município"? Na verdade, esse recorte é definido de forma mais ou menos arbritrária. O Brasil possui 5.570 municípios.</p>
-        <p>Temos municípios com área menor do que Copacabana [Copacabana: 4.1km^2, Santa Cruz de Minas, 3.5 km^2, Águas de Minas]. Temos municípios maiores do que estados inteiros. Na verdade, temos um município que é maior do que onze estados brasileiros [Altamira, Para]. Maior até que a soma das áreas dos cinco menores estados!</p>
+        <p>Fruto de intensivo esforço do Tesouro Nacional a fim de consolidar um grande volume de dados sobre o assunto, essa iniciativa reforça o compromisso da instituição com a transparência. </p>
+
+        <p>Entendemos que a transparência é o melhor instrumento para que a sociedade tenha condições de fiscalizar o papel dos governos estaduais enquanto donos de empresas tidas como estratégicas. Apenas com informações acessíveis, o cidadão será capaz de avaliar o quão vantajoso é ter um Estado empreendedor, podendo cobrar resultados ou questionar seus representantes.</p>
+
+        <p>As informações aqui disponibilizadas foram declaradas pelos Estados, sendo, portanto, de inteira responsabilidade deles a precisão ou correção dos <span class="termo-destaque-lateral">dados aqui consolidados.</span></p>
+
+        <aside class="conteudo-destaque-lateral">Baixe os dados! Sapere aude!</aside>
 
         <h2>Com quantas estatais se faz um estado?</h2>
 
-        <p>Temos municípios cuja população não ocuparia nem metade do Theatro Municipal de São Paulo. Precisaríamos juntar todas as pessoas dos 60 menores municípios para encher o Maracanã (considerando a capacidade atual -- se considerarmos a lendária capacidade de 200 mil pessoas, precisaríamos de todas as pessoas dos 120 menores municípios). Por outro lado, temos o município de São Paulo (sem considerar sua região metropolitana) com mais gente do que os sete estados menos populosos somados. Na verdade, esse município é mais populoso do que países da América do Sul como  Bolívia, Paraguai e Uruguai (o Rio de Janeiro também é mais populoso do que esses dois últimos).</p>
+        <p>No Brasil existem 258 empresas estatais estaduais. A região nordeste apresenta a maior concentração de estatais, com 91 empresas, seguida pela região sudeste, com 56 empresas.</p>
 
-        <img class="plot" src="./gifs/mapa.gif" alt="Visualização dos estados que possuem determinados tipos de empresas">
+        <p>O mapa abaixo mostra como ficaria cada região brasileira caso sua área fosse aumentada ou reduzida na proporção das empresas estatais que possui.</p>
 
-    </section>
+        <img class="gif" src="./gifs/cartograma.gif" alt="Cartograma imaginando o mapa do Brasil deformado conforme o número de estatais">
 
-    <section class="destaque">
-        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Culpa hic suscipit dolore non eum repellendus laudantium odit fuga nostrum eius iste dolor doloribus vero sequi, minus eaque sit eligendi voluptatum? Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero velit itaque, laborum doloribus nemo repudiandae vitae voluptate, iure pariatur nam voluptatibus laudantium architecto, accusantium optio? Ratione libero omnis ipsa rem!</p>
-    </section>
+        <aside class="conteudo-destaque-lateral">Segundo a Resolução 43 do Senado Federal, uma empresa dependente é aquela que tenha recebido no exercício anterior recursos do seu controlador destinados ao pagamento de despesas com pessoal, de custeio em geral ou de capital, excluídos, neste último caso, aqueles provenientes de aumento de participação acionária, e tenha, no exercício corrente, autorização orçamentária para recebimento de recursos financeiros com idêntica finalidade.</aside>
 
-    <section class="content">   
+        <p>O gráfico abaixo mostra a quantidade de estatais por Estado, separadas entre <span class="termo-destaque-lateral">dependentes e não dependentes</span>. 41% das empresas declaradas pelos Estados são dependentes, ou seja, 106 empresas do total de 258. O número de estatais por Estado varia de dois a 20, sendo que alguns deles possuem apenas empresas dependentes, e outros apenas não dependentes.</p>
+
+        <figure class="plot-container">
+                <h3 class="plot-title">Quantidade de empresas por Estado</h3>
+                <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #f2ac29;"></span> Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #718c35;"></span> Não Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #5c4b51;"></span> Não Informado</li>                
+                </ul>
+                </h4>
+                <img class="plot" src="./plots/qde_est.png" alt="Visualização da quantidade de empresas por estado">
+        </figure>  
+
+        <p>A presença de empresas nos setores de desenvolvimento, de saneamento e financeiro é mais representativa, com 32, 28, 22 empresas, respectivamente. O setor de desenvolvimento é o que possui mais empresas dependentes (14 empresas), enquanto o setor financeiro é o que possui mais empresas não dependentes (20 empresas).</p>
+
+        <figure class="plot-container">
+                <h3 class="plot-title">Quantidade de empresas por setor</h3>
+                <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #f2ac29;"></span> Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #718c35;"></span> Não Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #5c4b51;"></span> Não Informado</li>                
+                </ul>
+                </h4>
+                <img class="plot" src="./plots/qde_seg.png" alt="Visualização da quantidade de empresas por segmento">
+        </figure> 
+
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum cum accusamus natus ipsum? Rem ipsa iste quasi voluptatum corporis amet tempore illo nemo voluptates. Voluptatibus, voluptates. Numquam asperiores quos architecto.</p>
 
         <img class="plot" src="segmentos_facet_plot.png" alt="Visualização do ROE das empresas">
 
-        <p>Architecto, quod! Neque accusantium quas libero nostrum ad quam officiis, est laborum distinctio consequatur error laudantium odit veniam asperiores ratione dolore repellendus deserunt totam ducimus adipisci! Officia suscipit eos corporis!
-        Quas ratione quis fugiat? Alias, vel. Recusandae hic asperiores architecto similique suscipit ut, possimus, quaerat quas porro consectetur inventore sed fuga deserunt aut labore rerum voluptatum molestiae aspernatur reiciendis laborum!</p>
-        <figure class="plot-container">
-            <h3 class="plot-title">Quantidade de empresas por Estado</h3>
-            <h4 class="plot-subtitle"></h4>
-            <img class="plot" src="qde_est.png" alt="Visualização da quantidade de empresas por estado">
-        </figure>   
+
+ 
 
         <p>Suscipit autem iste assumenda iusto, eos et quo nesciunt error obcaecati veniam commodi quas optio quisquam velit dolorum laborum voluptatibus vel incidunt labore quidem non placeat fuga temporibus. Quibusdam, accusantium.
         Vel magnam ipsum molestiae pariatur, alias velit illum in omnis facilis sapiente blanditiis ducimus saepe nemo voluptatum molestias id. Molestias officia animi culpa a enim ad vitae, est aut minima?</p>
@@ -62,9 +87,8 @@
 
         <img class="plot" src="heatmap.png" alt="Visualização da quantidade de empresas por estado e setor">
 
-        <p>Podemos reimaginar o mapa do Brasil com as regiões deformadas de acordo com a quantidade de empresas</p>
-        
-        <img class="plot" src="cartograma.png" alt="Visualização da quantidade de empresas por estado e setor">
+
+        <img class="gif" src="./gifs/mapa.gif" alt="Visualização dos estados que possuem determinados tipos de empresas">
 
         <h2>O estado empreendedor</h2>
 

@@ -61,7 +61,27 @@ section.content {
 
 section.content h2 {
     margin-top: 2em;
-    color: #718c35;
+    color: maroon;
+}
+
+section.content span.termo-destaque-lateral {
+    background-color: antiquewhite;
+}
+
+section.content aside.conteudo-destaque-lateral {
+    position: absolute;
+    right: 200px;
+    width: 200px;
+    font-size: 13px;
+    background-color: antiquewhite;
+    padding: 10px;
+    
+}
+
+section.content img.gif {
+    display: block;
+    width: 75%;
+    margin: auto;
 }
 
 section.content figure.plot-container {
@@ -70,15 +90,42 @@ section.content figure.plot-container {
 
 section.content figure.plot-container img.plot, img.plot {
     display: block;
-    width: 100%;
+    width: 90%;
     margin: auto;
 }
 
 section.content figure.plot-container h3.plot-title {
-    border-left: 5px solid goldenrod;
-    padding-left: 20px;
+    border-left: 5px solid maroon;
+    padding-left: 15px;
     font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+section.content figure.plot-container ul.plot-legenda {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
     color: #444;
+    margin-top: 0;
+    font-size: 14px;
+    padding-left: 20px; /* 15 + 5 da borda do h3, ver acima */
+    font-family: Source Sans Pro;
+}
+
+section.content figure.plot-container ul.plot-legenda > li {
+    list-style-type: none;
+    padding-right: 10px;
+
+}
+
+section.content figure.plot-container ul.plot-legenda span.plot-legenda-key {
+    
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin: 2px;
 }
 
 section.content video {
