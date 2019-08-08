@@ -51,11 +51,11 @@ header div.sobre-imagem h2 {
 header div.sobre-imagem p {
     font-weight: normal;
     color: white;
+    font-size: 18px;
 }
 
 section.content {
     color: rgb(59,55,52);
-    padding: 0 15px 15px 15px;
     max-width: 680px;
     font-size: 18px;
     line-height: 1.5;
@@ -79,7 +79,7 @@ section.content span.termo-destaque-lateral {
 
 section.content aside.conteudo-destaque-lateral {
     position: absolute;
-    right: calc(50% - 340px - 200px);
+    right: calc(50% - 340px - 200px - 20px);
     width: 200px;
     font-size: 13px;
     background-color: antiquewhite;
