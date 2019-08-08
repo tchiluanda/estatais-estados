@@ -64,6 +64,7 @@ tema_mapa <- function() {
 }
 
 setwd("~/GitHub/estatais-estados")
+load("workspace.RData")
 
 dados_empresas_raw <- read_excel("./dados/Estatais_rev2.xlsx") %>%
   mutate(PL = as.numeric(PL),
@@ -158,17 +159,18 @@ ggsave(plot = last_plot(), "segmentos_facet.png", width = 12, height = 8, dpi = 
 graf_mapa_labels <- ggplot(combinacao_est_seg, aes(group = State)) +
   geom_sf(aes(fill = ifelse(qde > 0, seg, NA), geometry = geometry), color = "ghostwhite") + 
   geom_text(aes(label = "Estados que possuem empresas do setor de ", 
-                y = 8, x = -75), 
+                y = 8, x = -80), 
             color = "dimgrey", check_overlap = TRUE,
-            family = "Lora", fontface = "plain", size = 4, 
+            family = "Lora", fontface = "plain", size = 4.9, 
             hjust = "left") +
-  geom_text(aes(label = seg, y = 8, x = -52, color = seg), # no chute
+  geom_text(aes(label = seg, y = 8, x = -49, color = seg), # no chute
             check_overlap = TRUE, family = "Lora", fontface = "bold",
-            size = 4, hjust = "left") +
+            size = 4.9, hjust = "left") +
   scale_fill_viridis_d(direction = 1,
                        option = "plasma", na.value = "#EFEFEF") +
   scale_color_viridis_d(direction = 1,
                        option = "plasma", na.value = "#EFEFEF") +
+  coord_cartesian(clip = "off") +
   labs(x = NULL, y = NULL) +
   tema_mapa()
 
@@ -180,7 +182,7 @@ graf_mapa_gif <- graf_mapa_labels + transition_states(states = seg,
   # labs(title = "Estados que possuem empresas do setor de {closest_state}") +
   # theme(title = element_text(size = 13, face = "plain"))
 
-animate(graf_mapa_gif, nframes = nrow(segmentos)*20, fps = 8, type = "cairo")
+animate(graf_mapa_gif, nframes = nrow(segmentos)*1, fps = 8, type = "cairo")
 
 anim_save("./gifs/mapa.gif", animation = last_animation())
 
