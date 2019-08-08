@@ -64,7 +64,7 @@ tema_mapa <- function() {
 }
 
 setwd("~/GitHub/estatais-estados")
-load("workspace.RData")
+#load("workspace.RData")
 
 dados_empresas_raw <- read_excel("./dados/Estatais_rev2.xlsx") %>%
   mutate(PL = as.numeric(PL),
@@ -151,26 +151,25 @@ graf_mapa_comp <- ggplot(combinacao_est_seg, aes(group = State))+# %>% filter(se
         plot.background = element_blank(),
         panel.background = element_blank())
 
-graf_mapa_comp + facet_wrap(~seg)
-ggsave(plot = last_plot(), "segmentos_facet.png", width = 12, height = 8, dpi = 400, type = "cairo-png")
+graf_mapa_facet <- graf_mapa_comp + facet_wrap(~seg)
+ggsave(plot = graf_mapa_facet, "./plots/segmentos_facet.png", width = 9, height = 8, dpi = 300, type = "cairo-png")
 
 ## teste labels
 
 graf_mapa_labels <- ggplot(combinacao_est_seg, aes(group = State)) +
   geom_sf(aes(fill = ifelse(qde > 0, seg, NA), geometry = geometry), color = "ghostwhite") + 
-  geom_text(aes(label = "Estados que possuem empresas do setor de ", 
-                y = 8, x = -80), 
+  geom_text(aes(label = "Estados com empresas do setor de ", 
+                y = 9.5, x = -73.5), 
             color = "dimgrey", check_overlap = TRUE,
-            family = "Lora", fontface = "plain", size = 4.9, 
+            family = "Lora", fontface = "plain", size = 5, 
             hjust = "left") +
-  geom_text(aes(label = seg, y = 8, x = -49, color = seg), # no chute
+  geom_text(aes(label = seg, y = 9.5, x = -50, color = seg), # no chute
             check_overlap = TRUE, family = "Lora", fontface = "bold",
-            size = 4.9, hjust = "left") +
+            size = 5, hjust = "left") +
   scale_fill_viridis_d(direction = 1,
                        option = "plasma", na.value = "#EFEFEF") +
   scale_color_viridis_d(direction = 1,
                        option = "plasma", na.value = "#EFEFEF") +
-  coord_cartesian(clip = "off") +
   labs(x = NULL, y = NULL) +
   tema_mapa()
 
@@ -182,7 +181,7 @@ graf_mapa_gif <- graf_mapa_labels + transition_states(states = seg,
   # labs(title = "Estados que possuem empresas do setor de {closest_state}") +
   # theme(title = element_text(size = 13, face = "plain"))
 
-animate(graf_mapa_gif, nframes = nrow(segmentos)*1, fps = 8, type = "cairo")
+animate(graf_mapa_gif, nframes = nrow(segmentos)*20, fps = 8, type = "cairo")
 
 anim_save("./gifs/mapa.gif", animation = last_animation())
 
@@ -224,7 +223,9 @@ anim_save("./gifs/mapa.gif", animation = last_animation())
 graf_empXsetor <- ggplot(combinacao_est_seg%>%select(-geometry)) +
   geom_tile(aes(x = seg, y = reorder(nome, desc(nome)), fill = factor(qde, levels = 1:7)), color = "white") +
   scale_fill_viridis_d(direction = -1, na.value="ghostwhite", breaks = 1:max(combinacao_est_seg$qde, na.rm = T), drop = FALSE) +
-  labs(x = NULL, y = NULL, title = "Quantidade de empresas estatais por estado e setor", fill = "Quantidade") +
+  labs(x = NULL, y = NULL,
+       fill = "Quantidade",
+       title = NULL)+ #"Quantidade de empresas estatais por estado e setor"
   tema() + theme(legend.position = "right") +
   theme(axis.text.x = element_text(angle = 270, hjust = 0, vjust = 0.5),
         axis.text.y = element_text(vjust = 0.5),
@@ -241,7 +242,7 @@ graf_empXsetor_ray <- ggplot(combinacao_est_seg%>%select(-geometry)) +
         axis.text.y = element_text(vjust = 0.5),
         axis.ticks = element_blank())
 
-ggsave(plot = graf_empXsetor, "heatmap.png", h = 7.5, w = 6, type = "cairo-png")
+ggsave(plot = graf_empXsetor, "./plots/heatmap.png", h = 7.5, w = 6, type = "cairo-png")
 
 #  rayshader --------------------------------------------------------------
 
@@ -335,20 +336,21 @@ graf_qde_emp <-
   ggplot(qde_empresas_seg, aes(x = reorder(seg, qde_tot), y = qde, fill = dep)) +
   geom_col(width = 0.65, position = position_stack(reverse = TRUE)) +
   geom_text(aes(label = qde, y = qde), 
-            vjust = 0.35, position = position_stack(vjust = 0.5, reverse = TRUE),
+            vjust = 0.4, position = position_stack(vjust = 0.5, reverse = TRUE),
             family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
   geom_text(aes(label = qde_tot), y = -1,
-            vjust = 0.35, check_overlap = TRUE,
+            vjust = 0.4, check_overlap = TRUE,
             family = "Source Sans Pro", size = 3.5, color = "grey") +  
   coord_flip() +
   scale_fill_manual(values = vetor_cores_dep) +
   #scale_fill_viridis_d() +
   #scale_color_viridis_d() +
-  labs(x = NULL, y = NULL, title = "Quantidade de empresas por segmento", fill = NULL) +
-  tema_barra() + theme(axis.text = element_text(size = 9),
-                 legend.position = "top")
+  labs(x = NULL, y = NULL, 
+       title = NULL, #"Quantidade de empresas por segmento", 
+       fill = NULL) +
+  tema_barra() + theme(axis.text = element_text(size = 9))
 
-ggsave(plot = graf_qde_emp, "qde_seg.png", h = 7.5, w = 6, type = "cairo-png")
+ggsave(plot = graf_qde_emp, "./plots/qde_seg.png", h = 6, w = 5, type = "cairo-png")
 
 
 qde_empresas_est <- mapa_dados %>% 
@@ -365,20 +367,21 @@ graf_qde_emp_est <-
   ggplot(qde_empresas_est, aes(x = reorder(nome, qde_tot), y = qde, fill = dep)) +
   geom_col(width = 0.65, position = position_stack(reverse = TRUE)) +
   geom_text(aes(label = qde, y = qde), 
-            vjust = 0.35, position = position_stack(vjust = 0.5, reverse = TRUE),
+            vjust = 0.4, position = position_stack(vjust = 0.5, reverse = TRUE),
             family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
   geom_text(aes(label = qde_tot), y = -.5, 
-            vjust = 0.35, check_overlap = TRUE,
+            vjust = 0.4, check_overlap = TRUE,
             family = "Source Sans Pro", size = 3.5, color = "grey") +  
   coord_flip() +
   scale_fill_manual(values = vetor_cores_dep) +
   #scale_fill_viridis_d() +
   #scale_color_viridis_d() +
-  labs(x = NULL, y = NULL, title = "Quantidade de empresas por Estado", fill = NULL) +
-  tema_barra() + theme(axis.text = element_text(size = 9),
-                 legend.position = "top")
+  labs(x = NULL, y = NULL, 
+       title = NULL, #"Quantidade de empresas por Estado", 
+       fill = NULL) +
+  tema_barra() + theme(axis.text = element_text(size = 9))
 
-ggsave(plot = graf_qde_emp_est, "qde_est.png", h = 7.5, w = 6, type = "cairo-png")
+ggsave(plot = graf_qde_emp_est, "./plots/qde_est.png", h = 6.5, w = 5, type = "cairo-png")
 
 
 # cartogram ---------------------------------------------------------------
@@ -404,9 +407,53 @@ mapa_cartograma <- mapa_regiao %>% left_join(qde_regiao)
 mp_sf <- as_Spatial(mapa_cartograma)
 mapa_deform <- cartogram_cont(mp_sf, 'qde', 3)
 
-# plot(mapa_deform)
-
 mp_def <- sf::st_as_sf(mapa_deform)
+
+# testa gif transição entre mapas normal e deformado.
+
+mp_def_join <- mp_def %>%
+  mutate(tipo_geometria = "deformada")
+
+mp_nor_join <- mapa_cartograma %>%
+  mutate(tipo_geometria = "normal")
+
+mp_duplo <- rbind(mp_def_join, mp_nor_join)
+
+mapa_duplo_gif <- ggplot(data = mp_duplo, aes(geometry = geometry, fill = Region, group = Region)) +
+  geom_sf(color = NA) +
+  geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", qde, NA)),
+                size = 6,    
+                color = "grey20",
+                family = "Source Sans Pro",
+                fill = "ghostwhite", label.size = 0,
+                label.r = unit(0.67, 'lines'),
+                label.padding = unit(0.35, "lines")) +
+  ease_aes("cubic-in-out") +
+  scale_fill_viridis(option = "viridis", direction = -1) +
+  labs(x = NULL, y = NULL) +
+  tema_mapa() +
+  transition_states(states = tipo_geometria,
+                    transition_length = 1,
+                    state_length = 2)
+
+animate(mapa_duplo_gif, fps = 8, type = "cairo")
+
+anim_save("./gifs/cartograma.gif", animation = last_animation())
+
+# # tentativa de usar um gather para ter as duas geometrias.
+# 
+# mapa_regiao_duplo <- mp_def %>%
+#   rename(geometry_deformada = geometry) %>%
+#   mutate(geometry_normal = mapa_cartograma$geometry) #%>%
+#   #gather(geometry_deformada, geometry_normal, key = "tipo_geometria", value = "geometrias")
+# 
+# mp_duplo_df <- as.data.frame(mapa_regiao_duplo) %>%
+#   gather(geometry_deformada, geometry_normal, key = "tipo_geometria", value = "geometrias")
+# 
+# ggplot(mp_duplo_df %>% filter(tipo_geometria == "geometry_normal")) +
+#   geom_sf(aes(geometry = geometrias))
+
+# plot(mapa_deform)
 
 cartograma <- ggplot(mp_def, aes(geometry = geometry)) + 
   geom_sf(aes(fill = qde), color = NA) +
@@ -418,11 +465,30 @@ cartograma <- ggplot(mp_def, aes(geometry = geometry)) +
                 label.padding = unit(0.35, "lines")) +
   scale_fill_viridis(option = "viridis", direction = -1) +
   #scale_color_viridis(option = "viridis", direction = -1, guides) +
-  labs(fill = "Quantidade", title = "O Brasil conforme a quantidade de estatais estaduais por Região", x = NULL, y = NULL) +
+  labs(fill = NULL, #"Quantidade", 
+       title = NULL, #"O Brasil conforme a quantidade de estatais estaduais por Região", 
+       x = NULL, y = NULL) +
   #guides(color = "none") +
-  tema_mapa() + theme(legend.position = 'left')
+  tema_mapa()# + theme(legend.position = 'left')
 
-ggsave(plot = cartograma, file = "cartograma.png", type = "cairo-png", width = 8, height = 7)
+
+
+mapa_regiao_normal <- ggplot(mapa_cartograma, aes(geometry = geometry)) + 
+  geom_sf(aes(fill = qde), color = NA) +
+  geom_sf_label(aes(label = qde), #color = qde), 
+                color = "grey20",
+                family = "Source Sans Pro",
+                fill = "ghostwhite", label.size = 0, 
+                label.r = unit(0.67, 'lines'),
+                label.padding = unit(0.35, "lines")) +
+  scale_fill_viridis(option = "viridis", direction = -1) +
+  #scale_color_viridis(option = "viridis", direction = -1, guides) +
+  labs(fill = NULL, title = NULL, x = NULL, y = NULL) +
+  #guides(color = "none") +
+  tema_mapa()
+
+ggsave(plot = cartograma, file = "./plots/cartograma.png", type = "cairo-png", width = 7, height = 7)
+ggsave(plot = mapa_regiao_normal, file = "./plots/cartograma_normal.png", type = "cairo-png", width = 7, height = 7)
 
 
 # ROE - beeswarm--------------------------------------------------------------
