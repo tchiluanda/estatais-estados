@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Lora', Georgia, serif;
 }
@@ -64,18 +68,23 @@ section.content h2 {
     color: maroon;
 }
 
+section.content blockquote {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
 section.content span.termo-destaque-lateral {
     background-color: antiquewhite;
 }
 
 section.content aside.conteudo-destaque-lateral {
     position: absolute;
-    right: 200px;
+    right: calc(50% - 340px - 200px);
     width: 200px;
     font-size: 13px;
     background-color: antiquewhite;
     padding: 10px;
-    
+    margin-top: 18px;
 }
 
 section.content img.gif {
@@ -90,7 +99,7 @@ section.content figure.plot-container {
 
 section.content figure.plot-container img.plot, img.plot {
     display: block;
-    width: 90%;
+    width: 75%;
     margin: auto;
 }
 
@@ -125,7 +134,7 @@ section.content figure.plot-container ul.plot-legenda span.plot-legenda-key {
     height: 14px;
     display: inline-block;
     vertical-align: text-bottom;
-    margin: 2px;
+    margin-right: 2px;
 }
 
 section.content video {
@@ -141,6 +150,33 @@ section.destaque {
 section.destaque p {
     margin: auto;
     max-width: 680px;
+}
+
+@media (max-width: 1080px) {
+    section.content aside.conteudo-destaque-lateral {
+        display: none;
+    }
+
+    section.content span.termo-destaque-lateral:hover {
+        cursor: pointer;
+    }
+
+    section.content span.termo-destaque-lateral:focus::after {
+        background-color: antiquewhite;
+        content: attr(texto);
+        width: 250px;
+        font-size: 13px;
+        background-color: antiquewhite;
+        padding: 10px;
+        position: absolute;
+        bottom: auto;
+        left: auto;
+        right: auto;
+    }
+
+    section.content aside.conteudo-destaque-lateral:hover::after {
+        
+    }
 }
 
 @media (max-width: 600px){
@@ -165,6 +201,11 @@ section.destaque p {
 
     section.content {
         font-size: 16px;
+    }
+
+    section.content img.gif,
+    section.content figure.plot-container img.plot, img.plot  {
+        width: 100%;
     }
 
 
