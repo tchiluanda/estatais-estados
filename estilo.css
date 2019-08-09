@@ -73,6 +73,10 @@ section.content blockquote {
     font-size: 0.9em;
 }
 
+section.content div.container-grupo-com-quadro {
+    position: relative; /* isso para o aside, que é filho e está com position: absolute, ser posicionado relativo a este div!*/
+}
+
 section.content span.termo-destaque-lateral {
     background-color: antiquewhite;
 }
@@ -84,7 +88,7 @@ section.content aside.conteudo-destaque-lateral {
     font-size: 13px;
     background-color: antiquewhite;
     padding: 10px;
-    margin-top: 18px;
+    top: 0; /*só funciona se o pai for relative */
 }
 
 section.content img.gif {
@@ -109,6 +113,14 @@ section.content figure.plot-container h3.plot-title {
     font-size: 18px;
     color: #333;
     margin-bottom: 5px;
+}
+
+section.content figure.plot-container h4.plot-subtitle {
+    padding-left: 20px;
+    margin-top: 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
 }
 
 section.content figure.plot-container ul.plot-legenda {
@@ -154,28 +166,13 @@ section.destaque p {
 
 @media (max-width: 1080px) {
     section.content aside.conteudo-destaque-lateral {
-        display: none;
-    }
-
-    section.content span.termo-destaque-lateral:hover {
-        cursor: pointer;
-    }
-
-    section.content span.termo-destaque-lateral:focus::after {
-        background-color: antiquewhite;
-        content: attr(texto);
-        width: 250px;
+        position: static;
+        right: auto;
+        width: 100%;
         font-size: 13px;
         background-color: antiquewhite;
         padding: 10px;
-        position: absolute;
-        bottom: auto;
-        left: auto;
-        right: auto;
-    }
-
-    section.content aside.conteudo-destaque-lateral:hover::after {
-        
+        margin-top: 18px;
     }
 }
 
@@ -189,18 +186,26 @@ section.destaque p {
     }
 
     header div.sobre-imagem h1 {
-        font-size: 2.5rem;
+        font-size: 2rem;
         margin: 0;
         line-height: 1.2;
         color: #f2ac29;
     }
 
     header div.sobre-imagem h2 {
-        font-size: 1.5rem;
+        font-size: 1.4rem;
+    }
+
+    header div.sobre-imagem p {
+        font-weight: normal;
+        color: white;
+        font-size: 16px;
     }
 
     section.content {
         font-size: 16px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 
     section.content img.gif,
@@ -208,5 +213,21 @@ section.destaque p {
         width: 100%;
     }
 
+    section.content figure.plot-container ul.plot-legenda {
+        font-size: 12px;
+    }
+
+    section.content figure.plot-container ul.plot-legenda span.plot-legenda-key {
+    
+        width: 12px;
+        height: 12px;
+        margin-right: 1px;
+    }
+
+    section.content iframe.plot-interativo {
+        width: 100%;
+    }
+
+    
 
 }
