@@ -121,6 +121,7 @@ section.content figure.plot-container h4.plot-subtitle {
     font-size: 14px;
     color: #333;
     font-weight: normal;
+    margin-bottom: 5px;
 }
 
 section.content figure.plot-container ul.plot-legenda {

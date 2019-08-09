@@ -495,7 +495,16 @@ ggsave(plot = mapa_regiao_normal, file = "./plots/cartograma_normal.png", type =
 
 library(plotly)
 
-qde_empresas_PL_neg <- length(which(dados_empresas$PL<=0))
+
+summary(dados_empresas$PL)
+length(which(dados_empresas$PL==0))
+length(which(is.na(dados_empresas$PL)))
+length(which(is.na(dados_empresas$lucros)))
+
+## importante
+qde_emp_fora_roe <- length(which(is.na(dados_empresas$lucros) | 
+             dados_empresas$PL<=0 | 
+             is.na(dados_empresas$PL)))
 
 top_segs <- dados_qde %>% 
   group_by(seg) %>% 
@@ -506,20 +515,24 @@ top_segs <- dados_qde %>%
 principais_segmentos <- top_segs$seg
 
 dados_roe <- dados_empresas %>%
-  filter(PL > 0 & dep != "Não Informado") %>%
-  mutate(result = as.numeric(`Lucros / Prejuízos`),
-         ROE = result / PL,
+  #filter(PL > 0 & dep != "Não Informado") %>%
+  filter(PL > 0) %>%
+  mutate(lucro = as.numeric(`Lucros / Prejuízos`),
+         ROE = lucro / PL,
          PL_formatado = format(PL, big.mark = ".", decimal.mark = ',', scientific = FALSE)) %>%
   filter(!is.na(ROE)) %>%
   mutate(Empresa = paste0(emp, ' (', Estado, ')\n',
                               'Dependência: ', dep, '\n',
                               'Setor: ', seg, '\n',
                               'PL: R$ ', PL_formatado, '\n',
-                              'Lucros / Prejuízos no ano: R$ ', format(result, big.mark = '.', decimal.mark = ","), '\n',
+                              'Lucros / Prejuízos no ano: R$ ', 
+                          format(lucro, big.mark = '.', decimal.mark = ","), '\n',
                               'ROE: ', percent(round(ROE,4))),
-         cat_ROE = cut(ROE, breaks = c(-Inf, -0.5, 0, 0.5, Inf), 
+         cat_ROE = cut(ROE, 
+                       breaks = c(-Inf, -0.5, 0, 0.5, Inf), 
                        labels = c("bem_neg", "neg", "pos", "bem_pos")),
-         seg_principais = ifelse(seg %in% principais_segmentos, seg, "Demais"))
+         seg_principais = ifelse(seg %in% principais_segmentos, seg, "Demais"),
+         sinal_ROE = ifelse(ROE>0, "Positivo", "Negativo"))
 
 summary(dados_roe$ROE)[c("Min.", "Max.")]
 
@@ -550,7 +563,17 @@ sumario_roe <- dados_roe %>%
                   cat_ROE == "pos" ~  0.25,
                   cat_ROE == "bem_pos" ~  0.75))
 
-dados_roe %>% filter(ROE > 2 | ROE < -2) %>% select(emp, Estado, ROE)
+sumario_roe_sinal <- dados_roe %>%
+  group_by(sinal_ROE, dep) %>%
+  summarise(qde = n()) %>%
+  group_by(dep) %>%
+  mutate(pct_qde = percent(qde/sum(qde))) %>%
+  ungroup() %>%
+  mutate(y = ifelse(sinal_ROE == "Positivo", 0.5, -0.5))
+
+
+# empresas fora do limte
+dados_roe %>% filter(ROE > 2 | ROE < -2) %>% select(emp, Estado, dep, ROE)
 
 # dados_roe %>% ggplot() + 
 #   #geom_histogram(aes(ROE), bins = 100) +
@@ -559,34 +582,90 @@ dados_roe %>% filter(ROE > 2 | ROE < -2) %>% select(emp, Estado, ROE)
 #   tema()
 
 # esse sim 
-roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep, 
+# roe <- ggplot(dados_roe, aes(y = ROE, color = cat_ROE, x = dep, 
+#                              label = Empresa)) +
+#   geom_hline(yintercept = 0, linetype = "dotted", color = "Gainsboro") +
+#   geom_hline(yintercept = 0.5, linetype = "dotted", color = "Gainsboro") +
+#   geom_hline(yintercept = -0.5, linetype = "dotted", color = "Gainsboro") +
+#   geom_beeswarm() + #aes(size = PL), 
+#   scale_color_manual(values = cores_escala) +
+#   annotate("rect", xmin = 0, xmax = 1.5, ymin = -0.5, ymax = 0, alpha = 0.2, fill = "khaki") +
+#   annotate("rect", xmin = 1.5, xmax = 2.9, ymin = 0, ymax = 0.5, alpha = 0.2, fill = "khaki") +
+#   geom_text(data = sumario_roe, 
+#             aes(y = ifelse(dep == "Dependente", y, NA),
+#                 label = paste0(pct_qde, ' das \nDependentes'),
+#                 color = cat_ROE),
+#             x = 0.6, # 0.8 para estático
+#             hjust = "right", vjust = "center", family = "Lora", size = 3) +
+#   geom_text(data = sumario_roe, 
+#             aes(y = ifelse(dep == "Não Dependente", y, NA),
+#                 label = paste0(pct_qde, ' das não\nDependentes'),
+#                 color = cat_ROE),
+#             x = 2.6, # 2.4 para estático
+#             hjust = "left", vjust = "center", family = "Lora", size = 3) +
+#   labs(title = "Distribuição do ROE das empresas do estados", x = NULL, y = NULL,
+#        subtitle = "Mais de 60% das dependentes têm ROE negativo, mais de 60% das não dependentes têm ROE positivo",
+#        caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB) e a Companhia de Desenvolvimento\n Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%, além de outras 50 empresas com Patrimônio Líquido negativo.") +
+#   scale_y_continuous(labels = percent, breaks = define_breaks) + #, limits = c(-2,2)
+#   tema()
+
+# roe2
+
+roe <- ggplot(dados_roe %>% filter(PL>0), aes(y = ROE, color = cat_ROE, x = dep, 
                              label = Empresa)) +
   geom_hline(yintercept = 0, linetype = "dotted", color = "Gainsboro") +
   geom_hline(yintercept = 0.5, linetype = "dotted", color = "Gainsboro") +
   geom_hline(yintercept = -0.5, linetype = "dotted", color = "Gainsboro") +
   geom_beeswarm() + #aes(size = PL), 
   scale_color_manual(values = cores_escala) +
-  annotate("rect", xmin = 0, xmax = 1.5, ymin = -0.5, ymax = 0, alpha = 0.2, fill = "khaki") +
-  annotate("rect", xmin = 1.5, xmax = 2.9, ymin = 0, ymax = 0.5, alpha = 0.2, fill = "khaki") +
+  annotate("rect", xmin = 0, xmax = 1.5, ymin = -0.5, ymax = 0, alpha = 0.2, fill = "antiquewhite") +
+  annotate("rect", xmin = 1.5, xmax = 2.9, ymin = 0, ymax = 0.5, alpha = 0.2, fill = "antiquewhite") +
   geom_text(data = sumario_roe, 
             aes(y = ifelse(dep == "Dependente", y, NA),
                 label = paste0(pct_qde, ' das \nDependentes'),
                 color = cat_ROE),
-            x = 0.6, # 0.8 para estático
-            hjust = "right", vjust = "center", family = "Lora", size = 3) +
+            x = 0.8, # 0.8 para estático
+            hjust = "right", vjust = "center", family = "Source Sans Pro", 
+            size = 3.5) +
   geom_text(data = sumario_roe, 
             aes(y = ifelse(dep == "Não Dependente", y, NA),
                 label = paste0(pct_qde, ' das não\nDependentes'),
                 color = cat_ROE),
-            x = 2.6, # 2.4 para estático
-            hjust = "left", vjust = "center", family = "Lora", size = 3) +
-  labs(title = "Distribuição do ROE das empresas do estados", x = NULL, y = NULL,
-       subtitle = "Mais de 60% das dependentes têm ROE negativo, mais de 60% das não dependentes têm ROE positivo",
-       caption = "Não inclui a Agência Goiana de Habitação (GO), a Empresa Paraibana de Turismo S/A (PB) e a Companhia de Desenvolvimento\n Rodoviário e Terminais do RJ, todas com ROE abaixo de -200%, além de outras 50 empresas com Patrimônio Líquido negativo.") +
-  scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) +
+            x = 2.4, # 2.4 para estático
+            hjust = "left", vjust = "center", family = "Source Sans Pro", 
+            size = 3.5) +
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) + #, 
   tema()
 
-ggsave(plot = roe, "roe.png", h = 7, w = 10, type = "cairo-png")
+roe2 <- ggplot(dados_roe %>% filter(PL>0), aes(y = ROE, color = sinal_ROE, x = dep, 
+                                              label = Empresa)) +
+  geom_quasirandom()+ #beeswarm() + #aes(size = PL), 
+  scale_color_manual(values = c("Negativo" = "#DC143C", 
+                                "Positivo" = "#008080")) +
+  annotate("rect", xmin = 0, xmax = 1.5, ymin = -2, ymax = 0, alpha = 0.2, fill = "antiquewhite") +
+  annotate("rect", xmin = 1.5, xmax = 2.7, ymin = 0, ymax = 2, alpha = 0.2, fill = "antiquewhite") +
+  geom_text(data = sumario_roe_sinal, 
+            aes(y = ifelse(dep == "Dependente", y, NA),
+                label = paste0(pct_qde, ' das \nDependentes'),
+                color = sinal_ROE),
+            x = 0.8, # 0.8 para estático
+            hjust = "right", vjust = "center", family = "Source Sans Pro", 
+            size = 3.5) +
+  geom_text(data = sumario_roe_sinal, 
+            aes(y = ifelse(dep == "Não Dependente", y, NA),
+                label = paste0(pct_qde, ' das não\nDependentes'),
+                color = sinal_ROE),
+            x = 2.2, # 2.4 para estático
+            hjust = "left", vjust = "center", family = "Source Sans Pro", 
+            size = 3.5) +
+  labs(title = NULL, x = NULL, y = NULL) +
+  scale_y_continuous(labels = percent, 
+                     breaks = define_breaks, 
+                     limits = c(-2,2)) + #, 
+  tema()
+
+ggsave(plot = roe2, "./plots/roe2.png", h = 6.5, w = 6.5, type = "cairo-png")
 
 # teste facet
 
@@ -645,17 +724,56 @@ htmlwidgets::saveWidget(partial_bundle(roe_bee), file = "roe_bee.html")
 #   tema()
 
 
+
+# ROE - dotplot -----------------------------------------------------------
+
+dados_roe_agreg <- dados_roe %>%  
+  filter(dep != "Não Informado") %>%
+  group_by(seg, dep) %>%
+  summarise(media_ROE = mean(ROE),
+            soma_lucro = sum(lucro),
+            soma_PL    = sum(PL),
+            ROE_medio = sum(lucro)/sum(PL)) %>%
+  ungroup() %>%
+  select(seg, dep, ROE_medio) %>%
+  spread(dep, ROE_medio) %>%
+  mutate(maior = ifelse(Dependente > `Não Dependente`, "Dependente", "Não Dependente")) %>%
+  rowwise() %>%
+  mutate(maximo = max(Dependente, `Não Dependente`, na.rm = T)) %>%
+  gather(Dependente, `Não Dependente`, key = dep, value = ROE_medio) %>%
+  arrange(desc(maximo))
+
+roe_dotplot <- ggplot(dados_roe_agreg, aes(y = reorder(seg, maximo), 
+                            color = dep, x = ROE_medio, group = seg)) +
+  geom_path(color = "lightgrey", size = 1.5) +
+  geom_point(size = 3) +
+  geom_text(aes(label = ifelse(dep == maior | is.na(maior), 
+                               percent(ROE_medio), NA), 
+                 color = dep), fontface = "bold", size = 3.5,
+             family = "Source Sans Pro",
+             nudge_x = 0.07) +
+  geom_text(aes(label = ifelse(dep == maior, NA, percent(ROE_medio)), 
+                color = dep),  size = 3.5,
+             family = "Source Sans Pro",
+             nudge_x = -0.07) +
+  labs(x = NULL, y = NULL) +
+  scale_x_continuous(labels = percent) +
+  scale_color_manual(values = vetor_cores_dep) +
+  scale_fill_manual(values = vetor_cores_dep) +
+  tema_barra()
+
+ggsave(plot = roe_dotplot, "./plots/roe_dotplot.png", h = 6, w = 5, type = "cairo-png")
+
 # ROE - sumário -----------------------------------------------------------
 
 dados_roe_sum <- dados_roe %>%
   filter(dep != "Não Informado") %>%
-  mutate(ROE_pos_neg = ifelse(ROE > 0, "ROE Positivo", "ROE Negativo")) %>%
-  group_by(seg_principais, dep, ROE_pos_neg) %>%
+  group_by(seg, dep, sinal_ROE) %>%
   summarise(qde = n()) %>%
   ungroup() %>%
-  group_by(seg_principais, dep) %>%
-  mutate(qde_seg_dep = sum(qde),
-         pct = qde/qde_seg_dep)
+  group_by(seg, dep) %>%
+  mutate(qde_seg = sum(qde),
+         pct = qde/qde_seg)
   
 
 roe_sumario <- ggplot(dados_roe_sum, aes(y = qde, x = seg_principais, fill = ROE_pos_neg)) + 
@@ -697,57 +815,237 @@ ggplot(dados_roe_sum, aes(x = ROE,
 
 # ROE - scatter ------------------------------------------------------------------
 
-roe_plotly_log <- plot_ly(dados_roe, 
-                          x = ~result, 
-                          y = ~PL, 
-                          text = ~Empresa, 
-                          color = ~dep, 
-                          size = ~ROE,
-                          fill = "black",
-                          hoverinfo = "text",
-                          alpha = 0.95) %>% 
-  add_markers(sizes = c(1, 100),
-              colors = viridis(2)) %>%
-  layout(xaxis = list(title = "Lucros / Prejuízos (R$)",
-                      type = 'log'),
-         yaxis = list(title = "Patrimônio Líquido (R$)", 
-                      type = 'log')) %>%
-  config(displayModeBar = FALSE)
+# roe_plotly_log <- plot_ly(dados_roe, 
+#                           x = ~result, 
+#                           y = ~PL, 
+#                           text = ~Empresa, 
+#                           color = ~dep, 
+#                           size = ~ROE,
+#                           fill = "black",
+#                           hoverinfo = "text",
+#                           alpha = 0.95) %>% 
+#   add_markers(sizes = c(1, 100),
+#               colors = viridis(2)) %>%
+#   layout(xaxis = list(title = "Lucros / Prejuízos (R$)",
+#                       type = 'log'),
+#          yaxis = list(title = "Patrimônio Líquido (R$)", 
+#                       type = 'log')) %>%
+#   config(displayModeBar = FALSE)
+
+summary(dados_roe$lucro)
+pto_max_y <- summary(dados_roe$lucro)[["Max."]]
+pto_min_y <- summary(dados_roe$lucro)[["Min."]]
+summary(dados_roe$PL)
+pto_max_x <- summary(dados_roe$PL)[["Max."]]
+pto_min_x <- 0
+
+poli_roe_cem <- data.frame("x" = c(0, 0,         pto_max_y),
+                           "y" = c(0, pto_max_y, pto_max_y))
+
+ggplot(poli_roe_cem, aes(x = x, y = y)) + geom_polygon()
+
+a<-ggplot(dados_roe %>%filter(PL>=0), aes(x = PL, y = lucro, color = cat_ROE)) + 
+  geom_point() +
+  scale_color_manual(values = cores_escala, na.value = "grey") +#vetor_cores_dep) + 
+  geom_abline(slope = 0.5, intercept = 0, linetype = "dotted", color = vetor_cores_dep[3]) +
+  geom_abline(slope = 1, intercept = 0, linetype = "dotted", color = vetor_cores_dep[4]) +
+  geom_abline(slope = 0, intercept = 0, linetype = "dotted") +
+  geom_abline(slope = -1, intercept = 0, linetype = "dotted", color = vetor_cores_dep[1]) +
+  geom_abline(slope = -0.5, intercept = 0, linetype = "dotted", color = vetor_cores_dep[2]) +
+  tema() + theme(legend.position = "bottom")
+
+graf_plotly <- ggplot(dados_roe %>%filter(PL>=0), 
+                      aes(x = PL, y = lucro, color = dep)) + 
+  geom_point() +
+  scale_color_manual(values = vetor_cores_dep, na.value = "grey")+ 
+  scale_x_continuous(labels = function(x){format(round(x/1e9, 1), big.mark = ".",
+                                                 decimal.mark = ',')}) +
+  scale_y_continuous(labels = function(x){format(round(x/1e9, 1), big.mark = ".",
+                                                 decimal.mark = ',')}) +
+  labs(x = "Patrimônio Líquido", y = "Lucro / Prejuízo", color = NA) +
+  tema()
+
+ggplotly(graf_plotly, tooltip = "Empresa")
+
+
+
+# ROE - plotly ------------------------------------------------------------
 
 
 roe_plotly <- plot_ly(dados_roe, 
-                      x = ~result, 
-                      y = ~PL, 
+                      y = ~lucro, 
+                      x = ~PL, 
                       text = ~Empresa, 
-                      color = ~dep, 
-                      size = ~ROE,
-                      fill = "black",
+                      color = ~dep,
                       hoverinfo = "text",
-                      alpha = 0.95) %>% 
-  add_markers(sizes = c(1, 100),
-              colors = viridis(2)) %>%
-  layout(xaxis = list(title = "Lucros / Prejuízos (R$)"),
-         yaxis = list(title = "Patrimônio Líquido (R$)")) %>%
+                      alpha = 0.75,
+                      marker = list(size = 7)) %>% 
+  add_markers(colors = vetor_cores_dep) %>%
+  layout(yaxis = list(title = "Lucros / Prejuízos (R$)"),
+         xaxis = list(title = "Patrimônio Líquido (R$)"),
+         font = "Source Sans Pro",
+         hoverlabel = list(font = "Source Sans Pro"),
+         legend = list(orientation = 'h', x = 0, y = 1.3)) %>%
   config(displayModeBar = FALSE)
 
-htmlwidgets::saveWidget(partial_bundle(roe_plotly_log), file = "roe_log.html")
 htmlwidgets::saveWidget(partial_bundle(roe_plotly), file = "roe.html")
 
 
+
+# Lucro / Prejuízo --------------------------------------------------------
+
+dados_lucro_preju_preliminar <- dados_empresas %>%
+  mutate(lucro = as.numeric(`Lucros / Prejuízos`)) 
+
+dados_lucro_preju <- dados_lucro_preju_preliminar %>%
+  filter(!is.na(lucro)) %>%
+  mutate(
+         ROE = lucro / PL,
+         PL_formatado = format(PL, big.mark = ".", decimal.mark = ',', scientific = FALSE)) %>%
+  mutate(Empresa = paste0(emp, ' (', Estado, ')\n',
+                          'Dependência: ', dep, '\n',
+                          'Setor: ', seg, '\n',
+                          'PL: R$ ', PL_formatado, '\n',
+                          'Lucros / Prejuízos no ano: R$ ', format(lucro, big.mark = '.', decimal.mark = ","), '\n',
+                          'ROE: ', ifelse(is.na(ROE), 'Não disponível', percent(round(ROE,4)))),
+         seg_principais = ifelse(seg %in% principais_segmentos, seg, "Demais"))
+
+qde_NAs_lucro <- length(which(is.na(dados_lucro_preju_preliminar$lucro) == TRUE))
+
+length(which(dados_lucro_preju$lucro<=-50e6 | dados_lucro_preju$lucro>=50e6))
+summary(dados_lucro_preju$lucro)
+length(which(dados_lucro_preju$result<=0))
+
+# # só pra ver a distribuição
+# ggplot(dados_lucro_preju, aes(x = result)) +# geom_histogram(bins = 100) +
+#   geom_density(fill = "lightcoral", color = NA)+
+#   scale_x_continuous(limits = c(-2.5e8, 2.5e8), 
+#                      breaks = seq(-2.5e8, 2.5e8, by = 0.5e8),
+#                      labels = function(x){format(round(x/1e6, 1), big.mark = ".",
+#                                                  decimal.mark = ',')}) + 
+#   tema()
+
+ggplot(dados_lucro_preju %>% filter(dep != "Não Informado"), aes(y = lucro, color = lucro>0, x = dep, 
+                             label = Empresa)) +
+  geom_quasirandom() + #aes(size = PL), 
+  #scale_color_manual(values = c(cores_escala[1], cores_escala[4])) +
+  scale_y_continuous(limits = c(-2.5e8, 50e6),
+                     labels = function(x){format(round(x/1e6, 1), big.mark = ".",
+                                                 decimal.mark = ',')}) + 
+  labs(#title = "Distribuição do ROE das empresas do estados", 
+       x = NULL, y = NULL)+ #,
+       #subtitle = "Mais de 60% das dependentes têm ROE negativo, mais de 60% das não dependentes têm ROE positivo") +
+  tema()
+
+# grafico barras
+
+sumario_lucro <- dados_lucro_preju_preliminar %>% 
+  mutate(result_pos = ifelse(lucro >= 0, "Positivo", "Negativo")) %>%
+  group_by(dep, result_pos) %>%
+  summarise(qde = n()) %>%
+  ungroup() %>%
+  group_by(dep) %>%
+  mutate(tot_por_dep = sum(qde),
+         percent_dep = percent(qde / tot_por_dep)) 
+
+sumario_lucro_total <- sumario_lucro %>%
+  group_by(result_pos) %>%
+  summarise(dep = "Total",
+         qde = sum(qde),
+         tot_por_dep = sum(qde)) %>%
+  ungroup() %>%
+  group_by(dep) %>%
+  mutate(tot_por_dep = sum(qde),
+         percent_dep = percent(qde / tot_por_dep)) %>%
+  ungroup() %>%
+  bind_rows(sumario_lucro)
+
+graf_barra_lucro <- ggplot(sumario_lucro_total, aes(x = dep, y = qde, fill = result_pos)) +
+  geom_col(position = "fill", width = 0.65) +
+  geom_text(aes(label = paste0(qde, "\n(", percent_dep,")")), position = position_fill(vjust = 0.5),
+            family = "Source Sans Pro", size = 3.5, color = "ghostwhite") +
+  scale_y_continuous(labels = percent) +
+  scale_fill_manual(values = c("Negativo" = "#DC143C", 
+                               "Positivo" = "#008080"), 
+                    na.value = "darkgray") +
+  labs(x = NULL, y = NULL) +
+  tema_barra()
+
+ggsave(plot = graf_barra_lucro, "./plots/bar_lucro.png", h = 6, w = 4, device = "png", type = "cairo")
+
+sumario_lucro_setor <- dados_lucro_preju_preliminar %>%
+  filter(!is.na(lucro)) %>%
+  group_by(seg) %>%
+  summarise(tot = sum(lucro)) %>%
+  mutate(result_pos = ifelse(tot >= 0, "Positivo", "Negativo"))
+
+sumario_lucro_setor %>% janitor::adorn_totals("row")
+
+graf_barra_lucro_setor <- 
+  ggplot(sumario_lucro_setor, 
+         aes(y = tot, color = result_pos, fill = result_pos,
+             x = reorder(seg, tot))) + 
+  geom_col(width = 0.6) + 
+  geom_text(aes(label = format(round(tot/1e6, 0), big.mark = ".",
+                               decimal.mark = ','),
+                y = ifelse(tot>= 0, tot + 1e4, tot - 5e7),
+                hjust = ifelse(tot>= 0, "left", "right")), 
+            vjust = 0.5,
+            family = "Source Sans Pro", size = 3.5) +
+  coord_flip() +
+  scale_color_manual(values = c("Negativo" = "#DC143C", 
+                                "Positivo" = "#008080"), 
+                    na.value = "darkgray") +
+  scale_fill_manual(values = c("Negativo" = "#DC143C", 
+                               "Positivo" = "#008080"), 
+                  na.value = "darkgray") +
+  scale_y_continuous(labels = function(x){
+    paste(format(round(x/1e6, 1), big.mark = ".", decimal.mark = ','), "mi")},
+                     expand = expand_scale(add = c(.7e9, .7e9))) +
+  labs(x = NULL, y = NULL) +
+  tema_barra()
+
+ggsave(plot = graf_barra_lucro_setor, "./plots/bar_lucro_setor.png", h = 6, w = 6, device = "png", type = "cairo")
+
 # mapa resultado----------------------------------------------------------------
+dput(colnames(mapa_dados))
 
-mapa_res <- mapa_dados %>% group_by(nome) %>% summarise(res = sum(`Resultado para o Estado Acionista`, na.rm = TRUE))
+colunas_interesse <- c("Dividendos", 
+                       "Passivo Assumido", "Subvenção", "Reforço de Capital", "Resultado para o Estado Acionista")
 
-mapa_res_graf <- ggplot(mapa_res) + 
-  geom_sf(aes(fill = -res), color = NA) + 
-  scale_fill_continuous_sequential(palette = "Peach", 
-                                   rev = TRUE, 
-                                   labels = function(x){
-                                     format(round(x/1e6, 0), big.mark = ".",
-                                            decimal.mark = ",")}) + 
-  labs(fill = "Resultado negativo\n(R$ milhões)", title = "Resultado Consolidado das estatais para o Estado") +
+mapa_res <- mapa_dados %>% 
+  group_by(nome) %>% 
+  summarise_at(vars(c("Dividendos", 
+                      "Passivo Assumido", "Subvenção", "Reforço de Capital", "Resultado para o Estado Acionista")),
+               .funs = ~-sum(as.numeric(.), na.rm = TRUE)) %>%
+  mutate(Dividendos = -Dividendos,
+         `Resultado para o Estado Acionista` = -`Resultado para o Estado Acionista`) %>%
+  gather(colunas_interesse, key = "variavel", value = "valor")
+
+mapa_res_graf <- ggplot(mapa_res %>% filter(variavel == "Dividendos")) + 
+  geom_sf(aes(fill = valor), color = NA) + 
+  scale_fill_continuous_sequential(
+    palette = "Teal", 
+    labels = function(x){
+      format(round(x/1e6, 0), big.mark = ".", decimal.mark = ",")}) +
+  labs(fill = "R$ milhões", x = NULL, y = NULL) +
   tema_mapa() + 
+  theme(legend.position = "left")
+
+scale_fill_gradient2(low = "#DC143C", mid = "ghostwhite",
+                     high = "#008080", midpoint = 0,
+                     na.value = "grey50", guide = "colourbar", 
+                     aesthetics = "fill",
+                     labels = function(x){
+                       format(round(x/1e6, 0), big.mark = ".",
+                              decimal.mark = ",")}) +
+
+  facet_wrap(~variavel, scales = "free")
+
   theme(legend.position = 'left')
+
+
+# scale_fill_continuous_sequential(palette = "Peach", rev = TRUE, labels = function(x){format(round(x/1e6, 0), big.mark = ".", decimal.mark = ",")}) + 
 
 ggsave(plot = mapa_res_graf, file = "mapa_res.png", type = "cairo-png", width = 8, height = 7)
 
