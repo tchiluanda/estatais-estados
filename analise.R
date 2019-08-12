@@ -1010,45 +1010,110 @@ ggsave(plot = graf_barra_lucro_setor, "./plots/bar_lucro_setor.png", h = 6, w = 
 # mapa resultado----------------------------------------------------------------
 dput(colnames(mapa_dados))
 
+
+
 colunas_interesse <- c("Dividendos", 
-                       "Passivo Assumido", "Subvenção", "Reforço de Capital", "Resultado para o Estado Acionista")
+                       #"Passivo Assumido", 
+                       "Subvenção", 
+                       "Reforço de Capital", 
+                       "Resultado para o Estado Acionista")
 
 mapa_res <- mapa_dados %>% 
   group_by(nome) %>% 
   summarise_at(vars(c("Dividendos", 
                       "Passivo Assumido", "Subvenção", "Reforço de Capital", "Resultado para o Estado Acionista")),
                .funs = ~-sum(as.numeric(.), na.rm = TRUE)) %>%
-  mutate(Dividendos = -Dividendos,
-         `Resultado para o Estado Acionista` = -`Resultado para o Estado Acionista`) %>%
+  mutate(Dividendos = -Dividendos) %>% #,
+         # `Resultado para o Estado Acionista` = -`Resultado para o Estado Acionista`) %>%
   gather(colunas_interesse, key = "variavel", value = "valor")
 
-mapa_res_graf <- ggplot(mapa_res %>% filter(variavel == "Dividendos")) + 
-  geom_sf(aes(fill = valor), color = NA) + 
+
+mapa_res_graf <- ggplot(mapa_res %>% 
+                          filter(variavel == "Reforço de Capital",
+                                 nome != "SÃO PAULO")) + 
+  geom_sf(aes(fill = -valor), color = NA) +
+  # geom_sf_text(aes(label = ifelse(valor<=-1e5, 
+  #                                 format(round(-valor/1e6,0),
+  #                                                  big.mark = "."), NA)),
+  #              family = "Source Sans Pro", size = 3) +
+  # scale_fill_gradient2(low = "#DC143C", mid = "ghostwhite",
+  #                      high = "#008080", midpoint = 0,
+  #                      na.value = "grey50", guide = "colourbar",
+  #                      aesthetics = "fill",
+  #                      labels = function(x){
+  #                        format(round(x/1e6, 0), big.mark = ".",
+  #                               decimal.mark = ",")}) +
   scale_fill_continuous_sequential(
-    palette = "Teal", 
+    palette = "Reds", rev = TRUE,
+    na.value = "ghostwhite",
     labels = function(x){
       format(round(x/1e6, 0), big.mark = ".", decimal.mark = ",")}) +
-  labs(fill = "R$ milhões", x = NULL, y = NULL) +
+  labs(title = "Reforço de Capital", fill = "R$ milhões", x = NULL, y = NULL) +
   tema_mapa() + 
   theme(legend.position = "left")
 
-scale_fill_gradient2(low = "#DC143C", mid = "ghostwhite",
-                     high = "#008080", midpoint = 0,
-                     na.value = "grey50", guide = "colourbar", 
-                     aesthetics = "fill",
-                     labels = function(x){
-                       format(round(x/1e6, 0), big.mark = ".",
-                              decimal.mark = ",")}) +
+ggsave(plot = mapa_res_graf, "./plots/mapa_ref_cap.png", h = 6, w = 6.5, device = "png", type = "cairo")
 
-  facet_wrap(~variavel, scales = "free")
+mapa_res_graf_facet <- ggplot(mapa_res %>% filter(variavel != "Passivo Assumido")) + 
+  geom_sf(aes(fill = -valor), color = NA) +
+  # geom_sf_text(aes(label = ifelse(valor<=-1e5, 
+  #                                 format(round(-valor/1e6,0),
+  #                                                  big.mark = "."), NA)),
+  #              family = "Source Sans Pro", size = 3) +
+  scale_fill_gradient2(low = "#DC143C", mid = "ghostwhite",
+                       high = "#008080", midpoint = 0,
+                       na.value = "grey50", guide = "colourbar",
+                       aesthetics = "fill",
+                       labels = function(x){
+                         format(round(x/1e6, 0), big.mark = ".",
+                                decimal.mark = ",")}) +
+  labs(title = NULL, fill = "R$ milhões", x = NULL, y = NULL) +
+  tema_mapa() + 
+  theme(legend.position = "left") + facet_wrap(~variavel)
 
-  theme(legend.position = 'left')
+
+# 
+#   facet_wrap(~variavel, scales = "free")
 
 
-# scale_fill_continuous_sequential(palette = "Peach", rev = TRUE, labels = function(x){format(round(x/1e6, 0), big.mark = ".", decimal.mark = ",")}) + 
 
-ggsave(plot = mapa_res_graf, file = "mapa_res.png", type = "cairo-png", width = 8, height = 7)
+# Resultado -  decomposição -----------------------------------------------
 
+# quantas empresas não informaram quaisquer dessas informações de resultado?
+dados_empresas %>% filter_at(.vars = vars(colunas_interesse[1:3]), all_vars(is.na(.))) %>% select(emp, colunas_interesse) %>%
+  View()
 
+# 92.
+
+sumario_result <- dados_empresas %>%
+  select(dep, colunas_interesse) %>%
+  group_by(dep) %>%
+  summarise_all(~sum(as.numeric(.), na.rm = T))
+
+result_total_para_incorporar <- sumario_result %>%
+  select(dep, `Resultado para o Estado Acionista`) %>%
+  gather(`Resultado para o Estado Acionista`, key = componentes, value = preenchimento) %>%
+  mutate(cats = "valor")
+
+result_waterfall <- sumario_result %>%
+  select(-`Resultado para o Estado Acionista`) %>%
+  mutate(Dividendos = -Dividendos) %>%
+  filter(dep != "Não Informado") %>%
+  gather(-dep, key = componentes, value = valor) %>%
+  arrange(dep) %>%
+  group_by(dep) %>%
+  mutate(y_0 = cumsum(valor),
+         yend = lag(y_0,1)) %>%
+  ungroup() %>%
+  #select(-y_0) %>%
+  gather(valor, yend, key = cats, value = preenchimento) %>%
+  mutate(preenchimento = -preenchimento) %>%
+  bind_rows(result_total_para_incorporar) %>%
+  mutate(componentes = factor(componentes, levels = colunas_interesse))
+
+ggplot(result_waterfall %>% filter(dep != "Não Informado"), aes(y = preenchimento, fill = cats, x = componentes)) + geom_col() + facet_wrap(~dep)
+
+sumario_result %>%
+  janitor::adorn_totals("row")
 
 
