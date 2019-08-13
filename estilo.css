@@ -95,6 +95,16 @@ section.content aside.conteudo-destaque-lateral {
     top: 0; /*só funciona se o pai for relative */
 }
 
+section.content aside.conteudo-destaque-lateral a{
+    text-decoration: none;
+    border-bottom: 1px solid rgb(59,55,52);
+}
+
+section.content aside.conteudo-destaque-lateral a:hover{
+    background-color: rgb(59,55,52);
+    color: antiquewhite;
+}
+
 section.content img.gif {
     display: block;
     width: 75%;
@@ -163,15 +173,38 @@ section.content video {
 }
 
 section.destaque {
+    margin-top: 60px;
     background-color: #333;
-    color: lightcoral;
+    color: silver;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
     padding: 10px;
 }
 
+section.destaque h3 {
+    margin: 1em auto;
+    max-width: 680px;
+    font-family: "Lora";
+}
+
 section.destaque p {
-    margin: auto;
+    margin: 1em auto;
     max-width: 680px;
 }
+
+section.destaque a {
+    color: ghostwhite;
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 2px solid ghostwhite;
+}
+
+section.destaque a:hover{
+    color: #333;
+    background-color: ghostwhite;
+
+}
+
 
 @media (max-width: 1080px) {
     section.content aside.conteudo-destaque-lateral {
@@ -185,7 +218,7 @@ section.destaque p {
     }
 }
 
-@media (max-width: 600px){
+@media (max-width: 680px){
     header div.sobre-imagem {
         position: absolute;
         bottom: 5%;
