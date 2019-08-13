@@ -10,13 +10,14 @@
 # * companhia de mineração e a agência de fomento de TO estão como "OUTRO".
 
 library(rayshader)
+library(extrafont)
+loadfonts()
 library(ggplot2)
 library(readxl)
 library(tidyverse)
 library(brazilmaps)
 library(sf)
 library(viridis)
-library(extrafont)
 library(gganimate)
 library(scales)
 library(plotly)
@@ -24,7 +25,7 @@ library(ggbeeswarm)
 library(colorspace)
 library(RColorBrewer)
 
-loadfonts()
+
 
 tema <- function(){
   theme_minimal() +
@@ -1028,31 +1029,34 @@ mapa_res <- mapa_dados %>%
   gather(colunas_interesse, key = "variavel", value = "valor")
 
 
+# mapa_res %>% 
+#   filter(variavel == "Resultado para o Estado Acionista") %>% .$valor %>% min()
+
+
 mapa_res_graf <- ggplot(mapa_res %>% 
-                          filter(variavel == "Reforço de Capital",
-                                 nome != "SÃO PAULO")) + 
+                          filter(variavel == "Resultado para o Estado Acionista"))+#, nome != "SÃO PAULO")) + 
   geom_sf(aes(fill = -valor), color = NA) +
   # geom_sf_text(aes(label = ifelse(valor<=-1e5, 
   #                                 format(round(-valor/1e6,0),
   #                                                  big.mark = "."), NA)),
   #              family = "Source Sans Pro", size = 3) +
-  # scale_fill_gradient2(low = "#DC143C", mid = "ghostwhite",
-  #                      high = "#008080", midpoint = 0,
-  #                      na.value = "grey50", guide = "colourbar",
-  #                      aesthetics = "fill",
-  #                      labels = function(x){
-  #                        format(round(x/1e6, 0), big.mark = ".",
-  #                               decimal.mark = ",")}) +
-  scale_fill_continuous_sequential(
-    palette = "Reds", rev = TRUE,
-    na.value = "ghostwhite",
-    labels = function(x){
-      format(round(x/1e6, 0), big.mark = ".", decimal.mark = ",")}) +
-  labs(title = "Reforço de Capital", fill = "R$ milhões", x = NULL, y = NULL) +
+  scale_fill_gradient2(low = "#DC143C", mid = "#e2e2e2",
+                       high = "#008080", midpoint = 0,
+                       na.value = "ghostwhite", guide = "colourbar",
+                       aesthetics = "fill",
+                       labels = function(x){
+                         format(round(x/1e6, 0), big.mark = ".",
+                                decimal.mark = ",")}) +
+  # scale_fill_continuous_diverging(
+  #   palette = "Reds", rev = TRUE,
+  #   na.value = "ghostwhite",
+  #   labels = function(x){
+  #     format(round(x/1e6, 0), big.mark = ".", decimal.mark = ",")}) +
+  labs(title = NULL, fill = "R$ milhões", x = NULL, y = NULL) +
   tema_mapa() + 
   theme(legend.position = "left")
 
-ggsave(plot = mapa_res_graf, "./plots/mapa_ref_cap.png", h = 6, w = 6.5, device = "png", type = "cairo")
+ggsave(plot = mapa_res_graf, "./plots/mapa_result.png", h = 6, w = 6.5, device = "png", type = "cairo")
 
 mapa_res_graf_facet <- ggplot(mapa_res %>% filter(variavel != "Passivo Assumido")) + 
   geom_sf(aes(fill = -valor), color = NA) +
@@ -1092,8 +1096,8 @@ sumario_result <- dados_empresas %>%
 
 result_total_para_incorporar <- sumario_result %>%
   select(dep, `Resultado para o Estado Acionista`) %>%
-  gather(`Resultado para o Estado Acionista`, key = componentes, value = preenchimento) %>%
-  mutate(cats = "valor")
+  gather(`Resultado para o Estado Acionista`, key = componentes, value = y_end) %>%
+  mutate(y_0 = 0)
 
 result_waterfall <- sumario_result %>%
   select(-`Resultado para o Estado Acionista`) %>%
@@ -1102,18 +1106,46 @@ result_waterfall <- sumario_result %>%
   gather(-dep, key = componentes, value = valor) %>%
   arrange(dep) %>%
   group_by(dep) %>%
-  mutate(y_0 = cumsum(valor),
-         yend = lag(y_0,1)) %>%
+  mutate(y_end = cumsum(valor),
+         y_0 = lag(y_end,1)) %>%
   ungroup() %>%
-  #select(-y_0) %>%
-  gather(valor, yend, key = cats, value = preenchimento) %>%
-  mutate(preenchimento = -preenchimento) %>%
+  select(-valor) %>%
+  # gather(y_0, yend, key = cats, value = preenchimento) %>%
+  # mutate(preenchimento = -preenchimento) %>%
+  mutate_at(.vars = vars(starts_with("y")), .funs = ~-.) %>%
   bind_rows(result_total_para_incorporar) %>%
-  mutate(componentes = factor(componentes, levels = colunas_interesse))
+  mutate(componentes = factor(componentes, levels = colunas_interesse)) %>%
+  replace_na(list(y_0 = 0, y_end = 0)) %>%
+  mutate(pto_medio = (y_0 + y_end)/2)
 
-ggplot(result_waterfall %>% filter(dep != "Não Informado"), aes(y = preenchimento, fill = cats, x = componentes)) + geom_col() + facet_wrap(~dep)
 
-sumario_result %>%
-  janitor::adorn_totals("row")
+waterfall <- ggplot(result_waterfall %>% filter(dep != "Não Informado"), 
+       aes(x = componentes, xend = componentes, color = componentes)) + 
+  geom_hline(yintercept = 0, linetype = "dashed", color = "grey",
+             size = 0.5) +
+  geom_segment(aes(y = ifelse(componentes == "Resultado para o Estado Acionista", NA, y_0), yend = y_end), 
+               arrow = arrow(angle = 90, ends = "both", length = unit(.05, "inches")),
+               # arrow = arrow(length = unit(3, "points"), type = "closed"), 
+               size = .5) + 
+  geom_segment(aes(y = ifelse(componentes != "Resultado para o Estado Acionista", NA, y_0), yend = y_end), 
+                   size = 14) + 
+  geom_text(aes(y = ifelse(componentes == "Dividendos", y_end + .4e9,
+                           y_end - .3e9),
+                 label = format(round((y_end-y_0)/1e6,0), big.mark = ".",
+                                decimal.mark = ",")), family = "Source Sans Pro", size = 3.5, hjust = "center", vjust = "center") +
+  scale_color_manual(values = c("Dividendos" = "#008080", "Subvenção" = "#DC143C", "Reforço de Capital" = "#DC143C", "Resultado para o Estado Acionista" = "#DC143C")) +
+  scale_fill_manual(values = c("Dividendos" = "#008080", "Subvenção" = "#DC143C", "Reforço de Capital" = "#DC143C", "Resultado para o Estado Acionista" = "#DC143C")) +
+  scale_y_continuous(labels = function(x){format(round(x/1e6, 1), big.mark = ".", decimal.mark = ',')}) +
+  scale_x_discrete(labels = c("Dividendos", "Subvenção", "Reforço de Capital" = "Reforço\nde Capital", "Resultado para o Estado Acionista"="Resultado\n para o \nEstado Acionista")) +
+  labs(x = NULL, y = NULL) +
+  tema() + theme(panel.background = element_rect(fill = "ghostwhite",
+                                                 color = NA),
+                 strip.text = element_text(family = "Source Sans Pro")) +
+  facet_wrap(~dep)
+
+ggsave(plot = waterfall, "./plots/waterfall.png", h = 6, w = 6, type = "cairo-png")
+
+# sumario_result %>%
+#   janitor::adorn_totals("row")
 
 
