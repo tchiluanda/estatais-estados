@@ -435,7 +435,7 @@ mapa_duplo_gif <- ggplot(data = mp_duplo, aes(geometry = geometry, fill = Region
   tema_mapa() +
   transition_states(states = tipo_geometria,
                     transition_length = 1,
-                    state_length = 2)
+                    state_length = 1)
 
 animate(mapa_duplo_gif, fps = 8, type = "cairo")
 
