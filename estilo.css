@@ -63,6 +63,10 @@ section.content {
     margin-right: auto;
 }
 
+section.content ol.partes {
+    font-style: italic;
+}
+
 section.content h2 {
     margin-top: 2em;
     color: maroon;
@@ -95,6 +99,10 @@ section.content img.gif {
     display: block;
     width: 75%;
     margin: auto;
+}
+
+section.content div.grafico-vetado {
+    display: none;
 }
 
 section.content figure.plot-container {
