@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    svg rect.destaque{fill: antiquewhite;}
+    circle {transition: all 0.25s;}
+    circle:hover {stroke: maroon; stroke-width: 1px; opacity: 1; r:7;}
+    /*g.axis {stroke: #aaa; stroke-width: .5px;}*/
+    g.axis text {
+      font-family: "Source Sans Pro";
+      color: grey;
+    }
+    g.axis path, g.axis line {
+      stroke: grey;
+    }
+    .destaque, p.reinicia {
+      cursor: pointer;
+    }
+
+    hidden: {display: none;}
+  </style>
+</head>
+
+<body>
+    <section class="grafico-d3 content">
+        <p>Quantidade de empresas mostradas: <span class="qde-emp">não sei</span></p>
+        <p class="reinicia">Clique para reiniciar</p>
+        <svg class="d3-chart" width=680 height=400></svg>
+        <script src="grafico_d3.js"></script>
+    </section>
+</body>
