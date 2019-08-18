@@ -8,13 +8,19 @@ const mar = {
 };  
 
 let texto = 'Clique para expandir';
-  
+let svg = d3.select("svg.d3-chart");
+
 // captura as dimensoes do svg -- para tentar torná-la 
-  
-  let svg = d3.select("svg.d3-chart");
-  const w = +svg.style("width").replace("px", "");
-  const h = +svg.style("height").replace("px", "");
-  console.log(w,h);
+let w = document.body.clientWidth;
+let h = document.body.clientHeight;
+
+w = w > 680 ? 680 : w;
+h = h > 420 ? 420 : h;
+
+let w = dimensoes[0];
+let h = dimensoes[1];
+
+console.log(w,h);
   
 
   
