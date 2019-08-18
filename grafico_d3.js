@@ -78,7 +78,8 @@ d3.dsv(";", "dados_d3.csv", function(d){
       b: scale_y(-4e8),
       l: scale_x(0)
     };
-           
+      
+    // rect destaque-1, já aparece desde o começo
     svg.append("rect")
       .attr('x', caixa.l)
       .attr('y', caixa.t)
@@ -89,6 +90,7 @@ d3.dsv(";", "dados_d3.csv", function(d){
       .append('title')
       .text(texto);  
     
+    // placeholders para os próximos rects
     svg.append("rect")
         .attr('x', 0)
         .attr('y', 0)
@@ -111,8 +113,8 @@ d3.dsv(";", "dados_d3.csv", function(d){
         .append('title')
         .text(texto);        
     
-// objeto que vai indexar novos limites e 
-// retângulos a entrar e sair com base nos cliques 
+// objeto que vai indexar novos e próximos limites, além 
+// dos ids dos retângulos a entrar e sair com base nos cliques 
 // em cada uma das areas de destaque
 
 indice_destaque = {
@@ -336,13 +338,15 @@ indice_destaque = {
       scale_x.domain(d3.extent(data, d=>d.PL))
       scale_y.domain(d3.extent(data, d=>d.result))
       
-      //atualiza dados
+      //atualiza dados / rebind
       let pontos = svg.selectAll('circle')
         .data(data, d=>d.Empresa);
       
+      // oculta última área de destaque
       d3.select('#destaque-3')
         .attr('opacity', 0);
       
+      // reexibe área de destaque inicial
       d3.select('#destaque-1')
         .attr('opacity', 0)
         .transition()
@@ -371,16 +375,16 @@ indice_destaque = {
       
       
       //Update X axis
-                  svg.select(".x-axis")
-                      .transition()
-                      .duration(1000)
-                        .call(eixo_x);
-                  
-                  //Update Y axis
-                  svg.select(".y-axis")
-                      .transition()
-                      .duration(1000)
-                      .call(eixo_y);
+      svg.select(".x-axis")
+          .transition()
+          .duration(1000)
+            .call(eixo_x);
+      
+      //Update Y axis
+      svg.select(".y-axis")
+          .transition()
+          .duration(1000)
+          .call(eixo_y);
     })
     
   });
