@@ -1,10 +1,10 @@
 // define a margens e outras constantes
 
 const mar = {
-    t: 20,
-    r: 20,
-    b: 20,
-    l: 35
+  t: 20,
+  r: 20,
+  b: 20,
+  l: 35
 };  
 
 let texto = 'Clique para expandir';
@@ -18,9 +18,7 @@ w = w > 680 ? 680 : w;
 h = h > 420 ? 420 : h;
 
 console.log(w,h);
-  
 
-  
 // read data
 
 d3.dsv(";", "dados_d3.csv", function(d){
@@ -30,16 +28,16 @@ d3.dsv(";", "dados_d3.csv", function(d){
       Dependencia: d.dep,
       result: +d.resultado,
       reg: d.REGIAO,
-      PL: +d.PL.replace(",", ".")
+      PL: +d.PL.replace(",", "."),
+      roe: +d.resultado / +d.PL.replace(",", ".")
     }
   }).then(function(data) {
     
-    //console.table(data[1]);
-    //console.log(data);
-    
-    const dados_originais = data;
-    
-    
+//console.table(data[1]);
+//console.log(data);
+
+
+const dados_originais = data;  
    
 // escalas
     
@@ -53,65 +51,79 @@ d3.dsv(";", "dados_d3.csv", function(d){
                           .domain(["Dependente", "Não Dependente", "Não Informado"])
                           .range(["#f2ac29", "#718c35", "#5c4b51"])
     // console.log(scale_y.domain(), scale_y.range(), scale_y(0));
-    
+   
+// limites slider
+
+// const limites_slider = d3.extent(data, d => d.roe);
+// const meio_slider = d3.mean(limites_slider);
+// const slider = d3.select('#slider');
+
+// console.log('slider', slider, limites_slider, meio_slider);
+
+// slider
+//   .attr('min', limites_slider[0])
+//   .attr('max', limites_slider[1])
+//   .attr('value', meio_slider);
+
+// console.log(slider, slider.attr('type'));
     
 // áreas de destaque
     
-    const limites1 = {
-      PL:    [0   , 3e9],
-      Lucro: [-4e8, 5e8]
-    };
-    
-    const limites2 = {
-      PL:    [0   , 380e6],
-      Lucro: [-50e6, 45e6]
-    };
-    
-    const limites3 = {
-      PL:    [0   , 40e6],
-      Lucro: [-5e6, 5e6]
-    };
-    
-    const caixa = {
-      t: scale_y(5e8),
-      r: scale_x(3e9),
-      b: scale_y(-4e8),
-      l: scale_x(0)
-    };
+const limites1 = {
+  PL:    [0   , 3e9],
+  Lucro: [-4e8, 5e8]
+};
+
+const limites2 = {
+  PL:    [0   , 380e6],
+  Lucro: [-50e6, 45e6]
+};
+
+const limites3 = {
+  PL:    [0   , 40e6],
+  Lucro: [-5e6, 5e6]
+};
+
+const caixa = {
+  t: scale_y(5e8),
+  r: scale_x(3e9),
+  b: scale_y(-4e8),
+  l: scale_x(0)
+};
       
-    // rect destaque-1, já aparece desde o começo
-    svg.append("rect")
-      .attr('x', caixa.l)
-      .attr('y', caixa.t)
-      .attr('height', caixa.b - caixa.t)
-      .attr('width', caixa.r - caixa.l)
-      .attr('class', 'destaque')
-      .attr('id', 'destaque-1')
-      .append('title')
-      .text(texto);  
-    
-    // placeholders para os próximos rects
-    svg.append("rect")
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('height', 0)
-        .attr('width', 0)
-        .attr('opacity', 0)
-        .attr('class', 'destaque')
-        .attr('id', 'destaque-2')
-        .append('title')
-        .text(texto);  
-    
-    svg.append("rect")
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('height', 0)
-        .attr('width', 0)
-        .attr('opacity', 0)
-        .attr('class', 'destaque')
-        .attr('id', 'destaque-3')
-        .append('title')
-        .text(texto);        
+// rect destaque-1, já aparece desde o começo
+svg.append("rect")
+  .attr('x', caixa.l)
+  .attr('y', caixa.t)
+  .attr('height', caixa.b - caixa.t)
+  .attr('width', caixa.r - caixa.l)
+  .attr('class', 'destaque')
+  .attr('id', 'destaque-1')
+  .append('title')
+  .text(texto);  
+
+// placeholders para os próximos rects
+svg.append("rect")
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('height', 0)
+    .attr('width', 0)
+    .attr('opacity', 0)
+    .attr('class', 'destaque')
+    .attr('id', 'destaque-2')
+    .append('title')
+    .text(texto);  
+
+svg.append("rect")
+    .attr('x', 0)
+    .attr('y', 0)
+    .attr('height', 0)
+    .attr('width', 0)
+    .attr('opacity', 0)
+    .attr('class', 'destaque')
+    .attr('id', 'destaque-3')
+    .append('title')
+    .text(texto);        
     
 // objeto que vai indexar novos e próximos limites, além 
 // dos ids dos retângulos a entrar e sair com base nos cliques 
@@ -342,8 +354,8 @@ indice_destaque = {
       let pontos = svg.selectAll('circle')
         .data(data, d=>d.Empresa);
       
-      // oculta última área de destaque
-      d3.select('#destaque-3')
+      // oculta todas as áreas de destaque
+      d3.selectAll('.destaque')
         .attr('opacity', 0);
       
       // reexibe área de destaque inicial
@@ -386,5 +398,5 @@ indice_destaque = {
           .duration(1000)
           .call(eixo_y);
     })
-    
+
   });
