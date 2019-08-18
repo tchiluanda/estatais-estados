@@ -17,16 +17,13 @@ let h = document.body.clientHeight;
 w = w > 680 ? 680 : w;
 h = h > 420 ? 420 : h;
 
-let w = dimensoes[0];
-let h = dimensoes[1];
-
 console.log(w,h);
   
 
   
 // read data
 
-      d3.dsv(";", "dados_d3.csv", function(d){
+d3.dsv(";", "dados_d3.csv", function(d){
     return {
       Estado: d.Estado,
       Empresa: d.emp,
@@ -92,7 +89,7 @@ console.log(w,h);
       .append('title')
       .text(texto);  
     
-          svg.append("rect")
+    svg.append("rect")
         .attr('x', 0)
         .attr('y', 0)
         .attr('height', 0)
@@ -114,6 +111,33 @@ console.log(w,h);
         .append('title')
         .text(texto);        
     
+// objeto que vai indexar novos limites e 
+// retângulos a entrar e sair com base nos cliques 
+// em cada uma das areas de destaque
+
+indice_destaque = {
+  'destaque-1': {
+    'novos_limites' : limites1,
+    'proximos_limites' : limites2,
+    'proxima_area_a_mostrar' : 'destaque-2',
+    'area_a_ocultar' : 'destaque-1'
+  },
+
+  'destaque-2': {
+    'novos_limites' : limites2,
+    'proximos_limites' : limites3,
+    'proxima_area_a_mostrar' : 'destaque-3',
+    'area_a_ocultar' : 'destaque-2'
+  },
+
+  'destaque-3': {
+    'novos_limites' : limites3,
+    'proximos_limites' : '',
+    'proxima_area_a_mostrar' : '',
+    'area_a_ocultar' : 'destaque-3'
+  },
+}
+
 // formatação valores
     
     let localeBrasil = {
@@ -155,11 +179,11 @@ console.log(w,h);
     
 // plot
     
-    let update_selection = svg
+    let pontos = svg
       .selectAll('circle')
       .data(data, d => d.Empresa) // define key function
     
-    update_selection
+    pontos
       .enter()
       .append('circle')
         .attr('cy', d => scale_y(d.result))
@@ -168,24 +192,27 @@ console.log(w,h);
         .attr('opacity', 0.5)
         .attr('fill', d => scale_color(d.Dependencia));
     
-// interactions
+//////////////////////////////////// 
+///////////// interactions /////////
+////////////////////////////////////
     
-    // clique no rect
-    
-    d3.select('rect.destaque')
-          .on('click', function() {
-      
-      let rect_atual = d3.select(this);
-      console.log(rect_atual.attr('id'));
-      
-      
-      
-      data = data.filter(d => (d.PL >= limites1.PL[0] &
-                                    d.PL <= limites1.PL[1]) &
-                                    (d.result >= limites1.Lucro[0] &
-                                     d.result <= limites1.Lucro[1]))
-      //console.log('dentro do rect: ', data);
-      
+    //////////// cliques nos rects /////////////
+
+    // função generalizada
+
+    const mostra_destaque = function(rect_atual) {
+
+      console.log('entrei, pelo menos? tô no ', rect_atual);
+
+      // busca novos limites do objeto indexador
+      const limites = indice_destaque[rect_atual].novos_limites;
+
+      // filtra dados com base nesses novos limites
+      data = data.filter(d => (d.PL >= limites.PL[0] &
+                               d.PL <= limites.PL[1]) &
+                              (d.result >= limites.Lucro[0] &
+                               d.result <= limites.Lucro[1])
+                          )
       // atualiza quantidade de empresas
       let qde_empresas = data.length;
       caixa_quantidade.text(qde_empresas);
@@ -193,10 +220,10 @@ console.log(w,h);
       //atualiza escala
       scale_x.domain(d3.extent(data, d=>d.PL))
       scale_y.domain(d3.extent(data, d=>d.result))
-      
-      //atualiza dados
+
+      //atualiza dados / rebind
       let pontos = svg.selectAll('circle')
-        .data(data, d=>d.Empresa);
+                      .data(data, d=>d.Empresa);
       
       //exit selection, remove pontos
       pontos
@@ -208,182 +235,49 @@ console.log(w,h);
       
       //update selection, reposiciona
       pontos
-                   .transition()
+        .transition()
         .delay(500)
-                  .duration(1000)
+        .duration(1000)
         .attr('cy', d => scale_y(d.result))
-        .attr('cx', d => scale_x(d.PL))
-      
+        .attr('cx', d => scale_x(d.PL));
+
       //oculta retângulo
-      d3.select('rect.destaque')
+
+      const rect_ocultar = indice_destaque[rect_atual].area_a_ocultar;
+      console.log('area a ocultar: ', rect_ocultar);
+
+      d3.select('#'+rect_ocultar)
         .attr('opacity', 1)
         .transition()
         .duration(1500)
         .attr('opacity', 0);
-      
-      //mostra novo retângulo
 
-       const caixa2 = {
-          t: scale_y(limites2.Lucro[1]),
-          r: scale_x(limites2.PL[1]),
-          b: scale_y(limites2.Lucro[0]),
-          l: scale_x(limites2.PL[0])
-        };
-
-      d3.select('#destaque-2')
-        .attr('x', caixa2.l)
-        .attr('y', caixa2.t)
-        .attr('height', caixa2.b - caixa2.t)
-        .attr('width', caixa2.r - caixa2.l)
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .attr('opacity', 1)       
-   
-      
-      
-      //Update X axis
-      svg.select(".x-axis")
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .call(eixo_x);
-
-      //Update Y axis
-      svg.select(".y-axis")
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .call(eixo_y);
-
-    })
-
-    // clique no rect2
-    
-    d3.select('rect#destaque-2')
-          .on('click', function() {
-      
-      data = data.filter(d => (d.PL >= limites2.PL[0] &
-                                    d.PL <= limites2.PL[1]) &
-                                    (d.result >= limites2.Lucro[0] &
-                                     d.result <= limites2.Lucro[1]))
-      //console.log('dentro do rect: ', data);
-      
-      // atualiza quantidade de empresas
-      let qde_empresas = data.length;
-      caixa_quantidade.text(qde_empresas);
-      
-      //atualiza escala
-      scale_x.domain(d3.extent(data, d=>d.PL))
-      scale_y.domain(d3.extent(data, d=>d.result))
-      
-      //atualiza dados
-      let pontos = svg.selectAll('circle')
-        .data(data, d=>d.Empresa);
-      
-      //exit selection, remove pontos
-      pontos
-        .exit()
-        .transition()
-        .duration(1000)
-        .attr('opacity', 0)
-        .remove();
-      
-      //update selection, reposiciona
-      pontos
-                   .transition()
-        .delay(500)
-                  .duration(1000)
-        .attr('cy', d => scale_y(d.result))
-        .attr('cx', d => scale_x(d.PL))
-      
-      //oculta retângulo
-      d3.select('#destaque-2')
-        .attr('opacity', 1)
-        .transition()
-        .duration(1500)
-        .attr('opacity', 0);   
-      
       // mostra novo retângulo
-      const caixa3 = {
-          t: scale_y(limites3.Lucro[1]),
-          r: scale_x(limites3.PL[1]),
-          b: scale_y(limites3.Lucro[0]),
-          l: scale_x(limites3.PL[0])
+
+      const rect_mostrar = indice_destaque[rect_atual].proxima_area_a_mostrar;
+      const proximos_limites = indice_destaque[rect_atual].proximos_limites;
+      console.log('proximo rect:', rect_mostrar, proximos_limites);
+
+      if (rect_mostrar != '') {
+        // define as dimensões do novo retângulo
+        const proximo_rect = {
+          t: scale_y(proximos_limites.Lucro[1]),
+          r: scale_x(proximos_limites.PL[1]),
+          b: scale_y(proximos_limites.Lucro[0]),
+          l: scale_x(proximos_limites.PL[0])
         };
 
-      d3.select('#destaque-3')
-        .attr('x', caixa3.l)
-        .attr('y', caixa3.t)
-        .attr('height', caixa3.b - caixa3.t)
-        .attr('width', caixa3.r - caixa3.l)
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .attr('opacity', 1)  
-      
-      //Update X axis
-      svg.select(".x-axis")
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .call(eixo_x);
-
-      //Update Y axis
-      svg.select(".y-axis")
-        .transition()
-        .delay(500)
-        .duration(1000)
-        .call(eixo_y);
-
-    })
-    
-    // clique no rect3
-    
-    d3.select('rect#destaque-3')
-          .on('click', function() {
-      
-      data = data.filter(d => (d.PL >= limites3.PL[0] &
-                               d.PL <= limites3.PL[1]) &
-                              (d.result >= limites3.Lucro[0] &
-                               d.result <= limites3.Lucro[1]))
-      //console.log('dentro do rect: ', data);
-      
-      // atualiza quantidade de empresas
-      let qde_empresas = data.length;
-      caixa_quantidade.text(qde_empresas);
-      
-      //atualiza escala
-      scale_x.domain(d3.extent(data, d=>d.PL))
-      scale_y.domain(d3.extent(data, d=>d.result))
-      
-      //atualiza dados
-      let pontos = svg.selectAll('circle')
-        .data(data, d=>d.Empresa);
-      
-      //exit selection, remove pontos
-      pontos
-        .exit()
-        .transition()
-        .duration(500)
-        .attr('opacity', 0)
-        .remove();
-      
-      //update selection, reposiciona
-      pontos
-                   .transition()
-        .delay(500)
-                  .duration(1000)
-        .attr('cy', d => scale_y(d.result))
-        .attr('cx', d => scale_x(d.PL))
-      
-      //oculta retângulo
-      d3.select('rect#destaque-3')
-        .attr('opacity', 1)
-        .transition()
-        .duration(1500)
-        .attr('opacity', 0);
-         
+        // atualiza os atributos do placeholder
+        d3.select('#'+rect_mostrar)
+          .attr('x', proximo_rect.l)
+          .attr('y', proximo_rect.t)
+          .attr('height', proximo_rect.b - proximo_rect.t)
+          .attr('width', proximo_rect.r - proximo_rect.l)
+          .transition()
+          .delay(500)
+          .duration(1000)
+          .attr('opacity', 1)  
+      }
 
       //Update X axis
       svg.select(".x-axis")
@@ -398,8 +292,33 @@ console.log(w,h);
         .delay(500)
         .duration(1000)
         .call(eixo_y);
+      
+      // fim função
+    }
 
-    })      
+    ///// clique rect1
+    
+    d3.select('#destaque-1')
+          .on('click', function(){
+            const rect_atual = d3.select(this).attr('id');
+            mostra_destaque(rect_atual);
+          })
+
+    //// clique no rect2
+    
+    d3.select('#destaque-2')
+          .on('click', function(){
+            const rect_atual = d3.select(this).attr('id');
+            mostra_destaque(rect_atual);
+          })
+    
+    //// clique no rect2
+    
+    d3.select('#destaque-3')
+          .on('click', function(){
+            const rect_atual = d3.select(this).attr('id');
+            mostra_destaque(rect_atual);
+          })   
     
     // clique no parágrafo para reiniciar
     
@@ -426,13 +345,13 @@ console.log(w,h);
       
       d3.select('#destaque-1')
         .attr('opacity', 0)
-           .transition()
-                  .duration(1000)
+        .transition()
+        .duration(1000)
         .attr('opacity', 1);
       
       pontos
-                   .transition()
-                  .duration(1000)
+        .transition()
+        .duration(1500)
         .attr('cy', d => scale_y(d.result))
         .attr('cx', d => scale_x(d.PL));
       
@@ -445,7 +364,8 @@ console.log(w,h);
          .attr('opacity', 0.5)
          .attr('fill', d => scale_color(d.Dependencia))
          .transition()
-         .duration(1000)
+         .delay(1000)
+         .duration(500)
          .attr('r', 4);
       
       
