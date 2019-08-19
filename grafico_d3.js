@@ -3,7 +3,7 @@
 const mar = {
   t: 20,
   r: 20,
-  b: 20,
+  b: 25,
   l: 35
 };  
 
@@ -186,7 +186,9 @@ indice_destaque = {
     
     let qde_empresas = data.length;
     //console.log(qde_empresas);
-    let caixa_quantidade = d3.select('span.qde-emp')
+    let caixa_quantidade = d3.select('#qde-emp')
+    //let qde_anterior = +caixa_quantidade.text();
+
     caixa_quantidade
       .text(qde_empresas);
     
@@ -229,7 +231,10 @@ indice_destaque = {
                           )
       // atualiza quantidade de empresas
       let qde_empresas = data.length;
-      caixa_quantidade.text(qde_empresas);
+      caixa_quantidade
+        .transition()
+        .duration(1000)
+        .text(qde_empresas);
       
       //atualiza escala
       scale_x.domain(d3.extent(data, d=>d.PL))
@@ -397,6 +402,32 @@ indice_destaque = {
           .transition()
           .duration(1000)
           .call(eixo_y);
+    })
+
+    svg
+      .selectAll('circle').on('mouseover', function(d) {
+        let pos_x = +d3.select(this).attr('cx');
+        let pos_y = +d3.select(this).attr('cy');
+
+        if (pos_x + 160)
+
+        console.log("to aqui", pos_x, pos_y);
+
+        d3.select("#tooltip")
+          .style('left', pos_x + 10 + 'px')
+          .style('top', pos_y - 10 + 'px')
+          .style('border-color', scale_color(d.Dependencia))
+          .select('#tooltip-nome-empresa')
+          .text(d.Empresa)
+          .style('background-color', scale_color(d.Dependencia));
+
+        d3.select('#tooltip')
+          .classed('hidden', false);
+    })
+
+    svg
+    .selectAll('circle').on('mouseout', function() {
+        d3.select("#tooltip").classed("hidden", true);
     })
 
   });
