@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <link rel="stylesheet" href="estilo.css">
+  <style>
+    body { margin:0;position:fixed;top:0;right:0;bottom:0;left:0; }
+    svg rect.destaque{fill: antiquewhite;}
+    /*circle {transition: all 0.25s;}*/
+    /*circle:hover {stroke: maroon; stroke-width: 5px; opacity: 1; r:7;}*/
+    /*g.axis {stroke: #aaa; stroke-width: .5px;}*/
+    g.axis text {
+      font-family: "Source Sans Pro";
+      color: grey;
+    }
+    g.axis path, g.axis line {
+      stroke: grey;
+    }
+    .destaque, p.reinicia {
+      cursor: pointer;
+    }
+
+    #tooltip {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 12px;
+        position: absolute;
+        width: 180px;
+        height: auto;
+        background-color: ghostwhite;
+        color: #333;
+        border: 2px solid #f2ac29;
+        padding: 5px;
+        box-shadow: 2px 2px 5px #888;
+        pointer-events: none;
+    }
+
+    #tooltip p {
+        margin: 0;
+    }
+
+    #tooltip-nome-empresa {
+        font-weight: bold;
+        color: ghostwhite;
+        padding: 0 1px;
+    }
+
+    .envelope-d3-chart {
+        position: relative;
+    }   
+
+    .hidden {display: none;}
+
+    .sem-pointer-events{pointer-events: none;}
+  </style>
+</head>
+
+<body>
+    <section class="grafico-d3 content">
+        <p>Quantidade de empresas mostradas: <span id="qde-emp">não sei</span></p>
+        <!--<input id="#slider" type = "slider">--> 
+        <p class="reinicia">Clique para reiniciar</p>
+        <div class="envelope-d3-chart">
+            <div id="tooltip" class="hidden">
+                    <p><span id="tooltip-nome-empresa">Empresa</span></p>
+                    <p><span id="tooltip-nome-estado">Estado</span> / <span id="tooltip-dep">Dependência</span></p>
+                    <p>Setor: <span id="tooltip-setor">Setor</span></p>
+                    <p>Lucro ou Prejuízo: <span id="tooltip-valor-lucro">0</span.result></p>
+                    <p>Patrimônio Líquido: <span id="tooltip-valor-PL">0</span></p>
+                    <p>Rentabilidade (Lucro / PL): <span id ="tooltip-valor-ROE">0</span></p>
+            </div>
+            <svg class="d3-chart" width=680 height=400></svg>
+        </div>
+        
+        <script src="grafico_d3.js"></script>
+    </section>
+</body>
