@@ -3,7 +3,7 @@
 const mar = {
   t: 20,
   r: 20,
-  b: 25,
+  b: 30,
   l: 35
 };  
 
@@ -26,6 +26,7 @@ d3.dsv(";", "dados_d3.csv", function(d){
       Estado: d.Estado,
       Empresa: d.emp,
       Dependencia: d.dep,
+      setor: d.seg,
       result: +d.resultado,
       reg: d.REGIAO,
       PL: +d.PL.replace(",", "."),
@@ -50,6 +51,8 @@ const dados_originais = data;
     let scale_color = d3.scaleOrdinal()
                           .domain(["Dependente", "Não Dependente", "Não Informado"])
                           .range(["#f2ac29", "#718c35", "#5c4b51"])
+
+            
     // console.log(scale_y.domain(), scale_y.range(), scale_y(0));
    
 // limites slider
@@ -223,6 +226,9 @@ indice_destaque = {
       // busca novos limites do objeto indexador
       const limites = indice_destaque[rect_atual].novos_limites;
 
+      // busca próximos limites do objeto indexador
+      const proximos_limites = indice_destaque[rect_atual].proximos_limites;
+
       // filtra dados com base nesses novos limites
       data = data.filter(d => (d.PL >= limites.PL[0] &
                                d.PL <= limites.PL[1]) &
@@ -259,6 +265,13 @@ indice_destaque = {
         .duration(1000)
         .attr('cy', d => scale_y(d.result))
         .attr('cx', d => scale_x(d.PL));
+        // .classed('sem-pointer-events', function(d) {
+        //     if ((proximos_limites.PL[0] < d.PL && d.PL < proximos_limites.PL[1])
+        //         &
+        //         (proximos_limites.Lucro[0] < d.Lucro && d.Lucro < proximos_limites.Lucro[1]))
+        //     return true 
+        //     else 
+        //     return false;});
 
       //oculta retângulo
 
@@ -274,7 +287,7 @@ indice_destaque = {
       // mostra novo retângulo
 
       const rect_mostrar = indice_destaque[rect_atual].proxima_area_a_mostrar;
-      const proximos_limites = indice_destaque[rect_atual].proximos_limites;
+      /*const proximos_limites = indice_destaque[rect_atual].proximos_limites;*/
       console.log('proximo rect:', rect_mostrar, proximos_limites);
 
       if (rect_mostrar != '') {
@@ -404,30 +417,107 @@ indice_destaque = {
           .call(eixo_y);
     })
 
+    // hover
+
     svg
       .selectAll('circle').on('mouseover', function(d) {
+        
+        // primeiro, frescurinha no próprio hover do ponto.
+
+        d3.select(this)
+          .attr('opacity', 1)
+          .attr('r', 7);
+
+        // pega a posição do círculo em cima do qual o mouse está
+
         let pos_x = +d3.select(this).attr('cx');
         let pos_y = +d3.select(this).attr('cy');
 
-        if (pos_x + 160)
-
         console.log("to aqui", pos_x, pos_y);
 
-        d3.select("#tooltip")
-          .style('left', pos_x + 10 + 'px')
-          .style('top', pos_y - 10 + 'px')
-          .style('border-color', scale_color(d.Dependencia))
-          .select('#tooltip-nome-empresa')
-          .text(d.Empresa)
-          .style('background-color', scale_color(d.Dependencia));
+        let tooltip_box = d3.select("#tooltip");
 
-        d3.select('#tooltip')
-          .classed('hidden', false);
+        let propriedade_width = tooltip_box.style("width");
+        let largura_tooltip = +propriedade_width.substring(0, propriedade_width.length-2);
+        console.log(largura_tooltip);
+
+        // uma função de cor
+        const cor_valor = function(val){
+            if (val < 0) return "#DC143C"
+            else return "#008080";
+        }
+
+        // uma função de formatação de valor
+        const formata_vlr_tooltip = function(val){
+            return "R$ "+formataBR(val/1e6)+" mi"
+        }
+
+        // vou primeiro exibir o tooltip, para depois calcular a posição, porque senão
+        // tooltip_box.node().getBoundingClientRect().height retorna como zero!
+        // então primeiro vou exibir, depois vou incluir os textos, e só depois 
+        // calculo a posição.
+
+        tooltip_box.classed('hidden', false); 
+
+        tooltip_box
+            .style('border-color', scale_color(d.Dependencia))
+            .select('#tooltip-nome-empresa')
+            .text(d.Empresa)
+            .style('background-color', scale_color(d.Dependencia));
+
+        tooltip_box
+            .select('#tooltip-nome-estado').text(d.Estado);
+
+        tooltip_box
+            .select('#tooltip-setor').text(d.setor);
+        
+        tooltip_box
+            .select("#tooltip-dep").text(d.Dependencia);
+
+        tooltip_box
+            .select("#tooltip-valor-lucro").text(formata_vlr_tooltip(d.result))
+            .style("color", cor_valor(d.result));
+
+        tooltip_box
+            .select("#tooltip-valor-PL").text(formata_vlr_tooltip(d.PL))
+            .style("color", cor_valor(d.PL));
+
+        tooltip_box
+            .select("#tooltip-valor-ROE").text(d3.format(".1%")(d.roe))
+            .style("color", cor_valor(d.roe));
+
+        // agora que o texto já está populado, posso calcular a altura, para então
+        // calcular a posição certinha.
+
+        let altura_tooltip = tooltip_box.node().getBoundingClientRect().height;
+
+        // poderia parametrizar esse "10"
+
+        if (pos_x + largura_tooltip + 10 > w) {
+            pos_x = pos_x - largura_tooltip - 10;
+        } else {
+            pos_x = pos_x + 10
+        }
+
+        if (pos_y + altura_tooltip + 10 > h) {
+            pos_y = pos_y - altura_tooltip - 10;
+        } else {
+            pos_y = pos_y + 10
+        }
+        
+        console.log("após ajuste", pos_x, pos_y);
+
+        tooltip_box
+          .style('left', pos_x + 'px')
+          .style('top', pos_y + 'px');
     })
 
     svg
     .selectAll('circle').on('mouseout', function() {
         d3.select("#tooltip").classed("hidden", true);
+        d3.select(this)
+            .attr('r', 4)
+            .attr('opacity', 0.5)
     })
 
   });
