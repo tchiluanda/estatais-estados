@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-137891614-2"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-137891614-2');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Lora|Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilo.css">
+    <title>As empresas dos Estados Brasileiros</title>
+</head>
+<body>
+
+    <header class="abertura">
+        <img class="abertura" src="capa3.jpg" alt="Foto de técnico operando máquina em fábrica do Laboratório Farmacêutico do Estado de Pernambuco Governador Miguel Arraes (Lafepe)"/>
+        <img class="logo-tt" src="tt-logo-int.png" alt="logo do Tesouro Nacional Transparente">
+        <div class="sobre-imagem">
+            <h1><span>As empresas dos Estados brasileiros</span></h1>
+            <h2>Um panorama das empresas estatais estaduais</h2>
+            <p>Nesta terceira edição, são consolidadas e apresentadas informações detalhadas sobre as empresas estatais estaduais em 2020.</p>
+        </div>
+    </header>
+
+    <section class="content">
+        <p>Fruto de intensivo esforço do Tesouro Nacional a fim de consolidar um grande volume de dados sobre o assunto, essa iniciativa reforça o compromisso da instituição com a transparência. </p>
+
+        <p>Entendemos que a transparência é o melhor instrumento para que a sociedade tenha condições de fiscalizar o papel dos governos estaduais enquanto donos de empresas tidas como estratégicas. Apenas com informações acessíveis, o cidadão será capaz de avaliar o quão vantajoso é ter um Estado empreendedor, podendo cobrar resultados ou questionar seus representantes.</p>
+
+        <p>Em 2019, iniciamos o processo de consolidação de informações detalhadas das empresas estatais estaduais, quando foram publicados diversos dados relativos ao exercício de 2018 (clique <a href="./v2018/index.html" target="_blank">aqui</a> para visualizar a publicação de 2019, com os dados de 2018).</p>
+         
+        <p>Esse ano é a segunda vez em que realizamos essa consolidação e ela está cheia de novidades. Além de contarmos com uma nova seção, ao longo de todas seções anteriores foram incluídos quadros que trazem informações de legislações aplicadas ao tema em análise.</p>
+        
+        <p>As informações encontram-se divididas em 4 partes:</p>
+
+        <ol class="partes">
+            <li>Com quantas estatais se faz um Estado;</li>
+            <li>O Estado empreendedor;</li>
+            <li>O Estado administrador;</li>
+            <li>O Estado acionista.</li>
+        </ol>
+        
+        <p>O primeiro bloco apresenta o quantitativo geral das empresas controladas pelos Estados, demonstra o quantitativo por Região/Estado e informa o total de empresas dependentes e quais seus respectivos segmentos. A segunda seção discorre sobre o lucro/prejuízo dessas empresas além de apresentar um ranking de suas respectivas rentabilidades. A terceira seção relaciona a governança, caracterizada pela presença de conselhos/comitês, com os resultados das estatais. Por fim, apresenta-se o resultado do impacto financeiro líquido das empresas controladas nas finanças públicas estaduais.</p>
+        
+        <div class="container-grupo-com-quadro">
+
+        <p>Os dados aqui disponibilizados foram declarados pelos Estados, sendo, portanto, de inteira responsabilidade deles a precisão ou correção dos <span class="termo-destaque-lateral">dados aqui consolidados.</span></p>
+
+        <aside class="conteudo-destaque-lateral">Os dados utilizados estão disponíveis para serem baixados. Clique <a href="#nota-final">aqui</a> para saber mais.</aside>
+
+        <figure class="vis-cards plot-container">
+            <h3 class="plot-title">Ficha básica das empresas por setor</h3>
+            <ul class="plot-legenda">
+                <li><span class="plot-legenda-key" style = "background-color: #f2ac29; border-radius: 50%;"></span> Dependentes</li>
+                <li><span class="plot-legenda-key" style = "background-color: #718c35; border-radius: 50%;"></span> Não Dependentes</li>
+                <!--<li><span class="plot-legenda-key" style = "background-color: #5c4b51;"></span> Não Informado</li>-->
+            </ul>
+    
+            <label for="seletor-estados">Selecione um estado: </label>
+            <select name="estados" id="seletor-estados"></select>
+    
+            <div class="container-vis-and-cards">
+    
+                <div class="vis-cards"></div>
+    
+                <div class="card-container-wrapper">
+    
+                    <p class="mensagem">Clique sobre uma empresa para exibir mais detalhes.</p>
+    
+                    <div class="card-container" data-dependencia="" hidden>
+                        <p data-cardinfo="Nome_estado"></p>
+                        <p data-cardinfo="emp"></p>
+            
+                        <p>Empresa <span data-cardinfo="dep"></span></p> 
+                        <p>Situação: <span data-cardinfo="sit"></span></p>
+            
+                        <div class="mini-vis-container">
+    
+                            <!-- devia encapsular essa galera aqui em divs -->
+                            <p>Capital Social: <span data-cardinfo-value="capital"></span></p>
+                            <div class="mini-vis-rect" data-minivis-coluna="capital"></div>
+    
+                            <p>Investimento realizado: <span data-cardinfo-value="desp_investimento"></span></p>
+                            <div class="mini-vis-rect" data-minivis-coluna="desp_investimento"></div>
+    
+                            <p>Lucros: <span data-cardinfo-value="lucros"></span></p>
+                            <div class="mini-vis-rect" data-minivis-coluna="lucros"></div>
+    
+                        </div>
+                    
+                        <p class="link-carta"><a href="" target="_blank">Carta Social da empresa</a></p>
+            
+                    </div>
+                </div>
+    
+            </div>
+    
+        </figure>
+
+        </div>
+
+        <h2>Com quantas estatais se faz um estado?</h2>
+
+        <p>No Brasil, pelos dados informados, existem 263 empresas controladas pelos Estados. A região nordeste apresenta a maior concentração de estatais, com 89 empresas (33,84% do total), seguida pela região sudeste, com 57 empresas (21,67%); centro-oeste, com 49 empresas (18,63%); e, por fim, as regiões norte e sul com 34 empresas (12,93%) cada uma.</p>
+
+        <p>O mapa abaixo mostra como ficaria cada região brasileira caso sua área fosse aumentada ou reduzida na proporção das empresas estatais que possui.</p>
+
+        <img class="gif" src="./plots/cartograma.gif" alt="Cartograma imaginando o mapa do Brasil deformado conforme o número de estatais">
+
+        <div class="container-grupo-com-quadro">
+        
+        <p>Apesar de a região nordeste concentrar o maior número de estatais, ela possui a segunda menor média de estatais por estado (10), devido à maior quantidade de estados, quando comparada às demais regiões do país.  Os estados da região norte possuem a menor quantidade média de estatais (5), e os estados da região sudeste possuem a maior quantidade média de estatais por estado (14).</p>   
+
+        <p>O gráfico abaixo mostra a quantidade de estatais por Estado, separadas entre <span class = "termo-destaque-lateral">dependentes e não dependentes</span>. Em termos relativos, <strong>43% das empresas declaradas pelos Estados são dependentes</strong>, ou seja, 114 empresas do total de 263. O número de estatais por Estado varia de 0 a 21, sendo que alguns deles possuem apenas empresas dependentes, e outros apenas não dependentes. O Amapá não figura no gráfico por ter informado não possuir estatal.</p>
+
+        <aside class="conteudo-destaque-lateral">Segundo a LRF: “empresa estatal dependente: empresa controlada que receba do ente controlador recursos financeiros para pagamento de despesas com pessoal ou de custeio em geral ou de capital, excluídos, no último caso, aqueles provenientes de aumento de participação acionária” (LC 101 de 4 de maio de 2000, art. 2°, inc. III)</aside>
+
+        </div>    
+
+        <p>Dessa forma, o Distrito Federal lidera o ranking com um total de 21 empresas, seguido por São Paulo com um quantitativo de 20 e, em terceiro lugar, Minas Gerais com 18. Entre os Estados com a menor quantidade de empresas controladas, temos Mato Grosso do Sul e Tocantins com, respectivamente, 3 e 2 empresas. Em termos de dependência, Rio de Janeiro apresenta o maior número de empresas (9), seguido pelo Distrito Federal e pela Paraíba (8) e, empatados com um total de 7 empresas, os Estados de Pernambuco, Sergipe, Acre e Mato Grosso. Ao focalizar em empresas não dependentes, Minas Gerais lidera com um conjunto de 15 empresas, acompanhada pelo Distrito Federal e por São Paulo (13), Goiás (12), Rio Grande Sul (11) e Paraná com um quantitativo de 9 empresas.</p>
+
+        <figure class="plot-container">
+                <h3 class="plot-title">Quantidade de empresas por Estado</h3>
+                <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #f2ac29;"></span> Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #718c35;"></span> Não Dependentes</li>
+                    <!--<li><span class="plot-legenda-key" style = "background-color: #5c4b51;"></span> Não Informado</li>-->
+                </ul>
+                <img class="plot" src="./plots/qde_est.png" alt="Visualização da quantidade de empresas por estado">
+        </figure>  
+
+        <p>Ao examinar as empresas controladas pelos segmentos empresarias, observa-se que os setores de Financeiro, Saneamento e Desenvolvimento são os mais representativos, com 31, 29, 23 empresas, respectivamente. Entre os segmentos com menor número de empresas, destacam-se os setores de Saúde e Mineração (4).</p>
+
+        <p>Abaixo é possível selecionar um setor para exibir sua definição, bem como um mapa indicando os estados que possuem empresas nessa área de atuação.</p>
+
+        <div class="mapa-setores">
+
+            <div class="mapa-setores-selecao">
+                <label for="seletor-setores">Escolha o setor:</label>
+
+                <select name="setores" id="seletor-setores">
+                </select>
+            </div>
+
+            <div class="boxes-definicao">
+                <!--<div class="box-definicao">
+                    <h2></h2>
+                    <p></p>
+                </div>-->
+            </div>
+
+            <figure class="vis-mapa">
+                <svg class="vis-mapa"></svg>
+            </figure>
+        </div>
+
+        <img class="plot" src="./plots/segmentos_facet2.png" alt="Visualização dos estados que possuem determinados tipos de empresas" style = "width: 100%;">
+
+        <p>Em relação ao critério dependência, o setor Pesquisa e Assistência Técnica possui o maior número de empresas dependentes (17), seguido pelo setor de Desenvolvimento e o de Habitação e Urbanização (14) e pelos de Abastecimento e Transportes com 10 empresas.  Por outro lado, o setor Financeiro caracteriza-se pelo maior quantitativo de empresas não dependentes (27), seguido de perto pelo de Saneamento (24), Distribuição de Gás (15), Gestão de ativos (13) e Energia (11).</p>
+
+        <figure class="plot-container">
+                <h3 class="plot-title">Quantidade de empresas por setor</h3>
+                <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #f2ac29;"></span> Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #718c35;"></span> Não Dependentes</li>
+                    <!--<li><span class="plot-legenda-key" style = "background-color: #5c4b51;"></span> Não Informado</li>-->
+                </ul>
+                <img class="plot" src="./plots/qde_seg.png" alt="Visualização da quantidade de empresas por segmento">
+        </figure> 
+
+        <div class="grafico-vetado">
+
+        <p>Uma combinação dessas informações (Estados / quantitativo empresas / setores empresarias) pode ser visualizada abaixo.</p>
+
+        <figure class="plot-container">
+                <h3 class="plot-title">Quantidade de empresas por Estado e por setor</h3>
+                <img class="plot" src="./plots/heatmap.png" alt="Visualização da quantidade de empresas por estado e segmento">
+        </figure> 
+
+        </div>
+
+        <h2>O estado empreendedor</h2>
+         
+        <div class="container-grupo-com-quadro">
+            
+        <p>A atuação do Estado por meio de empresas estatais tem previsão na <span class = "termo-destaque-lateral">Constituição Federal</span>, entretanto, ela prevê essa atuação do Poder Público como uma exceção. Além disso, a fim de garantir o alcance do “relevante interesse coletivo”, a eficiência, a eficácia e a efetividade devem estar presentes na atuação das estatais.</p>
+
+        <aside class="conteudo-destaque-lateral">Ressalvados os casos previstos nesta Constituição, a exploração direta de atividade econômica pelo Estado só será permitida quando necessária aos imperativos da segurança nacional ou a relevante interesse coletivo, conforme definidos em lei. (CF de 1988, art. 173).</aside>
+            
+        </div>
+        
+        <p>Nesse sentido, é importante quantificar os lucros/prejuízos das empresas controladas pelos Estados, além de avaliar o patamar de rentabilidade delas. O gráfico abaixo demonstra a distribuição dos lucros ou prejuízos, categorizado por dependentes e não dependentes. Ao longo de 2019, os números revelam que 35% das estatais obtiveram prejuízo. Ao se analisar especificamente as empresas não dependentes, tem-se que 26% delas tiveram perdas financeiras. Esse valor passa para 48% quando se leva em consideração apenas as estatais dependentes. Nesse sentido, observa-se que, em termos relativos, o percentual de empresas com prejuízos financeiros em 2019 caracterizadas como dependentes é quase o dobro das não dependentes.</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Distribuição das empresas em relação ao lucro ou prejuízo</h3>
+                <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #DC143C;"></span> Empresas com Prejuízo</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #008080;"></span> Empresas com Lucro</li>
+                    <!--<li><span class="plot-legenda-key" style = "background-color: darkgrey;"></span> Sem informação</li>-->
+                </ul>
+                <img class="plot" style="width: 65%;" src="./plots/bar_lucro.png" alt="Gráfico de barras com as quantidades e percentuais de empresas que obtiveram lucro ou prejuízo em 2019.">
+        </figure>
+
+        <p>Em termos de segmento empresarial, o setor que apresenta o maior lucro para o período foi o de Energia com um ganho total de mais de 6 bilhões de reais (R$ 6.129 milhões). Logo em seguida, tem-se o segmento de Saneamento com um resultado em torno de 4 bilhões de reais (R$ 3.922 milhões), e, na sequência, o setor de Desenvolvimento, com lucro de R$ 2 bilhões (R$ 2.031 milhões). Pelo outro lado, o setor de Gestão de Ativos possui o pior resultado para o período com prejuízos de aproximadamente 774 milhões de reais. Em seguida, o segmento de Transportes com cerca de 337 milhões de reais em perdas e o setor de Pesquisa e Assistência Técnica 31 milhões de reais em prejuízo.</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Lucros e Prejuízos totais por setor de atuação</h3>
+                <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #DC143C;"></span> Prejuízo</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #008080;"></span> Lucro</li>               
+                </ul>
+                <img class="plot" src="./plots/bar_lucro_setor.png" alt="Gráfico de barras com os lucros e prejuízos totais por setor em 2019.">
+        </figure>
+
+        <p>Uma relação importante de se avaliar é o resultado da empresa (lucro/prejuízo) em relação ao tamanho do seu patrimônio. No diagrama abaixo, plota-se no eixo y (ordenada) o patrimônio líquido das empresas e no eixo x (abscissa) os lucros/prejuízos correspondentes. De forma simplificada, observa-se uma relação positiva entre a magnitude (positivo/negativo) do resultado apresentado e o correspondente patrimônio líquido. Este resultado já era de certa forma esperado pelo fato de os valores nominais para lucro/prejuízo divulgados estarem associados com o tamanho da empresa – representado aqui pelo seu patrimônio líquido.</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Relação entre Lucro / Prejuízo e o Patrimônio Líquido das empresas</h3>
+                <h4 class="plot-subtitle">Passe o mouse sobre os pontos para obter detalhes sobre a empresa. É possível selecionar uma área para zoom (clicando-se duas vezes sobre o gráfico retorna-se à visão principal).</h4>
+                <iframe class="plot-interativo" src="./plots/roe.html" frameborder="0" width="700" height="600"></iframe>
+        </figure>
+
+        <p>Dessa forma, uma maneira complementar de se comparar os retornos dos diferentes setores analisados é por meio de um indicador de rentabilidade que pondere a magnitude do resultado da companhia pelo seu tamanho. Nessa linha de raciocínio, elaboramos um indicador calculado pela razão entre o lucro/prejuízo e o patrimônio líquido que representa uma estimativa da rentabilidade das empresas controladas pelos Estados. O gráfico abaixo apresenta os principais resultados.</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Estimativa de rentabilidade das empresas</h3>
+                <h4 class="plot-subtitle">Rentabilidade definida como a razão entre lucro ou prejuízo e patrimônio líquido. As empresas são representadas por pontos, da seguinte forma:
+                <br/> <span style="color:#008080; font-family: 'Source Sans Pro';">&#9679; rentabilidade positiva</span> <span style="color:#DC143C; font-family: 'Source Sans Pro';">&#9679; rentabilidade negativa</span> 
+                <br/>Estão excluídas 63 empresas sem informação de lucro / prejuízo ou patrimônio líquido, ou que apresentaram patrimônio líquido menor ou igual a zero. Para uma melhor visualização, não estão apresentadas 8 empresas para as quais o valor do indicador de rentabilidade ficou abaixo de -200%, e 4 empresas para quais o indicador de rentabilidade foi superior a +200%.</h4>
+                <img class="plot" style="width:95%;" src="./plots/roe2.png" alt="Gráfico do indicador de rentabilidade.">
+        </figure>
+
+        <p>Novamente, observa-se a conclusão de que a quantidade relativa de estatais dependentes com rentabilidade negativa (49,3%) é quase o dobro das estatais não dependentes (26%). Ao se explorar os números das rentabilidades pelo critério de dependência e por segmentos empresariais, verifica-se que as empresas do setor Portos e Hidrovias que são dependentes possuem a maior média de rentabilidade para o ano de 2019, com uma cifra de 77%. Também se destacam as empresas não dependentes de Desenvolvimento, Distribuição de Gás, Saúde e Energia, com rentabilidades médias de 55%, 25%, 24% e 21% respectivamente. Com rentabilidades médias negativas, ressaltam-se as empresas dependentes de outros segmentos (-160%), de saúde (-26%) e de turismo (-10%) e as não dependentes dos segmentos de Pesquisa e Assistência Técnica (-37%) e Transportes (-14%).</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Estimativa de rentabilidade média das empresas por setor</h3>
+                <h4 class="plot-subtitle">Rentabilidade definida como a razão entre lucro ou prejuízo e patrimônio líquido. Estão excluídas 76 empresas sem informação de lucro / prejuízo ou patrimônio líquido, ou que apresentaram patrimônio líquido menor ou igual a zero. Para evitar inviabilizar e distorcer a visualização, também está excluída a Companhia de Gás do Piauí, em razão de a rentabilidade calculada a partir dos dados declarados ter atingindo um valor de -6.650%. O tamanho dos pontos sugere a quantidade de empresas que foram consideradas no cálculo da média indicada.</h4>   
+                <ul class="plot-legenda">
+                        <li><span class="plot-legenda-key" style = "background-color: #f2ac29; border-radius: 100%;"></span> Média Dependentes</li>
+                        <li><span class="plot-legenda-key" style = "background-color: #718c35; border-radius: 100%;"></span> Média Não Dependentes</li>       
+                </ul>
+
+                <img class="plot" style="width:85%;" src="./plots/roe_dotplot.png" alt="Gráfico do indicador de rentabilidade.">
+                <p class="caption">Observar que a posição do ponto que ilustra a rentabilidade média das empresas dependentes no setor "OUTROS" não corresponde ao seu valor de -160%, para evitar achatar e dificultar a visualização de todos os demais pontos. Para indicar essa quebra na escala, a linha correspondente é tracejada, e não contínua.</p>
+        </figure>
+        
+        <p>A maioria das empresas que pagou PLR (Participação nos Lucros e Resultados) ou RVA (Remuneração Variável Anual) é não dependente. Considerando-se apenas esse grupo, os principais setores que efetuaram pagamento de algum tipo de participação nos lucros foram Energia (64%), Distribuição de Gás (62%), Financeiro (58%) e Saneamento (55%).</p>
+        
+        <figure class="plot-container">
+            <h3 class="plot-title">Pagamento de Participação nos Lucros</h3>
+            <h4 class="plot-subtitle">Cada quadrado representa uma empresa, os números indicam o percentual de empresas do setor que pagaram PLR, para as dependentes e para as não dependentes. Estão excluídas nove empresas para as quais não foram fornecidas as informações necessárias.</h4>
+            <ul class="plot-legenda">
+                <li><span class="plot-legenda-key" style = "background-color: #735D36;"></span> Empresa que pagou PLR</li>
+                <li><span class="plot-legenda-key" style = "background-color: #F4C773;"></span> Empresa que não pagou PLR</li>         
+            </ul>
+            <img class="plot" src="./plots/plr.png" alt="Visualização da quantidade de empresas que pagaram ou não participação nos lucros"/>
+        </figure>  
+        
+        <p>O pagamento de PLR ou RVA para estatais federais é regulamentado pela  CCE n° 10, de 30 de maio de 1995, e não permite o pagamento de distribuição de lucros caso a empresa tenha recebido recursos do Tesouro Nacional, seja para o pagamento de despesas correntes ou de capital, o que já impede a distribuição de lucros por estatais dependentes. O regulamento também não permite distribuição de lucros por estatais que tenham registrado prejuízos em exercícios anteriores ainda não amortizados por exercícios posteriores. No entanto, essas regras não são válidas para as estatais estaduais, que seguem regras específicas conforme o Estado.</p>
+        
+        <p>Assim, quatro empresas, sendo duas dependentes, informaram terem realizado pagamentos de PLR ou RVA em 2019 mesmo apresentando prejuízos nos exercícios de 2018 e 2019. Outras duas empresas dependentes, que apresentaram lucro em 2019, também pagaram PLR ou RVA. Veja abaixo que estatais foram essas:</p>
+
+        <figure class="plot-container">
+            <h3 class="plot-title">Pagamento de Participação nos Lucros</h3>
+            <table>
+                <tr>
+                    <th>Estatal</th>
+                    <th>Estado</th>
+                    <th>Dependência</th>
+                    <th>Apresentou prejuízo em 2018 e 2019</th>
+                </tr>
+                <tr>
+                    <td>CIA DE ENGENHARIA HÍDRICA E DE SANEAMENTO DA BAHIA - CERB</td>
+                    <td>BA</td>
+                    <td>Dependente</td>
+                    <td>Não</td>
+                </tr>
+                <tr>
+                    <td>INSTITUTO BRB DE DESENVOLVIMENTO HUMANO E RESPONSABILIDADE SOCIAL</td>
+                    <td>DF</td>
+                    <td>Dependente</td>
+                    <td>Não</td>
+                </tr>
+                <tr>
+                    <td>CETESB - COMPANHIA AMBIENTAL DO ESTADO DE SÃO PAULO</td>
+                    <td>SP</td>
+                    <td>Dependente</td>
+                    <td>Sim</td>
+                </tr>
+                <tr>
+                    <td>COMPANHIA PAULISTA DE TRENS METROPOLITANOS – CPTM</td>
+                    <td>SP</td>
+                    <td>Dependente</td>
+                    <td>Sim</td>
+                </tr>
+                <tr>
+                    <td>COMPANHIA DO METROPOLITANO DE SÃO PAULO-METRÔ</td>
+                    <td>SP</td>
+                    <td>Não Dependente</td>
+                    <td>Sim</td>
+                </tr>
+                <tr>
+                    <td>EMPRESA METROPOLITANA DE TRANSPORTES URBANOS DE SÃO PAULO S/A - EMTU-SP</td>
+                    <td>SP</td>
+                    <td>Não Dependente</td>
+                    <td>Sim</td>
+                </tr>
+            </table>
+        </figure>
+        
+        <h2>O estado administrador</h2>
+
+        <p>Estruturas de governança tem como objetivo principal coordenar a empresa para atingir seus objetivos, assim podem surgir diferentes comitês ou conselhos que atuam focados em áreas específicas (por exemplo, fiscal, administração e auditoria) visando auxiliar a empresa em seus resultados.</p>
+     
+        <p>Apesar de a presença de qualquer comitê ou conselho dentre os citados acima já indicar que a empresa possui algum tipo de governança, a análise a seguir irá considerar que há uma estrutura de governança apenas no caso de estatais que possuem concomitante três estruturas: Conselho Fiscal, Conselho de Administração e Comitê de Auditoria. Essa decisão foi tomada devido ao fato de que diferentes legislações obrigam as estatais a possuírem tais estruturas de acordo com suas características, assim, praticamente todas as estatais possuem ao menos uma das estruturas.</p>
+        
+        <div class="container-grupo-com-quadro">
+            
+        <p><span class = "termo-destaque-lateral">Legislações específicas</span> estabelecem a necessidade de tais conselhos/comitês nas estatais, de acordo com suas características. A Lei 6.404/1976, que dispõe sobre as Sociedades por Ações, prevê a obrigatoriedade de Conselho Fiscal para toda S.A e de Conselho de Administração para toda S.A de capital aberto.  A Lei 13.303/2016 prevê a constituição de Conselhos Fiscais, Comitê de Auditoria e Conselho de Administração.</p>
+        
+        <aside class="conteudo-destaque-lateral">As companhias abertas e as de capital autorizado terão, obrigatoriamente, conselho de administração (Lei 6.404 de 15 de dezembro de 1976, art. 138, § 2°). A companhia terá um conselho fiscal e o estatuto disporá sobre seu funcionamento, de modo permanente ou nos exercícios sociais em que for instalado a pedido de acionistas. (Lei 6.404 de 15 de dezembro de 1976, art. 161, caput). A lei que autorizar a criação da empresa pública e da sociedade de economia mista deverá dispor sobre as diretrizes e restrições a serem consideradas na elaboração do estatuto da companhia, em especial sobre:
+I - constituição e funcionamento do Conselho de Administração, observados o número mínimo de 7 (sete) e o número máximo de 11 (onze) membros;
+(...)
+IV - constituição e funcionamento do Conselho Fiscal, que exercerá suas atribuições de modo permanente;
+V - constituição e funcionamento do Comitê de Auditoria Estatutário;
+(...) . (Lei 13.303 de 30 de junho de 2016, art. 13)</aside>
+
+        
+        </div>
+        
+        <p>Considerando-se as estatais não dependentes, os setores com melhor governança, ou seja, que possuem as três estruturas (administração, fiscal e auditoria) foram Pesquisa e Assistência Técnica (100%), Outros (100%), Energia (91%), Saneamento (88%) e Financeiro (78%); já os com as piores estruturas de governança foram Desenvolvimento (33%), Comunicação (33%), Transporte (30%) e Abastecimento (12%), nos quais menos de 40% das estatais apresentam as três estruturas.</p>
+        
+        <p>Já no caso das estatais dependentes, o melhor resultado aparece para o setor de Portos e Hidrovias (67%). Entretanto, a maioria das estatais dependentes não possuem as três estruturas de governança, sendo que em boa parte dos setores não há nenhuma empresa que atende a esse critério.</p> 
+        
+        <!--<figure class="plot-container">
+            <h3 class="plot-title">Presença de estrutura de governança por setor</h3>
+            <h4 class="plot-subtitle">Percentuais das empresas que possuem estruturas de governança completas (Conselho de Administração, Conselho Fiscal e Comitê de Auditoria) por setor e por tipo de dependência.</h4>   
+            <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #f2ac29; border-radius: 100%;"></span> Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #718c35; border-radius: 100%;"></span> Não Dependentes</li>       
+            </ul>
+
+            <img class="plot" style="width:85%;" src="./plots/gov_dotplot.png" alt="O gráfico mostra que o percentual de empresas que possuem todas as três estruturas de governança é maior para as empresas não dependentes em praticamente todos os setores. Portos e Hidrovias é o único setor em que o percentual de empresas dependentes com a estrutura de governança completa é maior do que o de não dependentes.">
+        </figure>-->
+
+        <p>Os estados com melhores estruturas de governança foram Tocantins, Roraima, e Piauí, todas as estatais não dependentes destes estados possuem as três estruturas de governança, e no caso do Piauí 40% das estatais dependentes também possuem as três estruturas. Rondônia, Maranhão e Acre não possuem as três estruturas juntas para nenhuma de suas estatais.</p> 
+        
+        <figure class="plot-container">
+            <h3 class="plot-title">Presença de estrutura de governança por estado</h3>
+            <h4 class="plot-subtitle">Percentuais das empresas que possuem estruturas de governança completas (Conselho de Administração, Conselho Fiscal e Comitê de Auditoria) por estado e por tipo de dependência.</h4>   
+            <ul class="plot-legenda">
+                    <li><span class="plot-legenda-key" style = "background-color: #f2ac29; border-radius: 100%;"></span> Dependentes</li>
+                    <li><span class="plot-legenda-key" style = "background-color: #718c35; border-radius: 100%;"></span> Não Dependentes</li>       
+            </ul>
+
+            <img class="plot" style="width:85%;" src="./plots/gov_est_dotplot.png" alt="Da mesma forma, em quase todos os estados o percentual de empresas não dependentes que possuem a estrutura de governança é maior do que o de empresas dependentes.">
+        </figure>
+
+        <p>O gráfico abaixo mostra que as empresas mais lucrativas possuem as três estruturas de governança. 81% das empresas que possuem estrutura de governança apresentaram rentabilidade positiva, enquanto entre as que não possuem esse valor foi de 52%.</p>
+        
+        <figure class="plot-container">
+            <h3 class="plot-title">Estimativa de rentabilidade das empresas pelo critério de Governança</h3>
+            <h4 class="plot-subtitle">Rentabilidade definida como a razão entre lucro ou prejuízo e patrimônio líquido. As empresas são representadas por pontos, da seguinte forma:
+            <br/> <span style="color:#008080; font-family: 'Source Sans Pro';">&#9679; rentabilidade positiva</span> <span style="color:#DC143C; font-family: 'Source Sans Pro';">&#9679; rentabilidade negativa</span> 
+            <br/>Estão excluídas 63 empresas sem informação de lucro / prejuízo ou patrimônio líquido, ou que apresentaram patrimônio líquido menor ou igual a zero. Para uma melhor visualização, não estão apresentadas 8 empresas para as quais o valor do indicador de rentabilidade ficou abaixo de -200%, e 4 empresas para quais o indicador de rentabilidade foi superior a +200%.</h4>
+            <img class="plot" style="width:95%;" src="./plots/roe_gov.png" alt="Gráfico do indicador de rentabilidade, mostrando que 81% das empresas com estrutura de governança tiveram rentabilidade positiva. Entre as empresas que não possuem essa estrutura, a rentabilidade foi positiva para 52,3%.">
+        </figure> 
+
+        <h2>O estado acionista</h2>
+
+        <p>Quais os resultados das empresas para o Estado Acionista?</p>
+
+        <p>Há uma relação financeira entres os Estados e suas estatais que se dá, sobretudo, por meio de:</p>
+
+        <p><span style = "color: #008080; font-weight: bold;">&#9650; Dividendos</span> &mdash; recursos, decorrentes de uma parte do lucro apurado, que as estatais transferem para o Estado.</p>
+
+        <p><span style = "color: #DC143C; font-weight: bold;">&#9660; Subvenções e Aumento de Capital</span> &mdash; recursos que os Estados transferem para as empresas.</p>
+
+        <p>Quando os Estados recebem mais recursos por meio de dividendos do que transferem por meio de subvenções ou aumento de capital, pode-se dizer que as estatais contribuem para o resultado fiscal do Estado. No entanto, quando as saídas de recursos dos Estados são maiores que as entradas, podemos dizer que tais empresas oneram o resultado fiscal do Estado.</p>
+
+        <p>De forma geral, ao longo de 2019, os Estados transferiram R$ 2 bilhões como reforço de capital, R$ 4,4 bilhões como subvenções e receberam R$ 1,6 bilhão de dividendos das empresas, ou seja, houve repasses líquidos para as estatais da ordem de R$ 4,8 bilhões.</p>
+        
+        <p>No entanto, é importante ressaltar que 71 das 263 empresas (27%) não informaram valores para quaisquer dessas operações &mdash; sejam dividendos, subvenções ou aumentos de capital.</p>
+
+        <p>O mapa abaixo mostra, em termos agregados, o resultado líquido (entradas menos saídas) dos Estados nas suas relações com as estatais estaduais. Em 2019, os únicos Estados que receberam mais recursos das estatais do que transferiram foram Minas Gerais, Mato Grosso do Sul e Rio Grande do Sul.</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Resultado Líquido das Empresas para o Estado Acionista</h3>
+                <img class="plot" style="width:85%;" src="./plots/mapa_result.png" alt="Mapa colorido conforme o valor do resultado líquido das empresas">
+        </figure>  
+        
+        <p>Apesar de a LRF considerar como dependente estatais que receberam recursos do ente, à exceção de aportes de capital para aumento de participação acionária, R$ 47 milhões foram repassados para as estatais não dependentes a título de subvenções.</p> 
+        
+        <p>Dentre as estatais dependentes, nenhuma repassou dividendos aos estados. Os estados repassaram R$4.348 milhões às estatais a título de subvenções e R$ 321 milhões a título de reforço de capital.</p>
+        
+        <figure class="plot-container">
+                <h3 class="plot-title">Resultado Líquido das Empresas para o Estado Acionista &mdash; dependentes e não dependentes</h3>
+                <h4 class="plot-subtitle">Valores em R$ milhões</h4>
+                <img class="plot" style="width:85%;" src="./plots/waterfall.png" alt="Gráfico waterfall do resultado líquido das empresas">
+            </figure> 
+
+    </section>
+
+    <section class="destaque" id="nota-final">
+
+        <h3>Uma breve nota sobre transparência</h3>
+
+        <p>Esta história de dados foi programada "artesanalmente", utilizando apenas os padrões abertos da web. Toda a análise e todos os gráficos foram elaborados utilizando R, um ambiente de software livre para computação estatística e gráficos (entre várias outras coisas).</p>
+
+        <p>O Tesouro Nacional vem se esforçando para transformar o conceito de Transparência para algo além da mera disponibilização de dados. Assim, além dos dados, disponibilizamos o repositório com o código em R e demais arquivos utilizados nas análises e na produção dos gráficos.</p>
+
+        <p>O repositório está disponível em:</p>
+
+        <p><a href="https://github.com/tchiluanda/estatais-estados-2020" target="_blank">https://github.com/tchiluanda/estatais-estados-2020</a></p>
+    </section>
+
+
+    <script src="./vis/d3.v6.min.js"></script>
+    <script src="./vis/topojson.min.js"></script>
+    <script src="./vis/vis-mapa.js"></script>
+    <script src="./vis/vis-cards.js"></script>
+    
+</body>
+</html>

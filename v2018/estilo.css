@@ -1,0 +1,275 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', Georgia, serif;
+}
+
+header.abertura {
+    width: 100%
+}
+
+header img.logo-tt {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    top: 20px;
+}
+
+header img.abertura {
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    object-fit: cover;
+    filter: blur(5px);
+}
+
+header div.sobre-imagem {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 680px;
+}
+
+header div.sobre-imagem h1 {
+    font-size: 4rem;
+    margin: 0;
+    line-height: 1.2;
+    color: #f2ac29;
+}
+
+header div.sobre-imagem h2 {
+    font-weight: normal;
+    color: ghostwhite;
+    margin: 1em 0;
+}
+
+header div.sobre-imagem p {
+    font-weight: normal;
+    color: white;
+    font-size: 18px;
+}
+
+section.content {
+    color: rgb(59,55,52);
+    max-width: 680px;
+    font-size: 18px;
+    line-height: 1.5;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section.content ol.partes {
+    font-style: italic;
+}
+
+section.content h2 {
+    margin-top: 2em;
+    color: maroon;
+}
+
+section.content blockquote {
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+section.content div.container-grupo-com-quadro {
+    position: relative; /* isso para o aside, que é filho e está com position: absolute, ser posicionado relativo a este div!*/
+}
+
+section.content span.termo-destaque-lateral {
+    background-color: antiquewhite;
+}
+
+section.content aside.conteudo-destaque-lateral {
+    position: absolute;
+    right: calc(50% - 340px - 200px - 20px);
+    width: 200px;
+    font-size: 13px;
+    background-color: antiquewhite;
+    padding: 10px;
+    top: 0; /*só funciona se o pai for relative */
+}
+
+section.content aside.conteudo-destaque-lateral a{
+    text-decoration: none;
+    border-bottom: 1px solid rgb(59,55,52);
+}
+
+section.content aside.conteudo-destaque-lateral a:hover{
+    background-color: rgb(59,55,52);
+    color: antiquewhite;
+}
+
+section.content img.gif {
+    display: block;
+    width: 75%;
+    margin: auto;
+}
+
+section.content div.grafico-vetado {
+    display: none;
+}
+
+section.content figure.plot-container {
+    margin: 0;
+}
+
+section.content figure.plot-container img.plot, img.plot {
+    display: block;
+    width: 75%;
+    margin: auto;
+}
+
+section.content figure.plot-container h3.plot-title {
+    border-left: 5px solid maroon;
+    padding-left: 15px;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+section.content figure.plot-container h4.plot-subtitle {
+    padding-left: 20px;
+    margin-top: 0;
+    font-size: 14px;
+    color: #333;
+    font-weight: normal;
+    margin-bottom: 5px;
+}
+
+section.content figure.plot-container ul.plot-legenda {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    color: #444;
+    margin-top: 0;
+    font-size: 14px;
+    padding-left: 20px; /* 15 + 5 da borda do h3, ver acima */
+    font-family: Source Sans Pro;
+}
+
+section.content figure.plot-container ul.plot-legenda > li {
+    list-style-type: none;
+    padding-right: 10px;
+
+}
+
+section.content figure.plot-container ul.plot-legenda span.plot-legenda-key {
+    
+    width: 14px;
+    height: 14px;
+    display: inline-block;
+    vertical-align: text-bottom;
+    margin-right: 2px;
+}
+
+section.content video {
+    width: 100%;
+}
+
+section.destaque {
+    margin-top: 60px;
+    background-color: #333;
+    color: silver;
+    font-family: "Source Sans Pro";
+    font-size: 14px;
+    padding: 10px;
+}
+
+section.destaque h3 {
+    margin: 1em auto;
+    max-width: 680px;
+    font-family: "Lora";
+}
+
+section.destaque p {
+    margin: 1em auto;
+    max-width: 680px;
+}
+
+section.destaque a {
+    color: ghostwhite;
+    text-decoration: none;
+    padding: 5px 0;
+    border-bottom: 2px solid ghostwhite;
+}
+
+section.destaque a:hover{
+    color: #333;
+    background-color: ghostwhite;
+
+}
+
+
+@media (max-width: 1080px) {
+    section.content aside.conteudo-destaque-lateral {
+        position: static;
+        right: auto;
+        width: 100%;
+        font-size: 13px;
+        background-color: antiquewhite;
+        padding: 10px;
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 680px){
+    header div.sobre-imagem {
+        position: absolute;
+        bottom: 5%;
+        left: 5%;
+        transform: unset;
+        width: unset;
+    }
+
+    header div.sobre-imagem h1 {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1.2;
+        color: #f2ac29;
+    }
+
+    header div.sobre-imagem h2 {
+        font-size: 1.4rem;
+    }
+
+    header div.sobre-imagem p {
+        font-weight: normal;
+        color: white;
+        font-size: 16px;
+    }
+
+    section.content {
+        font-size: 16px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+
+    section.content img.gif,
+    section.content figure.plot-container img.plot, img.plot  {
+        width: 100%;
+    }
+
+    section.content figure.plot-container ul.plot-legenda {
+        font-size: 12px;
+    }
+
+    section.content figure.plot-container ul.plot-legenda span.plot-legenda-key {
+    
+        width: 12px;
+        height: 12px;
+        margin-right: 1px;
+    }
+
+    section.content iframe.plot-interativo {
+        width: 100%;
+    }
+
+    
+
+}

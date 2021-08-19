@@ -1,0 +1,1087 @@
+"";"Estado";"emp";"Sigla";"Natureza";"dep";"seg";"Partcipação";"PL";"Lucros / Prejuízos";"Dividendos";"Passivo Assumido";"Subvenção";"Reforço de Capital";"Resultado para o Estado Acionista";"lucros";"CODUF";"REGIAO";"CODREG";"result";"ROE";"PL_formatado";"Empresa";"cat_ROE";"seg_principais"
+"1";"AC";"EMP. DE PROC. DE DADOS DO ACRE S/A - ACREDATA";NA;"EP";"Dependente";"INFORMÁTICA";"1";52502677,98;"7305574.7400000002";NA;NA;"8742169.7599999998";NA;-8742169,76;7305574,74;12;"Norte";1;7305574,74;0,139146706817182;"    52.502.677,98";"EMP. DE PROC. DE DADOS DO ACRE S/A - ACREDATA (AC)
+Dependência: Dependente
+Setor: INFORMÁTICA
+PL: R$     52.502.677,98
+Lucros / Prejuízos no ano: R$     7.305.574,74
+ROE: 14%";"pos";"INFORMÁTICA"
+"2";"AC";"COMPANHIA INDUSTRIAL DE LATICINIOS";NA;"SEM";"Dependente";"SERVIÇOS PÚBLICOS";"0.83";41354413,37;"-5249854.38";NA;"42235798.060000002";"2471640.77";NA;-2471640,77;-5249854,38;12;"Norte";1;-5249854,38;-0,12694786244528;"    41.354.413,37";"COMPANHIA INDUSTRIAL DE LATICINIOS (AC)
+Dependência: Dependente
+Setor: SERVIÇOS PÚBLICOS
+PL: R$     41.354.413,37
+Lucros / Prejuízos no ano: R$    -5.249.854,38
+ROE: -13%";"neg";"SERVIÇOS PÚBLICOS"
+"3";"AC";"COMPANHIA DE DESENVOL IND DO EST DO ACRE-CODISACRE";NA;"EP";"Dependente";"SERVIÇOS PÚBLICOS";"0.99";7869740,06;"-3372681.29";NA;"2670849.4700000002";"4282165.53";NA;-4282165,53;-3372681,29;12;"Norte";1;-3372681,29;-0,428563238974376;"     7.869.740,06";"COMPANHIA DE DESENVOL IND DO EST DO ACRE-CODISACRE (AC)
+Dependência: Dependente
+Setor: SERVIÇOS PÚBLICOS
+PL: R$      7.869.740,06
+Lucros / Prejuízos no ano: R$    -3.372.681,29
+ROE: -43%";"neg";"SERVIÇOS PÚBLICOS"
+"4";"AC";"CIA DE SANEAMENTO DO ESTADO DO ACRE-SANACRE";NA;"SEM";"Dependente";"SANEAMENTO";"0.99760000000000004";2897848,98;"0";NA;"18113185.359999999";"3076558.54";NA;-3076558,54;0;12;"Norte";1;0;0;"     2.897.848,98";"CIA DE SANEAMENTO DO ESTADO DO ACRE-SANACRE (AC)
+Dependência: Dependente
+Setor: SANEAMENTO
+PL: R$      2.897.848,98
+Lucros / Prejuízos no ano: R$             0,00
+ROE: 0%";"neg";"SANEAMENTO"
+"5";"AL";"Agência de Fomento de Alagoas S/A - DESENVOLVE - dados 2017";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"0.99980000000000002";34705000;"-1262";NA;NA;NA;NA;0;-1262;27;"Nordeste";2;-1262;-3,63636363636364e-05;"    34.705.000,00";"Agência de Fomento de Alagoas S/A - DESENVOLVE - dados 2017 (AL)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     34.705.000,00
+Lucros / Prejuízos no ano: R$        -1.262,00
+ROE: 0%";"neg";"DESENVOLVIMENTO"
+"6";"AL";"GAS DE ALAGOAS S/A - ALGAS";"ALGÁS";"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";85978000;"22825000";NA;NA;NA;NA;NA;22825000;27;"Nordeste";2;22825000;0,265474888925074;"    85.978.000,00";"GAS DE ALAGOAS S/A - ALGAS (AL)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$     85.978.000,00
+Lucros / Prejuízos no ano: R$    22.825.000,00
+ROE: 27%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"7";"AL";"Laboratório Industrial Farmacêutico de Alagoas S.A. – LIFAL";"LIFAL";"SEM";"Não Dependente";"OUTRO";"Não Declarado";5650868;"-3372260";NA;NA;NA;NA;NA;-3372260;27;"Nordeste";2;-3372260;-0,596768496450457;"     5.650.868,00";"Laboratório Industrial Farmacêutico de Alagoas S.A. – LIFAL (AL)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$      5.650.868,00
+Lucros / Prejuízos no ano: R$    -3.372.260,00
+ROE: -60%";"bem_neg";"Demais"
+"8";"AL";"Companhia de Edição, Impressão e Publicação de Alagoas - CEPAL";"CEPAL";"EP";"Não Dependente";"COMUNICAÇÕES";"Não Declarado";6721921,47;"87201.13";NA;NA;NA;NA;NA;87201,13;27;"Nordeste";2;87201,13;0,0129726493219505;"     6.721.921,47";"Companhia de Edição, Impressão e Publicação de Alagoas - CEPAL (AL)
+Dependência: Não Dependente
+Setor: COMUNICAÇÕES
+PL: R$      6.721.921,47
+Lucros / Prejuízos no ano: R$        87.201,13
+ROE: 1%";"pos";"Demais"
+"9";"AM";"Companhia de Saneamento do Amazonas - Cosama";NA;"SEM";"Dependente";"SANEAMENTO";"0.997";8060890,02;"-4816384.63";NA;NA;"21257052.620000001";"600000";-21857052,62;-4816384,63;13;"Norte";1;-4816384,63;-0,597500352696786;"     8.060.890,02";"Companhia de Saneamento do Amazonas - Cosama (AM)
+Dependência: Dependente
+Setor: SANEAMENTO
+PL: R$      8.060.890,02
+Lucros / Prejuízos no ano: R$    -4.816.384,63
+ROE: -60%";"bem_neg";"SANEAMENTO"
+"10";"AM";"Empresa Estadual de Turismo";NA;"EP";"Dependente";"OUTRO";"1";6468786,24;"-414186.43";NA;NA;"80293551.510000005";NA;-80293551,51;-414186,43;13;"Norte";1;-414186,43;-0,0640284613887628;"     6.468.786,24";"Empresa Estadual de Turismo (AM)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$      6.468.786,24
+Lucros / Prejuízos no ano: R$      -414.186,43
+ROE: -6%";"neg";"Demais"
+"11";"AM";"Companhia de Gás do Amazonas - Cigás";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";162734777,41;"90872587.129999995";12325387,83;NA;NA;NA;NA;90872587,13;13;"Norte";1;90872587,13;0,558409140174459;"   162.734.777,41";"Companhia de Gás do Amazonas - Cigás (AM)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$    162.734.777,41
+Lucros / Prejuízos no ano: R$    90.872.587,13
+ROE: 56%";"bem_pos";"DISTRIBUIÇÃO DE GÁS"
+"12";"AM";"CIAMA";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.99990000000000001";26231651,09;"2288299.2799999998";NA;NA;"10083511.880000001";NA;NA;2288299,28;13;"Norte";1;2288299,28;0,0872342832004327;"    26.231.651,09";"CIAMA (AM)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     26.231.651,09
+Lucros / Prejuízos no ano: R$     2.288.299,28
+ROE: 9%";"pos";"DESENVOLVIMENTO"
+"13";"AM";"PRODAM - PROC. DE DADOS AMAZONAS S.A.";NA;"SEM";"Não Dependente";"INFORMÁTICA";"0.99890000000000001";50688877,29;"-4966883.4400000004";NA;NA;NA;NA;NA;-4966883,44;13;"Norte";1;-4966883,44;-0,0979876396074741;"    50.688.877,29";"PRODAM - PROC. DE DADOS AMAZONAS S.A. (AM)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$     50.688.877,29
+Lucros / Prejuízos no ano: R$    -4.966.883,44
+ROE: -10%";"neg";"INFORMÁTICA"
+"14";"AM";"AGÊNCIA DE FOMENTO DO ESTADO DO AMAZONAS";NA;"EP";"Não Dependente";"FINANCEIRO";"0.99980000000000002";85948217,36;"-8707340.7200000007";NA;NA;NA;NA;NA;-8707340,72;13;"Norte";1;-8707340,72;-0,101309148548465;"    85.948.217,36";"AGÊNCIA DE FOMENTO DO ESTADO DO AMAZONAS (AM)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$     85.948.217,36
+Lucros / Prejuízos no ano: R$    -8.707.340,72
+ROE: -10%";"neg";"FINANCEIRO"
+"15";"BA";"EMPRESA BAIANA DAS ÁGUAS E SANEAMENTO";NA;"SEM";"Dependente";"SANEAMENTO";"0.99690000000000001";5832992759,9065;"335107288.69";NA;"56759544.520000003";NA;"135895601.53999999";-135895601,54;335107288,69;29;"Nordeste";2;335107288,69;0,0574503179557129;" 5.832.992.759,91";"EMPRESA BAIANA DAS ÁGUAS E SANEAMENTO (BA)
+Dependência: Dependente
+Setor: SANEAMENTO
+PL: R$  5.832.992.759,91
+Lucros / Prejuízos no ano: R$   335.107.288,69
+ROE: 6%";"pos";"SANEAMENTO"
+"16";"BA";"COMPANHIA  DE GAS DA BAHIA - BAHIAGAS";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";600289554,28;"116659997.94999993";16246971,57;NA;NA;NA;NA;116659997,95;29;"Nordeste";2;116659997,95;0,194339543505674;"   600.289.554,28";"COMPANHIA  DE GAS DA BAHIA - BAHIAGAS (BA)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$    600.289.554,28
+Lucros / Prejuízos no ano: R$   116.659.997,95
+ROE: 19%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"17";"BA";"BAHIAINVESTE - EMPRESA BAIANA DE ATIVOS S/A";NA;"SEM";"Não Dependente";"GESTÃO DE ATIVOS";"0.97";2166024,76;"-1958974.57";NA;NA;NA;"7000000";NA;-1958974,57;29;"Nordeste";2;-1958974,57;-0,904410053927546;"     2.166.024,76";"BAHIAINVESTE - EMPRESA BAIANA DE ATIVOS S/A (BA)
+Dependência: Não Dependente
+Setor: GESTÃO DE ATIVOS
+PL: R$      2.166.024,76
+Lucros / Prejuízos no ano: R$    -1.958.974,57
+ROE: -90%";"bem_neg";"Demais"
+"18";"CE";"Empresa de Tecnologia da Informação do Ceará - ETICE";NA;"EP";"Dependente";"INFORMÁTICA";"N/A";5296778,28;"-2067194.3";NA;NA;"37133";NA;-37133;-2067194,3;23;"Nordeste";2;-2067194,3;-0,390273896833756;"     5.296.778,28";"Empresa de Tecnologia da Informação do Ceará - ETICE (CE)
+Dependência: Dependente
+Setor: INFORMÁTICA
+PL: R$      5.296.778,28
+Lucros / Prejuízos no ano: R$    -2.067.194,30
+ROE: -39%";"neg";"INFORMÁTICA"
+"19";"CE";"Companhia de Desenvolvimento do Ceará - CODECE";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"1";20011000;"-4804000";NA;NA;"2367464.0299999998";NA;-2367464,03;-4804000;23;"Nordeste";2;-4804000;-0,240067962620559;"    20.011.000,00";"Companhia de Desenvolvimento do Ceará - CODECE (CE)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     20.011.000,00
+Lucros / Prejuízos no ano: R$    -4.804.000,00
+ROE: -24%";"neg";"DESENVOLVIMENTO"
+"20";"CE";"Companhia de Água e Esgoto do Ceará - CAGECE";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.88649800000000001";2439788000;"132714000";82283974,9801337;NA;NA;"97240040.4572943";NA;132714000;23;"Nordeste";2;132714000;0,0543957097911786;" 2.439.788.000,00";"Companhia de Água e Esgoto do Ceará - CAGECE (CE)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  2.439.788.000,00
+Lucros / Prejuízos no ano: R$   132.714.000,00
+ROE: 5%";"pos";"SANEAMENTO"
+"21";"CE";"Companhia de Gás do Ceará - CEGÁS";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";189817000;"56674000";8015262,5;NA;"-";"0";NA;56674000;23;"Nordeste";2;56674000;0,298571782295579;"   189.817.000,00";"Companhia de Gás do Ceará - CEGÁS (CE)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$    189.817.000,00
+Lucros / Prejuízos no ano: R$    56.674.000,00
+ROE: 30%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"22";"CE";"Companhia Cearense de Transportes Metropolitanos - METROFOR";NA;"SEM";"Não Dependente";"TRANSPORTES";"0.99999998580000005";1126658138,78;"-180906336.50999999";NA;NA;"174514100.63";"174514100.63";NA;-180906336,51;23;"Nordeste";2;-180906336,51;-0,16056896966625;" 1.126.658.138,78";"Companhia Cearense de Transportes Metropolitanos - METROFOR (CE)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$  1.126.658.138,78
+Lucros / Prejuízos no ano: R$  -180.906.336,51
+ROE: -16%";"neg";"TRANSPORTES"
+"23";"CE";"Companhia do Complexo Industrial e Portuária do Pecém - CIPP S/A";NA;"SEM";"Não Dependente";"PORTOS E HIDROVIAS";"0.70009999999999994";1087767000;"48231000";NA;NA;NA;NA;NA;48231000;23;"Nordeste";2;48231000;0,0443394587259955;" 1.087.767.000,00";"Companhia do Complexo Industrial e Portuária do Pecém - CIPP S/A (CE)
+Dependência: Não Dependente
+Setor: PORTOS E HIDROVIAS
+PL: R$  1.087.767.000,00
+Lucros / Prejuízos no ano: R$    48.231.000,00
+ROE: 4%";"pos";"Demais"
+"24";"CE";"Centrais de Abastecimento do Ceará S/A - CEASA";NA;"SEM";"Não Dependente";"ABASTECIMENTO";"0.99";6591141,76;"1034020.73";NA;NA;"705000";NA;NA;1034020,73;23;"Nordeste";2;1034020,73;0,156880365747133;"     6.591.141,76";"Centrais de Abastecimento do Ceará S/A - CEASA (CE)
+Dependência: Não Dependente
+Setor: ABASTECIMENTO
+PL: R$      6.591.141,76
+Lucros / Prejuízos no ano: R$     1.034.020,73
+ROE: 16%";"pos";"ABASTECIMENTO"
+"25";"CE";"Companhia de Gestão dos Recursos Hídricos do Ceará - COGERH";NA;"SEM";"Não Dependente";"OUTRO";"0.99990000000000001";216820155;"21260071";NA;NA;NA;NA;NA;21260071;23;"Nordeste";2;21260071;0,0980539424482931;"   216.820.155,00";"Companhia de Gestão dos Recursos Hídricos do Ceará - COGERH (CE)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$    216.820.155,00
+Lucros / Prejuízos no ano: R$    21.260.071,00
+ROE: 10%";"pos";"Demais"
+"26";"CE";"Agência de Desenvolvimento do Estado do Ceará - ADECE";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.99990000000000001";102938731;"1758074";NA;NA;NA;NA;NA;1758074;23;"Nordeste";2;1758074;0,0170788388677533;"   102.938.731,00";"Agência de Desenvolvimento do Estado do Ceará - ADECE (CE)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    102.938.731,00
+Lucros / Prejuízos no ano: R$     1.758.074,00
+ROE: 2%";"pos";"DESENVOLVIMENTO"
+"27";"CE";"Companhia Adm. da Zona de Process. de Exportação do Ceará - ZPE CEARÁ";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0";13709431,55;"2875212";NA;NA;"0";NA;NA;2875212;23;"Nordeste";2;2875212;0,209725107092424;"    13.709.431,55";"Companhia Adm. da Zona de Process. de Exportação do Ceará - ZPE CEARÁ (CE)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     13.709.431,55
+Lucros / Prejuízos no ano: R$     2.875.212,00
+ROE: 21%";"pos";"DESENVOLVIMENTO"
+"28";"DF";"COMPANHIA URBANIZADORA DA NOVA CAPITAL - NOVACAP";NA;"EP";"Dependente";"URBANIZAÇÃO";"0.56120000000000003";608209581;"-162273342";NA;"130629761.31";"11831310.699999999";"31939919.82";-43771230,52;-162273342;53;"Centro-oeste";5;-162273342;-0,266804974912094;"   608.209.581,00";"COMPANHIA URBANIZADORA DA NOVA CAPITAL - NOVACAP (DF)
+Dependência: Dependente
+Setor: URBANIZAÇÃO
+PL: R$    608.209.581,00
+Lucros / Prejuízos no ano: R$  -162.273.342,00
+ROE: -27%";"neg";"Demais"
+"29";"DF";"TRASNPORTES COLETIVOS DE BRASILIA - TCB";NA;"EP";"Dependente";"TRANSPORTES";"0.99999130000000003";53173296;"-5552345";NA;NA;NA;NA;0;-5552345;53;"Centro-oeste";5;-5552345;-0,104419801247604;"    53.173.296,00";"TRASNPORTES COLETIVOS DE BRASILIA - TCB (DF)
+Dependência: Dependente
+Setor: TRANSPORTES
+PL: R$     53.173.296,00
+Lucros / Prejuízos no ano: R$    -5.552.345,00
+ROE: -10%";"neg";"TRANSPORTES"
+"30";"DF";"COMPANHIA METROPOLITANA DO  DF - METRÔ DF";NA;"EP";"Dependente";"TRANSPORTES";"0.99992999999999999";2063370883;"-49237721";NA;"3828583.68";"24423473.920000002";"31939919.82";-56363393,74;-49237721;53;"Centro-oeste";5;-49237721;-0,0238627584627014;" 2.063.370.883,00";"COMPANHIA METROPOLITANA DO  DF - METRÔ DF (DF)
+Dependência: Dependente
+Setor: TRANSPORTES
+PL: R$  2.063.370.883,00
+Lucros / Prejuízos no ano: R$   -49.237.721,00
+ROE: -2%";"neg";"TRANSPORTES"
+"31";"DF";"EMPRESA DE ASSISTENCIA TÉCNICA E EXTENSÃO RURAL DO DF - EMATER";NA;"EP";"Dependente";"ASSISTÊNCIA TÉCNICA";"1";9180659;"-14688079";NA;"296829.01";NA;NA;0;-14688079;53;"Centro-oeste";5;-14688079;-1,59989375490365;"     9.180.659,00";"EMPRESA DE ASSISTENCIA TÉCNICA E EXTENSÃO RURAL DO DF - EMATER (DF)
+Dependência: Dependente
+Setor: ASSISTÊNCIA TÉCNICA
+PL: R$      9.180.659,00
+Lucros / Prejuízos no ano: R$   -14.688.079,00
+ROE: -160%";"bem_neg";"Demais"
+"32";"DF";"COMPANHIA DE DESENVOLVIMENTO HABITACIONAL DO DF - CODHAB";NA;"EP";"Dependente";"URBANIZAÇÃO";"1";121015025;"-34768143";NA;"4103922.05";NA;NA;0;-34768143;53;"Centro-oeste";5;-34768143;-0,28730434919135;"   121.015.025,00";"COMPANHIA DE DESENVOLVIMENTO HABITACIONAL DO DF - CODHAB (DF)
+Dependência: Dependente
+Setor: URBANIZAÇÃO
+PL: R$    121.015.025,00
+Lucros / Prejuízos no ano: R$   -34.768.143,00
+ROE: -29%";"neg";"Demais"
+"33";"DF";"SOCIEDADE DE ABASTECIMENTO DE BRASILIA - SAB";NA;"EP";"Dependente";"ABASTECIMENTO";"0.92376999999999998";2402681;"109883";NA;"3620.67";NA;NA;0;109883;53;"Centro-oeste";5;109883;0,0457334952080613;"     2.402.681,00";"SOCIEDADE DE ABASTECIMENTO DE BRASILIA - SAB (DF)
+Dependência: Dependente
+Setor: ABASTECIMENTO
+PL: R$      2.402.681,00
+Lucros / Prejuízos no ano: R$       109.883,00
+ROE: 5%";"pos";"ABASTECIMENTO"
+"34";"DF";"COMPANHIA DE SANEAMENTO AMBIENTAL DO DF - CAESB";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.88080000000000003";1244028000;"-247439000";NA;NA;NA;"102887047.20999999";NA;-247439000;53;"Centro-oeste";5;-247439000;-0,198901471671056;" 1.244.028.000,00";"COMPANHIA DE SANEAMENTO AMBIENTAL DO DF - CAESB (DF)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  1.244.028.000,00
+Lucros / Prejuízos no ano: R$  -247.439.000,00
+ROE: -20%";"neg";"SANEAMENTO"
+"35";"DF";"COMPANHIA ENERGETICA DE BRASILIA - CEB";NA;"SEM";"Não Dependente";"ENERGIA";"0.80200000000000005";792250000;"8000000";984176,65;NA;NA;NA;NA;8e+06;53;"Centro-oeste";5;8e+06;0,0100978226569896;"   792.250.000,00";"COMPANHIA ENERGETICA DE BRASILIA - CEB (DF)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$    792.250.000,00
+Lucros / Prejuízos no ano: R$     8.000.000,00
+ROE: 1%";"pos";"ENERGIA"
+"36";"DF";"CENTRAIS DE ABASTECIMENTO DO DISTRITO FEDERAL  - CEASA";NA;"SEM";"Não Dependente";"ABASTECIMENTO";"0.99990000000000001";62275651;"5406510";7593210;NA;NA;NA;NA;5406510;53;"Centro-oeste";5;5406510;0,0868157925799925;"    62.275.651,00";"CENTRAIS DE ABASTECIMENTO DO DISTRITO FEDERAL  - CEASA (DF)
+Dependência: Não Dependente
+Setor: ABASTECIMENTO
+PL: R$     62.275.651,00
+Lucros / Prejuízos no ano: R$     5.406.510,00
+ROE: 9%";"pos";"ABASTECIMENTO"
+"37";"DF";"COMPANHIA IMOBILIARIA DE BRASILIA  - TERRACAP";NA;"EP";"Não Dependente";"URBANIZAÇÃO";"0.51";2533382768;"352593356";NA;NA;NA;NA;NA;352593356;53;"Centro-oeste";5;352593356;0,13917887200218;" 2.533.382.768,00";"COMPANHIA IMOBILIARIA DE BRASILIA  - TERRACAP (DF)
+Dependência: Não Dependente
+Setor: URBANIZAÇÃO
+PL: R$  2.533.382.768,00
+Lucros / Prejuízos no ano: R$   352.593.356,00
+ROE: 14%";"pos";"Demais"
+"38";"ES";"Ceasa - Centrais de Abastecimento do Espirito Santo S/A";NA;"SEM";"Dependente";"ABASTECIMENTO";"0.96199999999999997";9886684,31;"1102706.54";NA;NA;"7205124.0300000003";NA;-7205124,03;1102706,54;32;"Sudeste";3;1102706,54;0,111534515053207;"     9.886.684,31";"Ceasa - Centrais de Abastecimento do Espirito Santo S/A (ES)
+Dependência: Dependente
+Setor: ABASTECIMENTO
+PL: R$      9.886.684,31
+Lucros / Prejuízos no ano: R$     1.102.706,54
+ROE: 11%";"pos";"ABASTECIMENTO"
+"39";"ES";"Cohab - Companhia de Habitação e Urbanização do Estado do Espirito Santo - Em Liquidação";NA;"SEM";"Dependente";"HABITAÇÃO";"0.99134";19931000;"-7000";NA;NA;"1919000";NA;-1919000;-7000;32;"Sudeste";3;-7000;-0,000351211680297025;"    19.931.000,00";"Cohab - Companhia de Habitação e Urbanização do Estado do Espirito Santo - Em Liquidação (ES)
+Dependência: Dependente
+Setor: HABITAÇÃO
+PL: R$     19.931.000,00
+Lucros / Prejuízos no ano: R$        -7.000,00
+ROE: 0%";"neg";"Demais"
+"40";"ES";"Banestes - Banco do Estado do Espirito Santo";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.92369999999999997";1492013000;"181055000";53247611,05;NA;NA;NA;NA;181055000;32;"Sudeste";3;181055000;0,121349478858428;" 1.492.013.000,00";"Banestes - Banco do Estado do Espirito Santo (ES)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$  1.492.013.000,00
+Lucros / Prejuízos no ano: R$   181.055.000,00
+ROE: 12%";"pos";"FINANCEIRO"
+"41";"ES";"Bandes - Banco de Desenvolvimento do Espírito Santo S/A";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.84119999999999995";460018000;"1669000";20151949,78;NA;NA;NA;NA;1669000;32;"Sudeste";3;1669000;0,00362811889969523;"   460.018.000,00";"Bandes - Banco de Desenvolvimento do Espírito Santo S/A (ES)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$    460.018.000,00
+Lucros / Prejuízos no ano: R$     1.669.000,00
+ROE: 0%";"pos";"FINANCEIRO"
+"42";"ES";"Cesan - Companhia Espirito Santense de Saneamento";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.99729999999999996";2,297e+09;"191791000";NA;NA;NA;"140420000";NA;191791000;32;"Sudeste";3;191791000;0,0834962995211145;" 2.297.000.000,00";"Cesan - Companhia Espirito Santense de Saneamento (ES)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  2.297.000.000,00
+Lucros / Prejuízos no ano: R$   191.791.000,00
+ROE: 8%";"pos";"SANEAMENTO"
+"43";"ES";"Ceturb - Companhia Estadual de Transportes Coletivos de Passageiros do Espirito Santo";NA;"EP";"Não Dependente";"TRANSPORTES";"0.99999979999999999";64854708,02;"-1909150.31";NA;NA;NA;NA;NA;-1909150,31;32;"Sudeste";3;-1909150,31;-0,0294373433831705;"    64.854.708,02";"Ceturb - Companhia Estadual de Transportes Coletivos de Passageiros do Espirito Santo (ES)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$     64.854.708,02
+Lucros / Prejuízos no ano: R$    -1.909.150,31
+ROE: -3%";"neg";"TRANSPORTES"
+"44";"GO";"CASEGO - COMPANHIA DE ARMAZÉM E SILOS DO ESTADO DE GOIÁS S/A";NA;"EP";"Dependente";"ABASTECIMENTO";"1";22610909;"979081";NA;NA;NA;"120266";-120266;979081;52;"Centro-oeste";5;979081;0,0433012666584966;"    22.610.909,00";"CASEGO - COMPANHIA DE ARMAZÉM E SILOS DO ESTADO DE GOIÁS S/A (GO)
+Dependência: Dependente
+Setor: ABASTECIMENTO
+PL: R$     22.610.909,00
+Lucros / Prejuízos no ano: R$       979.081,00
+ROE: 4%";"pos";"ABASTECIMENTO"
+"45";"GO";"EMATER - AGENCIA GOIANA DE ASSISTENCIA TECNICA, EXTENSAO RURAL E PESQUISA AGROPECUARIA";NA;"EP";"Dependente";"ASSISTÊNCIA TÉCNICA";"1";45302624;"13581877";NA;NA;NA;"292463";-292463;13581877;52;"Centro-oeste";5;13581877;0,299803318236047;"    45.302.624,00";"EMATER - AGENCIA GOIANA DE ASSISTENCIA TECNICA, EXTENSAO RURAL E PESQUISA AGROPECUARIA (GO)
+Dependência: Dependente
+Setor: ASSISTÊNCIA TÉCNICA
+PL: R$     45.302.624,00
+Lucros / Prejuízos no ano: R$    13.581.877,00
+ROE: 30%";"pos";"Demais"
+"46";"GO";"METAGO - METAIS DE GOIAS S/A";NA;"EP";"Dependente";"GESTÃO DE ATIVOS";"1";21769816;"569030";NA;NA;NA;"487363";-487363;569030;52;"Centro-oeste";5;569030;0,0261384845880186;"    21.769.816,00";"METAGO - METAIS DE GOIAS S/A (GO)
+Dependência: Dependente
+Setor: GESTÃO DE ATIVOS
+PL: R$     21.769.816,00
+Lucros / Prejuízos no ano: R$       569.030,00
+ROE: 3%";"pos";"Demais"
+"47";"GO";"AGEHAB - AGENCIA GOIANA DE HABITAÇÃO S/A";NA;"SEM";"Não Dependente";"URBANIZAÇÃO";"0.99950000000000006";12428311;"-31723250";NA;NA;NA;"20000000";NA;-31723250;52;"Centro-oeste";5;-31723250;-2,55249888741922;"    12.428.311,00";"AGEHAB - AGENCIA GOIANA DE HABITAÇÃO S/A (GO)
+Dependência: Não Dependente
+Setor: URBANIZAÇÃO
+PL: R$     12.428.311,00
+Lucros / Prejuízos no ano: R$   -31.723.250,00
+ROE: -255%";"bem_neg";"Demais"
+"48";"GO";"CEASA - CENTRAIS DE ABASTECIMENTO DE GOIÁS";NA;"SEM";"Não Dependente";"ABASTECIMENTO";"1";13846608;"-925276";NA;NA;NA;NA;NA;-925276;52;"Centro-oeste";5;-925276;-0,0668232970847445;"    13.846.608,00";"CEASA - CENTRAIS DE ABASTECIMENTO DE GOIÁS (GO)
+Dependência: Não Dependente
+Setor: ABASTECIMENTO
+PL: R$     13.846.608,00
+Lucros / Prejuízos no ano: R$      -925.276,00
+ROE: -7%";"neg";"ABASTECIMENTO"
+"49";"GO";"CODEGO - COMPANHIA DE DESENVOLVIMENTO ECONÔMICO DE GOIÁS";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.96450000000000002";134359042;"-4690534";NA;NA;NA;NA;NA;-4690534;52;"Centro-oeste";5;-4690534;-0,0349104454019552;"   134.359.042,00";"CODEGO - COMPANHIA DE DESENVOLVIMENTO ECONÔMICO DE GOIÁS (GO)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    134.359.042,00
+Lucros / Prejuízos no ano: R$    -4.690.534,00
+ROE: -3%";"neg";"DESENVOLVIMENTO"
+"50";"GO";"GOIASFOMENTO - AGENCIA DE FOMENTO DE GOIAS";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.99980000000000002";185159930;"6976696";NA;NA;NA;NA;NA;6976696;52;"Centro-oeste";5;6976696;0,03767929702717;"   185.159.930,00";"GOIASFOMENTO - AGENCIA DE FOMENTO DE GOIAS (GO)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    185.159.930,00
+Lucros / Prejuízos no ano: R$     6.976.696,00
+ROE: 4%";"pos";"DESENVOLVIMENTO"
+"51";"GO";"GOIASGAS - AGENCIA GOIANA DE GAS CANALIZADO S/A";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.51";338000;"-465000";NA;NA;NA;NA;NA;-465000;52;"Centro-oeste";5;-465000;-1,37573964497041;"       338.000,00";"GOIASGAS - AGENCIA GOIANA DE GAS CANALIZADO S/A (GO)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$        338.000,00
+Lucros / Prejuízos no ano: R$      -465.000,00
+ROE: -138%";"bem_neg";"DISTRIBUIÇÃO DE GÁS"
+"52";"GO";"GOIASPARCERIAS - COMPANHIA DE INVESTIMENTO E PARCERIAS DO ESTADO DE GOIAS";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"1";232002027;"2789741";NA;NA;NA;NA;NA;2789741;52;"Centro-oeste";5;2789741;0,0120246406295407;"   232.002.027,00";"GOIASPARCERIAS - COMPANHIA DE INVESTIMENTO E PARCERIAS DO ESTADO DE GOIAS (GO)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    232.002.027,00
+Lucros / Prejuízos no ano: R$     2.789.741,00
+ROE: 1%";"pos";"DESENVOLVIMENTO"
+"53";"GO";"METROBUS - METROBUS TRANSPORTE COLETIVO S/A";NA;"SEM";"Não Dependente";"TRANSPORTES";"0.99209999999999998";26550;"-32754";NA;NA;NA;NA;NA;-32754;52;"Centro-oeste";5;-32754;-1,23367231638418;"        26.550,00";"METROBUS - METROBUS TRANSPORTE COLETIVO S/A (GO)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$         26.550,00
+Lucros / Prejuízos no ano: R$       -32.754,00
+ROE: -123%";"bem_neg";"TRANSPORTES"
+"54";"GO";"SANEAGO - SANEAMENTO DE GOIAS S/A";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.67230000000000001";2275690000;"115762000";NA;NA;NA;NA;NA;115762000;52;"Centro-oeste";5;115762000;0,0508689672143394;" 2.275.690.000,00";"SANEAGO - SANEAMENTO DE GOIAS S/A (GO)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  2.275.690.000,00
+Lucros / Prejuízos no ano: R$   115.762.000,00
+ROE: 5%";"pos";"SANEAMENTO"
+"55";"MA";"EMPRESA MARANHENSE DE ADMINISTRACAO D RECURSOS HUMANOS E NEGOCIOS PUBLICOS S.A";NA;"SEM";"Dependente";"GESTÃO DE ATIVOS";"0.99739999999999995";5989808,65;"-460681.72";NA;NA;"65741109.520000003";NA;-65741109,52;-460681,72;21;"Nordeste";2;-460681,72;-0,0769109243581596;"     5.989.808,65";"EMPRESA MARANHENSE DE ADMINISTRACAO D RECURSOS HUMANOS E NEGOCIOS PUBLICOS S.A (MA)
+Dependência: Dependente
+Setor: GESTÃO DE ATIVOS
+PL: R$      5.989.808,65
+Lucros / Prejuízos no ano: R$      -460.681,72
+ROE: -8%";"neg";"Demais"
+"56";"MA";"COMPANHIA DE SANEAMENTO AMBIENTAL DO MARANHÃO - CAEMA";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.99948700000000001";830609;"-170926";NA;NA;NA;"350523";NA;-170926;21;"Nordeste";2;-170926;-0,205783948885697;"       830.609,00";"COMPANHIA DE SANEAMENTO AMBIENTAL DO MARANHÃO - CAEMA (MA)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$        830.609,00
+Lucros / Prejuízos no ano: R$      -170.926,00
+ROE: -21%";"neg";"SANEAMENTO"
+"57";"MA";"EMAP";NA;"EP";"Não Dependente";"OUTRO";"1";457045;"61788";NA;NA;NA;"277125";NA;61788;21;"Nordeste";2;61788;0,135190189149865;"       457.045,00";"EMAP (MA)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$        457.045,00
+Lucros / Prejuízos no ano: R$        61.788,00
+ROE: 14%";"pos";"Demais"
+"58";"MA";"COMPANHIA MARANHENSE DE GAS - GASMAR";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.255";13478448,61;"15897794.449999999";4053937,58;NA;NA;NA;NA;15897794,45;21;"Nordeste";2;15897794,45;1,17949735240338;"    13.478.448,61";"COMPANHIA MARANHENSE DE GAS - GASMAR (MA)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$     13.478.448,61
+Lucros / Prejuízos no ano: R$    15.897.794,45
+ROE: 118%";"bem_pos";"DISTRIBUIÇÃO DE GÁS"
+"59";"MG";"Empresa de Assistência Técnica e Extensão Rural do Estado de Minas Gerais - EMATER";NA;"EP";"Dependente";"ASSISTÊNCIA TÉCNICA";"0.99990000000000001";55267390,98;"2883680.63";NA;NA;"209555011.56";NA;-209555011,56;2883680,63;31;"Sudeste";3;2883680,63;0,0521768909092079;"    55.267.390,98";"Empresa de Assistência Técnica e Extensão Rural do Estado de Minas Gerais - EMATER (MG)
+Dependência: Dependente
+Setor: ASSISTÊNCIA TÉCNICA
+PL: R$     55.267.390,98
+Lucros / Prejuízos no ano: R$     2.883.680,63
+ROE: 5%";"pos";"Demais"
+"60";"MG";"Empresa de Pesquisa Agropecuária de Minas Gerais - EPAMIG";NA;"EP";"Dependente";"PESQUISA";"0.99990000000000001";2366795,14;"-436438.24";NA;NA;"95032773.310000002";NA;-95032773,31;-436438,24;31;"Sudeste";3;-436438,24;-0,184400513852669;"     2.366.795,14";"Empresa de Pesquisa Agropecuária de Minas Gerais - EPAMIG (MG)
+Dependência: Dependente
+Setor: PESQUISA
+PL: R$      2.366.795,14
+Lucros / Prejuízos no ano: R$      -436.438,24
+ROE: -18%";"neg";"Demais"
+"61";"MG";"Empresa Mineira de Comunicação - EMC (Rádio Inconfidência)";NA;"EP";"Dependente";"COMUNICAÇÕES";"0.999";36038453,08;"-1328367.0900000001";NA;NA;"8927028.3699999992";NA;-8927028,37;-1328367,09;31;"Sudeste";3;-1328367,09;-0,036859714456978;"    36.038.453,08";"Empresa Mineira de Comunicação - EMC (Rádio Inconfidência) (MG)
+Dependência: Dependente
+Setor: COMUNICAÇÕES
+PL: R$     36.038.453,08
+Lucros / Prejuízos no ano: R$    -1.328.367,09
+ROE: -4%";"neg";"Demais"
+"62";"MG";"Banco de Desenvolvimento de Minas Gerais S.A. - BDMG";NA;"EP";"Não Dependente";"FINANCEIRO";"0.8972";1729340000;"125973000";0;NA;NA;"25097423.039999999";NA;125973000;31;"Sudeste";3;125973000;0,072844553413441;" 1.729.340.000,00";"Banco de Desenvolvimento de Minas Gerais S.A. - BDMG (MG)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$  1.729.340.000,00
+Lucros / Prejuízos no ano: R$   125.973.000,00
+ROE: 7%";"pos";"FINANCEIRO"
+"63";"MG";"Companhia de Desenvolvimento de Minas Gerais – CODEMGE";NA;"Ep";"Não Dependente";"DESENVOLVIMENTO";"0.99990000000000001";1824086000;"602855000";0;NA;NA;"0";NA;602855000;31;"Sudeste";3;602855000;0,330497027004209;" 1.824.086.000,00";"Companhia de Desenvolvimento de Minas Gerais – CODEMGE (MG)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$  1.824.086.000,00
+Lucros / Prejuízos no ano: R$   602.855.000,00
+ROE: 33%";"pos";"DESENVOLVIMENTO"
+"64";"MG";"Codemge Participações S.A. - CODEPAR";NA;"SUB";"Não Dependente";"DESENVOLVIMENTO";"0";281804689,96;"-8160118.6699999999";0;NA;NA;"0";NA;-8160118,67;31;"Sudeste";3;-8160118,67;-0,028956646076963;"   281.804.689,96";"Codemge Participações S.A. - CODEPAR (MG)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    281.804.689,96
+Lucros / Prejuízos no ano: R$    -8.160.118,67
+ROE: -3%";"neg";"DESENVOLVIMENTO"
+"65";"MG";"Companhia de Desenvolvimento Econômico de Minas Gerais – CODEMIG";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.3";694460000;"911123000";402054296,93;NA;NA;"367709020.64999998";NA;911123000;31;"Sudeste";3;911123000;1,31198773147481;"   694.460.000,00";"Companhia de Desenvolvimento Econômico de Minas Gerais – CODEMIG (MG)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    694.460.000,00
+Lucros / Prejuízos no ano: R$   911.123.000,00
+ROE: 131%";"bem_pos";"DESENVOLVIMENTO"
+"66";"MG";"Companhia de Saneamento de Minas Gerais - COPASA";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.50039999999999996";6226633000;"578700000";259439303,78;NA;NA;"0";NA;578700000;31;"Sudeste";3;578700000;0,0929394746727485;" 6.226.633.000,00";"Companhia de Saneamento de Minas Gerais - COPASA (MG)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  6.226.633.000,00
+Lucros / Prejuízos no ano: R$   578.700.000,00
+ROE: 9%";"pos";"SANEAMENTO"
+"67";"MG";"Copasa Serviços de Saneamento Integrado do Norte e Nordeste de Minas Gerais S/A - COPANOR";NA;"SUB";"Não Dependente";"SANEAMENTO";"0";104597000;"-12998000";0;NA;NA;"0";NA;-12998000;31;"Sudeste";3;-12998000;-0,124267426408023;"   104.597.000,00";"Copasa Serviços de Saneamento Integrado do Norte e Nordeste de Minas Gerais S/A - COPANOR (MG)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$    104.597.000,00
+Lucros / Prejuízos no ano: R$   -12.998.000,00
+ROE: -12%";"neg";"SANEAMENTO"
+"68";"MG";"Companhia de Tecnologia da Informação do Estado de Minas Gerais - PRODEMGE";NA;"SEM";"Não Dependente";"INFORMÁTICA";"0.98899999999999999";99235044;"-2090520";0;NA;NA;"20312409.829999998";NA;-2090520;31;"Sudeste";3;-2090520;-0,0210663482952655;"    99.235.044,00";"Companhia de Tecnologia da Informação do Estado de Minas Gerais - PRODEMGE (MG)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$     99.235.044,00
+Lucros / Prejuízos no ano: R$    -2.090.520,00
+ROE: -2%";"neg";"INFORMÁTICA"
+"69";"MG";"Companhia Energética de Minas Gerais – CEMIG";NA;"SEM";"Não Dependente";"ENERGIA";"0.50960000000000005";15939327000;"1378291000";7596759,15;NA;NA;"0";NA;1378291000;31;"Sudeste";3;1378291000;0,0864710912825868;"15.939.327.000,00";"Companhia Energética de Minas Gerais – CEMIG (MG)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$ 15.939.327.000,00
+Lucros / Prejuízos no ano: R$ 1.378.291.000,00
+ROE: 9%";"pos";"ENERGIA"
+"70";"MG";"Cemig Distribuição S.A. - CEMIG D";NA;"SUB";"Não Dependente";"ENERGIA";"0";4642358000;"534870000";0;NA;NA;"0";NA;534870000;31;"Sudeste";3;534870000;0,115215155746282;" 4.642.358.000,00";"Cemig Distribuição S.A. - CEMIG D (MG)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$  4.642.358.000,00
+Lucros / Prejuízos no ano: R$   534.870.000,00
+ROE: 12%";"pos";"ENERGIA"
+"71";"MG";"Cemig Geração e Transmissão S.A. - CEMIG GT";NA;"SUB";"Não Dependente";"ENERGIA";"0";4980136000;"590783000";0;NA;NA;"0";NA;590783000;31;"Sudeste";3;590783000;0,118627884860976;" 4.980.136.000,00";"Cemig Geração e Transmissão S.A. - CEMIG GT (MG)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$  4.980.136.000,00
+Lucros / Prejuízos no ano: R$   590.783.000,00
+ROE: 12%";"pos";"ENERGIA"
+"72";"MG";"Companhia de Gás de Minas Gerais - GASMIG";NA;"SUB";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0";1000791000;"177561000";0;NA;NA;"0";NA;177561000;31;"Sudeste";3;177561000;0,177420660257736;" 1.000.791.000,00";"Companhia de Gás de Minas Gerais - GASMIG (MG)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$  1.000.791.000,00
+Lucros / Prejuízos no ano: R$   177.561.000,00
+ROE: 18%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"73";"MG";"Minas Gerais Participações S.A. – MGI";NA;"SEM";"Não Dependente";"GESTÃO DE ATIVOS";"0.99955700000000003";387425000;"226858000";0;NA;NA;"60960783.700000003";NA;226858000;31;"Sudeste";3;226858000;0,585553332903143;"   387.425.000,00";"Minas Gerais Participações S.A. – MGI (MG)
+Dependência: Não Dependente
+Setor: GESTÃO DE ATIVOS
+PL: R$    387.425.000,00
+Lucros / Prejuízos no ano: R$   226.858.000,00
+ROE: 59%";"bem_pos";"Demais"
+"74";"MG";"EMIP - Empresa Mineira de Parcerias S.A.";NA;"SUB";"Não Dependente";"DESENVOLVIMENTO";"0";3838000;"-2117000";0;NA;NA;"0";NA;-2117000;31;"Sudeste";3;-2117000;-0,551589369463262;"     3.838.000,00";"EMIP - Empresa Mineira de Parcerias S.A. (MG)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$      3.838.000,00
+Lucros / Prejuízos no ano: R$    -2.117.000,00
+ROE: -55%";"bem_neg";"DESENVOLVIMENTO"
+"75";"MG";"Minas Gerais Administração e Serviços S.A. - MGS";NA;"EP";"Não Dependente";"OUTRO";"0.99";42736398;"12464587";950645,98;NA;NA;"0";NA;12464587;31;"Sudeste";3;12464587;0,291662086261926;"    42.736.398,00";"Minas Gerais Administração e Serviços S.A. - MGS (MG)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$     42.736.398,00
+Lucros / Prejuízos no ano: R$    12.464.587,00
+ROE: 29%";"pos";"Demais"
+"76";"MG";"Trem Metropolitano de Belo Horizonte S/A - METROMINAS";NA;"EP";"Não Dependente";"TRANSPORTES";"0.65449999999999997";309189;"-229994";0;NA;NA;"177692";NA;-229994;31;"Sudeste";3;-229994;-0,743862168447131;"       309.189,00";"Trem Metropolitano de Belo Horizonte S/A - METROMINAS (MG)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$        309.189,00
+Lucros / Prejuízos no ano: R$      -229.994,00
+ROE: -74%";"bem_neg";"TRANSPORTES"
+"77";"MS";"EMPRESA DE GESTÃO DE RECURSOS MINERAIS DE MS - MS MINERAL";NA;"EP";"Dependente";"MINERAÇÃO";"1";236207,51;"-2500";NA;NA;"19796.93";NA;-19796,93;-2500;50;"Centro-oeste";5;-2500;-0,0105839141185646;"       236.207,51";"EMPRESA DE GESTÃO DE RECURSOS MINERAIS DE MS - MS MINERAL (MS)
+Dependência: Dependente
+Setor: MINERAÇÃO
+PL: R$        236.207,51
+Lucros / Prejuízos no ano: R$        -2.500,00
+ROE: -1%";"neg";"Demais"
+"78";"MS";"EMPRESA DE SANEAMENTO DE MS S.A.-SANESUL";NA;"SEM";"Não Dependente";"SANEAMENTO";"1";761057474,26;"95490543.569999993";33254,46;NA;NA;NA;NA;95490543,57;50;"Centro-oeste";5;95490543,57;0,125470870203132;"   761.057.474,26";"EMPRESA DE SANEAMENTO DE MS S.A.-SANESUL (MS)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$    761.057.474,26
+Lucros / Prejuízos no ano: R$    95.490.543,57
+ROE: 13%";"pos";"SANEAMENTO"
+"79";"MS";"COMPANHIA DE GAS DO ESTADO DE MATO GROSSO DO SUL - MSGAS";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.51";24457603,91;"12736020.060000001";7897611,53;NA;NA;NA;NA;12736020,06;50;"Centro-oeste";5;12736020,06;0,520738667077383;"    24.457.603,91";"COMPANHIA DE GAS DO ESTADO DE MATO GROSSO DO SUL - MSGAS (MS)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$     24.457.603,91
+Lucros / Prejuízos no ano: R$    12.736.020,06
+ROE: 52%";"bem_pos";"DISTRIBUIÇÃO DE GÁS"
+"80";"MT";"METAMAT";NA;"SEM";"Dependente";"MINERAÇÃO";"0.99990000000000001";6117127600;"-1255376";NA;NA;NA;NA;0;-1255376;51;"Centro-oeste";5;-1255376;-0,00020522311811838;" 6.117.127.600,00";"METAMAT (MT)
+Dependência: Dependente
+Setor: MINERAÇÃO
+PL: R$  6.117.127.600,00
+Lucros / Prejuízos no ano: R$    -1.255.376,00
+ROE: 0%";"neg";"Demais"
+"81";"MT";"Agência de Fomento do Estado de Mato Grosso S/A - DESENVOLVE MT";NA;"SEM";"Não Dependente";"FINANCEIRO";"Não Declarado";12980955,85;"-4164680.67";NA;NA;NA;"954440";NA;-4164680,67;51;"Centro-oeste";5;-4164680,67;-0,320830046579351;"    12.980.955,85";"Agência de Fomento do Estado de Mato Grosso S/A - DESENVOLVE MT (MT)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$     12.980.955,85
+Lucros / Prejuízos no ano: R$    -4.164.680,67
+ROE: -32%";"neg";"FINANCEIRO"
+"82";"PA";"COMP. ADM DA ZONA DE PROC DE EXP BARCARENA";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"0.99770000000000003";23952749,64;"-282405.63";NA;NA;NA;NA;0;-282405,63;15;"Norte";1;-282405,63;-0,0117901132122383;"    23.952.749,64";"COMP. ADM DA ZONA DE PROC DE EXP BARCARENA (PA)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     23.952.749,64
+Lucros / Prejuízos no ano: R$      -282.405,63
+ROE: -1%";"neg";"DESENVOLVIMENTO"
+"83";"PA";"Banco do Estado do Pará";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.99976699999999996";1217292101,81;"308324453.74000001";123301078,6;NA;NA;NA;NA;308324453,74;15;"Norte";1;308324453,74;0,253287155384932;" 1.217.292.101,81";"Banco do Estado do Pará (PA)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$  1.217.292.101,81
+Lucros / Prejuízos no ano: R$   308.324.453,74
+ROE: 25%";"pos";"FINANCEIRO"
+"84";"PA";"COMPANHIA DE PORTOS E HID. DO ESTADO DO PARA";NA;"EP";"Dependente";"TRANSPORTES";"1";43182470,28;"31946080.07";NA;"4955.22";"9326086.9299999997";NA;-9326086,93;31946080,07;15;"Norte";1;31946080,07;0,739792787741369;"    43.182.470,28";"COMPANHIA DE PORTOS E HID. DO ESTADO DO PARA (PA)
+Dependência: Dependente
+Setor: TRANSPORTES
+PL: R$     43.182.470,28
+Lucros / Prejuízos no ano: R$    31.946.080,07
+ROE: 74%";"bem_pos";"TRANSPORTES"
+"85";"PA";"CENTRAIS DE ABASTECIMENTO DO PARA AS";NA;"SEM";"Dependente";"ABASTECIMENTO";"0.99990000000000001";3797349,93;"1984250.19";NA;"522707.51";"12611295.779999999";NA;-12611295,78;1984250,19;15;"Norte";1;1984250,19;0,522535512022196;"     3.797.349,93";"CENTRAIS DE ABASTECIMENTO DO PARA AS (PA)
+Dependência: Dependente
+Setor: ABASTECIMENTO
+PL: R$      3.797.349,93
+Lucros / Prejuízos no ano: R$     1.984.250,19
+ROE: 52%";"bem_pos";"ABASTECIMENTO"
+"86";"PA";"COMP.DE DESENV. ECONOMICO DO PARÁ";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"0.99770000000000003";56584255,28;"5324735.5599999996";NA;"118756.21";"4237079.03";NA;-4237079,03;5324735,56;15;"Norte";1;5324735,56;0,0941027770649489;"    56.584.255,28";"COMP.DE DESENV. ECONOMICO DO PARÁ (PA)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     56.584.255,28
+Lucros / Prejuízos no ano: R$     5.324.735,56
+ROE: 9%";"pos";"DESENVOLVIMENTO"
+"87";"PA";"COMPANHIA DE HAB. DO ESTADO DO PARÁ";NA;"SEM";"Dependente";"SERVIÇOS PÚBLICOS";"0.99990000000000001";116044140,92;"13534134.359999999";NA;"621890.07999999996";"72347464.170000002";NA;-72347464,17;13534134,36;15;"Norte";1;13534134,36;0,116629191725676;"   116.044.140,92";"COMPANHIA DE HAB. DO ESTADO DO PARÁ (PA)
+Dependência: Dependente
+Setor: SERVIÇOS PÚBLICOS
+PL: R$    116.044.140,92
+Lucros / Prejuízos no ano: R$    13.534.134,36
+ROE: 12%";"pos";"SERVIÇOS PÚBLICOS"
+"88";"PA";"COMPANHIA DE SANEAMENTO DO PARÁ";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.99980000000000002";379488240,07;"-244414753.21000001";NA;"3331544.89";NA;"150117300.06";NA;-244414753,21;15;"Norte";1;-244414753,21;-0,644064103712188;"   379.488.240,07";"COMPANHIA DE SANEAMENTO DO PARÁ (PA)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$    379.488.240,07
+Lucros / Prejuízos no ano: R$  -244.414.753,21
+ROE: -64%";"bem_neg";"SANEAMENTO"
+"89";"PA";"EMP DE ASSIST TEC E EXTENSAO RURAL DO ESTADO DO PARÁ";NA;"EP";"Dependente";"ASSISTÊNCIA TÉCNICA";"1";23735738,08;"6686976.0499999998";NA;"711616.71";"120279589.23999999";NA;-120279589,24;6686976,05;15;"Norte";1;6686976,05;0,281726063350628;"    23.735.738,08";"EMP DE ASSIST TEC E EXTENSAO RURAL DO ESTADO DO PARÁ (PA)
+Dependência: Dependente
+Setor: ASSISTÊNCIA TÉCNICA
+PL: R$     23.735.738,08
+Lucros / Prejuízos no ano: R$     6.686.976,05
+ROE: 28%";"pos";"Demais"
+"90";"PA";"COMPANHIA DE GAS DO PARA";NA;"SEM";"Dependente";"DISTRIBUIÇÃO DE GÁS";"0.255";656000;"1080000";NA;NA;NA;NA;0;1080000;15;"Norte";1;1080000;1,64634146341463;"       656.000,00";"COMPANHIA DE GAS DO PARA (PA)
+Dependência: Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$        656.000,00
+Lucros / Prejuízos no ano: R$     1.080.000,00
+ROE: 165%";"bem_pos";"DISTRIBUIÇÃO DE GÁS"
+"91";"PA";"Empresa de Tec. da Inf. e Comunicação do Estado do Pará - PRODEPA";NA;"EP";"Dependente";"INFORMÁTICA";"1";29776242,68;"-1871041.47";NA;NA;"53863663.200000003";NA;-53863663,2;-1871041,47;15;"Norte";1;-1871041,47;-0,0628367215470317;"    29.776.242,68";"Empresa de Tec. da Inf. e Comunicação do Estado do Pará - PRODEPA (PA)
+Dependência: Dependente
+Setor: INFORMÁTICA
+PL: R$     29.776.242,68
+Lucros / Prejuízos no ano: R$    -1.871.041,47
+ROE: -6%";"neg";"INFORMÁTICA"
+"92";"PB";"Empresa Paraibana de Turismo S/A (PBTUR S/A)";"PBTUR";"SEM";"Dependente";"OUTRO";"0.99939999999999996";8369564,81;"-34661556.659999996";NA;NA;NA;NA;0;-34661556,66;25;"Nordeste";2;-34661556,66;-4,14138099732332;"     8.369.564,81";"Empresa Paraibana de Turismo S/A (PBTUR S/A) (PB)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$      8.369.564,81
+Lucros / Prejuízos no ano: R$   -34.661.556,66
+ROE: -414%";"bem_neg";"Demais"
+"93";"PB";"Cia. de Desenvolvimento da Paraíba (CINEP)";"CINEP";"SEM";"Dependente";"DESENVOLVIMENTO";"0.81730000000000003";12968677,51;"-256978.77";NA;NA;NA;NA;0;-256978,77;25;"Nordeste";2;-256978,77;-0,0198153412174716;"    12.968.677,51";"Cia. de Desenvolvimento da Paraíba (CINEP) (PB)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     12.968.677,51
+Lucros / Prejuízos no ano: R$      -256.978,77
+ROE: -2%";"neg";"DESENVOLVIMENTO"
+"94";"PB";"Empresa de Assist.Técnica e Extensão Rural (EMATER)";"EMATER";"Não Informado";"Não Informado";"OUTRO";"Não Declarado";48597738,68;"2883680.63";NA;NA;NA;NA;0;2883680,63;25;"Nordeste";2;2883680,63;0,0593377533260978;"    48.597.738,68";"Empresa de Assist.Técnica e Extensão Rural (EMATER) (PB)
+Dependência: Não Informado
+Setor: OUTRO
+PL: R$     48.597.738,68
+Lucros / Prejuízos no ano: R$     2.883.680,63
+ROE: 6%";"pos";"Demais"
+"95";"PB";"Cia. de Process.de Dados - CODATA";"CODATA";"SEM";"Não Dependente";"INFORMÁTICA";"Não Declarado";7508717,05;"2564198.79";NA;NA;NA;NA;NA;2564198,79;25;"Nordeste";2;2564198,79;0,341496260003565;"     7.508.717,05";"Cia. de Process.de Dados - CODATA (PB)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$      7.508.717,05
+Lucros / Prejuízos no ano: R$     2.564.198,79
+ROE: 34%";"pos";"INFORMÁTICA"
+"96";"PB";"Companhia Paraíbana de Gás";"PBGAS";"SEM";"Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";68954000;"11236000";NA;NA;NA;NA;0;11236000;25;"Nordeste";2;11236000;0,162949212518491;"    68.954.000,00";"Companhia Paraíbana de Gás (PB)
+Dependência: Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$     68.954.000,00
+Lucros / Prejuízos no ano: R$    11.236.000,00
+ROE: 16%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"97";"PB";"Companhia DOCAS da Paraíba";"DOCAS";"SEM";"Não Dependente";"PORTOS E HIDROVIAS";"Não Declarado";21309325,03;"425374.14";NA;NA;NA;NA;NA;425374,14;25;"Nordeste";2;425374,14;0,0199618776944433;"    21.309.325,03";"Companhia DOCAS da Paraíba (PB)
+Dependência: Não Dependente
+Setor: PORTOS E HIDROVIAS
+PL: R$     21.309.325,03
+Lucros / Prejuízos no ano: R$       425.374,14
+ROE: 2%";"pos";"Demais"
+"98";"PB";"Cia .de Água e Esgotos da Paraíba - CAGEPA";"CAGEPA";"SA";"Não Dependente";"SANEAMENTO";"0.99950000000000006";896626000;"109838000";NA;NA;NA;NA;NA;109838000;25;"Nordeste";2;109838000;0,122501466609266;"   896.626.000,00";"Cia .de Água e Esgotos da Paraíba - CAGEPA (PB)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$    896.626.000,00
+Lucros / Prejuízos no ano: R$   109.838.000,00
+ROE: 12%";"pos";"SANEAMENTO"
+"99";"PE";"COMPANHIA ESTADUAL DE HABITAÇÃO E OBRAS - CEHAB";NA;"SEM";"Dependente";"HABITAÇÃO";"0.99";53467395;"-3145904";NA;"1675033.97";"54479571.460000001";NA;-54479571,46;-3145904;26;"Nordeste";2;-3145904;-0,0588378019912883;"    53.467.395,00";"COMPANHIA ESTADUAL DE HABITAÇÃO E OBRAS - CEHAB (PE)
+Dependência: Dependente
+Setor: HABITAÇÃO
+PL: R$     53.467.395,00
+Lucros / Prejuízos no ano: R$    -3.145.904,00
+ROE: -6%";"neg";"Demais"
+"100";"PE";"EMPRESA PERNAMBUCO DE COMUNICAÇÃO S/A - EPC";NA;"EP";"Dependente";"COMUNICAÇÕES";"1";5498589;"1655960";NA;"240313";"4600054";NA;-4600054;1655960;26;"Nordeste";2;1655960;0,30116089782306;"     5.498.589,00";"EMPRESA PERNAMBUCO DE COMUNICAÇÃO S/A - EPC (PE)
+Dependência: Dependente
+Setor: COMUNICAÇÕES
+PL: R$      5.498.589,00
+Lucros / Prejuízos no ano: R$     1.655.960,00
+ROE: 30%";"pos";"Demais"
+"101";"PE";"INSTITUTO AGRONÔMICO DE PERNAMBUCO - IPA";NA;"EP";"Dependente";"SERVIÇOS PÚBLICOS";"1";40683186;"-7747883";NA;"37504179";"96473246";NA;-96473246;-7747883;26;"Nordeste";2;-7747883;-0,190444352121292;"    40.683.186,00";"INSTITUTO AGRONÔMICO DE PERNAMBUCO - IPA (PE)
+Dependência: Dependente
+Setor: SERVIÇOS PÚBLICOS
+PL: R$     40.683.186,00
+Lucros / Prejuízos no ano: R$    -7.747.883,00
+ROE: -19%";"neg";"SERVIÇOS PÚBLICOS"
+"102";"PE";"EMPRESA DE TURISMO DE PERNAMBUCO GOVERNADOR EDUARDO CAMPOS - EMPETUR";NA;"SEM";"Dependente";"OUTRO";"0.68010000000000004";170941929;"4718163";NA;"-";"73291133";NA;-73291133;4718163;26;"Nordeste";2;4718163;0,0276009696836871;"   170.941.929,00";"EMPRESA DE TURISMO DE PERNAMBUCO GOVERNADOR EDUARDO CAMPOS - EMPETUR (PE)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$    170.941.929,00
+Lucros / Prejuízos no ano: R$     4.718.163,00
+ROE: 3%";"pos";"Demais"
+"103";"PE";"EMPRESA PERNAMBUCANA DE TRANSPOSTE COLETIVO INTERMUNICIPAL";NA;"EP";"Dependente";"TRANSPORTES";"1";1387538;"858513";NA;"-";"2386838";NA;-2386838;858513;26;"Nordeste";2;858513;0,618731162678067;"     1.387.538,00";"EMPRESA PERNAMBUCANA DE TRANSPOSTE COLETIVO INTERMUNICIPAL (PE)
+Dependência: Dependente
+Setor: TRANSPORTES
+PL: R$      1.387.538,00
+Lucros / Prejuízos no ano: R$       858.513,00
+ROE: 62%";"bem_pos";"TRANSPORTES"
+"104";"PE";"AGENCIA DE FOMENTO DO ESTADO DE PERNAMBUCO";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.99";48345000;"-384000";NA;NA;NA;"-";NA;-384000;26;"Nordeste";2;-384000;-0,00794291033198883;"    48.345.000,00";"AGENCIA DE FOMENTO DO ESTADO DE PERNAMBUCO (PE)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$     48.345.000,00
+Lucros / Prejuízos no ano: R$      -384.000,00
+ROE: -1%";"neg";"FINANCEIRO"
+"105";"PE";"COMPANHIA EDITORA DE PERNAMBUCO";NA;"SEM";"Não Dependente";"COMUNICAÇÕES";"1";65229547;"-6082458";NA;NA;NA;"-";NA;-6082458;26;"Nordeste";2;-6082458;-0,0932469759448123;"    65.229.547,00";"COMPANHIA EDITORA DE PERNAMBUCO (PE)
+Dependência: Não Dependente
+Setor: COMUNICAÇÕES
+PL: R$     65.229.547,00
+Lucros / Prejuízos no ano: R$    -6.082.458,00
+ROE: -9%";"neg";"Demais"
+"106";"PE";"COMPANHIA PERNAMBUCANA DE SANEAMENTO";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.99939999999999996";5658384825,49;"194227636.91999999";NA;NA;NA;"513906733.42000002";NA;194227636,92;26;"Nordeste";2;194227636,92;0,0343256322979377;" 5.658.384.825,49";"COMPANHIA PERNAMBUCANA DE SANEAMENTO (PE)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  5.658.384.825,49
+Lucros / Prejuízos no ano: R$   194.227.636,92
+ROE: 3%";"pos";"SANEAMENTO"
+"107";"PE";"LABORATORIO FARMACEUTICO DO ESTADO DE PERNAMBUCO GOVERNADOR MIGUEL ARRAES S/A - LAFEPE";NA;"SEM";"Não Dependente";"OUTRO";"0.95899999999999996";110350557;"7646492.1200000001";NA;NA;NA;"-";NA;7646492,12;26;"Nordeste";2;7646492,12;0,069292736963711;"   110.350.557,00";"LABORATORIO FARMACEUTICO DO ESTADO DE PERNAMBUCO GOVERNADOR MIGUEL ARRAES S/A - LAFEPE (PE)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$    110.350.557,00
+Lucros / Prejuízos no ano: R$     7.646.492,12
+ROE: 7%";"pos";"Demais"
+"108";"PE";"SUAPE COMPLEXO INDUSTRIAL PORTUÁRIO GOVERNADOR ERALDO GUEIROS";NA;"EP";"Não Dependente";"PORTOS E HIDROVIAS";"1";3100209000;"36718000";NA;NA;NA;"3170000";NA;36718000;26;"Nordeste";2;36718000;0,0118437176332305;" 3.100.209.000,00";"SUAPE COMPLEXO INDUSTRIAL PORTUÁRIO GOVERNADOR ERALDO GUEIROS (PE)
+Dependência: Não Dependente
+Setor: PORTOS E HIDROVIAS
+PL: R$  3.100.209.000,00
+Lucros / Prejuízos no ano: R$    36.718.000,00
+ROE: 1%";"pos";"Demais"
+"109";"PE";"AGENCIA DE DESENVOLVIMENTO ECONOMICO DE PERNAMBUCO AS - AD DIPER";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.99880000000000002";180811373;"2621588";NA;NA;NA;"-";NA;2621588;26;"Nordeste";2;2621588;0,0144990215853291;"   180.811.373,00";"AGENCIA DE DESENVOLVIMENTO ECONOMICO DE PERNAMBUCO AS - AD DIPER (PE)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    180.811.373,00
+Lucros / Prejuízos no ano: R$     2.621.588,00
+ROE: 1%";"pos";"DESENVOLVIMENTO"
+"110";"PE";"COMPANHIA PERNAMBUCANA DE GÁS - COPERGÁS";NA;"SEM";"Não Dependente";"ENERGIA";"0.17";282092540;"81625590";9484633,53;NA;NA;"2362872.48";NA;81625590;26;"Nordeste";2;81625590;0,289357492403025;"   282.092.540,00";"COMPANHIA PERNAMBUCANA DE GÁS - COPERGÁS (PE)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$    282.092.540,00
+Lucros / Prejuízos no ano: R$    81.625.590,00
+ROE: 29%";"pos";"ENERGIA"
+"111";"PE";"PORTO DO RECIFE S.A.";NA;"SEM";"Não Dependente";"PORTOS E HIDROVIAS";"0.99990000000000001";43354306;"-24589173";NA;NA;NA;"2450000";NA;-24589173;26;"Nordeste";2;-24589173;-0,567167953282426;"    43.354.306,00";"PORTO DO RECIFE S.A. (PE)
+Dependência: Não Dependente
+Setor: PORTOS E HIDROVIAS
+PL: R$     43.354.306,00
+Lucros / Prejuízos no ano: R$   -24.589.173,00
+ROE: -57%";"bem_neg";"Demais"
+"112";"PI";"Agência de Fomento e Desenvolvimento do Piauí";"FOMENTO";"Não Informado";"Não Informado";"DESENVOLVIMENTO";"0.99980000000000002";15002400;"-1680";NA;NA;NA;NA;NA;-1680;22;"Nordeste";2;-1680;-0,000111982082866741;"    15.002.400,00";"Agência de Fomento e Desenvolvimento do Piauí (PI)
+Dependência: Não Informado
+Setor: DESENVOLVIMENTO
+PL: R$     15.002.400,00
+Lucros / Prejuízos no ano: R$        -1.680,00
+ROE: 0%";"neg";"DESENVOLVIMENTO"
+"113";"PR";"Companhia de Saneamento do Paraná - SANEPAR";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.2";5717188;"892487";79597;NA;NA;NA;NA;892487;41;"Sul";4;892487;0,156105938793687;"     5.717.188,00";"Companhia de Saneamento do Paraná - SANEPAR (PR)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$      5.717.188,00
+Lucros / Prejuízos no ano: R$       892.487,00
+ROE: 16%";"pos";"SANEAMENTO"
+"114";"PR";"Administração dos Portos de Paranaguá e Antonia - APPA";NA;"EP";"Não Dependente";"SERVIÇOS PÚBLICOS";"1";474606420;"81959668";0;NA;"0";"0";NA;81959668;41;"Sul";4;81959668;0,172689758389699;"   474.606.420,00";"Administração dos Portos de Paranaguá e Antonia - APPA (PR)
+Dependência: Não Dependente
+Setor: SERVIÇOS PÚBLICOS
+PL: R$    474.606.420,00
+Lucros / Prejuízos no ano: R$    81.959.668,00
+ROE: 17%";"pos";"SERVIÇOS PÚBLICOS"
+"115";"PR";"Companhia de Tecnologia da Informação e Comunicação do Paraná – CELEPAR";NA;"SEM";"Não Dependente";"INFORMÁTICA";"0.94697500000000001";128296329;"12446";2078756,2;NA;"0";"0";NA;12446;41;"Sul";4;12446;9,70097905139593e-05;"   128.296.329,00";"Companhia de Tecnologia da Informação e Comunicação do Paraná – CELEPAR (PR)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$    128.296.329,00
+Lucros / Prejuízos no ano: R$        12.446,00
+ROE: 0%";"pos";"INFORMÁTICA"
+"116";"PR";"Estrada de Ferro Paraná Oeste S/A";NA;"SEM";"Não Dependente";"TRANSPORTES";"0.79679999999999995";275598642;"-13692424";NA;NA;NA;"8000000";NA;-13692424;41;"Sul";4;-13692424;-0,0496824799303619;"   275.598.642,00";"Estrada de Ferro Paraná Oeste S/A (PR)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$    275.598.642,00
+Lucros / Prejuízos no ano: R$   -13.692.424,00
+ROE: -5%";"neg";"TRANSPORTES"
+"117";"PR";"Companhia Paranaense de Energia - Copel (Consolidado)";NA;"SEM";"Não Dependente";"ENERGIA";"0.31069999999999998";16032925;"1444004";112195550,97;NA;NA;NA;NA;1444004;41;"Sul";4;1444004;0,0900649132956089;"    16.032.925,00";"Companhia Paranaense de Energia - Copel (Consolidado) (PR)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$     16.032.925,00
+Lucros / Prejuízos no ano: R$     1.444.004,00
+ROE: 9%";"pos";"ENERGIA"
+"118";"PR";"Centrais de Abastecimento do Paraná S/A - CEASA";NA;"SEM";"Não Dependente";"ABASTECIMENTO";"0.99";125872096;"3428478";NA;NA;NA;NA;NA;3428478;41;"Sul";4;3428478;0,0272377922426905;"   125.872.096,00";"Centrais de Abastecimento do Paraná S/A - CEASA (PR)
+Dependência: Não Dependente
+Setor: ABASTECIMENTO
+PL: R$    125.872.096,00
+Lucros / Prejuízos no ano: R$     3.428.478,00
+ROE: 3%";"pos";"ABASTECIMENTO"
+"119";"PR";"Companhia de Habitação do Paraná - COHAPAR";NA;"SEM";"Não Dependente";"HABITAÇÃO";"0.99990000000000001";1205662930;"-4307548";NA;NA;"88852712";"122887545";NA;-4307548;41;"Sul";4;-4307548;-0,00357276307732212;" 1.205.662.930,00";"Companhia de Habitação do Paraná - COHAPAR (PR)
+Dependência: Não Dependente
+Setor: HABITAÇÃO
+PL: R$  1.205.662.930,00
+Lucros / Prejuízos no ano: R$    -4.307.548,00
+ROE: 0%";"neg";"Demais"
+"120";"PR";"Agência de Fomento do Paraná";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.99980000000000002";1646518701;"77942235";NA;NA;NA;"78409000";NA;77942235;41;"Sul";4;77942235;0,0473375947401402;" 1.646.518.701,00";"Agência de Fomento do Paraná (PR)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$  1.646.518.701,00
+Lucros / Prejuízos no ano: R$    77.942.235,00
+ROE: 5%";"pos";"FINANCEIRO"
+"121";"RJ";"COMPANHIA DE TRANSPORTES SOBRE  TRILHOS DO ESTADO DO RIO DE JANEIRO - RIOTRILHOS";NA;"SEM";"Dependente";"TRANSPORTES";"0.92259999999999998";807298752,57;"-79700862.549999997";NA;"1520639140.95";"118471548";"0";-118471548;-79700862,55;33;"Sudeste";3;-79700862,55;-0,0987253631896195;"   807.298.752,57";"COMPANHIA DE TRANSPORTES SOBRE  TRILHOS DO ESTADO DO RIO DE JANEIRO - RIOTRILHOS (RJ)
+Dependência: Dependente
+Setor: TRANSPORTES
+PL: R$    807.298.752,57
+Lucros / Prejuízos no ano: R$   -79.700.862,55
+ROE: -10%";"neg";"TRANSPORTES"
+"122";"RJ";"EMPRESA DE ASSISTENCIA TECNICA E EXTENSAO RURAL DO ESTADO DO RIO DE JANEIRO - EMATER-RIO";NA;"EP";"Dependente";"ASSISTÊNCIA TÉCNICA";"0.998475";607497,26;"-166386.44";NA;"55539425.899999999";"88363972.459999993";"0";-88363972,46;-166386,44;33;"Sudeste";3;-166386,44;-0,273888379348411;"       607.497,26";"EMPRESA DE ASSISTENCIA TECNICA E EXTENSAO RURAL DO ESTADO DO RIO DE JANEIRO - EMATER-RIO (RJ)
+Dependência: Dependente
+Setor: ASSISTÊNCIA TÉCNICA
+PL: R$        607.497,26
+Lucros / Prejuízos no ano: R$      -166.386,44
+ROE: -27%";"neg";"Demais"
+"123";"RJ";"Cia de Desenvolvimento Industrial do ERJ - CODIN";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"0.99998756899999997";44573553,44;"12640359.91";NA;"20311372.079999998";"20461009.859999999";"12160.38";-20473170,24;12640359,91;33;"Sudeste";3;12640359,91;0,283584299084771;"    44.573.553,44";"Cia de Desenvolvimento Industrial do ERJ - CODIN (RJ)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     44.573.553,44
+Lucros / Prejuízos no ano: R$    12.640.359,91
+ROE: 28%";"pos";"DESENVOLVIMENTO"
+"124";"RJ";"COMPANHIA DE DESENVOLVIMENTO ROD E TERMINAIS DO EST RJ - CODERTE";NA;"SEM";"Dependente";"OUTRO";"1";6315685,18;"-22327773";NA;NA;NA;NA;0;-22327773;33;"Sudeste";3;-22327773;-3,53528910381819;"     6.315.685,18";"COMPANHIA DE DESENVOLVIMENTO ROD E TERMINAIS DO EST RJ - CODERTE (RJ)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$      6.315.685,18
+Lucros / Prejuízos no ano: R$   -22.327.773,00
+ROE: -354%";"bem_neg";"Demais"
+"125";"RJ";"CENTRAIS DE ABAST DO ESTADO DO RJ S/A";NA;"SEM";"Dependente";"ABASTECIMENTO";"0";37641834,58;"18737352.23";NA;"4928398.7299999995";"14186004.449999999";NA;-14186004,45;18737352,23;33;"Sudeste";3;18737352,23;0,497779995025949;"    37.641.834,58";"CENTRAIS DE ABAST DO ESTADO DO RJ S/A (RJ)
+Dependência: Dependente
+Setor: ABASTECIMENTO
+PL: R$     37.641.834,58
+Lucros / Prejuízos no ano: R$    18.737.352,23
+ROE: 50%";"pos";"ABASTECIMENTO"
+"126";"RN";"CEASA";NA;"SEM";"Dependente";"ABASTECIMENTO";"0.99953999999999998";362740,08;"-54627.41";NA;NA;"8620345.8699999992";NA;-8620345,87;-54627,41;24;"Nordeste";2;-54627,41;-0,150596564901237;"       362.740,08";"CEASA (RN)
+Dependência: Dependente
+Setor: ABASTECIMENTO
+PL: R$        362.740,08
+Lucros / Prejuízos no ano: R$       -54.627,41
+ROE: -15%";"neg";"ABASTECIMENTO"
+"127";"RN";"EMPROTUR";NA;"SEm";"Dependente";"OUTRO";"0.95";606438,97;"-410965.79";NA;"4372744.87";"4287481.88";NA;-4287481,88;-410965,79;24;"Nordeste";2;-410965,79;-0,677670483478329;"       606.438,97";"EMPROTUR (RN)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$        606.438,97
+Lucros / Prejuízos no ano: R$      -410.965,79
+ROE: -68%";"bem_neg";"Demais"
+"128";"RN";"CAERN";NA;"SEM";"Não Dependente";"SANEAMENTO";"Não Declarado";693724435,88;"-10719563.659999678";NA;NA;NA;"9975363.9799999986";NA;-10719563,6599997;24;"Nordeste";2;-10719563,6599997;-0,0154521926943538;"   693.724.435,88";"CAERN (RN)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$    693.724.435,88
+Lucros / Prejuízos no ano: R$   -10.719.563,66
+ROE: -2%";"neg";"SANEAMENTO"
+"129";"RN";"POTIGAS";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";73251000;"22398662.479999993";2847416,05;NA;NA;NA;NA;22398662,48;24;"Nordeste";2;22398662,48;0,305779613657151;"    73.251.000,00";"POTIGAS (RN)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$     73.251.000,00
+Lucros / Prejuízos no ano: R$    22.398.662,48
+ROE: 31%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"130";"RN";"AGN";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.98760000000000003";43427750;"2016817";NA;NA;NA;NA;NA;2016817;24;"Nordeste";2;2016817;0,0464407435338004;"    43.427.750,00";"AGN (RN)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$     43.427.750,00
+Lucros / Prejuízos no ano: R$     2.016.817,00
+ROE: 5%";"pos";"FINANCEIRO"
+"131";"RO";"COMPANHIA RONDONIENSE DE GÁS - RONGÁS";NA;"SEm";"Dependente";"DISTRIBUIÇÃO DE GÁS";"0.17";1734074,23;"540866.05000000005";NA;NA;NA;"170000";-170000;540866,05;11;"Norte";1;540866,05;0,311904785067938;"     1.734.074,23";"COMPANHIA RONDONIENSE DE GÁS - RONGÁS (RO)
+Dependência: Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$      1.734.074,23
+Lucros / Prejuízos no ano: R$       540.866,05
+ROE: 31%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"132";"RO";"SOCIEDADE DE PORTOS E HIDROVIAS DE RONDÔNIA - SOPH/RO";NA;"Não Informado";"Não Dependente";"PORTOS E HIDROVIAS";"1";6987776,21;"4249228.1900000004";NA;NA;"1928781.64";NA;NA;4249228,19;11;"Norte";1;4249228,19;0,608094487044255;"     6.987.776,21";"SOCIEDADE DE PORTOS E HIDROVIAS DE RONDÔNIA - SOPH/RO (RO)
+Dependência: Não Dependente
+Setor: PORTOS E HIDROVIAS
+PL: R$      6.987.776,21
+Lucros / Prejuízos no ano: R$     4.249.228,19
+ROE: 61%";"bem_pos";"Demais"
+"133";"RO";"Companhia de Mineração de Rondônia - CMR";NA;"SEM";"Não Dependente";"MINERAÇÃO";"Não Declarado";1843606621,19;"3178354.17";NA;NA;NA;"1000000";NA;3178354,17;11;"Norte";1;3178354,17;0,00172398717463298;" 1.843.606.621,19";"Companhia de Mineração de Rondônia - CMR (RO)
+Dependência: Não Dependente
+Setor: MINERAÇÃO
+PL: R$  1.843.606.621,19
+Lucros / Prejuízos no ano: R$     3.178.354,17
+ROE: 0%";"pos";"Demais"
+"134";"RR";"Companhia de Desenvolvimento de Roraima";NA;"SEM";"Não Informado";"DESENVOLVIMENTO";"Não Declarado";228626667,17;"2657222.3199999998";NA;NA;NA;NA;NA;2657222,32;14;"Norte";1;2657222,32;0,0116225388441855;"   228.626.667,17";"Companhia de Desenvolvimento de Roraima (RR)
+Dependência: Não Informado
+Setor: DESENVOLVIMENTO
+PL: R$    228.626.667,17
+Lucros / Prejuízos no ano: R$     2.657.222,32
+ROE: 1%";"pos";"DESENVOLVIMENTO"
+"135";"RS";"Companhia de Processamento de Dados do Estado do RS - PROCERGS";NA;"SEM";"Não Dependente";"INFORMÁTICA";"0.99590000000000001";16509428,99;"-5200554.18";0;NA;NA;NA;NA;-5200554,18;43;"Sul";4;-5200554,18;-0,315005090918048;"    16.509.428,99";"Companhia de Processamento de Dados do Estado do RS - PROCERGS (RS)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$     16.509.428,99
+Lucros / Prejuízos no ano: R$    -5.200.554,18
+ROE: -32%";"neg";"INFORMÁTICA"
+"136";"RS";"Companhia de Gás do Estado RGS - SULGÁS";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.51";376249463,51;"73353063.430000007";37410062,35;NA;NA;NA;NA;73353063,43;43;"Sul";4;73353063,43;0,194958586108523;"   376.249.463,51";"Companhia de Gás do Estado RGS - SULGÁS (RS)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$    376.249.463,51
+Lucros / Prejuízos no ano: R$    73.353.063,43
+ROE: 20%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"137";"RS";"Caixa de Administração da Dívida Pública Estadual - CADIP";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.99990000000000001";221582000;"-184000";0;NA;NA;NA;NA;-184000;43;"Sul";4;-184000;-0,000830392360390284;"   221.582.000,00";"Caixa de Administração da Dívida Pública Estadual - CADIP (RS)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$    221.582.000,00
+Lucros / Prejuízos no ano: R$      -184.000,00
+ROE: 0%";"neg";"FINANCEIRO"
+"138";"RS";"Companhia Riograndense de Mineração - CRM";NA;"SEM";"Não Dependente";"ENERGIA";"0.99990000000000001";319235000;"-25871000";0;NA;NA;NA;NA;-25871000;43;"Sul";4;-25871000;-0,0810406127147713;"   319.235.000,00";"Companhia Riograndense de Mineração - CRM (RS)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$    319.235.000,00
+Lucros / Prejuízos no ano: R$   -25.871.000,00
+ROE: -8%";"neg";"ENERGIA"
+"139";"RS";"Companhia Riograndense de Saneamento - CORSAN";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.99990000000000001";2095294000;"292087000";152375000;NA;NA;NA;NA;292087000;43;"Sul";4;292087000;0,139401439607043;" 2.095.294.000,00";"Companhia Riograndense de Saneamento - CORSAN (RS)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  2.095.294.000,00
+Lucros / Prejuízos no ano: R$   292.087.000,00
+ROE: 14%";"pos";"SANEAMENTO"
+"140";"RS";"Companhia Estadual de Geração e Transmição de Energia Eletrica - CEEE-GT";NA;"SEM";"Não Dependente";"ENERGIA";"0.65920000000000001";2388818000;"173439000";0;NA;NA;NA;NA;173439000;43;"Sul";4;173439000;0,0726045265901379;" 2.388.818.000,00";"Companhia Estadual de Geração e Transmição de Energia Eletrica - CEEE-GT (RS)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$  2.388.818.000,00
+Lucros / Prejuízos no ano: R$   173.439.000,00
+ROE: 7%";"pos";"ENERGIA"
+"141";"RS";"Banco do Estado do Rio Grande do Sul - BANRISUL";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.49890000000000001";7366063000;"908597000";267009000;NA;NA;NA;NA;908597000;43;"Sul";4;908597000;0,123349067201842;" 7.366.063.000,00";"Banco do Estado do Rio Grande do Sul - BANRISUL (RS)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$  7.366.063.000,00
+Lucros / Prejuízos no ano: R$   908.597.000,00
+ROE: 12%";"pos";"FINANCEIRO"
+"142";"RS";"BADESUL Desenvolvimento S.A. - Agência de Fomento/RS";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.99990000000000001";708845000;"17522000";0;NA;NA;NA;NA;17522000;43;"Sul";4;17522000;0,0247190852725208;"   708.845.000,00";"BADESUL Desenvolvimento S.A. - Agência de Fomento/RS (RS)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$    708.845.000,00
+Lucros / Prejuízos no ano: R$    17.522.000,00
+ROE: 2%";"pos";"FINANCEIRO"
+"143";"SC";"Companhia Integrada de Desnvolvimento Agrícola de Santa Catarina - CIDASC";NA;"EP";"Dependente";"SERVIÇOS PÚBLICOS";"1";15454268,36;"-2279008.2000000002";NA;NA;NA;NA;0;-2279008,2;42;"Sul";4;-2279008,2;-0,147467880517638;"    15.454.268,36";"Companhia Integrada de Desnvolvimento Agrícola de Santa Catarina - CIDASC (SC)
+Dependência: Dependente
+Setor: SERVIÇOS PÚBLICOS
+PL: R$     15.454.268,36
+Lucros / Prejuízos no ano: R$    -2.279.008,20
+ROE: -15%";"neg";"SERVIÇOS PÚBLICOS"
+"144";"SC";"Santa Catarina Turismo S.A - SANTUR";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"0.97";612454,28;"-22047.57";NA;NA;"13376238.9";NA;-13376238,9;-22047,57;42;"Sul";4;-22047,57;-0,0359987197738254;"       612.454,28";"Santa Catarina Turismo S.A - SANTUR (SC)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$        612.454,28
+Lucros / Prejuízos no ano: R$       -22.047,57
+ROE: -4%";"neg";"DESENVOLVIMENTO"
+"145";"SC";"Agência de Fomento do Estado de Santa Catarina S/A - BADESC";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.51819999999999999";554061839,69;"14735843.970000001";2274039,61;NA;NA;NA;NA;14735843,97;42;"Sul";4;14735843,97;0,0265960275810454;"   554.061.839,69";"Agência de Fomento do Estado de Santa Catarina S/A - BADESC (SC)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$    554.061.839,69
+Lucros / Prejuízos no ano: R$    14.735.843,97
+ROE: 3%";"pos";"FINANCEIRO"
+"146";"SC";"Centrais Elétricas de Santa Catarina - CELESC";NA;"SEM";"Não Dependente";"ENERGIA";"0.20200000000000001";1800856205,1;"165032458.84999999";3611629,72;NA;NA;NA;NA;165032458,85;42;"Sul";4;165032458,85;0,0916411084808606;" 1.800.856.205,10";"Centrais Elétricas de Santa Catarina - CELESC (SC)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$  1.800.856.205,10
+Lucros / Prejuízos no ano: R$   165.032.458,85
+ROE: 9%";"pos";"ENERGIA"
+"147";"SC";"Santa Catarina Participação e Investimentos S/A - INVESC";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.995";82447015,32;"-163349199.52000001";NA;NA;NA;NA;NA;-163349199,52;42;"Sul";4;-163349199,52;-1,98126274051275;"    82.447.015,32";"Santa Catarina Participação e Investimentos S/A - INVESC (SC)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$     82.447.015,32
+Lucros / Prejuízos no ano: R$  -163.349.199,52
+ROE: -198%";"bem_neg";"FINANCEIRO"
+"148";"SC";"Centrais de Abastecimento do Estado de Santa Catarina S/A - CEASA";NA;"SEM";"Não Dependente";"ABASTECIMENTO";"0.94530000000000003";7619398,13;"1006616.18";0;NA;NA;NA;NA;1006616,18;42;"Sul";4;1006616,18;0,132112295856628;"     7.619.398,13";"Centrais de Abastecimento do Estado de Santa Catarina S/A - CEASA (SC)
+Dependência: Não Dependente
+Setor: ABASTECIMENTO
+PL: R$      7.619.398,13
+Lucros / Prejuízos no ano: R$     1.006.616,18
+ROE: 13%";"pos";"ABASTECIMENTO"
+"149";"SC";"Centro de Informatica e Automação de SC S/A - CIASC";NA;"EP";"Não Dependente";"INFORMÁTICA";"1";45305015,97;"17695308.420000002";0;NA;NA;"866345.6";NA;17695308,42;42;"Sul";4;17695308,42;0,390581661679966;"    45.305.015,97";"Centro de Informatica e Automação de SC S/A - CIASC (SC)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$     45.305.015,97
+Lucros / Prejuízos no ano: R$    17.695.308,42
+ROE: 39%";"pos";"INFORMÁTICA"
+"150";"SC";"Companhia Catarinense de Aguas e Saneamento - CASAN";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.6421";1365307297,77;"-119225401.54000001";0;NA;NA;NA;NA;-119225401,54;42;"Sul";4;-119225401,54;-0,0873249573445734;" 1.365.307.297,77";"Companhia Catarinense de Aguas e Saneamento - CASAN (SC)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  1.365.307.297,77
+Lucros / Prejuízos no ano: R$  -119.225.401,54
+ROE: -9%";"neg";"SANEAMENTO"
+"151";"SC";"Cia de Distritos Industriais de Santa Catarina - CODISC - em Liquidação";NA;"Não Informado";"Não Dependente";"DESENVOLVIMENTO";"1";393427,23;"-234560.88";NA;NA;NA;NA;NA;-234560,88;42;"Sul";4;-234560,88;-0,596198895536539;"       393.427,23";"Cia de Distritos Industriais de Santa Catarina - CODISC - em Liquidação (SC)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$        393.427,23
+Lucros / Prejuízos no ano: R$      -234.560,88
+ROE: -60%";"bem_neg";"DESENVOLVIMENTO"
+"152";"SC";"SC Participações e Parceria S.A (SCPar)";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"1";415053894,3;"-22930382.550000001";NA;NA;NA;NA;NA;-22930382,55;42;"Sul";4;-22930382,55;-0,0552467591917737;"   415.053.894,30";"SC Participações e Parceria S.A (SCPar) (SC)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    415.053.894,30
+Lucros / Prejuízos no ano: R$   -22.930.382,55
+ROE: -6%";"neg";"DESENVOLVIMENTO"
+"153";"SE";"COMPANHIA ESTADUAL DE HABITAÇÃO E OBRAS PUBLICAS - CEHOP";NA;"SEM";"Dependente";"HABITAÇÃO";"0.99990000000000001";97033909;"-58086815.270000003";NA;NA;NA;NA;0;-58086815,27;28;"Nordeste";2;-58086815,27;-0,598623881781368;"    97.033.909,00";"COMPANHIA ESTADUAL DE HABITAÇÃO E OBRAS PUBLICAS - CEHOP (SE)
+Dependência: Dependente
+Setor: HABITAÇÃO
+PL: R$     97.033.909,00
+Lucros / Prejuízos no ano: R$   -58.086.815,27
+ROE: -60%";"bem_neg";"Demais"
+"154";"SE";"COMPANHIA DE DESENVOLVIMENTO ECONÔMICO DE SERGIPE - CODISE";NA;"SEM";"Dependente";"DESENVOLVIMENTO";"0.99490000000000001";203544627;"-8653695";NA;NA;NA;NA;0;-8653695;28;"Nordeste";2;-8653695;-0,0425149763348949;"   203.544.627,00";"COMPANHIA DE DESENVOLVIMENTO ECONÔMICO DE SERGIPE - CODISE (SE)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$    203.544.627,00
+Lucros / Prejuízos no ano: R$    -8.653.695,00
+ROE: -4%";"neg";"DESENVOLVIMENTO"
+"155";"SE";"EMPRESA SERGIPANA DE TURISMO S/A";NA;"EP";"Dependente";"DESENVOLVIMENTO";"0.98309999999999997";12571521,46;"-554574.31999999995";NA;NA;NA;NA;0;-554574,32;28;"Nordeste";2;-554574,32;-0,0441135404147017;"    12.571.521,46";"EMPRESA SERGIPANA DE TURISMO S/A (SE)
+Dependência: Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     12.571.521,46
+Lucros / Prejuízos no ano: R$      -554.574,32
+ROE: -4%";"neg";"DESENVOLVIMENTO"
+"156";"SE";"SERGIPE GAS S/A - SERGAS";NA;"SEM";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"0.51";53433663,58;"3186813.080000008";254390,34;NA;NA;NA;NA;3186813,08000001;28;"Nordeste";2;3186813,08000001;0,0596405499171653;"    53.433.663,58";"SERGIPE GAS S/A - SERGAS (SE)
+Dependência: Não Dependente
+Setor: DISTRIBUIÇÃO DE GÁS
+PL: R$     53.433.663,58
+Lucros / Prejuízos no ano: R$     3.186.813,08
+ROE: 6%";"pos";"DISTRIBUIÇÃO DE GÁS"
+"157";"SE";"COMPANHIA DE SANEAMENTO DE SERGIPE – DESO";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.99990000000000001";1381542610;"4049520";NA;NA;NA;"11447648";NA;4049520;28;"Nordeste";2;4049520;0,00293115823622697;" 1.381.542.610,00";"COMPANHIA DE SANEAMENTO DE SERGIPE – DESO (SE)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$  1.381.542.610,00
+Lucros / Prejuízos no ano: R$     4.049.520,00
+ROE: 0%";"pos";"SANEAMENTO"
+"158";"SE";"SERVICOS GRAFICOS DE SERGIPE -SEGRASE";NA;"EP";"Não Dependente";"COMUNICAÇÕES";"1";6088642,54;"-918653.23";NA;NA;NA;NA;NA;-918653,23;28;"Nordeste";2;-918653,23;-0,150879810066826;"     6.088.642,54";"SERVICOS GRAFICOS DE SERGIPE -SEGRASE (SE)
+Dependência: Não Dependente
+Setor: COMUNICAÇÕES
+PL: R$      6.088.642,54
+Lucros / Prejuízos no ano: R$      -918.653,23
+ROE: -15%";"neg";"Demais"
+"159";"SE";"BANCO DO ESTADO DE SERGIPE S.A.";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.89870000000000005";405939983;"62539382.810000002";22623868,8;NA;NA;NA;NA;62539382,81;28;"Nordeste";2;62539382,81;0,154060662731022;"   405.939.983,00";"BANCO DO ESTADO DE SERGIPE S.A. (SE)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$    405.939.983,00
+Lucros / Prejuízos no ano: R$    62.539.382,81
+ROE: 15%";"pos";"FINANCEIRO"
+"160";"SP";"CETESB - COMPANHIA AMBIENTAL DO ESTADO DE SÃO PAULO";NA;"SEM";"Dependente";"OUTRO";"0.99998900000000002";219531000;"-170050000";0;"0";"166623000";"407000";-167030000;-170050000;35;"Sudeste";3;-170050000;-0,774605864319845;"   219.531.000,00";"CETESB - COMPANHIA AMBIENTAL DO ESTADO DE SÃO PAULO (SP)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$    219.531.000,00
+Lucros / Prejuízos no ano: R$  -170.050.000,00
+ROE: -77%";"bem_neg";"Demais"
+"161";"SP";"COMPANHIA DOCAS DE SÃO SEBASTIÃO";NA;"SEM";"Dependente";"PORTOS E HIDROVIAS";"0.99943700000000002";232781000;"-25960000";0;"0";"16758000";"0";-16758000;-25960000;35;"Sudeste";3;-25960000;-0,11152112930179;"   232.781.000,00";"COMPANHIA DOCAS DE SÃO SEBASTIÃO (SP)
+Dependência: Dependente
+Setor: PORTOS E HIDROVIAS
+PL: R$    232.781.000,00
+Lucros / Prejuízos no ano: R$   -25.960.000,00
+ROE: -11%";"neg";"Demais"
+"162";"SP";"CODASP - COMPANHIA DE DESENVOLVIMENTO AGRÍCOLA DE SÃO PAULO";NA;"SEM";"Dependente";"OUTRO";"0.99999899999999997";6732000;"1839000";0;"0";"28582000";"0";-28582000;1839000;35;"Sudeste";3;1839000;0,273172905525847;"     6.732.000,00";"CODASP - COMPANHIA DE DESENVOLVIMENTO AGRÍCOLA DE SÃO PAULO (SP)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$      6.732.000,00
+Lucros / Prejuízos no ano: R$     1.839.000,00
+ROE: 27%";"pos";"Demais"
+"163";"SP";"EMPLASA - EMPRESA PAULISTA DE PLANEJAMENTO METROPOLITANO S/A";NA;"SEM";"Dependente";"OUTRO";"0.99999800000000005";33758000;"654000";0;"0";"40347000";"0";-40347000;654000;35;"Sudeste";3;654000;0,0193731856152616;"    33.758.000,00";"EMPLASA - EMPRESA PAULISTA DE PLANEJAMENTO METROPOLITANO S/A (SP)
+Dependência: Dependente
+Setor: OUTRO
+PL: R$     33.758.000,00
+Lucros / Prejuízos no ano: R$       654.000,00
+ROE: 2%";"pos";"Demais"
+"164";"SP";"IPT - INSTITUTO DE PESQUISAS TECNOLÓGICAS DO ESTADO DE SÃO PAULO S/A";NA;"SEM";"Dependente";"PESQUISA";"0.99999700000000002";113562000;"-7244000";0;"0";"89764000";"51000";-89815000;-7244000;35;"Sudeste";3;-7244000;-0,0637889434846163;"   113.562.000,00";"IPT - INSTITUTO DE PESQUISAS TECNOLÓGICAS DO ESTADO DE SÃO PAULO S/A (SP)
+Dependência: Dependente
+Setor: PESQUISA
+PL: R$    113.562.000,00
+Lucros / Prejuízos no ano: R$    -7.244.000,00
+ROE: -6%";"neg";"Demais"
+"165";"SP";"CPTM - COMPANHIA PAULISTA DE TRASNPORTE METROPOLITANO";NA;"SEM";"Dependente";"TRANSPORTES";"0.99990000000000001";9826139000;"-547729000";0;"0";"958888000";"865656000";-1824544000;-547729000;35;"Sudeste";3;-547729000;-0,0557420366229299;" 9.826.139.000,00";"CPTM - COMPANHIA PAULISTA DE TRASNPORTE METROPOLITANO (SP)
+Dependência: Dependente
+Setor: TRANSPORTES
+PL: R$  9.826.139.000,00
+Lucros / Prejuízos no ano: R$  -547.729.000,00
+ROE: -6%";"neg";"TRANSPORTES"
+"166";"SP";"SABESP - COMPANHIA DE SANEAMENTO BÁSICO DE SÃO PAULO";NA;"SEM";"Não Dependente";"SANEAMENTO";"0.50258899999999995";19551688000;"2835068000";353761000;"0";"0";"5000000000";NA;2835068000;35;"Sudeste";3;2835068000;0,145003745968123;"19.551.688.000,00";"SABESP - COMPANHIA DE SANEAMENTO BÁSICO DE SÃO PAULO (SP)
+Dependência: Não Dependente
+Setor: SANEAMENTO
+PL: R$ 19.551.688.000,00
+Lucros / Prejuízos no ano: R$ 2.835.068.000,00
+ROE: 14%";"pos";"SANEAMENTO"
+"167";"SP";"PRODESP - CIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO";NA;"SEM";"Não Dependente";"INFORMÁTICA";"1";564053000;"59707000";15439000;"0";"0";"10424000";NA;59707000;35;"Sudeste";3;59707000;0,105853527948615;"   564.053.000,00";"PRODESP - CIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO (SP)
+Dependência: Não Dependente
+Setor: INFORMÁTICA
+PL: R$    564.053.000,00
+Lucros / Prejuízos no ano: R$    59.707.000,00
+ROE: 11%";"pos";"INFORMÁTICA"
+"168";"SP";"COSESP - COMPANHIA DE SEGUROS DO ESTADO DE SÃO PAULO";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.94730800000000004";162454000;"6341000";1428000;"0";"0";"0";NA;6341000;35;"Sudeste";3;6341000;0,0390325876863604;"   162.454.000,00";"COSESP - COMPANHIA DE SEGUROS DO ESTADO DE SÃO PAULO (SP)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$    162.454.000,00
+Lucros / Prejuízos no ano: R$     6.341.000,00
+ROE: 4%";"pos";"FINANCEIRO"
+"169";"SP";"METRÔ - COMPANHIA DO METROPOLITANO DE SÃO PAULO";NA;"SEM";"Não Dependente";"TRANSPORTES";"0.97029200000000004";32291500000;"-519184000";0;"0";"0";"2055429000";NA;-519184000;35;"Sudeste";3;-519184000;-0,0160780391124599;"32.291.500.000,00";"METRÔ - COMPANHIA DO METROPOLITANO DE SÃO PAULO (SP)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$ 32.291.500.000,00
+Lucros / Prejuízos no ano: R$  -519.184.000,00
+ROE: -2%";"neg";"TRANSPORTES"
+"170";"SP";"DESENVOLVE SP - AGÊNCIA DE FOMENTO DO ESTADO DE SÃO PAULO S.A.";NA;"SEM";"Não Dependente";"FINANCEIRO";"0.99997999999999998";1060213000;"14736000";5748000;"0";"0";"0";NA;14736000;35;"Sudeste";3;14736000;0,0138990938613279;" 1.060.213.000,00";"DESENVOLVE SP - AGÊNCIA DE FOMENTO DO ESTADO DE SÃO PAULO S.A. (SP)
+Dependência: Não Dependente
+Setor: FINANCEIRO
+PL: R$  1.060.213.000,00
+Lucros / Prejuízos no ano: R$    14.736.000,00
+ROE: 1%";"pos";"FINANCEIRO"
+"171";"SP";"EMTU - EMPRESA METROPOLITANA DE TRANSPORTES URBANOS S.A";NA;"SEM";"Não Dependente";"TRANSPORTES";"1";2155763000;"-23642000";0;"0";"0";"347000000";NA;-23642000;35;"Sudeste";3;-23642000;-0,0109668827231936;" 2.155.763.000,00";"EMTU - EMPRESA METROPOLITANA DE TRANSPORTES URBANOS S.A (SP)
+Dependência: Não Dependente
+Setor: TRANSPORTES
+PL: R$  2.155.763.000,00
+Lucros / Prejuízos no ano: R$   -23.642.000,00
+ROE: -1%";"neg";"TRANSPORTES"
+"172";"SP";"EMAE - EMPRESA METROPOLITANA DE ÁGUAS E ENERGIA";NA;"SEM";"Não Dependente";"ENERGIA";"0.38990000000000002";868855000;"101517000";0;"0";"0";"0";NA;101517000;35;"Sudeste";3;101517000;0,116839979052891;"   868.855.000,00";"EMAE - EMPRESA METROPOLITANA DE ÁGUAS E ENERGIA (SP)
+Dependência: Não Dependente
+Setor: ENERGIA
+PL: R$    868.855.000,00
+Lucros / Prejuízos no ano: R$   101.517.000,00
+ROE: 12%";"pos";"ENERGIA"
+"173";"SP";"CDHU - COMPANHIA DE DESENVOLVIMENTO HABITACIONAL E URBANO";NA;"SEM";"Não Dependente";"URBANIZAÇÃO";"0.999996";9628440000;"311720000";0;"0";"0";"611250000";NA;311720000;35;"Sudeste";3;311720000;0,0323749226250566;" 9.628.440.000,00";"CDHU - COMPANHIA DE DESENVOLVIMENTO HABITACIONAL E URBANO (SP)
+Dependência: Não Dependente
+Setor: URBANIZAÇÃO
+PL: R$  9.628.440.000,00
+Lucros / Prejuízos no ano: R$   311.720.000,00
+ROE: 3%";"pos";"Demais"
+"174";"SP";"CPOS - COMPANHIA PAULISTA DE OBRAS E SERVIÇOS";NA;"SEM";"Não Dependente";"OUTRO";"0.99978800000000001";67021000;"-13154000";0;"0";"0";"0";NA;-13154000;35;"Sudeste";3;-13154000;-0,196266841736172;"    67.021.000,00";"CPOS - COMPANHIA PAULISTA DE OBRAS E SERVIÇOS (SP)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$     67.021.000,00
+Lucros / Prejuízos no ano: R$   -13.154.000,00
+ROE: -20%";"neg";"Demais"
+"175";"SP";"CPSEC - COMPANHIA PAULISTA DE SECURITIZAÇÃO";NA;"SEM";"Não Dependente";"OUTRO";"0.99970300000000001";383299000;"59811000";10656000;"0";"0";"8137000";NA;59811000;35;"Sudeste";3;59811000;0,156042671647982;"   383.299.000,00";"CPSEC - COMPANHIA PAULISTA DE SECURITIZAÇÃO (SP)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$    383.299.000,00
+Lucros / Prejuízos no ano: R$    59.811.000,00
+ROE: 16%";"pos";"Demais"
+"176";"SP";"CPP - COMPANHIA PAULISTA DE PARCERIAS  **";NA;"SEM";"Não Dependente";"OUTRO";"1";1753058000;"112269000";31464000;"0";"0";"65128000";NA;112269000;35;"Sudeste";3;112269000;0,0640418058044857;" 1.753.058.000,00";"CPP - COMPANHIA PAULISTA DE PARCERIAS  ** (SP)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$  1.753.058.000,00
+Lucros / Prejuízos no ano: R$   112.269.000,00
+ROE: 6%";"pos";"Demais"
+"177";"SP";"IMESP - IMPRENSA OFICIAL DO ESTADO S.A";NA;"SEM";"Não Dependente";"COMUNICAÇÕES";"0.99997100000000005";296449000;"61247000";69429000;"0";"0";"0";NA;61247000;35;"Sudeste";3;61247000;0,206602147418274;"   296.449.000,00";"IMESP - IMPRENSA OFICIAL DO ESTADO S.A (SP)
+Dependência: Não Dependente
+Setor: COMUNICAÇÕES
+PL: R$    296.449.000,00
+Lucros / Prejuízos no ano: R$    61.247.000,00
+ROE: 21%";"pos";"Demais"
+"178";"SP";"DERSA - DESENVOLVIMENTO RODOVIÁRIO S/A";NA;"SEM";"Não Dependente";"OUTRO";"1";1463345000;"29331000";0;"0";"0";"65822000";NA;29331000;35;"Sudeste";3;29331000;0,0200438037509952;" 1.463.345.000,00";"DERSA - DESENVOLVIMENTO RODOVIÁRIO S/A (SP)
+Dependência: Não Dependente
+Setor: OUTRO
+PL: R$  1.463.345.000,00
+Lucros / Prejuízos no ano: R$    29.331.000,00
+ROE: 2%";"pos";"Demais"
+"179";"TO";"AGÊNCIA DE FOMENTO DO TOCANTINS";NA;"SEM";"Não Dependente";"DESENVOLVIMENTO";"0.99399999999999999";17000210,63;"-2971679.58";NA;NA;NA;NA;NA;-2971679,58;17;"Norte";1;-2971679,58;-0,174802515373305;"    17.000.210,63";"AGÊNCIA DE FOMENTO DO TOCANTINS (TO)
+Dependência: Não Dependente
+Setor: DESENVOLVIMENTO
+PL: R$     17.000.210,63
+Lucros / Prejuízos no ano: R$    -2.971.679,58
+ROE: -17%";"neg";"DESENVOLVIMENTO"
+"180";"TO";"COMPANHIA IMOB. DO ESTADO DO TOCANTINS - TERRATINS";NA;"SEM";"Não Dependente";"HABITAÇÃO";"0.99439999999999995";42141024,75;"490802.29";NA;NA;NA;NA;NA;490802,29;17;"Norte";1;490802,29;0,0116466624367031;"    42.141.024,75";"COMPANHIA IMOB. DO ESTADO DO TOCANTINS - TERRATINS (TO)
+Dependência: Não Dependente
+Setor: HABITAÇÃO
+PL: R$     42.141.024,75
+Lucros / Prejuízos no ano: R$       490.802,29
+ROE: 1%";"pos";"Demais"
+"181";"TO";"COMPANHIA DE MINERAÇÃO DO TOCANTINS - MINERATINS";NA;"Não Informado";"Não Dependente";"MINERAÇÃO";"0.99970000000000003";1191066,4;"-93687.43";NA;NA;NA;"185000";NA;-93687,43;17;"Norte";1;-93687,43;-0,0786584442311529;"     1.191.066,40";"COMPANHIA DE MINERAÇÃO DO TOCANTINS - MINERATINS (TO)
+Dependência: Não Dependente
+Setor: MINERAÇÃO
+PL: R$      1.191.066,40
+Lucros / Prejuízos no ano: R$       -93.687,43
+ROE: -8%";"neg";"Demais"

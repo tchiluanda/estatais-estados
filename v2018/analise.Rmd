@@ -1,0 +1,38 @@
+---
+title: ''
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{css, echo=FALSE}
+body {
+  font-family: 'Lora', sans-serif;
+  font-size: 15px;
+  line-height: 1.4;
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1, h2, h3, h4 {
+  color: #353E57 // #1E4C7A;
+}
+```
+<style>
+@import url('https://fonts.googleapis.com/css?family=Lora&display=swap');
+</style>
+
+oi
+
+<div class="abertura">
+        <img class="abertura" src="capa.jpg" alt="trem do metrô de São Paulo"/>
+        <p></p>
+        <div class="sobre-imagem">
+            <h1>Os municípios do Brasil</h1>
+            <h2>Uma análise dos dados do Siconfi</h2>
+            <p>Todo ano, os municípios precisam informar ao Tesouro Nacional dados fiscais como despesas e bla bla bla bla bla bla.</p>
+        </div>
+</div>

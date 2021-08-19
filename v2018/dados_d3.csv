@@ -1,0 +1,182 @@
+"";"Estado";"emp";"dep";"seg";"resultado";"CODUF";"REGIAO";"CODREG";"PL"
+"1";"AC";"EMP. DE PROC. DE DADOS DO ACRE S/A - ACREDATA";"Dependente";"INFORMÁTICA";"7305574.7400000002";12;"Norte";1;52502677,98
+"2";"AC";"COMPANHIA INDUSTRIAL DE LATICINIOS";"Dependente";"SERVIÇOS PÚBLICOS";"-5249854.38";12;"Norte";1;41354413,37
+"3";"AC";"COMPANHIA DE DESENVOL IND DO EST DO ACRE-CODISACRE";"Dependente";"SERVIÇOS PÚBLICOS";"-3372681.29";12;"Norte";1;7869740,06
+"4";"AC";"CIA DE SANEAMENTO DO ESTADO DO ACRE-SANACRE";"Dependente";"SANEAMENTO";"0";12;"Norte";1;2897848,98
+"5";"AL";"Agência de Fomento de Alagoas S/A - DESENVOLVE - dados 2017";"Dependente";"DESENVOLVIMENTO";"-1262";27;"Nordeste";2;34705000
+"6";"AL";"GAS DE ALAGOAS S/A - ALGAS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"22825000";27;"Nordeste";2;85978000
+"7";"AL";"Laboratório Industrial Farmacêutico de Alagoas S.A. – LIFAL";"Não Dependente";"OUTRO";"-3372260";27;"Nordeste";2;5650868
+"8";"AL";"Companhia de Edição, Impressão e Publicação de Alagoas - CEPAL";"Não Dependente";"COMUNICAÇÕES";"87201.13";27;"Nordeste";2;6721921,47
+"9";"AM";"Companhia de Saneamento do Amazonas - Cosama";"Dependente";"SANEAMENTO";"-4816384.63";13;"Norte";1;8060890,02
+"10";"AM";"Empresa Estadual de Turismo";"Dependente";"OUTRO";"-414186.43";13;"Norte";1;6468786,24
+"11";"AM";"Companhia de Gás do Amazonas - Cigás";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"90872587.129999995";13;"Norte";1;162734777,41
+"12";"AM";"CIAMA";"Não Dependente";"DESENVOLVIMENTO";"2288299.2799999998";13;"Norte";1;26231651,09
+"13";"AM";"PRODAM - PROC. DE DADOS AMAZONAS S.A.";"Não Dependente";"INFORMÁTICA";"-4966883.4400000004";13;"Norte";1;50688877,29
+"14";"AM";"AGÊNCIA DE FOMENTO DO ESTADO DO AMAZONAS";"Não Dependente";"FINANCEIRO";"-8707340.7200000007";13;"Norte";1;85948217,36
+"15";"BA";"EMPRESA BAIANA DAS ÁGUAS E SANEAMENTO";"Dependente";"SANEAMENTO";"335107288.69";29;"Nordeste";2;5832992759,9065
+"16";"BA";"COMPANHIA  DE GAS DA BAHIA - BAHIAGAS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"116659997.94999993";29;"Nordeste";2;600289554,28
+"17";"BA";"BAHIAINVESTE - EMPRESA BAIANA DE ATIVOS S/A";"Não Dependente";"GESTÃO DE ATIVOS";"-1958974.57";29;"Nordeste";2;2166024,76
+"18";"CE";"Empresa de Tecnologia da Informação do Ceará - ETICE";"Dependente";"INFORMÁTICA";"-2067194.3";23;"Nordeste";2;5296778,28
+"19";"CE";"Companhia de Desenvolvimento do Ceará - CODECE";"Dependente";"DESENVOLVIMENTO";"-4804000";23;"Nordeste";2;20011000
+"20";"CE";"Companhia de Água e Esgoto do Ceará - CAGECE";"Não Dependente";"SANEAMENTO";"132714000";23;"Nordeste";2;2439788000
+"21";"CE";"Companhia de Gás do Ceará - CEGÁS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"56674000";23;"Nordeste";2;189817000
+"22";"CE";"Companhia Cearense de Transportes Metropolitanos - METROFOR";"Não Dependente";"TRANSPORTES";"-180906336.50999999";23;"Nordeste";2;1126658138,78
+"23";"CE";"Companhia do Complexo Industrial e Portuária do Pecém - CIPP S/A";"Não Dependente";"PORTOS E HIDROVIAS";"48231000";23;"Nordeste";2;1087767000
+"24";"CE";"Centrais de Abastecimento do Ceará S/A - CEASA";"Não Dependente";"ABASTECIMENTO";"1034020.73";23;"Nordeste";2;6591141,76
+"25";"CE";"Companhia de Gestão dos Recursos Hídricos do Ceará - COGERH";"Não Dependente";"OUTRO";"21260071";23;"Nordeste";2;216820155
+"26";"CE";"Agência de Desenvolvimento do Estado do Ceará - ADECE";"Não Dependente";"DESENVOLVIMENTO";"1758074";23;"Nordeste";2;102938731
+"27";"CE";"Companhia Adm. da Zona de Process. de Exportação do Ceará - ZPE CEARÁ";"Não Dependente";"DESENVOLVIMENTO";"2875212";23;"Nordeste";2;13709431,55
+"28";"DF";"COMPANHIA URBANIZADORA DA NOVA CAPITAL - NOVACAP";"Dependente";"URBANIZAÇÃO";"-162273342";53;"Centro-oeste";5;608209581
+"29";"DF";"TRASNPORTES COLETIVOS DE BRASILIA - TCB";"Dependente";"TRANSPORTES";"-5552345";53;"Centro-oeste";5;53173296
+"30";"DF";"COMPANHIA METROPOLITANA DO  DF - METRÔ DF";"Dependente";"TRANSPORTES";"-49237721";53;"Centro-oeste";5;2063370883
+"31";"DF";"EMPRESA DE ASSISTENCIA TÉCNICA E EXTENSÃO RURAL DO DF - EMATER";"Dependente";"ASSISTÊNCIA TÉCNICA";"-14688079";53;"Centro-oeste";5;9180659
+"32";"DF";"COMPANHIA DE DESENVOLVIMENTO HABITACIONAL DO DF - CODHAB";"Dependente";"URBANIZAÇÃO";"-34768143";53;"Centro-oeste";5;121015025
+"33";"DF";"SOCIEDADE DE ABASTECIMENTO DE BRASILIA - SAB";"Dependente";"ABASTECIMENTO";"109883";53;"Centro-oeste";5;2402681
+"34";"DF";"COMPANHIA DE SANEAMENTO AMBIENTAL DO DF - CAESB";"Não Dependente";"SANEAMENTO";"-247439000";53;"Centro-oeste";5;1244028000
+"35";"DF";"COMPANHIA ENERGETICA DE BRASILIA - CEB";"Não Dependente";"ENERGIA";"8000000";53;"Centro-oeste";5;792250000
+"36";"DF";"CENTRAIS DE ABASTECIMENTO DO DISTRITO FEDERAL  - CEASA";"Não Dependente";"ABASTECIMENTO";"5406510";53;"Centro-oeste";5;62275651
+"37";"DF";"COMPANHIA IMOBILIARIA DE BRASILIA  - TERRACAP";"Não Dependente";"URBANIZAÇÃO";"352593356";53;"Centro-oeste";5;2533382768
+"38";"ES";"Ceasa - Centrais de Abastecimento do Espirito Santo S/A";"Dependente";"ABASTECIMENTO";"1102706.54";32;"Sudeste";3;9886684,31
+"39";"ES";"Cohab - Companhia de Habitação e Urbanização do Estado do Espirito Santo - Em Liquidação";"Dependente";"HABITAÇÃO";"-7000";32;"Sudeste";3;19931000
+"40";"ES";"Banestes - Banco do Estado do Espirito Santo";"Não Dependente";"FINANCEIRO";"181055000";32;"Sudeste";3;1492013000
+"41";"ES";"Bandes - Banco de Desenvolvimento do Espírito Santo S/A";"Não Dependente";"FINANCEIRO";"1669000";32;"Sudeste";3;460018000
+"42";"ES";"Cesan - Companhia Espirito Santense de Saneamento";"Não Dependente";"SANEAMENTO";"191791000";32;"Sudeste";3;2,297e+09
+"43";"ES";"Ceturb - Companhia Estadual de Transportes Coletivos de Passageiros do Espirito Santo";"Não Dependente";"TRANSPORTES";"-1909150.31";32;"Sudeste";3;64854708,02
+"44";"GO";"CASEGO - COMPANHIA DE ARMAZÉM E SILOS DO ESTADO DE GOIÁS S/A";"Dependente";"ABASTECIMENTO";"979081";52;"Centro-oeste";5;22610909
+"45";"GO";"EMATER - AGENCIA GOIANA DE ASSISTENCIA TECNICA, EXTENSAO RURAL E PESQUISA AGROPECUARIA";"Dependente";"ASSISTÊNCIA TÉCNICA";"13581877";52;"Centro-oeste";5;45302624
+"46";"GO";"METAGO - METAIS DE GOIAS S/A";"Dependente";"GESTÃO DE ATIVOS";"569030";52;"Centro-oeste";5;21769816
+"47";"GO";"AGEHAB - AGENCIA GOIANA DE HABITAÇÃO S/A";"Não Dependente";"URBANIZAÇÃO";"-31723250";52;"Centro-oeste";5;12428311
+"48";"GO";"CEASA - CENTRAIS DE ABASTECIMENTO DE GOIÁS";"Não Dependente";"ABASTECIMENTO";"-925276";52;"Centro-oeste";5;13846608
+"49";"GO";"CODEGO - COMPANHIA DE DESENVOLVIMENTO ECONÔMICO DE GOIÁS";"Não Dependente";"DESENVOLVIMENTO";"-4690534";52;"Centro-oeste";5;134359042
+"50";"GO";"GOIASFOMENTO - AGENCIA DE FOMENTO DE GOIAS";"Não Dependente";"DESENVOLVIMENTO";"6976696";52;"Centro-oeste";5;185159930
+"51";"GO";"GOIASGAS - AGENCIA GOIANA DE GAS CANALIZADO S/A";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"-465000";52;"Centro-oeste";5;338000
+"52";"GO";"GOIASPARCERIAS - COMPANHIA DE INVESTIMENTO E PARCERIAS DO ESTADO DE GOIAS";"Não Dependente";"DESENVOLVIMENTO";"2789741";52;"Centro-oeste";5;232002027
+"53";"GO";"METROBUS - METROBUS TRANSPORTE COLETIVO S/A";"Não Dependente";"TRANSPORTES";"-32754";52;"Centro-oeste";5;26550
+"54";"GO";"SANEAGO - SANEAMENTO DE GOIAS S/A";"Não Dependente";"SANEAMENTO";"115762000";52;"Centro-oeste";5;2275690000
+"55";"MA";"EMPRESA MARANHENSE DE ADMINISTRACAO D RECURSOS HUMANOS E NEGOCIOS PUBLICOS S.A";"Dependente";"GESTÃO DE ATIVOS";"-460681.72";21;"Nordeste";2;5989808,65
+"56";"MA";"COMPANHIA DE SANEAMENTO AMBIENTAL DO MARANHÃO - CAEMA";"Não Dependente";"SANEAMENTO";"-170926";21;"Nordeste";2;830609
+"57";"MA";"EMAP";"Não Dependente";"OUTRO";"61788";21;"Nordeste";2;457045
+"58";"MA";"COMPANHIA MARANHENSE DE GAS - GASMAR";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"15897794.449999999";21;"Nordeste";2;13478448,61
+"59";"MG";"Empresa de Assistência Técnica e Extensão Rural do Estado de Minas Gerais - EMATER";"Dependente";"ASSISTÊNCIA TÉCNICA";"2883680.63";31;"Sudeste";3;55267390,98
+"60";"MG";"Empresa de Pesquisa Agropecuária de Minas Gerais - EPAMIG";"Dependente";"PESQUISA";"-436438.24";31;"Sudeste";3;2366795,14
+"61";"MG";"Empresa Mineira de Comunicação - EMC (Rádio Inconfidência)";"Dependente";"COMUNICAÇÕES";"-1328367.0900000001";31;"Sudeste";3;36038453,08
+"62";"MG";"Banco de Desenvolvimento de Minas Gerais S.A. - BDMG";"Não Dependente";"FINANCEIRO";"125973000";31;"Sudeste";3;1729340000
+"63";"MG";"Companhia de Desenvolvimento de Minas Gerais – CODEMGE";"Não Dependente";"DESENVOLVIMENTO";"602855000";31;"Sudeste";3;1824086000
+"64";"MG";"Codemge Participações S.A. - CODEPAR";"Não Dependente";"DESENVOLVIMENTO";"-8160118.6699999999";31;"Sudeste";3;281804689,96
+"65";"MG";"Companhia de Desenvolvimento Econômico de Minas Gerais – CODEMIG";"Não Dependente";"DESENVOLVIMENTO";"911123000";31;"Sudeste";3;694460000
+"66";"MG";"Companhia de Saneamento de Minas Gerais - COPASA";"Não Dependente";"SANEAMENTO";"578700000";31;"Sudeste";3;6226633000
+"67";"MG";"Copasa Serviços de Saneamento Integrado do Norte e Nordeste de Minas Gerais S/A - COPANOR";"Não Dependente";"SANEAMENTO";"-12998000";31;"Sudeste";3;104597000
+"68";"MG";"Companhia de Tecnologia da Informação do Estado de Minas Gerais - PRODEMGE";"Não Dependente";"INFORMÁTICA";"-2090520";31;"Sudeste";3;99235044
+"69";"MG";"Companhia Energética de Minas Gerais – CEMIG";"Não Dependente";"ENERGIA";"1378291000";31;"Sudeste";3;15939327000
+"70";"MG";"Cemig Distribuição S.A. - CEMIG D";"Não Dependente";"ENERGIA";"534870000";31;"Sudeste";3;4642358000
+"71";"MG";"Cemig Geração e Transmissão S.A. - CEMIG GT";"Não Dependente";"ENERGIA";"590783000";31;"Sudeste";3;4980136000
+"72";"MG";"Companhia de Gás de Minas Gerais - GASMIG";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"177561000";31;"Sudeste";3;1000791000
+"73";"MG";"Minas Gerais Participações S.A. – MGI";"Não Dependente";"GESTÃO DE ATIVOS";"226858000";31;"Sudeste";3;387425000
+"74";"MG";"EMIP - Empresa Mineira de Parcerias S.A.";"Não Dependente";"DESENVOLVIMENTO";"-2117000";31;"Sudeste";3;3838000
+"75";"MG";"Minas Gerais Administração e Serviços S.A. - MGS";"Não Dependente";"OUTRO";"12464587";31;"Sudeste";3;42736398
+"76";"MG";"Trem Metropolitano de Belo Horizonte S/A - METROMINAS";"Não Dependente";"TRANSPORTES";"-229994";31;"Sudeste";3;309189
+"77";"MS";"EMPRESA DE GESTÃO DE RECURSOS MINERAIS DE MS - MS MINERAL";"Dependente";"MINERAÇÃO";"-2500";50;"Centro-oeste";5;236207,51
+"78";"MS";"EMPRESA DE SANEAMENTO DE MS S.A.-SANESUL";"Não Dependente";"SANEAMENTO";"95490543.569999993";50;"Centro-oeste";5;761057474,26
+"79";"MS";"COMPANHIA DE GAS DO ESTADO DE MATO GROSSO DO SUL - MSGAS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"12736020.060000001";50;"Centro-oeste";5;24457603,91
+"80";"MT";"METAMAT";"Dependente";"MINERAÇÃO";"-1255376";51;"Centro-oeste";5;6117127600
+"81";"MT";"Agência de Fomento do Estado de Mato Grosso S/A - DESENVOLVE MT";"Não Dependente";"FINANCEIRO";"-4164680.67";51;"Centro-oeste";5;12980955,85
+"82";"PA";"COMP. ADM DA ZONA DE PROC DE EXP BARCARENA";"Dependente";"DESENVOLVIMENTO";"-282405.63";15;"Norte";1;23952749,64
+"83";"PA";"Banco do Estado do Pará";"Não Dependente";"FINANCEIRO";"308324453.74000001";15;"Norte";1;1217292101,81
+"84";"PA";"COMPANHIA DE PORTOS E HID. DO ESTADO DO PARA";"Dependente";"TRANSPORTES";"31946080.07";15;"Norte";1;43182470,28
+"85";"PA";"CENTRAIS DE ABASTECIMENTO DO PARA AS";"Dependente";"ABASTECIMENTO";"1984250.19";15;"Norte";1;3797349,93
+"86";"PA";"COMP.DE DESENV. ECONOMICO DO PARÁ";"Dependente";"DESENVOLVIMENTO";"5324735.5599999996";15;"Norte";1;56584255,28
+"87";"PA";"COMPANHIA DE HAB. DO ESTADO DO PARÁ";"Dependente";"SERVIÇOS PÚBLICOS";"13534134.359999999";15;"Norte";1;116044140,92
+"88";"PA";"COMPANHIA DE SANEAMENTO DO PARÁ";"Não Dependente";"SANEAMENTO";"-244414753.21000001";15;"Norte";1;379488240,07
+"89";"PA";"EMP DE ASSIST TEC E EXTENSAO RURAL DO ESTADO DO PARÁ";"Dependente";"ASSISTÊNCIA TÉCNICA";"6686976.0499999998";15;"Norte";1;23735738,08
+"90";"PA";"COMPANHIA DE GAS DO PARA";"Dependente";"DISTRIBUIÇÃO DE GÁS";"1080000";15;"Norte";1;656000
+"91";"PA";"Empresa de Tec. da Inf. e Comunicação do Estado do Pará - PRODEPA";"Dependente";"INFORMÁTICA";"-1871041.47";15;"Norte";1;29776242,68
+"92";"PB";"Empresa Paraibana de Turismo S/A (PBTUR S/A)";"Dependente";"OUTRO";"-34661556.659999996";25;"Nordeste";2;8369564,81
+"93";"PB";"Cia. de Desenvolvimento da Paraíba (CINEP)";"Dependente";"DESENVOLVIMENTO";"-256978.77";25;"Nordeste";2;12968677,51
+"94";"PB";"Empresa de Assist.Técnica e Extensão Rural (EMATER)";"Não Informado";"OUTRO";"2883680.63";25;"Nordeste";2;48597738,68
+"95";"PB";"Cia. de Process.de Dados - CODATA";"Não Dependente";"INFORMÁTICA";"2564198.79";25;"Nordeste";2;7508717,05
+"96";"PB";"Companhia Paraíbana de Gás";"Dependente";"DISTRIBUIÇÃO DE GÁS";"11236000";25;"Nordeste";2;68954000
+"97";"PB";"Companhia DOCAS da Paraíba";"Não Dependente";"PORTOS E HIDROVIAS";"425374.14";25;"Nordeste";2;21309325,03
+"98";"PB";"Cia .de Água e Esgotos da Paraíba - CAGEPA";"Não Dependente";"SANEAMENTO";"109838000";25;"Nordeste";2;896626000
+"99";"PE";"COMPANHIA ESTADUAL DE HABITAÇÃO E OBRAS - CEHAB";"Dependente";"HABITAÇÃO";"-3145904";26;"Nordeste";2;53467395
+"100";"PE";"EMPRESA PERNAMBUCO DE COMUNICAÇÃO S/A - EPC";"Dependente";"COMUNICAÇÕES";"1655960";26;"Nordeste";2;5498589
+"101";"PE";"INSTITUTO AGRONÔMICO DE PERNAMBUCO - IPA";"Dependente";"SERVIÇOS PÚBLICOS";"-7747883";26;"Nordeste";2;40683186
+"102";"PE";"EMPRESA DE TURISMO DE PERNAMBUCO GOVERNADOR EDUARDO CAMPOS - EMPETUR";"Dependente";"OUTRO";"4718163";26;"Nordeste";2;170941929
+"103";"PE";"EMPRESA PERNAMBUCANA DE TRANSPOSTE COLETIVO INTERMUNICIPAL";"Dependente";"TRANSPORTES";"858513";26;"Nordeste";2;1387538
+"104";"PE";"AGENCIA DE FOMENTO DO ESTADO DE PERNAMBUCO";"Não Dependente";"FINANCEIRO";"-384000";26;"Nordeste";2;48345000
+"105";"PE";"COMPANHIA EDITORA DE PERNAMBUCO";"Não Dependente";"COMUNICAÇÕES";"-6082458";26;"Nordeste";2;65229547
+"106";"PE";"COMPANHIA PERNAMBUCANA DE SANEAMENTO";"Não Dependente";"SANEAMENTO";"194227636.91999999";26;"Nordeste";2;5658384825,49
+"107";"PE";"LABORATORIO FARMACEUTICO DO ESTADO DE PERNAMBUCO GOVERNADOR MIGUEL ARRAES S/A - LAFEPE";"Não Dependente";"OUTRO";"7646492.1200000001";26;"Nordeste";2;110350557
+"108";"PE";"SUAPE COMPLEXO INDUSTRIAL PORTUÁRIO GOVERNADOR ERALDO GUEIROS";"Não Dependente";"PORTOS E HIDROVIAS";"36718000";26;"Nordeste";2;3100209000
+"109";"PE";"AGENCIA DE DESENVOLVIMENTO ECONOMICO DE PERNAMBUCO AS - AD DIPER";"Não Dependente";"DESENVOLVIMENTO";"2621588";26;"Nordeste";2;180811373
+"110";"PE";"COMPANHIA PERNAMBUCANA DE GÁS - COPERGÁS";"Não Dependente";"ENERGIA";"81625590";26;"Nordeste";2;282092540
+"111";"PE";"PORTO DO RECIFE S.A.";"Não Dependente";"PORTOS E HIDROVIAS";"-24589173";26;"Nordeste";2;43354306
+"112";"PI";"Agência de Fomento e Desenvolvimento do Piauí";"Não Informado";"DESENVOLVIMENTO";"-1680";22;"Nordeste";2;15002400
+"113";"PR";"Companhia de Saneamento do Paraná - SANEPAR";"Não Dependente";"SANEAMENTO";"892487";41;"Sul";4;5717188
+"114";"PR";"Administração dos Portos de Paranaguá e Antonia - APPA";"Não Dependente";"SERVIÇOS PÚBLICOS";"81959668";41;"Sul";4;474606420
+"115";"PR";"Companhia de Tecnologia da Informação e Comunicação do Paraná – CELEPAR";"Não Dependente";"INFORMÁTICA";"12446";41;"Sul";4;128296329
+"116";"PR";"Estrada de Ferro Paraná Oeste S/A";"Não Dependente";"TRANSPORTES";"-13692424";41;"Sul";4;275598642
+"117";"PR";"Companhia Paranaense de Energia - Copel (Consolidado)";"Não Dependente";"ENERGIA";"1444004";41;"Sul";4;16032925
+"118";"PR";"Centrais de Abastecimento do Paraná S/A - CEASA";"Não Dependente";"ABASTECIMENTO";"3428478";41;"Sul";4;125872096
+"119";"PR";"Companhia de Habitação do Paraná - COHAPAR";"Não Dependente";"HABITAÇÃO";"-4307548";41;"Sul";4;1205662930
+"120";"PR";"Agência de Fomento do Paraná";"Não Dependente";"FINANCEIRO";"77942235";41;"Sul";4;1646518701
+"121";"RJ";"COMPANHIA DE TRANSPORTES SOBRE  TRILHOS DO ESTADO DO RIO DE JANEIRO - RIOTRILHOS";"Dependente";"TRANSPORTES";"-79700862.549999997";33;"Sudeste";3;807298752,57
+"122";"RJ";"EMPRESA DE ASSISTENCIA TECNICA E EXTENSAO RURAL DO ESTADO DO RIO DE JANEIRO - EMATER-RIO";"Dependente";"ASSISTÊNCIA TÉCNICA";"-166386.44";33;"Sudeste";3;607497,26
+"123";"RJ";"Cia de Desenvolvimento Industrial do ERJ - CODIN";"Dependente";"DESENVOLVIMENTO";"12640359.91";33;"Sudeste";3;44573553,44
+"124";"RJ";"COMPANHIA DE DESENVOLVIMENTO ROD E TERMINAIS DO EST RJ - CODERTE";"Dependente";"OUTRO";"-22327773";33;"Sudeste";3;6315685,18
+"125";"RJ";"CENTRAIS DE ABAST DO ESTADO DO RJ S/A";"Dependente";"ABASTECIMENTO";"18737352.23";33;"Sudeste";3;37641834,58
+"126";"RN";"CEASA";"Dependente";"ABASTECIMENTO";"-54627.41";24;"Nordeste";2;362740,08
+"127";"RN";"EMPROTUR";"Dependente";"OUTRO";"-410965.79";24;"Nordeste";2;606438,97
+"128";"RN";"CAERN";"Não Dependente";"SANEAMENTO";"-10719563.659999678";24;"Nordeste";2;693724435,88
+"129";"RN";"POTIGAS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"22398662.479999993";24;"Nordeste";2;73251000
+"130";"RN";"AGN";"Não Dependente";"FINANCEIRO";"2016817";24;"Nordeste";2;43427750
+"131";"RO";"COMPANHIA RONDONIENSE DE GÁS - RONGÁS";"Dependente";"DISTRIBUIÇÃO DE GÁS";"540866.05000000005";11;"Norte";1;1734074,23
+"132";"RO";"SOCIEDADE DE PORTOS E HIDROVIAS DE RONDÔNIA - SOPH/RO";"Não Dependente";"PORTOS E HIDROVIAS";"4249228.1900000004";11;"Norte";1;6987776,21
+"133";"RO";"Companhia de Mineração de Rondônia - CMR";"Não Dependente";"MINERAÇÃO";"3178354.17";11;"Norte";1;1843606621,19
+"134";"RR";"Companhia de Desenvolvimento de Roraima";"Não Informado";"DESENVOLVIMENTO";"2657222.3199999998";14;"Norte";1;228626667,17
+"135";"RS";"Companhia de Processamento de Dados do Estado do RS - PROCERGS";"Não Dependente";"INFORMÁTICA";"-5200554.18";43;"Sul";4;16509428,99
+"136";"RS";"Companhia de Gás do Estado RGS - SULGÁS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"73353063.430000007";43;"Sul";4;376249463,51
+"137";"RS";"Caixa de Administração da Dívida Pública Estadual - CADIP";"Não Dependente";"FINANCEIRO";"-184000";43;"Sul";4;221582000
+"138";"RS";"Companhia Riograndense de Mineração - CRM";"Não Dependente";"ENERGIA";"-25871000";43;"Sul";4;319235000
+"139";"RS";"Companhia Riograndense de Saneamento - CORSAN";"Não Dependente";"SANEAMENTO";"292087000";43;"Sul";4;2095294000
+"140";"RS";"Companhia Estadual de Geração e Transmição de Energia Eletrica - CEEE-GT";"Não Dependente";"ENERGIA";"173439000";43;"Sul";4;2388818000
+"141";"RS";"Banco do Estado do Rio Grande do Sul - BANRISUL";"Não Dependente";"FINANCEIRO";"908597000";43;"Sul";4;7366063000
+"142";"RS";"BADESUL Desenvolvimento S.A. - Agência de Fomento/RS";"Não Dependente";"FINANCEIRO";"17522000";43;"Sul";4;708845000
+"143";"SC";"Companhia Integrada de Desnvolvimento Agrícola de Santa Catarina - CIDASC";"Dependente";"SERVIÇOS PÚBLICOS";"-2279008.2000000002";42;"Sul";4;15454268,36
+"144";"SC";"Santa Catarina Turismo S.A - SANTUR";"Dependente";"DESENVOLVIMENTO";"-22047.57";42;"Sul";4;612454,28
+"145";"SC";"Agência de Fomento do Estado de Santa Catarina S/A - BADESC";"Não Dependente";"FINANCEIRO";"14735843.970000001";42;"Sul";4;554061839,69
+"146";"SC";"Centrais Elétricas de Santa Catarina - CELESC";"Não Dependente";"ENERGIA";"165032458.84999999";42;"Sul";4;1800856205,1
+"147";"SC";"Santa Catarina Participação e Investimentos S/A - INVESC";"Não Dependente";"FINANCEIRO";"-163349199.52000001";42;"Sul";4;82447015,32
+"148";"SC";"Centrais de Abastecimento do Estado de Santa Catarina S/A - CEASA";"Não Dependente";"ABASTECIMENTO";"1006616.18";42;"Sul";4;7619398,13
+"149";"SC";"Centro de Informatica e Automação de SC S/A - CIASC";"Não Dependente";"INFORMÁTICA";"17695308.420000002";42;"Sul";4;45305015,97
+"150";"SC";"Companhia Catarinense de Aguas e Saneamento - CASAN";"Não Dependente";"SANEAMENTO";"-119225401.54000001";42;"Sul";4;1365307297,77
+"151";"SC";"Cia de Distritos Industriais de Santa Catarina - CODISC - em Liquidação";"Não Dependente";"DESENVOLVIMENTO";"-234560.88";42;"Sul";4;393427,23
+"152";"SC";"SC Participações e Parceria S.A (SCPar)";"Não Dependente";"DESENVOLVIMENTO";"-22930382.550000001";42;"Sul";4;415053894,3
+"153";"SE";"COMPANHIA ESTADUAL DE HABITAÇÃO E OBRAS PUBLICAS - CEHOP";"Dependente";"HABITAÇÃO";"-58086815.270000003";28;"Nordeste";2;97033909
+"154";"SE";"COMPANHIA DE DESENVOLVIMENTO ECONÔMICO DE SERGIPE - CODISE";"Dependente";"DESENVOLVIMENTO";"-8653695";28;"Nordeste";2;203544627
+"155";"SE";"EMPRESA SERGIPANA DE TURISMO S/A";"Dependente";"DESENVOLVIMENTO";"-554574.31999999995";28;"Nordeste";2;12571521,46
+"156";"SE";"SERGIPE GAS S/A - SERGAS";"Não Dependente";"DISTRIBUIÇÃO DE GÁS";"3186813.080000008";28;"Nordeste";2;53433663,58
+"157";"SE";"COMPANHIA DE SANEAMENTO DE SERGIPE – DESO";"Não Dependente";"SANEAMENTO";"4049520";28;"Nordeste";2;1381542610
+"158";"SE";"SERVICOS GRAFICOS DE SERGIPE -SEGRASE";"Não Dependente";"COMUNICAÇÕES";"-918653.23";28;"Nordeste";2;6088642,54
+"159";"SE";"BANCO DO ESTADO DE SERGIPE S.A.";"Não Dependente";"FINANCEIRO";"62539382.810000002";28;"Nordeste";2;405939983
+"160";"SP";"CETESB - COMPANHIA AMBIENTAL DO ESTADO DE SÃO PAULO";"Dependente";"OUTRO";"-170050000";35;"Sudeste";3;219531000
+"161";"SP";"COMPANHIA DOCAS DE SÃO SEBASTIÃO";"Dependente";"PORTOS E HIDROVIAS";"-25960000";35;"Sudeste";3;232781000
+"162";"SP";"CODASP - COMPANHIA DE DESENVOLVIMENTO AGRÍCOLA DE SÃO PAULO";"Dependente";"OUTRO";"1839000";35;"Sudeste";3;6732000
+"163";"SP";"EMPLASA - EMPRESA PAULISTA DE PLANEJAMENTO METROPOLITANO S/A";"Dependente";"OUTRO";"654000";35;"Sudeste";3;33758000
+"164";"SP";"IPT - INSTITUTO DE PESQUISAS TECNOLÓGICAS DO ESTADO DE SÃO PAULO S/A";"Dependente";"PESQUISA";"-7244000";35;"Sudeste";3;113562000
+"165";"SP";"CPTM - COMPANHIA PAULISTA DE TRASNPORTE METROPOLITANO";"Dependente";"TRANSPORTES";"-547729000";35;"Sudeste";3;9826139000
+"166";"SP";"SABESP - COMPANHIA DE SANEAMENTO BÁSICO DE SÃO PAULO";"Não Dependente";"SANEAMENTO";"2835068000";35;"Sudeste";3;19551688000
+"167";"SP";"PRODESP - CIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO";"Não Dependente";"INFORMÁTICA";"59707000";35;"Sudeste";3;564053000
+"168";"SP";"COSESP - COMPANHIA DE SEGUROS DO ESTADO DE SÃO PAULO";"Não Dependente";"FINANCEIRO";"6341000";35;"Sudeste";3;162454000
+"169";"SP";"METRÔ - COMPANHIA DO METROPOLITANO DE SÃO PAULO";"Não Dependente";"TRANSPORTES";"-519184000";35;"Sudeste";3;32291500000
+"170";"SP";"DESENVOLVE SP - AGÊNCIA DE FOMENTO DO ESTADO DE SÃO PAULO S.A.";"Não Dependente";"FINANCEIRO";"14736000";35;"Sudeste";3;1060213000
+"171";"SP";"EMTU - EMPRESA METROPOLITANA DE TRANSPORTES URBANOS S.A";"Não Dependente";"TRANSPORTES";"-23642000";35;"Sudeste";3;2155763000
+"172";"SP";"EMAE - EMPRESA METROPOLITANA DE ÁGUAS E ENERGIA";"Não Dependente";"ENERGIA";"101517000";35;"Sudeste";3;868855000
+"173";"SP";"CDHU - COMPANHIA DE DESENVOLVIMENTO HABITACIONAL E URBANO";"Não Dependente";"URBANIZAÇÃO";"311720000";35;"Sudeste";3;9628440000
+"174";"SP";"CPOS - COMPANHIA PAULISTA DE OBRAS E SERVIÇOS";"Não Dependente";"OUTRO";"-13154000";35;"Sudeste";3;67021000
+"175";"SP";"CPSEC - COMPANHIA PAULISTA DE SECURITIZAÇÃO";"Não Dependente";"OUTRO";"59811000";35;"Sudeste";3;383299000
+"176";"SP";"CPP - COMPANHIA PAULISTA DE PARCERIAS  **";"Não Dependente";"OUTRO";"112269000";35;"Sudeste";3;1753058000
+"177";"SP";"IMESP - IMPRENSA OFICIAL DO ESTADO S.A";"Não Dependente";"COMUNICAÇÕES";"61247000";35;"Sudeste";3;296449000
+"178";"SP";"DERSA - DESENVOLVIMENTO RODOVIÁRIO S/A";"Não Dependente";"OUTRO";"29331000";35;"Sudeste";3;1463345000
+"179";"TO";"AGÊNCIA DE FOMENTO DO TOCANTINS";"Não Dependente";"DESENVOLVIMENTO";"-2971679.58";17;"Norte";1;17000210,63
+"180";"TO";"COMPANHIA IMOB. DO ESTADO DO TOCANTINS - TERRATINS";"Não Dependente";"HABITAÇÃO";"490802.29";17;"Norte";1;42141024,75
+"181";"TO";"COMPANHIA DE MINERAÇÃO DO TOCANTINS - MINERATINS";"Não Dependente";"MINERAÇÃO";"-93687.43";17;"Norte";1;1191066,4
