@@ -149,7 +149,7 @@ const cards = {
 
             cont_setores.each(function(setor, i) {
 
-                console.log(d3.select(this), setor);
+                //console.log(d3.select(this), setor);
 
                 const data = cards.data._filtered.filter(d => d.setor == setor);
 
@@ -265,7 +265,7 @@ const cards = {
             fields.forEach(field => {
 
                 const coluna = field.dataset.cardinfo;
-                console.log(coluna, data[coluna]);
+                //console.log(coluna, data[coluna]);
 
 
                 field.innerHTML = data[coluna];
@@ -424,7 +424,7 @@ const cards = {
 
             cards.data._raw = data;
 
-            console.log(data);
+            //console.log(data);
 
             cards.data.get_estados();
             cards.seletor.populate();
