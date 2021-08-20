@@ -555,9 +555,9 @@ section.content figure.plot-container.vis-cards [data-cardinfo-value] { color : 
 
 section.content figure.plot-container.vis-cards [data-cardinfo-value].negativo { color : #DC143C; }
 
-section.content figure.plot-container.vis-cards .link-carta {
+section.content figure.plot-container.vis-cards p.link-carta {
 
-    margin-top: .5rem;
+    margin-top: 1rem;
 
 }
 
