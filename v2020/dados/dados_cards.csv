@@ -107,7 +107,7 @@
 "106","Rio de Janeiro","ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS","CEASA-RJ","Dependente","ATIVA",0,4382644.93,-1228656.3,NA
 "107","Rio de Janeiro","HABITAÇÃO E URBANIZAÇÃO","Empresa de Obras Públicas do Estado do Rio de Janeiro - EMOP","Dependente","ATIVA",2478567.69,0,-256452.45,NA
 "108","Rio de Janeiro","PESQUISA E ASSISTÊNCIA TÉCNICA AGROPECUÁRIA","EMPRESA DE PESQUISA AGROPECUARIA DO ESTADO DO RJ - PESAGRO","Dependente","ATIVA",811974.32,1350250.4,-3795358.47,NA
-"109","Rio Grande do Norte","ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS","CENTRAIS DE ABASTECIMENTO DO RIO GRANDE DO NORTE S/A","Dependente","ATIVA",2165209.33,2976266,632794,NA
+"109","Rio Grande do Norte","ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS","CENTRAIS DE ABASTECIMENTO DO RIO GRANDE DO NORTE S/A","Dependente","ATIVA",2165209.33,2976266,632794,"http://adcon.rn.gov.br/ACERVO/ceasa/DOC/DOC000000000244794.PDF"
 "110","Rio Grande do Norte","HABITAÇÃO E URBANIZAÇÃO","COMPANHIA DE PROCESSAMENTO DE DADOS DO RN - DATANORTE","Dependente","ATIVA",1954853,377750.04,-11261948,NA
 "111","Rio Grande do Norte","PESQUISA E ASSISTÊNCIA TÉCNICA AGROPECUÁRIA","EMPRESA DE PESQUISA AGROPECUÁRIA DO RIO GRANDE DO NORTE - EMPARN","Dependente","ATIVA",863889,62290.41,-1999241.48,NA
 "112","Rio Grande do Norte","HABITAÇÃO E URBANIZAÇÃO","CEHAB - COMPANHIA ESTADUAL DE HABITACAO E DESENVOLVIMENTO URBANO","Dependente","ATIVA",0,607463.23,1031133,NA
@@ -145,7 +145,7 @@
 "144","Alagoas","GÁS E DERIVADOS","GÁS DE ALAGOAS S/A - ALGÁS","Não Dependente","ATIVA",10862624.37,12176857.37,16212290.34,"http://governanca.algas.com.br/carta-anual-de-politicas-publicas-e-governanca-corporativa"
 "145","Amazonas","DESENVOLVIMENTO REGIONAL","Companhia de Desenvolvimento do estado do Amazonas - CIAMA","Não Dependente","ATIVA",325979280.28,0,-826049.23,"http://www.ciama.am.gov.br/wp-content/uploads/2021/04/Carta-Anual-de-Governanca-Corporativa_Ciama_Exercicio2020_REV.pdf "
 "146","Amazonas","GÁS E DERIVADOS","Companhia de Gás do Amazonas - Cigás","Não Dependente","ATIVA",25031238.94,26356678.23,68072155.74,"https://ca0b7bfe-9705-4a2d-9d03-84e9975055e8.filesusr.com/ugd/9da855_e076f480617f456c8d7290542784de8a.pdf "
-"147","Amazonas","FINANCEIRO","Agência de Fomento do Estado do Amazonas SA Afeam","Não Dependente","ATIVA",93611773,115131939.66,11064274.97,"http://www.afeam.am.gov.br/wp-content/uploads/2021/06/Carta-Anual-de-Politicas-Publicas-e-Governanca-Corporativa-2020.pdf"
+"147","Amazonas","FINANCEIRO","Agência de Fomento do Estado do Amazonas SA Afeam","Não Dependente","ATIVA",93611773,115131939.66,11064274.97,"http://www.afeam.am.gov.br/wp-content/uploads/2020/10/Carta-Anual-de-Politicas-Publicas.pdf "
 "148","Amazonas","INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO","Prodam Processamento de Dados Amazonas SA","Não Dependente","ATIVA",45193990.61,2860866.32,-2484876,"https://portal.prodam.sp.gov.br/wp-content/uploads/2021/02/Carta-Anual-de-Politicas-Publicas-e-de-Governanca-Corporativa-2020-Final.pdf "
 "149","Bahia","SANEAMENTO","Empresa Baiana de Águas e Saneamento da Bahia - EMBASA","Não Dependente","ATIVA",4676292840.14,616186376.76,242928074.98,"https://www.embasa.ba.gov.br/index.php/institucional/a-embasa/governanca/carta-anual-de-governanca-corporativa"
 "150","Bahia","INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO","Companhia de Processamento de Dados do Estado da Bahia - PRODEB","Não Dependente","ATIVA",99605874,9642972,1175345,"http://www.prodeb.gov.br/Paginas/Governan%C3%A7a-corporativa-.aspx"
@@ -162,7 +162,7 @@
 "161","Ceará","SANEAMENTO","Companhia de Gestão dos Recursos Hídricos - COGERH","Não Dependente","ATIVA",88470.73,9351472,3581411,NA
 "162","Distrito Federal","FINANCEIRO","Banco de Brasília S.A - BRB","Não Dependente","ATIVA",1.3e+09,135400323.86,449599242,"http://ri.brb.com.br/regulamentos-e-politicas/"
 "163","Distrito Federal","ENERGIA","Companhia Energética de Brasília S.A - CEB-H","Não Dependente","ATIVA",566025355.62,78515454.1,432619022.46,"http://www.ceb.com.br/index.php/institucional-ceb-separator/companhia-energetica-de-brasilia-ceb"
-"164","Distrito Federal","SANEAMENTO","Companhia de Saneamento Ambiental do Distrito Federal S.A - CAESB","Não Dependente","ATIVA",1537314980.97,237671874.31,199146031.73,"https://www.caesb.df.gov.br/empresa/governanca-corporativa/balancos-e-relatorios/relatorio-anual-da-administracao.html"
+"164","Distrito Federal","SANEAMENTO","Companhia de Saneamento Ambiental do Distrito Federal S.A - CAESB","Não Dependente","ATIVA",1537314980.97,237671874.31,199146031.73,"https://www.caesb.df.gov.br/empresa/governanca-corporativa/balancos-e-relatorios/relatorio-anual-da-administracao.html."
 "165","Distrito Federal","ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS","Centrais de Abastecimento do Distrito Federal S.A - CEASA","Não Dependente","ATIVA",32197985,5522454.13,-2804538.65,"http://www.ceasa.df.gov.br/acoes-e-programas/"
 "166","Distrito Federal","OUTROS","PROFLORA - Florestamento e Reflorestamento S.A","Não Dependente","EM LIQUIDAÇÃO",4024.42,0,-1549715.78,NA
 "167","Distrito Federal","DESENVOLVIMENTO REGIONAL","Companhia Imobiliária de Brasília S.A - TERRACAP","Não Dependente","ATIVA",0,109465391.1,-55081195,"https://www.terracap.df.gov.br/index.php/acesso-informacao/normas-manuais-e-politicas"
@@ -182,13 +182,13 @@
 "181","Espiríto Santo","FINANCEIRO","BANESTES BANCO DO ESTADO ESPIRITO SANTO","Não Dependente","ATIVA",1191400000,50103000,231797000,"https://banestes.com.br/ri/ri_infoFinanceira_cartaAnual.html"
 "182","Espiríto Santo","HABITAÇÃO E URBANIZAÇÃO","COHAB CONPANHIA DE HABITAÇÃO E URBANIZAÇÃO DO ESPIRITO SANTO- EM LIQUIDAÇÃO","Não Dependente","EM LIQUIDAÇÃO",4525000,0,-82000,NA
 "183","Espiríto Santo","FINANCEIRO","BANDES BANCO DE DESENVOLVIMENTO DO ESPIRITO SANTO SA","Não Dependente","ATIVA",383570883,13643000,28292000,"https://www.bandes.com.br/Site/Dinamico/Show/933/Governanca-Corporativa"
-"184","Espiríto Santo","SANEAMENTO","CESAN COMPANHIA ESPIRITO SANTENSE DE SANEAMENTO","Não Dependente","ATIVA",2321278269,2.65e+08,187898000,"https://www.cesan.com.br/wp-content/uploads/2021/03/Carta-Anual-de-Pol%C3%ADticas-P%C3%BAblicas-VF-CA-mar2021-1.pdf"
+"184","Espiríto Santo","SANEAMENTO","CESAN COMPANHIA ESPIRITO SANTENSE DE SANEAMENTO","Não Dependente","ATIVA",2321278269,2.65e+08,187898000,"https://www.cesan.com.br/wp-content/uploads/2021/03/Carta-Anual-de-Pol%C3%ADticasP%C3%BAblicas-VF-CA-mar2021-1.pdf"
 "185","Espiríto Santo","GÁS E DERIVADOS","ES GAS COMPANHIA DE GAS DO ESPIRITO SANTO","Não Dependente","ATIVA",651119000,632054000,20177000,NA
 "186","Goiás","ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS","Centrais de Abastecimento de Goiás S/A - CEASA/GO","Não Dependente","ATIVA",19435689.84,309205.4,330914.33,"https://www.ceasa.go.gov.br/acesso-a-informacao/2-institucional/898-governanca.html"
 "187","Goiás","DESENVOLVIMENTO REGIONAL","Companhia de Desenvolvimento Econômico de Goiás - CODEGO","Não Dependente","ATIVA",241966349.16,158143,7452052.38,"http://www.codego.com.br/docs/Carta%20Anual%20Politicas.pdf"
 "188","Goiás","FINANCEIRO","Caixa Econômica do Estado de Goiás - CAIXEGO","Não Dependente","EM LIQUIDAÇÃO",0,0,0,NA
 "189","Goiás","SANEAMENTO","Saneamento de Goiás S/A - SANEAGO","Não Dependente","ATIVA",1691128165,259213,336346,NA
-"190","Goiás","FINANCEIRO","Agência de Fomento de Goiás S/A - GOASFOMENTO","Não Dependente","ATIVA",179756939.34,0,2384927.11,"https://www.goiasfomento.com/acesso-a-informacao/carta-anual-de-governanca-corporativa/"
+"190","Goiás","FINANCEIRO","Agência de Fomento de Goiás S/A - GOASFOMENTO","Não Dependente","ATIVA",179756939.34,0,2384927.11,"https://www.goiasfomento.com/acesso-a-informacao/carta-anual-de-governanca-corporativa-2019/"
 "191","Goiás","GÁS E DERIVADOS","Agência Goiana de Gás Canalizado S/A - GOIASGÁS","Não Dependente","ATIVA",0,6516.95,-495615.63,NA
 "192","Goiás","ENERGIA","CELG Geração e Transmissão S/A - CELG G T","Não Dependente","ATIVA",0,57064524.26,165642720.99,"https://celggt.com/AcessoItem.aspx?39"
 "193","Goiás","DESENVOLVIMENTO REGIONAL","Companhia de Investimento e Parcerias do Estado de Goiás - GOIASPARCERIA","Não Dependente","ATIVA",353597531.75,0,2786417.67,"https://www.goiasparcerias.go.gov.br/acesso-a-informacao.html?view=article&id=119&catid=2"
@@ -250,8 +250,8 @@
 "249","Rio Grande do Norte","FINANCEIRO","AGÊNCIA DE FOMENTO DO RN SA","Não Dependente","ATIVA",49142782,143300,950759.53,"http://www.agn.rn.gov.br/Conteudo.asp?TRAN=ITEM&TARG=182444&ACT=&PAGE=0&PARM=&LBL=AGN%2FRN"
 "250","Rio Grande do Norte","SANEAMENTO","COMPANHIA DE AGUAS E ESGOTOS DO RIO GRANDE DO NORTE - CAERN","Não Dependente","ATIVA",1396762510,131697024.92,22297504.42,"https://arquivos-transparencia.caern.com.br/index.php/s/0cccxFdPVqwe7hT"
 "251","Rio Grande do Norte","GESTÃO DE ATIVOS","EMPRESA GESTORA DE ATIVOS DO RN - EMGERN","Não Dependente","ATIVA",0,0,0,NA
-"252","Rio Grande do Norte","GÁS E DERIVADOS","COMPANHIA POTIGUAR DE GÁS","Não Dependente","ATIVA",55455554.26,5863182.88,10293586.35,"https://www.potigas.com.br/public/governanca/"
-"253","Rondônia","PORTOS E HIDROVIAS","SOCIEDADE DE PORTOS E HIDROVIAS DO ESTADO DE RONDÔNIA","Não Dependente","ATIVA",2700000,0,-1837826.67,NA
+"252","Rio Grande do Norte","GÁS E DERIVADOS","COMPANHIA POTIGUAR DE GÁS","Não Dependente","ATIVA",55455554.26,5863182.88,10293586.35,"https://www.potigas.com.br/public/docs/carta-anual-politica-publica-2020.pdf"
+"253","Rondônia","PORTOS E HIDROVIAS","SOCIEDADE DE PORTOS E HIDROVIAS DO ESTADO DE RONDÔNIA","Não Dependente","ATIVA",2700000,0,-1837826.67,"http://www.rondonia.ro.gov.br/soph/sobre/auditoria-inspecoes-e-prestacoes-de-contas/3-prestacao-de-contas/"
 "254","Rondônia","GÁS E DERIVADOS","COMPANHIA RONDONIENSE DE GÁS - RONGÁS","Não Dependente","ATIVA",7253110,0,-533598.55,NA
 "255","Rondônia","MINERAÇÃO","COMPANHIA DE MINERAÇÃO DE RONDÔNIA","Não Dependente","ATIVA",25988034.1,0,634741.94,"https://transparencia.ro.gov.br/?pEncPastaId=abIK_SBgUC6-OpArkckapLFnVvocJ-KpJs4ZPp4BOla7pig9g9PTI73SQUWUqLbkwFgmIQ67vhI-VlyjmfJT-yBTaER-EJUawIVB0Wv06Q03QU4L#!"
 "256","Rondônia","FINANCEIRO","BANCO DO ESTADO DE RONDÔNIA S/A","Não Dependente","EM LIQUIDAÇÃO",0,0,0,NA
@@ -297,7 +297,7 @@
 "296","São Paulo","TRANSPORTE","METRÔ - COMPANHIA DO METROPOLITANO DE SAO PAULO","Não Dependente","ATIVA",41726179970.73,1695387904.72,-1701339755.68,"https://governancacorporativa.metrosp.com.br/Paginas/Estrat%C3%A9gia-e-Plano-de-Neg%C3%B3cios.aspx"
 "297","São Paulo","OUTROS","COSESP - COMPANHIA DE SEGUROS DO ESTADO DE SÃO PAULO","Não Dependente","ATIVA",1.2e+08,507734.45,-4904615.78,"http://www.cosespseguros.com.br/lei-de-acesso/governanca/governanca-corporativa/"
 "298","São Paulo","TRANSPORTE","DERSA - DESENVOLVIMENTO RODOVIÁRIO S/A ""EM LIQUIDAÇÃO""","Não Dependente","EM LIQUIDAÇÃO",1862660103.34,2505751.9,-1786970223.33,"http://www.dersa.sp.gov.br/quem-somos/governanca-corporativa/carta-anual/"
-"299","São Paulo","INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO","PRODESP - COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO","Não Dependente","ATIVA",507879931.19,34901376.42,37637135.91,"https://www.prodesp.sp.gov.br/institucional/governanca-corporativa/"
+"299","São Paulo","INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO","PRODESP - COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DE SÃO PAULO","Não Dependente","ATIVA",507879931.19,34901376.42,37637135.91,"http://www.prodesp.sp.gov.br/governanca-corporativa/carta-anual-governan%C3%A7a.asp"
 "300","Tocantins","FINANCEIRO","AGÊNCIA DE FOMENTO DO ESTADO DO TOCANTINS S/A","Não Dependente","ATIVA",39862188.84,36000,-3053029.47,NA
 "301","Tocantins","HABITAÇÃO E URBANIZAÇÃO","COMPANHIA IMOBILIÁRIA DE PARTICIPAÇÕES. INVESTIMENTOS E PARCERIAS DO ESTADO DO TOCANTINS - TOCANTINS PARCERIAS","Não Dependente","ATIVA",22147472.05,0,-1362276.11,NA
 "302","Tocantins","OUTROS","COMPANHIA DE MINERAÇÃO DO TOCANTINS","Não Dependente","EM LIQUIDAÇÃO",0,0,0,NA

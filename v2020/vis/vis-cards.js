@@ -149,7 +149,7 @@ const cards = {
 
             cont_setores.each(function(setor, i) {
 
-                console.log(d3.select(this), setor);
+                //console.log(d3.select(this), setor);
 
                 const data = cards.data._filtered.filter(d => d.setor == setor);
 
@@ -265,7 +265,7 @@ const cards = {
             fields.forEach(field => {
 
                 const coluna = field.dataset.cardinfo;
-                console.log(coluna, data[coluna]);
+                //console.log(coluna, data[coluna]);
 
 
                 field.innerHTML = data[coluna];
@@ -330,17 +330,17 @@ const cards = {
 
                 set : () => {
 
-                    // maxs
+                    // // maxs
 
-                    const colunas = cards.card.mini_vis.params.colunas_valores;
+                    // const colunas = cards.card.mini_vis.params.colunas_valores;
 
-                    const maxs = colunas.map(coluna => d3.max(cards.data._raw, d => +d[coluna]));
+                    // const maxs = colunas.map(coluna => d3.max(cards.data._raw, d => +d[coluna]));
 
-                    const max = Math.max(...maxs);
+                    // const max = Math.max(...maxs);
 
-                    // domain
+                    // // domain
 
-                    cards.card.mini_vis.scales.w.domain([0, max]);
+                    // cards.card.mini_vis.scales.w.domain([0, max]);
 
                     // range
 
@@ -358,6 +358,14 @@ const cards = {
                 const data = cards.data._current_emp;
                 const colunas = cards.card.mini_vis.params.colunas_valores;
                 const w = cards.card.mini_vis.scales.w;
+
+                // calcula maximo dos valores e atualiza o domínio
+                const valores = colunas.map( coluna => Math.abs(+data[coluna]) );
+                const current_max = Math.max(...valores);
+                const flag_zerada = current_max == 0;
+
+                w.domain([0, current_max]);
+                // 
 
                 const rects = document.querySelectorAll('.mini-vis-rect');
 
@@ -386,7 +394,7 @@ const cards = {
 
                     }
 
-                    rect.style.width = w(+valor) + 'px';
+                    rect.style.width = flag_zerada ? 0 : w(+valor) + 'px';
 
                     // valores
                     campo_valor.innerHTML = "R$ " + sinal + cards.utils.formata_valor(valor);
@@ -416,7 +424,7 @@ const cards = {
 
             cards.data._raw = data;
 
-            console.log(data);
+            //console.log(data);
 
             cards.data.get_estados();
             cards.seletor.populate();
