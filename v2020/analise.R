@@ -93,6 +93,8 @@ dados_selecionados_raw <- dados_raw %>%
     `Reforço de Capital (anterior)` = `Reforço de Capital - (Exercício anterior)`,
     #result = `Resultado para o Estado Acionista`,
     capital = `Capital Social Integralizado - (Exercício)`,
+    var_capital = `Variação do Capital Social`,
+    var_acoes = `Variação da Quantidade de Ações ou cotas`,
     link      = `Link Carta Anual`
     )
 
@@ -358,7 +360,8 @@ mapa_qde <- mapa %>%
   rename(Estado = "abbrev_state") %>%
   inner_join(dados_qde_setor_estado) %>%
   rename(qde = "n") %>%
-  arrange(setor)
+  arrange(setor) %>%
+  mutate(setor = str_wrap(setor, width = 20))
 
 graf_mapa_comp <- ggplot(mapa_qde)+# %>% filter(seg == "OUTRO")) + 
   geom_sf(data = mapa, fill = "#EFEFEF", color = "ghostwhite") +
@@ -380,7 +383,11 @@ graf_mapa_comp <- ggplot(mapa_qde)+# %>% filter(seg == "OUTRO")) +
         plot.background = element_blank(),
         panel.background = element_blank())
 
-graf_mapa_facet <- graf_mapa_comp + facet_wrap(~setor)
+# setor_labeller <- function(setor) {
+#   return(str_wrap(setor, width = 30))
+# }
+
+graf_mapa_facet <- graf_mapa_comp + facet_wrap(~setor)#, labeller = setor_labeller)
 ggsave(plot = graf_mapa_facet, "./plots/segmentos_facet2.png", width = 9, height = 8, dpi = 300) # windows: acrescentar: , type = "cairo-png"
 # corrigir textos!
 
@@ -1196,55 +1203,119 @@ ggsave(plot = roe_gov, "./plots/roe_gov.png", h = 6.5, w = 6)
 
 # PLR ---------------------------------------------------------------------
 
-dados_plr <- dados_selecionados %>%
-  select(emp, dep, plr_rva, setor, Estado) %>%
-  group_by(setor, plr_rva) %>%
-  arrange(dep) %>%
-  mutate(x = ifelse(plr_rva == "Sim", 1 + row_number(), -1 - row_number()))
+dados_plr_plot <- dados_selecionados %>%
+  filter(dep == "Não Dependente",
+         plr_rva %in% c("Sim", "Não")) %>%
+  count(setor, plr_rva) %>%
+  spread(plr_rva, n, fill = 0) %>%
+  mutate(total = `Não` + `Sim`,
+         pct_sim = scales::label_percent(accuracy = 1)(`Sim` / total),
+         pct_nao = scales::label_percent(accuracy = 1)(`Não` / total)
+  ) %>%
+  gather(`Não`, `Sim`, key = plr, value = n)
 
-ggplot(dados_plr, aes(x = x, y = setor, color = dep)) + geom_point()
-
-dados_plr2 <- dados_selecionados %>%
-  filter(!is.na(plr_rva), plr_rva %in% c("Sim", "Não")) %>%
-  select(emp, dep, plr_rva, setor, Estado) %>%
-  group_by(setor) %>%
-  mutate(qde_total = n()) %>%
-  ungroup() %>%
-  group_by(setor, dep) %>%
-  arrange(plr_rva) %>%
-  mutate(x = ifelse(dep == "Dependente", 1 + row_number(), -1 - row_number()),
-         qde = n(),
-         qde_plr = sum(plr_rva == "Sim")) %>%
-  ungroup() %>%
-  mutate(pct_plr = qde_plr / qde) %>%
-  group_by(setor) %>%
-  mutate(pos = ifelse(dep == "Dependente", max(x), min(x)))
-
-min_plr <- min(dados_plr2$pos)
-max_plr <- max(dados_plr2$pos)
-
-plr <- ggplot(dados_plr2, aes(x = x, y = reorder(setor, qde_total), color = plr_rva)) + 
-  #geom_tile() +
-  geom_point(shape = 15) +
-  geom_text(aes(x = ifelse(dep == "Dependente", pos+1, pos-1), label = percent(pct_plr, accuracy = 1), hjust = ifelse(dep == "Dependente", "left", "right")), family = "Source Sans Pro", size = 3.5, color = "#735D36", check_overlap = T) +
-  annotate("text", x = 1, y = -.5, label = "Dependente", hjust = "left",
-           family = "Source Sans Pro", size = 3.5) +
-  annotate("text", x = -1, y = -.5, label = "Não Dependente", hjust = "right",
-           family = "Source Sans Pro", size = 3.5) +  
-  expand_limits(y = -1, x = c(min_plr-3, max_plr+3)) +
-  scale_color_manual(values = c("Sim" = "#735D36", "Não" = "#F4C773")) +
+plr <- ggplot(dados_plr_plot,
+              aes(y = reorder(setor, total), x = n)) + 
+  geom_col(aes(fill = plr), width = .7) +
+  geom_text(aes(label = ifelse(n == 0, "", 
+                               ifelse(plr == 'Não', 
+                                      paste0(n, " (", pct_nao, ")"), 
+                                      paste0(n, " (", pct_sim, ")") # \n?
+                               )
+  ), 
+  x = ifelse(plr == 'Não', total, n),
+  color = plr), hjust=0,
+  nudge_x = .1,
+  family = "Source Sans Pro", size = 3.5) +
+  scale_fill_manual(values = c("Sim" = "#735D36", "Não" = "#F4C773")) +
+  scale_color_manual(values = c("Sim" = "#735D36", "Não" = "#DEA25D")) +
   scale_y_discrete(labels = function(x) str_wrap(x, width = 30)) +
-  labs(y = NULL) +
+  scale_x_continuous(expand = expansion(add = c(0, 5))) +
+  labs(y = NULL, x = NULL) +
   tema() +
-  theme(axis.line.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.title.x = element_blank())
+  theme(axis.ticks.y = element_blank())
 
-ggsave(plot = plr, "./plots/plr.png", h = 6.5, w = 6)
+plr
+# theme(axis.line.x = element_blank(),
+#       axis.text.x = element_blank(),
+#       axis.ticks.x = element_blank(),
+#       axis.title.x = element_blank())
+
+ggsave(plot = plr, "./plots/plr.png", h = 6, w = 6)
+
+# dados_plr <- dados_selecionados %>%
+#   select(emp, dep, plr_rva, setor, Estado) %>%
+#   group_by(setor, plr_rva) %>%
+#   arrange(dep) %>%
+#   mutate(x = ifelse(plr_rva == "Sim", 1 + row_number(), -1 - row_number()))
+# 
+# ggplot(dados_plr, aes(x = x, y = setor, color = dep)) + geom_point()
+# 
+# dados_plr2 <- dados_selecionados %>%
+#   filter(!is.na(plr_rva), plr_rva %in% c("Sim", "Não")) %>%
+#   select(emp, dep, plr_rva, setor, Estado) %>%
+#   group_by(setor) %>%
+#   mutate(qde_total = n()) %>%
+#   ungroup() %>%
+#   group_by(setor, dep) %>%
+#   arrange(plr_rva) %>%
+#   mutate(x = ifelse(dep == "Dependente", 1 + row_number(), -1 - row_number()),
+#          qde = n(),
+#          qde_plr = sum(plr_rva == "Sim")) %>%
+#   ungroup() %>%
+#   mutate(pct_plr = qde_plr / qde) %>%
+#   group_by(setor) %>%
+#   mutate(pos = ifelse(dep == "Dependente", max(x), min(x)))
+# 
+# min_plr <- min(dados_plr2$pos)
+# max_plr <- max(dados_plr2$pos)
+# 
+# plr <- ggplot(dados_plr2, aes(x = x, y = reorder(setor, qde_total), color = plr_rva)) + 
+#   #geom_tile() +
+#   geom_point(shape = 15) +
+#   geom_text(aes(x = ifelse(dep == "Dependente", pos+1, pos-1), label = percent(pct_plr, accuracy = 1), hjust = ifelse(dep == "Dependente", "left", "right")), family = "Source Sans Pro", size = 3.5, color = "#735D36", check_overlap = T) +
+#   annotate("text", x = 1, y = -.5, label = "Dependente", hjust = "left",
+#            family = "Source Sans Pro", size = 3.5) +
+#   annotate("text", x = -1, y = -.5, label = "Não Dependente", hjust = "right",
+#            family = "Source Sans Pro", size = 3.5) +  
+#   expand_limits(y = -1, x = c(min_plr-3, max_plr+3)) +
+#   scale_color_manual(values = c("Sim" = "#735D36", "Não" = "#F4C773")) +
+#   scale_y_discrete(labels = function(x) str_wrap(x, width = 30)) +
+#   labs(y = NULL) +
+#   tema() +
+#   theme(axis.line.x = element_blank(),
+#         axis.text.x = element_blank(),
+#         axis.ticks.x = element_blank(),
+#         axis.title.x = element_blank())
+# 
+# ggsave(plot = plr, "./plots/plr.png", h = 6.5, w = 6)
 
 dados_selecionados %>%
   filter(is.na(plr_rva)) %>% nrow()
+
+
+
+# indicios dependencia ----------------------------------------------------
+
+indicios <- dados_selecionados %>%
+  filter(dep == "Não Dependente", Subvenção > 0) %>%
+  select(emp, dep, setor, Subvenção)
+
+indicios2 <- dados_selecionados %>%
+  filter(dep == "Não Dependente", `Reforço de Capital` > 0, round(`Reforço de Capital`,0) > round(var_capital,0)) %>%
+  select(emp, setor, `Reforço de Capital`, var_capital, var_acoes)
+
+indicios2a <- indicios2 %>%
+  filter(var_capital == 0, var_acoes == 0)
+
+ggplot(indicios2, aes(y = emp, x = var_capital/`Reforço de Capital`, fill = var_acoes == 0)) + 
+  geom_col() +
+  geom_text(aes(
+    label = paste('Var Capital / Reforço:', percent(var_capital/`Reforço de Capital`), '\nVariação Açoes: ', var_acoes),
+    color = var_acoes == 0), hjust = 0) +
+  scale_x_continuous(expand = expansion(add = c(0, 1)))
+
+indicios$emp %in% indicios2$emp
 
 # exporta dados -----------------------------------------------------------
 
@@ -1266,7 +1337,6 @@ write.csv(dados_selecionados %>%
                lucros,
                link
              ) %>% arrange(dep), "./dados/dados_cards.csv")
-
 
 # infos do texto ----------------------------------------------------------
 
