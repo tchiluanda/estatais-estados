@@ -160,6 +160,7 @@ const cards = {
                   //.attr('data-emp', d => d.emp)
                   .classed('empresa', true)
                   .classed('dependente', d => d.dep == "Dependente")
+                  .classed('indicios-dependencia', d => d.tipo_indicio != "NA")
                   .attr('title', d => d.emp);
 
             })
@@ -287,6 +288,11 @@ const cards = {
                 link.hidden = true;
 
             }
+
+            // tipo indicio
+
+            const campo_indicio = cont.querySelector('[data-tipo-indicio]');
+            campo_indicio.dataset.tipoIndicio = data['tipo_indicio'];
             
         },
 
