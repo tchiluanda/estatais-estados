@@ -2,6 +2,13 @@
     box-sizing: border-box;
 }
 
+:root {
+
+    --cor-nao-dep: #718c35;
+    --cor-dep: #f2ac29;
+
+}
+
 body {
     font-family: 'Lora', Georgia, serif;
     /*margin: 0;*/
@@ -417,6 +424,12 @@ section.content figure.plot-container.vis-cards .empresa.dependente {
 
 }
 
+section.content figure.plot-container.vis-cards .empresa.indicios-dependencia {
+
+    background: linear-gradient(-45deg, var(--cor-dependente) 0, var(--cor-dependente) 50%, var(--cor-independente) 50%, var(--cor-independente) 100%);
+
+}
+
 /* Seletor */
 
 section.content figure.plot-container.vis-cards select {
@@ -519,6 +532,19 @@ section.content figure.plot-container.vis-cards span[data-cardinfo="dep"] {
     color: white;
     font-weight: normal;
     font-size: .8rem;
+
+}
+
+section.content figure.plot-container.vis-cards [data-tipo-indicio="NA"] {
+
+    display: none;
+
+}
+
+section.content figure.plot-container.vis-cards [data-tipo-indicio="subvenções"] span.tipo-indicio-reforco,
+section.content figure.plot-container.vis-cards [data-tipo-indicio="reforço capital"] span.tipo-indicio-subvencao {
+
+    display: none;
 
 }
 

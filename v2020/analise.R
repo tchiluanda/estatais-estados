@@ -1308,6 +1308,18 @@ indicios2 <- dados_selecionados %>%
 indicios2a <- indicios2 %>%
   filter(var_capital == 0, var_acoes == 0)
 
+tab_indicios <- data.frame(
+  emp = c(
+    indicios$emp,
+    indicios2a$emp
+  ),
+  
+  tipo_indicio = c(
+    rep('subvenções', length(indicios$emp)),
+    rep('reforço capital', length(indicios2a$emp))
+  )
+)
+
 ggplot(indicios2, aes(y = emp, x = var_capital/`Reforço de Capital`, fill = var_acoes == 0)) + 
   geom_col() +
   geom_text(aes(
@@ -1336,7 +1348,8 @@ write.csv(dados_selecionados %>%
                desp_investimento,
                lucros,
                link
-             ) %>% arrange(dep), "./dados/dados_cards.csv")
+             ) %>% arrange(dep) %>%
+            left_join(tab_indicios), "./dados/dados_cards.csv")
 
 # infos do texto ----------------------------------------------------------
 
