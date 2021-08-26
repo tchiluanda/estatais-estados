@@ -61,7 +61,7 @@ tema_mapa <- function() {
 }
 
 # dados iniciais ----------------------------------------------------------
-
+setwd("/Users/tiago/Documents/gitlab/empresas/codigo/version-html/html/v2020")
 tab_uf <- read_excel("./dados/dados-originais/tab_ufs.xlsx") %>%
    select(Estado, Nome_estado, REGIAO)
 dados_raw <- read_excel("./dados/dados-originais/quadro_estatais.xls", sheet = "Estatais")
@@ -702,6 +702,10 @@ ggsave(plot = roe2, "./plots/roe2.png", h = 6.5, w = 6.5)
 #para texto do gráfico
 roe_acima_200pct <- length(which(dados_roe$ROE > 2))
 roe_abaixo_200pct_neg <- length(which(dados_roe$ROE < -2))
+qde_emp_fora_roe <- length(which(
+  is.na(dados_selecionados$lucros) | 
+    dados_selecionados$PL<=0 | 
+    is.na(dados_selecionados$PL)))
 
 # ROE - dotplot -----------------------------------------------------------
 
@@ -755,6 +759,7 @@ roe_dotplot <- ggplot(dados_roe_agreg, aes(y = reorder(setor, maximo),
             nudge_x = -0.14) +
   labs(x = NULL, y = NULL) +
   scale_x_continuous(labels = percent, expand = expansion(mult = .1)) +
+  scale_y_discrete(labels = function(x) str_wrap(x, width = 30)) +
   scale_color_manual(values = vetor_cores_dep) +
   scale_fill_manual(values = vetor_cores_dep) +
   tema_barra()
