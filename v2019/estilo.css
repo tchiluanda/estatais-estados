@@ -40,7 +40,6 @@ header div.sobre-imagem h1 {
     margin: 0;
     line-height: 1.2;
     color: #f2ac29;
-    text-shadow: 0px 0px 10px rgb(59,55,52);
 }
 
 header div.sobre-imagem h2 {
@@ -143,11 +142,6 @@ section.content figure.plot-container h4.plot-subtitle {
     margin-bottom: 5px;
 }
 
-p.caption {
-    font-size: 13px;
-    font-style: italic;
-}
-
 section.content figure.plot-container ul.plot-legenda {
     display: flex;
     flex-direction: row;
@@ -172,7 +166,6 @@ section.content figure.plot-container ul.plot-legenda span.plot-legenda-key {
     display: inline-block;
     vertical-align: text-bottom;
     margin-right: 2px;
-    margin-bottom: 2px;
 }
 
 section.content video {
@@ -279,69 +272,4 @@ section.destaque a:hover{
 
     
 
-}
-
-/* vis do mapa */
-
-#seletor-setores {
-    font-family: Lora;
-    border: 1px solid maroon;
-    border-radius: .25rem;
-}
-
-.boxes-definicao {
-    position: relative;
-}
-
-.box-definicao {
-    position: absolute;
-    opacity: 0;
-    /*display: none;*/
-}
-
-.box-definicao.ativo {
-    /*display: block;*/
-    opacity: 1;
-}
-
-.box-definicao h2 {
-    font-size: 1rem;
-    padding-left: .5rem;
-}
-
-.box-definicao p {
-    padding: .5rem;
-    border-radius: 0.25rem;
-    font-size: 0.9rem;
-}
-
-figure.vis-mapa {
-    margin: 0;
-    margin-top: 1rem;
-}
-
-/* tabela */
-
-table {
-    font-family: 'Source Sans Pro';
-    font-size: 0.75rem;
-    border-collapse: collapse;
-    color: #444;
-    margin: 0;
-    text-align: left;
-    margin-top: 1rem;
-}
-
-table tr {
-    border-bottom: 1px solid #d0d0d0;
-    border-top: 1px solid #d0d0d0;
-}
-
-table tr:first-of-type {
-    border-bottom: 3px solid #d0d0d0;
-    border-top: 3px solid #d0d0d0;
-}
-
-table td, table th {
-    padding: .25rem;
 }

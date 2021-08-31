@@ -2,8 +2,16 @@
     box-sizing: border-box;
 }
 
+:root {
+
+    --cor-nao-dep: #718c35;
+    --cor-dep: #f2ac29;
+
+}
+
 body {
     font-family: 'Lora', Georgia, serif;
+    /*margin: 0;*/
 }
 
 header.abertura {
@@ -345,3 +353,239 @@ table tr:first-of-type {
 table td, table th {
     padding: .25rem;
 }
+
+
+
+
+/* ************************** */
+/* Vis dos Cards das Empresas */
+/* ************************** */
+
+section.content figure.plot-container.vis-cards {
+
+    --size: 10px;
+    --cor-independente: #718c35;
+    --cor-dependente: #f2ac29;
+
+    /* remover depois */
+    max-width: 680px;
+    margin: 0 auto;
+
+}
+
+section.content figure.plot-container.vis-cards .container-setor {
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+
+}
+
+section.content figure.plot-container.vis-cards .container-setor::before {
+
+    content: attr(data-container-setor);
+    flex-basis: 100%;
+    margin-bottom: .2rem;
+    font-family: 'Source Sans Pro';
+    font-size: .8rem;
+
+}
+
+/* bolinhas das empresas */
+
+section.content figure.plot-container.vis-cards .empresa {
+
+    width: var(--size);
+    height: var(--size); 
+    background-color: #718c35;
+    margin-right: 4px;
+    margin-bottom: 4px;
+    border-radius: 50%;
+    transition: all .3s;
+
+}
+
+section.content figure.plot-container.vis-cards .empresa:hover {
+
+    transform: scale(1.4);
+
+}
+
+section.content figure.plot-container.vis-cards .empresa.selected {
+
+    transform: scale(1.4);
+    border: 1px solid black;
+
+}
+
+section.content figure.plot-container.vis-cards .empresa.dependente {
+
+    background-color: #f2ac29;
+
+}
+
+section.content figure.plot-container.vis-cards .empresa.indicios-dependencia {
+
+    background: linear-gradient(-45deg, var(--cor-dependente) 0, var(--cor-dependente) 50%, var(--cor-independente) 50%, var(--cor-independente) 100%);
+
+}
+
+/* Seletor */
+
+section.content figure.plot-container.vis-cards select {
+
+    margin-bottom: 1rem;
+    border: none;
+    padding-bottom: .2rem;
+    border-bottom: 2px solid currentColor;
+    font-family: inherit;
+    font-size: inherit;
+    opacity: .8;
+
+}
+
+/* layout */
+
+section.content figure.plot-container.vis-cards .container-vis-and-cards {
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    /*align-items: flex-start;*/
+
+}
+
+section.content figure.plot-container.vis-cards .container-vis-and-cards > div {
+
+    flex: 0 0 320px;
+
+}
+
+section.content figure.plot-container.vis-cards .card-container-wrapper {
+
+    position: relative;
+
+}
+
+/* card */
+
+section.content figure.plot-container.vis-cards .card-container {
+
+    --accent-color: var(--cor-independente);
+
+    border: 2px solid var(--accent-color);
+    padding: 1rem;
+    position: sticky;
+    top: 1rem;
+    /*background-color: cornsilk;
+    box-shadow: 2px 2px 0px 0px gray;*/
+    font-family: 'Source Sans Pro';
+    transition: all .3s;
+
+
+}
+
+section.content figure.plot-container.vis-cards .card-container[data-dependencia="Dependente"] { --accent-color: var(--cor-dependente); }
+
+/*.card-container[data-dependencia="Dependente"] { border-color: var(--cor-independente); }*/
+
+section.content figure.plot-container.vis-cards .card-container p {
+
+    margin: 0;
+    margin-bottom: .25rem;
+    line-height: initial;
+    font-size: .8rem;
+
+}
+
+/* campos */
+
+section.content figure.plot-container.vis-cards p[data-cardinfo="Nome_estado"] {
+
+    font-size: .6rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    color: grey;
+    margin-bottom: .25rem;
+
+}
+
+section.content figure.plot-container.vis-cards p[data-cardinfo="emp"] {
+
+    font-weight: bold;
+    margin-bottom: .4rem;
+    font-size: 1rem;
+
+}
+
+section.content figure.plot-container.vis-cards span[data-cardinfo] {
+
+    font-weight: bold;
+
+}
+
+section.content figure.plot-container.vis-cards span[data-cardinfo="dep"] {
+
+    background-color: var(--accent-color);
+    padding: 2px 10px 3px;
+    border-radius: 15px;
+    color: white;
+    font-weight: normal;
+    font-size: .8rem;
+
+}
+
+section.content figure.plot-container.vis-cards [data-tipo-indicio="NA"] {
+
+    display: none;
+
+}
+
+section.content figure.plot-container.vis-cards [data-tipo-indicio="subvenções"] span.tipo-indicio-reforco,
+section.content figure.plot-container.vis-cards [data-tipo-indicio="reforço capital"] span.tipo-indicio-subvencao {
+
+    display: none;
+
+}
+
+section.content figure.plot-container.vis-cards .mini-vis-container {
+
+    position: relative;
+    margin-top: .5rem;
+
+}
+
+section.content figure.plot-container.vis-cards .mini-vis-container p {
+
+    /*position: absolute;*/
+    margin-top: .5rem;
+
+}
+
+section.content figure.plot-container.vis-cards .mini-vis-rect {
+
+    transition: all .3s;
+    height: 20px;
+    width: 0;
+    background-color: #008080; /*var(--accent-color);*/
+
+}
+
+section.content figure.plot-container.vis-cards .mini-vis-rect.negativo {
+
+    background-color: #DC143C;
+
+}
+
+section.content figure.plot-container.vis-cards [data-cardinfo-value] { color : #008080; }
+
+section.content figure.plot-container.vis-cards [data-cardinfo-value].negativo { color : #DC143C; }
+
+section.content figure.plot-container.vis-cards p.link-carta {
+
+    margin-top: 1rem;
+
+}
+
+
+

@@ -21,7 +21,6 @@ library(geojsonsf)
 
 # estilo dos gráficos -----------------------------------------------------
 
-
 loadfonts()
 
 tema <- function(){
@@ -62,33 +61,41 @@ tema_mapa <- function() {
 }
 
 # dados iniciais ----------------------------------------------------------
-
+setwd("/Users/tiago/Documents/gitlab/empresas/codigo/version-html/html/v2020")
 tab_uf <- read_excel("./dados/dados-originais/tab_ufs.xlsx") %>%
-  select(Estado, Nome_estado, REGIAO)
-dados_raw <- read_excel("./dados/dados-originais/Quadro das Empresas Estatais Estaduais PAF 2020v1.xlsx", skip = 2, sheet = "Dados")
-tab_setores <- read_excel("./dados/dados-originais/tab_setores.xlsx", sheet = "tab")
+   select(Estado, Nome_estado, REGIAO)
+dados_raw <- read_excel("./dados/dados-originais/quadro_estatais.xls", sheet = "Estatais")
+#tab_setores <- read_excel("./dados/dados-originais/tab_setores.xlsx", sheet = "tab")
 tab_definicoes_setores <- read_excel("./dados/dados-originais/tab_setores.xlsx", sheet = "def")
 
 dados_selecionados_raw <- dados_raw %>%
   select(
-    Estado,
-    emp       = `Nome da Empresa`,
-    seg       = `Ficha de Identificação da Estatal > Setor`,
-    dep       = `Ficha de Identificação da Estatal > Dependência`,
-    PL        = `Ficha de Informações Financeiras da Estatal > Patrimônio Líquido`,
-    lucros    = `Ficha de Informações Financeiras da Estatal > Lucro / Prejuízo Líquido do Exercício`,
-    gov_ca    = `Ficha de Identificação da Estatal > Governança > Conselho de Administração`,
-    gov_cf    = `Ficha de Identificação da Estatal > Governança > Conselho Fiscal`,
-    gov_aud   = `Ficha de Identificação da Estatal > Governança > Comitê de Auditoria`,
-    maior_rem = `Ficha de Informações Financeiras da Estatal > Valor da Maior Remuneração Paga`,
-    plr_rva   = `Ficha de Informações Financeiras da Estatal > Foi Distribuído o PLR ou RVA em 2019?`,
-    qde_empregados = `Ficha de Identificação da Estatal > Número de Empregados Próprios`,
-    desp_investimento = `Ficha de Informações Financeiras da Estatal > Despesa Total da Empresa > Despesa com Investimento`,
-    desp_pessoal = `Ficha de Informações Financeiras da Estatal > Despesa Total da Empresa > Despesa com Pessoal`,
-    Dividendos = `Relação da Estatal com o Controlador > Dividendos Pagos ao Tesouro Estadual`,
-    `Subvenção` = `Relação da Estatal com o Controlador > Subvenções Recebidas do Tesouro Estadual > 2019`,
-    `Reforço de Capital` = `Relação da Estatal com o Controlador > Reforço de Capital > 2019`,
-    `Resultado para o Estado Acionista` = Resultado
+    Estado    = UF,
+    emp       = `Estatal`,
+    sit       = `Situação`,
+    setor      = `Setor`,
+    esp       = `Espécie`,
+    dep       = `Dependência`,
+    PL        = `Patrimônio Líquido`,
+    lucros    = `Lucro / Prejuízo Líquido do Exercício`,
+    gov_ca    = `Conselho de Administração`,
+    gov_cf    = `Conselho Fiscal`,
+    gov_aud   = `Comitê de Autidoria`, #(sic)
+    maior_rem = `Remuneração bruta total paga no ano (empregado de maior remuneração)`,
+    plr_rva   = `Foi Distribuído PLR ou RVA no exercício`,
+    qde_empregados = `Número de Empregados`,
+    desp_investimento = `Investimento -Despesa com investimento realizada (por competência)`,
+    desp_pessoal = `Despesa com Pessoal. incluindo temporários e terceirizados (por competência)`,
+    Dividendos = `Dividendos e Juros sobre Capital Próprio pagos ao Tesouro Estadual / Municipal (pago)`,
+    `Subvenção` = `Subvenções Recebidas do Tesouro Estadual / Municipal - (Exercício)`,
+    `Subvenção (anterior)` = `Subvenções Recebidas do Tesouro Estadual / Municipal - (Exercício anterior)`,
+    `Reforço de Capital` = `Reforço de Capital - (Exercício)`,
+    `Reforço de Capital (anterior)` = `Reforço de Capital - (Exercício anterior)`,
+    #result = `Resultado para o Estado Acionista`,
+    capital = `Capital Social Integralizado - (Exercício)`,
+    var_capital = `Variação do Capital Social`,
+    var_acoes = `Variação da Quantidade de Ações ou cotas`,
+    link      = `Link Carta Anual`
     )
 
 
@@ -198,19 +205,20 @@ dados_selecionados_raw <- dados_raw %>%
 #   )
 # )
 
-# valores da CMTP :/
-
-linha_CMTP <- dados_selecionados_raw$emp == "CMTP"
-dados_selecionados_raw[linha_CMTP, "PL"] <- as.character(20.2e6)
-dados_selecionados_raw[linha_CMTP, "lucros"] <- as.character(236.8e3)
-dados_selecionados_raw[linha_CMTP, "maior_rem"] <- as.character(9.4e3)
-dados_selecionados_raw[linha_CMTP, "desp_investimento"] <- as.character(1.9e6)
-dados_selecionados_raw[linha_CMTP, "desp_pessoal"] <- as.character(3.2e6)
-
-govs <- dados_selecionados %>%
-  select(starts_with("gov_")) %>% 
-  unlist() %>%
-  unique()
+# # valores da CMTP :/
+# 
+# linha_CMTP <- dados_selecionados_raw$emp == "CMTP"
+# dados_selecionados_raw[linha_CMTP, "PL"] <- as.character(20.2e6)
+# dados_selecionados_raw[linha_CMTP, "lucros"] <- as.character(236.8e3)
+# dados_selecionados_raw[linha_CMTP, "maior_rem"] <- as.character(9.4e3)
+# dados_selecionados_raw[linha_CMTP, "desp_investimento"] <- as.character(1.9e6)
+# dados_selecionados_raw[linha_CMTP, "desp_pessoal"] <- as.character(3.2e6)
+# 
+# govs <- dados_selecionados %>%
+#   select(starts_with("gov_")) %>% 
+#   unlist() %>%
+#   unique()
+# 
 
 sim <- c("SIM", "Sim", "CONTROLE INTERNO", "Possui")
 nao <- c("NÃO", "Não", "Não Possui", "Não possui", "NAO", "NÂO")
@@ -219,7 +227,7 @@ nao <- c("NÃO", "Não", "Não Possui", "Não possui", "NAO", "NÂO")
 
 dados_selecionados <- dados_selecionados_raw %>%
   #left_join(limpa_setor) %>%
-  left_join(tab_setores) %>%
+  #left_join(tab_setores) %>%
   left_join(tab_uf) %>%
   #left_join(limpa_dep) %>%
   mutate(
@@ -352,7 +360,8 @@ mapa_qde <- mapa %>%
   rename(Estado = "abbrev_state") %>%
   inner_join(dados_qde_setor_estado) %>%
   rename(qde = "n") %>%
-  arrange(setor)
+  arrange(setor) %>%
+  mutate(setor = str_wrap(setor, width = 20))
 
 graf_mapa_comp <- ggplot(mapa_qde)+# %>% filter(seg == "OUTRO")) + 
   geom_sf(data = mapa, fill = "#EFEFEF", color = "ghostwhite") +
@@ -374,9 +383,15 @@ graf_mapa_comp <- ggplot(mapa_qde)+# %>% filter(seg == "OUTRO")) +
         plot.background = element_blank(),
         panel.background = element_blank())
 
-graf_mapa_facet <- graf_mapa_comp + facet_wrap(~setor)
-ggsave(plot = graf_mapa_facet, "./plots/segmentos_facet2.png", width = 9, height = 8, dpi = 300) # windows: acrescentar: , type = "cairo-png"
+# setor_labeller <- function(setor) {
+#   return(str_wrap(setor, width = 30))
+# }
 
+graf_mapa_facet <- graf_mapa_comp + facet_wrap(~setor)#, labeller = setor_labeller)
+ggsave(plot = graf_mapa_facet, "./plots/segmentos_facet2.png", width = 9, height = 8, dpi = 300) # windows: acrescentar: , type = "cairo-png"
+# corrigir textos!
+
+## tô aqui.
 
 # mapa gif ----------------------------------------------------------------
 
@@ -432,7 +447,7 @@ graf_qde_emp <-
   geom_text(aes(label = qde, y = qde), 
             vjust = 0.4, position = position_stack(vjust = 0.5, reverse = TRUE),
             family = "Source Sans Pro", size = 3, color = "#ebf2f2") +
-  geom_text(aes(label = qde_tot), y = -.9,
+  geom_text(aes(label = qde_tot), y = -1,
             vjust = 0.4, check_overlap = TRUE,
             family = "Source Sans Pro", size = 3.5, color = "grey") +  
   coord_flip() +
@@ -444,7 +459,7 @@ graf_qde_emp <-
        fill = NULL) +
   tema_barra() + theme(axis.text = element_text(size = 8))
 
-ggsave(plot = graf_qde_emp, "./plots/qde_seg.png", h = 4.5, w = 5)#, type = "cairo-png")
+ggsave(plot = graf_qde_emp, "./plots/qde_seg.png", h = 4.5, w = 5.5)#, type = "cairo-png")
 
 
 qde_empresas_est <- dados_selecionados %>% 
@@ -684,8 +699,13 @@ roe2 <- ggplot(dados_roe %>% filter(PL>0), aes(y = ROE, color = sinal_ROE, x = d
 
 ggsave(plot = roe2, "./plots/roe2.png", h = 6.5, w = 6.5)
 
-length(which(dados_roe$ROE > 2))
-length(which(dados_roe$ROE < -2))
+#para texto do gráfico
+roe_acima_200pct <- length(which(dados_roe$ROE > 2))
+roe_abaixo_200pct_neg <- length(which(dados_roe$ROE < -2))
+qde_emp_fora_roe <- length(which(
+  is.na(dados_selecionados$lucros) | 
+    dados_selecionados$PL<=0 | 
+    is.na(dados_selecionados$PL)))
 
 # ROE - dotplot -----------------------------------------------------------
 
@@ -699,7 +719,9 @@ dados_qde_setor_dep <- dados_roe %>%
   filter(dep != "Não Informado") %>%
   count(setor, dep)
 
-# 197 empresas
+sum(dados_qde_setor_dep$n)
+# 235 empresas
+
 dados_roe_agreg <- dados_roe %>%  
   filter(dep != "Não Informado", abs(ROE) < 50) %>%
   #filter(!(emp %in% emp_distorcao)) %>% #(1)
@@ -713,36 +735,39 @@ dados_roe_agreg <- dados_roe %>%
   spread(dep, ROE_medio) %>%
   mutate(maior = ifelse(Dependente > `Não Dependente`, "Dependente", "Não Dependente")) %>%
   rowwise() %>%
-  mutate(maximo = max(Dependente, `Não Dependente`, na.rm = T)) %>%
+  mutate(maximo = max(Dependente, `Não Dependente`, na.rm = T),
+         fora_escala = maximo > 1 | min(Dependente, `Não Dependente`, na.rm = T) < -1 ) %>%
   gather(Dependente, `Não Dependente`, key = dep, value = ROE_medio) %>%
   arrange(desc(maximo)) %>%
   left_join(dados_qde_setor_dep) %>%
-  mutate(setor = ifelse(setor == "OUTROS", "OUTROS*", setor))
+  mutate(setor = ifelse(fora_escala, paste0(setor, "*"), setor))
 
 
 roe_dotplot <- ggplot(dados_roe_agreg, aes(y = reorder(setor, maximo), 
                                            color = dep, x = ifelse(ROE_medio < -.75, -.75, ROE_medio), group = setor)) +
-  geom_path(color = "lightgrey", size = 1.3, aes(linetype = ifelse(setor == "OUTROS*", "solid", "dotted"))) +
+  geom_path(color = "lightgrey", size = 1.3, aes(linetype = ifelse(fora_escala, "solid", "dotted"))) +
   geom_point(aes(size = n)) +
   # geom_point(size = 3) +
   geom_text(aes(label = ifelse(dep == maior | is.na(maior), 
                                percent(ROE_medio, accuracy = 1), NA), 
                 color = dep), fontface = "bold", size = 3,
             family = "Source Sans Pro",
-            nudge_x = 0.11) +
+            nudge_x = 0.16) +
   geom_text(aes(label = ifelse(dep == maior, NA, percent(ROE_medio, accuracy = 1)), 
                 color = dep),  size = 3,
             family = "Source Sans Pro",
-            nudge_x = -0.12) +
+            nudge_x = -0.14) +
   labs(x = NULL, y = NULL) +
-  scale_x_continuous(labels = percent) +
+  scale_x_continuous(labels = percent, expand = expansion(mult = .1)) +
+  scale_y_discrete(labels = function(x) str_wrap(x, width = 30)) +
   scale_color_manual(values = vetor_cores_dep) +
   scale_fill_manual(values = vetor_cores_dep) +
   tema_barra()
 
 #fiz um ajuste manual no gráfico para evitar achatá-lo demais. Aí quebrei a escala da posiçào do ponto em "outros".
+#era assim, agora o ajuste é automático, quando o valor ultrapassa +100% ou -100%.
 
-ggsave(plot = roe_dotplot, "./plots/roe_dotplot.png", h = 6, w = 5.5)
+ggsave(plot = roe_dotplot, "./plots/roe_dotplot.png", h = 6, w = 5.8)
 
 dados_roe %>%  
   filter(dep == "Não Informado" | abs(ROE) >= 50) %>%
@@ -785,13 +810,13 @@ dados_lucro_preju <- dados_selecionados %>%
                           'PL: R$ ', PL_formatado, '\n',
                           'Lucros / Prejuízos no ano: R$ ', format(lucros, big.mark = '.', decimal.mark = ","), '\n',
                           'ROE: ', ifelse(is.na(ROE), 'Não disponível', percent(round(ROE,4)))),
-         setores_principais = ifelse(seg %in% principais_setores, setor, "Demais"))
+         setores_principais = ifelse(setor %in% principais_setores, setor, "Demais"))
 
 qde_NAs_lucro <- length(which(is.na(dados_selecionados$lucros) == TRUE))
 
 length(which(dados_lucro_preju$lucros<=-50e6 | dados_lucro_preju$lucros>=50e6))
 summary(dados_lucro_preju$lucros)
-length(which(dados_lucro_preju$result<=0))
+length(which(dados_lucro_preju$`Resultado para o Estado Acionista`<=0))
 
 # # só pra ver a distribuição
 # ggplot(dados_lucro_preju, aes(x = result)) +# geom_histogram(bins = 100) +
@@ -865,7 +890,7 @@ graf_barra_lucro_setor <-
   geom_col(width = 0.6) + 
   geom_text(aes(label = format(round(tot/1e6, 0), big.mark = ".",
                                decimal.mark = ','),
-                y = ifelse(tot>= 0, tot*1.03 - 1e4, tot - 5e7),
+                y = ifelse(tot>= 0, tot*1.03 - 1e4, tot - 50e7),
                 hjust = ifelse(tot>= 0, "left", "right")), 
             vjust = 0.5,
             family = "Source Sans Pro", size = 3.5) +
@@ -878,7 +903,7 @@ graf_barra_lucro_setor <-
                     na.value = "darkgray") +
   scale_y_continuous(labels = function(x){
     paste(format(round(x/1e6, 1), big.mark = ".", decimal.mark = ','), "mi")},
-    expand = expand_scale(add = c(.7e9, .7e9))) +
+    expand = expansion(mult = .15)) +
   labs(x = NULL, y = NULL) +
   tema_barra()
 
@@ -945,7 +970,7 @@ mapa_res_graf <- ggplot(mapa_res_simp) +
 
 ggsave(plot = mapa_res_graf, "./plots/mapa_result.png", h = 5, w = 5, device = "png")
 
-dados_selecionados %>% group_by(Estado) %>% summarise(soma = sum(`Resultado para o Estado Acionista`, na.rm =TRUE)) %>% arrange(desc(soma))
+tab_resultado <- dados_selecionados %>% group_by(Estado) %>% summarise(soma = sum(`Resultado para o Estado Acionista`, na.rm =TRUE)) %>% arrange(desc(soma))
 
 
 # Resultado -  decomposição -----------------------------------------------
@@ -1052,19 +1077,19 @@ gov_dotplot <- ggplot(dados_gov_setor, aes(y = reorder(setor, maximo),
                                percent(pct_gov, accuracy = 1), NA), 
                 color = dep), fontface = "bold", size = 3.5,
             family = "Source Sans Pro",
-            nudge_x = 0.085) +
+            nudge_x = 0.1) +
   geom_text(aes(label = ifelse(dep == maior, NA, percent(pct_gov, accuracy = 1)), 
                 color = dep),  size = 3.5,
             family = "Source Sans Pro",
             nudge_x = -0.07) +
   labs(x = NULL, y = NULL) +
   scale_x_continuous(labels = percent, breaks = seq(0, 1, .2)) +
-  expand_limits(x = 1.1) +
+  expand_limits(x = 1.15) +
   scale_color_manual(values = vetor_cores_dep) +
   scale_fill_manual(values = vetor_cores_dep) +
   tema_barra()
 
-ggsave(plot = gov_dotplot, "./plots/gov_dotplot.png", h = 6, w = 5.1)
+ggsave(plot = gov_dotplot, "./plots/gov_dotplot.png", h = 6, w = 5.5)
 
 
 # governança estados ------------------------------------------------------
@@ -1174,7 +1199,7 @@ roe_gov <- ggplot(dados_roe %>% filter(PL>0), aes(y = ROE, color = sinal_ROE, x 
   scale_y_continuous(labels = percent, 
                      breaks = define_breaks, 
                      limits = c(-2,2)) + #, 
-  scale_x_discrete(labels = c("Empresas que não possuem \n estrutura de Governança completa", "Empresas que possuem \nestrutura Governança completa")) +
+  scale_x_discrete(labels = c("Empresas que NÃO possuem \n estrutura de Governança completa", "Empresas que possuem \nestrutura de Governança completa")) +
   tema()
 
 ggsave(plot = roe_gov, "./plots/roe_gov.png", h = 6.5, w = 6)
@@ -1183,60 +1208,153 @@ ggsave(plot = roe_gov, "./plots/roe_gov.png", h = 6.5, w = 6)
 
 # PLR ---------------------------------------------------------------------
 
-dados_plr <- dados_selecionados %>%
-  select(emp, dep, plr_rva, setor, Estado) %>%
-  group_by(setor, plr_rva) %>%
-  arrange(dep) %>%
-  mutate(x = ifelse(plr_rva == "Sim", 1 + row_number(), -1 - row_number()))
+dados_plr_plot <- dados_selecionados %>%
+  filter(dep == "Não Dependente",
+         plr_rva %in% c("Sim", "Não")) %>%
+  count(setor, plr_rva) %>%
+  spread(plr_rva, n, fill = 0) %>%
+  mutate(total = `Não` + `Sim`,
+         pct_sim = scales::label_percent(accuracy = 1)(`Sim` / total),
+         pct_nao = scales::label_percent(accuracy = 1)(`Não` / total)
+  ) %>%
+  gather(`Não`, `Sim`, key = plr, value = n)
 
-ggplot(dados_plr, aes(x = x, y = setor, color = dep)) + geom_point()
-
-dados_plr2 <- dados_selecionados %>%
-  filter(!is.na(plr_rva)) %>%
-  select(emp, dep, plr_rva, setor, Estado) %>%
-  group_by(setor) %>%
-  mutate(qde_total = n()) %>%
-  ungroup() %>%
-  group_by(setor, dep) %>%
-  arrange(plr_rva) %>%
-  mutate(x = ifelse(dep == "Dependente", 1 + row_number(), -1 - row_number()),
-         qde = n(),
-         qde_plr = sum(plr_rva == "Sim")) %>%
-  ungroup() %>%
-  mutate(pct_plr = qde_plr / qde) %>%
-  group_by(setor) %>%
-  mutate(pos = ifelse(dep == "Dependente", max(x), min(x)))
-
-min_plr <- min(dados_plr2$pos)
-max_plr <- max(dados_plr2$pos)
-
-plr <- ggplot(dados_plr2, aes(x = x, y = reorder(setor, qde_total), color = plr_rva)) + 
-  #geom_tile() +
-  geom_point(shape = 15) +
-  geom_text(aes(x = ifelse(dep == "Dependente", pos+1, pos-1), label = percent(pct_plr, accuracy = 1), hjust = ifelse(dep == "Dependente", "left", "right")), family = "Source Sans Pro", size = 3.5, color = "#735D36", check_overlap = T) +
-  annotate("text", x = 1, y = -.5, label = "Dependente", hjust = "left",
-           family = "Source Sans Pro", size = 3.5) +
-  annotate("text", x = -1, y = -.5, label = "Não Dependente", hjust = "right",
-           family = "Source Sans Pro", size = 3.5) +  
-  expand_limits(y = -1, x = c(min_plr-3, max_plr+3)) +
-  scale_color_manual(values = c("Sim" = "#735D36", "Não" = "#F4C773")) +
-  labs(y = NULL) +
+plr <- ggplot(dados_plr_plot,
+              aes(y = reorder(setor, total), x = n)) + 
+  geom_col(aes(fill = plr), width = .7) +
+  geom_text(aes(label = ifelse(n == 0, "", 
+                               ifelse(plr == 'Não', 
+                                      paste0(n, " (", pct_nao, ")"), 
+                                      paste0(n, " (", pct_sim, ")") # \n?
+                               )
+  ), 
+  x = ifelse(plr == 'Não', total, n),
+  color = plr), hjust=0,
+  nudge_x = .1,
+  family = "Source Sans Pro", size = 3.5) +
+  scale_fill_manual(values = c("Sim" = "#735D36", "Não" = "#F4C773")) +
+  scale_color_manual(values = c("Sim" = "#735D36", "Não" = "#DEA25D")) +
+  scale_y_discrete(labels = function(x) str_wrap(x, width = 30)) +
+  scale_x_continuous(expand = expansion(add = c(0, 5))) +
+  labs(y = NULL, x = NULL) +
   tema() +
-  theme(axis.line.x = element_blank(),
-        axis.text.x = element_blank(),
-        axis.ticks.x = element_blank(),
-        axis.title.x = element_blank())
+  theme(axis.ticks.y = element_blank())
 
-ggsave(plot = plr, "./plots/plr.png", h = 6.5, w = 6)
+plr
+# theme(axis.line.x = element_blank(),
+#       axis.text.x = element_blank(),
+#       axis.ticks.x = element_blank(),
+#       axis.title.x = element_blank())
+
+ggsave(plot = plr, "./plots/plr.png", h = 6, w = 6)
+
+# dados_plr <- dados_selecionados %>%
+#   select(emp, dep, plr_rva, setor, Estado) %>%
+#   group_by(setor, plr_rva) %>%
+#   arrange(dep) %>%
+#   mutate(x = ifelse(plr_rva == "Sim", 1 + row_number(), -1 - row_number()))
+# 
+# ggplot(dados_plr, aes(x = x, y = setor, color = dep)) + geom_point()
+# 
+# dados_plr2 <- dados_selecionados %>%
+#   filter(!is.na(plr_rva), plr_rva %in% c("Sim", "Não")) %>%
+#   select(emp, dep, plr_rva, setor, Estado) %>%
+#   group_by(setor) %>%
+#   mutate(qde_total = n()) %>%
+#   ungroup() %>%
+#   group_by(setor, dep) %>%
+#   arrange(plr_rva) %>%
+#   mutate(x = ifelse(dep == "Dependente", 1 + row_number(), -1 - row_number()),
+#          qde = n(),
+#          qde_plr = sum(plr_rva == "Sim")) %>%
+#   ungroup() %>%
+#   mutate(pct_plr = qde_plr / qde) %>%
+#   group_by(setor) %>%
+#   mutate(pos = ifelse(dep == "Dependente", max(x), min(x)))
+# 
+# min_plr <- min(dados_plr2$pos)
+# max_plr <- max(dados_plr2$pos)
+# 
+# plr <- ggplot(dados_plr2, aes(x = x, y = reorder(setor, qde_total), color = plr_rva)) + 
+#   #geom_tile() +
+#   geom_point(shape = 15) +
+#   geom_text(aes(x = ifelse(dep == "Dependente", pos+1, pos-1), label = percent(pct_plr, accuracy = 1), hjust = ifelse(dep == "Dependente", "left", "right")), family = "Source Sans Pro", size = 3.5, color = "#735D36", check_overlap = T) +
+#   annotate("text", x = 1, y = -.5, label = "Dependente", hjust = "left",
+#            family = "Source Sans Pro", size = 3.5) +
+#   annotate("text", x = -1, y = -.5, label = "Não Dependente", hjust = "right",
+#            family = "Source Sans Pro", size = 3.5) +  
+#   expand_limits(y = -1, x = c(min_plr-3, max_plr+3)) +
+#   scale_color_manual(values = c("Sim" = "#735D36", "Não" = "#F4C773")) +
+#   scale_y_discrete(labels = function(x) str_wrap(x, width = 30)) +
+#   labs(y = NULL) +
+#   tema() +
+#   theme(axis.line.x = element_blank(),
+#         axis.text.x = element_blank(),
+#         axis.ticks.x = element_blank(),
+#         axis.title.x = element_blank())
+# 
+# ggsave(plot = plr, "./plots/plr.png", h = 6.5, w = 6)
 
 dados_selecionados %>%
   filter(is.na(plr_rva)) %>% nrow()
+
+
+
+# indicios dependencia ----------------------------------------------------
+
+indicios <- dados_selecionados %>%
+  filter(dep == "Não Dependente", Subvenção > 0) %>%
+  select(emp, dep, setor, Subvenção)
+
+indicios2 <- dados_selecionados %>%
+  filter(dep == "Não Dependente", `Reforço de Capital` > 0, round(`Reforço de Capital`,0) > round(var_capital,0)) %>%
+  select(emp, setor, `Reforço de Capital`, var_capital, var_acoes)
+
+indicios2a <- indicios2 %>%
+  filter(var_capital == 0, var_acoes == 0)
+
+tab_indicios <- data.frame(
+  emp = c(
+    indicios$emp,
+    indicios2a$emp
+  ),
+  
+  tipo_indicio = c(
+    rep('subvenções', length(indicios$emp)),
+    rep('reforço capital', length(indicios2a$emp))
+  )
+)
+
+ggplot(indicios2, aes(y = emp, x = var_capital/`Reforço de Capital`, fill = var_acoes == 0)) + 
+  geom_col() +
+  geom_text(aes(
+    label = paste('Var Capital / Reforço:', percent(var_capital/`Reforço de Capital`), '\nVariação Açoes: ', var_acoes),
+    color = var_acoes == 0), hjust = 0) +
+  scale_x_continuous(expand = expansion(add = c(0, 1)))
+
+indicios$emp %in% indicios2$emp
 
 # exporta dados -----------------------------------------------------------
 
 write.csv2(dados_selecionados, file = "./dados/dados.csv", fileEncoding = "UTF-8")
 
 
+
+# exporta dados para cards ------------------------------------------------
+
+write.csv(dados_selecionados %>%
+             select(
+               Nome_estado,
+               setor,
+               emp,
+               dep,
+               sit,
+               capital,
+               desp_investimento,
+               lucros,
+               link
+             ) %>% arrange(dep) %>%
+            left_join(tab_indicios), "./dados/dados_cards.csv")
 
 # infos do texto ----------------------------------------------------------
 
@@ -1267,6 +1385,6 @@ sumario_resultado_estados <- dados_selecionados %>%
   group_by(Estado) %>% 
   summarise_at(vars(colunas_interesse),
                .funs = ~-sum(as.numeric(.), na.rm = TRUE)) %>%
-  mutate(Dividendos = -Dividendos)
+  mutate(Dividendos = -Dividendos) %>%
   arrange(`Resultado para o Estado Acionista`)
 
