@@ -354,6 +354,18 @@ table td, table th {
     padding: .25rem;
 }
 
+table .value-cell, table .cell-align-right {
+
+    text-align: right;
+
+}
+
+table .value-cell-neg {
+
+    color: firebrick;
+
+}
+
 
 
 
