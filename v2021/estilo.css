@@ -79,7 +79,7 @@ section.content ol.partes {
 section.content ol.little-roman {
 
     list-style: lower-roman;
-    
+
 }
 
 section.content h2 {
@@ -272,6 +272,34 @@ section.content a::after {
 section.content a:hover::after {
 
     transform: scaleY(100%);
+
+}
+
+section.content nav.links-versoes {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+section.content nav.links-versoes a {
+
+    font-size: .9rem;
+    text-align: center;
+    /*border: 2px solid currentColor;
+    padding: 2px 4px;
+    border-radius: 10px;*/
+
+}
+
+/*section.content nav.links-versoes a::after {
+
+    display: none;
+}*/
+
+section.content nav.links-versoes a + a {
+
+    margin-left: 2rem;
 
 }
 
