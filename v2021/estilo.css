@@ -220,6 +220,23 @@ section.destaque a:hover{
 
 }
 
+.box-meio-texto {
+
+    font-size: .9rem;
+    padding: .4rem 1rem;
+    background-color: antiquewhite;
+
+}
+
+.box-meio-texto h3 {
+
+    display: inline-block;
+    padding-bottom: .25em;
+    border-bottom: 3px solid currentColor;
+    margin-bottom: 0;
+
+}
+
 
 @media (max-width: 1080px) {
     section.content aside.conteudo-destaque-lateral {
