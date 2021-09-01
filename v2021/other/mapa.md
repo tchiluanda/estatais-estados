@@ -4,7 +4,7 @@ Processamento do mapa, para fazer a visualização dos setores, seguindo um tuto
 
 https://github.com/topojson/topojson-server/blob/master/README.md#topology
 
-```zsh
+```bash
 /Users/tchiluanda/node_modules/topojson-server/bin/geo2topo mapa-setores.geojson > mapa.json
 ```
 
