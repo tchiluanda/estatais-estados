@@ -73,7 +73,13 @@ section.content {
 }
 
 section.content ol.partes {
-    font-style: italic;
+    /*font-style: italic;*/
+}
+
+section.content ol.little-roman {
+
+    list-style: lower-roman;
+    
 }
 
 section.content h2 {
