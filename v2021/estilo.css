@@ -237,6 +237,38 @@ section.destaque a:hover{
 
 }
 
+section.content a {
+
+    color: currentColor;
+    font-style: normal;
+    text-decoration: none;
+    position: relative;
+
+}
+
+section.content a::after {
+
+    content: '';
+    height: .5em;
+    position: absolute;
+    transform: scaleY(25%);
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #f2ac29;
+    z-index: -1;
+    transition: transform .5s;
+    transform-origin: bottom;
+    border-bottom: 2px solid #f2ac29;
+
+}
+
+section.content a:hover::after {
+
+    transform: scaleY(100%);
+
+}
+
 
 @media (max-width: 1080px) {
     section.content aside.conteudo-destaque-lateral {
@@ -383,6 +415,12 @@ table .value-cell-neg {
 
 }
 
+
+table .nome-empresa-cell {
+
+    text-transform: uppercase;
+
+}
 
 
 
