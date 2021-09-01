@@ -113,8 +113,8 @@ const vis_mapa = {
 
         init : function() {
 
-            console.table(vis_mapa.data.lista_setores);
-            console.table(vis_mapa.data.mapa_setores);
+            //console.table(vis_mapa.data.lista_setores);
+            //console.table(vis_mapa.data.mapa_setores);
 
             vis_mapa.fs.popula_lista(vis_mapa.data.lista_setores);
             vis_mapa.fs.ajusta_altura_box();
@@ -127,7 +127,7 @@ const vis_mapa = {
 
         mostra_box_setor : function(setor) {
 
-            console.log("Me chamaram para ativar o setor ", setor);
+            //console.log("Me chamaram para ativar o setor ", setor);
 
             d3.selectAll(".box-definicao").classed("ativo", false);
 
@@ -146,7 +146,7 @@ const vis_mapa = {
                 opcao_escolhida = vis_mapa.utils.remove_acentos(opcao_escolhida);
                 vis_mapa.state.setor = opcao_escolhida;
 
-                console.log("Opa, mudança! Vou ativar o setor ", opcao_escolhida);
+                //console.log("Opa, mudança! Vou ativar o setor ", opcao_escolhida);
 
                 vis_mapa.fs.mostra_box_setor(opcao_escolhida);
 
@@ -227,6 +227,8 @@ const vis_mapa = {
                 "features": feats
 
             };
+
+            console.log(geodata);
 
 
             let projecao = d3

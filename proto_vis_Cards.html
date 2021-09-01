@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protótipo da Visualização de cards</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+
+    <figure class="vis-cards">
+        <h3 class="plot-title">As empresas por setor</h3>
+        <ul class="plot-legenda">
+            <li><span class="plot-legenda-key" style = "background-color: #f2ac29;"></span> Dependentes</li>
+            <li><span class="plot-legenda-key" style = "background-color: #718c35;"></span> Não Dependentes</li>
+            <!--<li><span class="plot-legenda-key" style = "background-color: #5c4b51;"></span> Não Informado</li>-->
+        </ul>
+
+        <label for="seletor-estados">Selecione um estado: </label>
+        <select name="estados" id="seletor-estados"></select>
+
+        <div class="container-vis-and-cards">
+
+            <div class="vis-cards"></div>
+
+            <div class="card-container-wrapper">
+
+                <p class="mensagem">Clique ou passe o mouse sobre uma empresa para exibir mais detalhes.</p>
+
+                <div class="card-container" data-dependencia="" hidden>
+                    <p data-cardinfo="Nome_estado"></p>
+                    <p data-cardinfo="emp"></p>
+        
+                    <p>Empresa <span data-cardinfo="dep"></span></p> 
+                    <p>Situação: <span data-cardinfo="sit"></span></p>
+        
+                    <div class="mini-vis-container">
+
+                        <!-- devia encapsular essa galera aqui em divs -->
+                        <p>Capital Social: <span data-cardinfo-value="capital"></span></p>
+                        <div class="mini-vis-rect" data-minivis-coluna="capital"></div>
+
+                        <p>Investimento realizado: <span data-cardinfo-value="desp_investimento"></span></p>
+                        <div class="mini-vis-rect" data-minivis-coluna="desp_investimento"></div>
+
+                        <p>Lucros: <span data-cardinfo-value="lucros"></span></p>
+                        <div class="mini-vis-rect" data-minivis-coluna="lucros"></div>
+
+                    </div>
+                
+                    <p class="link-carta"><a href="" target="_blank">Carta Social da empresa</a></p>
+        
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </figure>
+
+    <script src="./vis/d3.v6.min.js"></script>
+    <script src="./vis/vis-cards.js"></script>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="estilo.css">
+</head>
+<body>
+    <section class="content">
+        <div class="mapa-setores">
+
+            <div class="mapa-setores-selecao">
+                <label for="seletor-setores">Escolha o setor:</label>
+
+                <select name="setores" id="seletor-setores">
+                </select>
+            </div>
+
+            <div class="boxes-definicao">
+                <!--<div class="box-definicao">
+                    <h2></h2>
+                    <p></p>
+                </div>-->
+            </div>
+
+            <figure class="vis-mapa">
+                <svg class="vis-mapa"></svg>
+            </figure>
+        </div>
+    </section>
+
+    <script src="./vis/d3.v6.min.js"></script>
+    <script src="./vis/topojson.min.js"></script>
+    <script src="./vis/vis-mapa.js"></script>
+    
+</body>
+</html>
