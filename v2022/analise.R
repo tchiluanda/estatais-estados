@@ -63,12 +63,15 @@ tema_mapa <- function() {
 # dados iniciais ----------------------------------------------------------
 #setwd("/Users/tiago/Documents/gitlab/empresas/codigo/version-html/html/v2020")
 
+setwd("~/Github/estatais-estados-master/estatais-estados-master/v2022")
+
 tab_uf <- read_excel("./dados/dados-originais/tab_ufs.xlsx") %>%
   select(Estado, Nome_estado, REGIAO)
 
 
 
-dados_raw <- read_excel("./dados/dados-originais/quadro_estatais.xls", sheet = "Estatais")
+dados_raw <- read_excel("./dados/dados-originais/quadro_estatais.xlsx", sheet = "Todos")
+
 #tab_setores <- read_excel("./dados/dados-originais/tab_setores.xlsx", sheet = "tab")
 tab_definicoes_setores <- read_excel("./dados/dados-originais/tab_setores.xlsx", sheet = "def")
 
@@ -82,23 +85,23 @@ dados_selecionados_raw <- dados_raw %>%
     dep       = `Dependência`,
     PL        = `Patrimônio Líquido`,
     lucros    = `Lucro / Prejuízo Líquido do Exercício`,
-    gov_ca    = `Conselho de Administração`,
-    gov_cf    = `Conselho Fiscal`,
-    gov_aud   = `Comitê de Autidoria`, #(sic)
-    maior_rem = `Remuneração bruta total paga no ano (empregado de maior remuneração)`,
+    gov_ca    = `Possui Conselho de Administração`,
+    gov_cf    = `Possui Conselho Fiscal`,
+    gov_aud   = `Possui Comitê de Autidoria`, #(sic)
+    maior_rem = `Remuneração bruta total paga no ano (empregado que recebeu a maior remuneração)`,
     plr_rva   = `Foi Distribuído PLR ou RVA no exercício`,
-    qde_empregados = `Número de Empregados`,
-    desp_investimento = `Investimento -Despesa com investimento realizada (por competência)`,
-    desp_pessoal = `Despesa com Pessoal. incluindo temporários e terceirizados (por competência)`,
+    qde_empregados = `Número de Empregados (incluindo temporários e terceirizados)`,
+    desp_investimento = `Investimento (por competência)`,
+    desp_pessoal = `Despesa com Pessoal, incluindo temporários e terceirizados (por competência)`,
     Dividendos = `Dividendos e Juros sobre Capital Próprio pagos ao Tesouro Estadual / Municipal (pago)`,
-    `Subvenção` = `Subvenções Recebidas do Tesouro Estadual / Municipal - (Exercício)`,
-    `Subvenção (anterior)` = `Subvenções Recebidas do Tesouro Estadual / Municipal - (Exercício anterior)`,
-    `Reforço de Capital` = `Reforço de Capital - (Exercício)`,
-    `Reforço de Capital (anterior)` = `Reforço de Capital - (Exercício anterior)`,
+    `Subvenção` = `Subvenções - Exercício`,
+    `Subvenção (anterior)` = `Subvenções - Exercício anterior`,
+    `Reforço de Capital` = `Reforço de Capital - Exercício`,
+    `Reforço de Capital (anterior)` = `Reforço de Capital - Exercício anterior`,
     #result = `Resultado para o Estado Acionista`,
-    capital = `Capital Social Integralizado - (Exercício)`,
-    var_capital = `Variação do Capital Social`,
-    var_acoes = `Variação da Quantidade de Ações ou cotas`,
+    capital = `Capital Social Integralizado - Exercício`,
+    var_capital = `Variação Capital Social Integralizado`,
+    var_acoes = `Crescimento ações`,
     link      = `Link Carta Anual`
     )
 
@@ -1409,4 +1412,42 @@ sumario_resultado_estados <- dados_selecionados %>%
                .funs = ~-sum(as.numeric(.), na.rm = TRUE)) %>%
   mutate(Dividendos = -Dividendos) %>%
   arrange(`Resultado para o Estado Acionista`)
+
+
+##
+
+
+tabela_pagamento_plr<-
+  dados_selecionados %>%
+  filter(dep == "Dependente" | (dep == "Não Dependente" & lucros<0),
+         plr_rva %in% c("Sim")) %>%
+  select(emp, dep, setor, lucros)
+  
+dados_cards <- read_csv("dados/dados_cards.csv", 
+                        locale = locale(encoding = "LATIN1"))
+
+  
+dados_cards %>%
+  filter(dep == "Dependente" | (dep == "Não Dependente" & lucros<0)) %>%
+  arrange(desc(lucros))
+
+reforco_capital<-
+dados_cards %>%
+  filter(dep == "Não Dependente",
+         tipo_indicio == "reforço capital") %>%
+  inner_join(
+    dados_selecionados%>%
+      select(emp, `Reforço de Capital`, `Reforço de Capital (anterior)`), by="emp")
+
+reforco_capital %>%
+  select(-c(capital,desp_investimento) )
+
+subvencao<-
+  dados_cards %>%
+  filter(dep == "Não Dependente",
+         tipo_indicio == "subvenções") %>%
+  inner_join(
+    dados_selecionados%>%
+      select(emp, `Subvenção`, `Subvenção (anterior)`), by="emp")
+
 
