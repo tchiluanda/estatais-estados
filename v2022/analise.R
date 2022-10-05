@@ -820,7 +820,7 @@ roe_plotly <- plot_ly(dados_roe,
          legend = list(orientation = 'h', x = 0, y = 1.3)) %>%
   config(displayModeBar = FALSE)
 
-htmlwidgets::saveWidget(partial_bundle(roe_plotly), file = "roe.html")
+htmlwidgets::saveWidget(partial_bundle(roe_plotly), file = "./plots/roe.html")
 
 # Lucro / Prejuízo --------------------------------------------------------
 
@@ -918,7 +918,7 @@ graf_barra_lucro_setor <-
                 y = ifelse(tot>= 0, tot*1.03 - 1e4, tot - 50e7),
                 hjust = ifelse(tot>= 0, "left", "right")), 
             vjust = 0.5,
-            family = "Source Sans Pro", size = 3.5) +
+            family = "Source Sans Pro", size = 3.5) + 
   coord_flip() +
   scale_color_manual(values = c("Negativo" = "#DC143C", 
                                 "Positivo" = "#008080"), 
@@ -932,7 +932,7 @@ graf_barra_lucro_setor <-
   labs(x = NULL, y = NULL) +
   tema_barra()
 
-ggsave(plot = graf_barra_lucro_setor, "./plots/bar_lucro_setor.png", h = 6, w = 6, device = "png")
+ggsave(plot = graf_barra_lucro_setor, "./plots/bar_lucro_setor.png", h = 6, w = 7, device = "png")
 
 
 # mapa resultado----------------------------------------------------------------
@@ -1114,7 +1114,7 @@ gov_dotplot <- ggplot(dados_gov_setor, aes(y = reorder(setor, maximo),
   scale_fill_manual(values = vetor_cores_dep) +
   tema_barra()
 
-ggsave(plot = gov_dotplot, "./plots/gov_dotplot.png", h = 6, w = 5.5)
+ggsave(plot = gov_dotplot, "./plots/gov_dotplot.png", h = 6, w = 5.9)
 
 
 # governança estados ------------------------------------------------------
