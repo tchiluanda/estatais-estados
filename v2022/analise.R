@@ -533,28 +533,41 @@ mp_sf <- mapa_cartograma %>%
 
 mapa_deform <- cartogram_cont(mp_sf, 'n', 3)
 
-mp_def <- sf::st_as_sf(mapa_deform) 
+mp_def <- sf::st_as_sf(mapa_deform)
+
+#mp_def<- st_cast(mapa_deform, "MULTIPOLYGON")
+
+
 
 # testa gif transição entre mapas normal e deformado.
 
 mp_def_join <- mp_def %>%
   mutate(tipo_geometria = "deformada")
 
+
+
 mp_nor_join <- mp_sf %>%
   mutate(tipo_geometria = "normal")
 
 mp_duplo <- rbind(mp_def_join, mp_nor_join)
 
+
+fab <- data.table::rbindlist(list(mp_def_join,mp_nor_join),
+                           use.names = TRUE,
+                           fill = TRUE,
+                           idcol = NULL)
+fab<- st_as_sf(mp_duplo)
+
 mp_duplo %>%
 ggplot( aes(fill = Region, group = Region)) +
   geom_sf(color = NA) +
-  geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", n, NA)),
-                size = 6,    
-                color = "grey20",
-                family = "Source Sans Pro",
-                fill = "ghostwhite", label.size = 0,
-                label.r = unit(0.67, 'lines'),
-                label.padding = unit(0.35, "lines")) +
+  # geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", n, NA)),
+  #               size = 6,    
+  #               color = "grey20",
+  #               family = "Source Sans Pro",
+  #               fill = "ghostwhite", label.size = 0,
+  #               label.r = unit(0.67, 'lines'),
+  #               label.padding = unit(0.35, "lines")) +
   ease_aes("cubic-in-out") +
   scale_fill_viridis(option = "viridis", direction = -1) +
   labs(x = NULL, y = NULL) +
@@ -565,13 +578,13 @@ ggplot( aes(fill = Region, group = Region)) +
 
 mapa_duplo_gif <- ggplot(data = mp_duplo, aes(fill = Region, group = Region)) +
   geom_sf(color = NA) +
-  geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", n, NA)),
-                size = 6,    
-                color = "grey20",
-                family = "Source Sans Pro",
-                fill = "ghostwhite", label.size = 0,
-                label.r = unit(0.67, 'lines'),
-                label.padding = unit(0.35, "lines")) +
+  # geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", n, NA)),
+  #               size = 6,    
+  #               color = "grey20",
+  #               family = "Source Sans Pro",
+  #               fill = "ghostwhite", label.size = 0,
+  #               label.r = unit(0.67, 'lines'),
+  #               label.padding = unit(0.35, "lines")) +
   ease_aes("cubic-in-out") +
   scale_fill_viridis(option = "viridis", direction = -1) +
   labs(x = NULL, y = NULL) +
@@ -579,6 +592,8 @@ mapa_duplo_gif <- ggplot(data = mp_duplo, aes(fill = Region, group = Region)) +
   transition_states(states = tipo_geometria,
                     transition_length = 1,
                     state_length = 1)
+
+
 
 animate(mapa_duplo_gif, fps = 8, renderer = gifski_renderer())
 
