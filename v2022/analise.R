@@ -1442,9 +1442,6 @@ dados_cards <- read_csv("dados/dados_cards.csv",
                         locale = locale(encoding = "LATIN1"))
 
   
-dados_cards %>%
-  filter(dep == "Dependente" | (dep == "Não Dependente" & lucros<0)) %>%
-  arrange(desc(lucros))
 
 reforco_capital<-
 dados_cards %>%
