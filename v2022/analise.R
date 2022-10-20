@@ -100,8 +100,8 @@ dados_selecionados_raw <- dados_raw %>%
     `Reforço de Capital (anterior)` = `Reforço de Capital - Exercício anterior`,
     #result = `Resultado para o Estado Acionista`,
     capital = `Capital Social Integralizado - Exercício`,
-    var_capital = `Variação Capital Social Integralizado`,
-    var_acoes = `Crescimento ações`,
+    #var_capital = `Variação Capital Social Integralizado`,
+    #var_acoes = `Crescimento ações`,
     link      = `Link Carta Anual`
     )
 
@@ -1463,3 +1463,307 @@ subvencao<-
       select(emp, `Subvenção`, `Subvenção (anterior)`), by="emp")
 
 
+###########Análise de série por setor
+
+
+####Saneamento
+library(readxl)
+saneamento <- read_excel("other/setores_analise.xlsx", 
+                         sheet = "Saneamento")
+
+saneamento<- saneamento[-c(1:2),]
+
+saneamento <- janitor::clean_names(saneamento)
+
+
+saneamento_trabalho<-
+  saneamento %>%
+  pivot_longer(
+    cols =  investimento_2019:reforco_de_capital_2021,
+    names_to = "conta",
+    values_to = "valor"
+  ) %>%
+  mutate(ano = str_sub(conta,str_length(conta)-3,str_length(conta))) %>%
+  mutate(conta= str_sub(conta,1,str_length(conta)-5))%>%
+  mutate(conta= case_when(
+    conta=="lucro_prejuizo_liquido" ~ "lucro/prejuízo líquido",
+    conta=="reforco_de_capital" ~ "reforço de capital",
+    conta=="subvencoes" ~ "subvenções",
+    conta=="investimento" ~ "investimento",
+    conta=="passivos" ~ "passivos",
+    conta=="patrimonio_liquido" ~ "patrimônio líquido"
+  )) %>%
+  mutate(dependencia = case_when(
+      dependencia == "DEPENDENTE" ~ "Dependente",
+      dependencia == "NÃO DEPENDENTE" ~ "Não Dependente"
+    )
+  )
+
+
+maximos<-
+  saneamento_trabalho  %>%
+  filter(conta!="patrimônio líquido")  %>%
+  group_by(conta,ano) %>%
+  summarise(
+    valor= max(valor,na.rm=TRUE)) %>%
+  ungroup() %>%
+  inner_join(saneamento_trabalho)
+
+
+library(ggrepel)
+
+
+#Corte por conta
+
+
+serie_saneamento<-
+saneamento_trabalho %>%
+  filter(conta!="patrimônio líquido") %>%
+  ggplot()+
+  geom_point(aes(x=ano, y=valor/10^6, fill=dependencia),
+             color = "white",
+             pch=21, 
+             size=1)+
+  geom_text_repel(data=maximos, 
+                  aes(x=ano,y=valor/10^6,
+                      color=dependencia,
+                      label=sigla),
+                  size=2,
+                  nudge_x = 0.05)+
+  facet_wrap(conta~., scales = "free_y")+
+  scale_color_manual(values = vetor_cores_dep) +
+  scale_fill_manual(values = vetor_cores_dep) +
+  tema_barra() +
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = serie_saneamento, "./plots/serie_saneamento.png", h = 6, w = 6)
+
+##### Energia
+
+energia <- read_excel("other/setores_analise.xlsx", 
+                         sheet = "Energia")
+
+energia<- energia[-c(1:2),]
+
+energia <- janitor::clean_names(energia)
+
+
+energia_trabalho<-
+  energia %>%
+  pivot_longer(
+    cols =  investimento_2019:reforco_de_capital_2021,
+    names_to = "conta",
+    values_to = "valor"
+  ) %>%
+  mutate(ano = str_sub(conta,str_length(conta)-3,str_length(conta))) %>%
+  mutate(conta= str_sub(conta,1,str_length(conta)-5))%>%
+  mutate(conta= case_when(
+    conta=="lucro_prejuizo_liquido" ~ "lucro/prejuízo líquido",
+    conta=="reforco_de_capital" ~ "reforço de capital",
+    conta=="subvencoes" ~ "subvenções",
+    conta=="investimento" ~ "investimento",
+    conta=="passivos" ~ "passivos",
+    conta=="patrimonio_liquido" ~ "patrimônio líquido"
+  )) %>%
+  mutate(dependencia = case_when(
+    dependencia == "DEPENDENTE" ~ "Dependente",
+    dependencia == "NÃO DEPENDENTE" ~ "Não Dependente"
+  )
+  )
+
+
+maximos<-
+  energia_trabalho  %>%
+  filter(conta!="patrimônio líquido")  %>%
+  group_by(conta,ano) %>%
+  summarise(
+    valor= max(valor,na.rm=TRUE)) %>%
+  ungroup() %>%
+  inner_join(energia_trabalho)
+
+
+
+#Corte por conta
+
+
+serie_energia<-
+  energia_trabalho %>%
+  filter(conta!="patrimônio líquido") %>%
+  ggplot()+
+  geom_point(aes(x=ano, y=valor/10^6, fill=dependencia),
+             color = "white",
+             pch=21, 
+             size=1)+
+  geom_text_repel(data=maximos, 
+                  aes(x=ano,y=valor/10^6,
+                      color=dependencia,
+                      label=sigla),
+                  size=2,
+                  nudge_x = 0.05)+
+  facet_wrap(conta~., scales = "free_y")+
+  scale_color_manual(values = vetor_cores_dep) +
+  scale_fill_manual(values = vetor_cores_dep) +
+  tema_barra() +
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = serie_energia, "./plots/serie_energia.png", h = 6, w = 6)
+
+
+##### Transporte
+
+
+transporte <- read_excel("other/setores_analise.xlsx", 
+                              sheet = "Transporte", col_types = c("text", 
+                                                                  "text", "text", "text", "text", "text", 
+                                                                  "text", "numeric", "numeric", "numeric", 
+                                                                  "numeric", "numeric", "numeric", "numeric", "numeric", 
+                                                                  "numeric", "numeric", "numeric", "numeric", "numeric", 
+                                                                  "numeric", "numeric", "numeric"))
+transporte<- transporte[c(3:23),]
+
+names(transporte) <- names(energia)[1:23]
+
+
+transporte_trabalho<-
+  transporte %>%
+  pivot_longer(
+    cols =  investimento_2019:reforco_de_capital_2021,
+    names_to = "conta",
+    values_to = "valor"
+  ) %>%
+  mutate(ano = str_sub(conta,str_length(conta)-3,str_length(conta))) %>%
+  mutate(conta= str_sub(conta,1,str_length(conta)-5))%>%
+  mutate(conta= case_when(
+    conta=="lucro_prejuizo_liquido" ~ "lucro/prejuízo líquido",
+    conta=="reforco_de_capital" ~ "reforço de capital",
+    conta=="subvencoes" ~ "subvenções",
+    conta=="investimento" ~ "investimento",
+    conta=="passivos" ~ "passivos",
+    conta=="patrimonio_liquido" ~ "patrimônio líquido"
+  )) %>%
+  mutate(dependencia = case_when(
+    dependencia == "DEPENDENTE" ~ "Dependente",
+    dependencia == "NÃO DEPENDENTE" ~ "Não Dependente"
+  )
+  )
+
+
+maximos<-
+  transporte_trabalho  %>%
+  filter(conta!="patrimônio líquido",
+         ano!="2019")  %>%
+  group_by(conta,ano) %>%
+  summarise(
+    valor= max(valor,na.rm=TRUE)) %>%
+  ungroup() %>%
+  inner_join(transporte_trabalho)
+
+
+
+#Corte por conta
+
+
+serie_transporte<-
+  transporte_trabalho %>%
+  filter(conta!="patrimônio líquido",
+         ano != "2019") %>%
+  ggplot()+
+  geom_point(aes(x=ano, y=valor/10^6, fill=dependencia),
+             color = "white",
+             pch=21, 
+             size=1)+
+  geom_text_repel(data=maximos, 
+                  aes(x=ano,y=valor/10^6,
+                      color=dependencia,
+                      label=sigla),
+                  size=2,
+                  nudge_x = 0.05)+
+  facet_wrap(conta~., scales = "free_y")+
+  scale_color_manual(values = vetor_cores_dep) +
+  scale_fill_manual(values = vetor_cores_dep) +
+  tema_barra() +
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = serie_transporte, "./plots/serie_transporte.png", h = 6, w = 6)
+
+##### Pesquisa e Assistência Técnica
+
+pesquisa_assistencia_tecnica <- read_excel("other/setores_analise.xlsx", 
+                      sheet = "pesquisa_assistencia_tecnica")
+
+pesquisa_assistencia_tecnica<- pesquisa_assistencia_tecnica[-c(1:2),]
+
+pesquisa_assistencia_tecnica <- janitor::clean_names(pesquisa_assistencia_tecnica)
+
+
+pesquisa_assistencia_tecnica_trabalho<-
+  pesquisa_assistencia_tecnica %>%
+  pivot_longer(
+    cols =  investimento_2019:reforco_de_capital_2021,
+    names_to = "conta",
+    values_to = "valor"
+  ) %>%
+  mutate(ano = str_sub(conta,str_length(conta)-3,str_length(conta))) %>%
+  mutate(conta= str_sub(conta,1,str_length(conta)-5))%>%
+  mutate(conta= case_when(
+    conta=="lucro_prejuizo_liquido" ~ "lucro/prejuízo líquido",
+    conta=="reforco_de_capital" ~ "reforço de capital",
+    conta=="subvencoes" ~ "subvenções",
+    conta=="investimento" ~ "investimento",
+    conta=="passivos" ~ "passivos",
+    conta=="patrimonio_liquido" ~ "patrimônio líquido"
+  )) %>%
+  mutate(dependencia = case_when(
+    dependencia == "DEPENDENTE" ~ "Dependente",
+    dependencia == "NÃO DEPENDENTE" ~ "Não Dependente"
+  )
+  )
+
+
+maximos<-
+  pesquisa_assistencia_tecnica_trabalho  %>%
+  filter(conta!="patrimônio líquido")  %>%
+  group_by(conta,ano) %>%
+  summarise(
+    valor= max(valor,na.rm=TRUE)) %>%
+  ungroup() %>%
+  inner_join(pesquisa_assistencia_tecnica_trabalho)
+
+
+
+#Corte por conta
+
+
+serie_pesquisa_assistencia_tecnica<-
+  pesquisa_assistencia_tecnica_trabalho %>%
+  filter(conta!="patrimônio líquido") %>%
+  ggplot()+
+  geom_point(aes(x=ano, y=valor/10^6, fill=dependencia),
+             color = "white",
+             pch=21, 
+             size=1)+
+  geom_text_repel(data=maximos, 
+                  aes(x=ano,y=valor/10^6,
+                      color=dependencia,
+                      label=sigla),
+                  size=2,
+                  nudge_x = 0.05)+
+  facet_wrap(conta~., scales = "free_y")+
+  scale_color_manual(values = vetor_cores_dep) +
+  scale_fill_manual(values = vetor_cores_dep) +
+  tema_barra() +
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = serie_pesquisa_assistencia_tecnica, "./plots/serie_pesquisa_assistencia_tecnica.png", h = 6, w = 6)
