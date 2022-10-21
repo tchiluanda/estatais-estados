@@ -1386,19 +1386,36 @@ write.csv2(dados_selecionados, file = "./dados/dados.csv", fileEncoding = "UTF-8
 
 # exporta dados para cards ------------------------------------------------
 
-write.csv(dados_selecionados %>%
-             select(
-               Nome_estado,
-               setor,
-               emp,
-               dep,
-               sit,
-               capital,
-               desp_investimento,
-               lucros,
-               link
-             ) %>% arrange(dep) %>%
-            left_join(tab_indicios), "./dados/dados_cards.csv")
+
+readr::write_csv(dados_selecionados %>%
+                   select(
+                     Nome_estado,
+                     setor,
+                     emp,
+                     dep,
+                     sit,
+                     capital,
+                     desp_investimento,
+                     lucros,
+                     link
+                   ) %>% arrange(dep), #%>%
+                 #left_join(tab_indicios), 
+                 "./dados/dados_cards.csv")
+
+# write.csv(dados_selecionados %>%
+#              select(
+#                Nome_estado,
+#                setor,
+#                emp,
+#                dep,
+#                sit,
+#                capital,
+#                desp_investimento,
+#                lucros,
+#                link
+#              ) %>% arrange(dep), #%>%
+#             #left_join(tab_indicios), 
+#           "./dados/dados_cards.csv")
 
 # infos do texto ----------------------------------------------------------
 
@@ -1532,7 +1549,8 @@ saneamento_trabalho %>%
                   aes(x=ano,y=valor/10^6,
                       color=dependencia,
                       label=sigla),
-                  size=2,
+                  size=2.5,
+                  fontface = 'bold',
                   nudge_x = 0.05)+
   facet_wrap(conta~., scales = "free_y")+
   scale_color_manual(values = vetor_cores_dep) +
@@ -1631,7 +1649,8 @@ serie_energia<-
                   aes(x=ano,y=valor/10^6,
                       color=dependencia,
                       label=sigla),
-                  size=2,
+                  size=2.5,
+                  fontface = 'bold',
                   nudge_x = 0.05)+
   facet_wrap(conta~., scales = "free_y")+
   scale_color_manual(values = vetor_cores_dep) +
@@ -1734,7 +1753,8 @@ serie_transporte<-
                   aes(x=ano,y=valor/10^6,
                       color=dependencia,
                       label=sigla),
-                  size=2,
+                  size=2.5,
+                  fontface = 'bold',
                   nudge_x = 0.05)+
   facet_wrap(conta~., scales = "free_y")+
   scale_color_manual(values = vetor_cores_dep) +
@@ -1833,7 +1853,8 @@ serie_pesquisa_assistencia_tecnica<-
                   aes(x=ano,y=valor/10^6,
                       color=dependencia,
                       label=sigla),
-                  size=2,
+                  size=2.5,
+                  fontface = 'bold',
                   nudge_x = 0.05)+
   facet_wrap(conta~., scales = "free_y")+
   scale_color_manual(values = vetor_cores_dep) +
