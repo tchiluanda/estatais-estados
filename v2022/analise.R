@@ -444,6 +444,10 @@ qde_empresas_seg <- dados_selecionados %>%
          dep = factor(dep, levels = c("Dependente", "Não Dependente", "Não Informado"))) %>%
   filter(!is.na(setor))
 
+vetor_anos_2020_2021<-
+  c("2020" = "#50A315",
+    "2021" = "#009ADE")
+
 vetor_cores_dep <- c("Dependente" = "#f2ac29",
                      "Não Dependente" = "#718c35",
                      "Não Informado" = "#5c4b51")
@@ -1468,7 +1472,7 @@ subvencao<-
 
 ####Saneamento
 library(readxl)
-saneamento <- read_excel("other/setores_analise.xlsx", 
+saneamento <- read_excel("./dados/dados-originais/setores_analise.xlsx", 
                          sheet = "Saneamento")
 
 saneamento<- saneamento[-c(1:2),]
@@ -1541,9 +1545,31 @@ saneamento_trabalho %>%
 
 ggsave(plot = serie_saneamento, "./plots/serie_saneamento.png", h = 6, w = 6)
 
+saneamento_serie_coluna<-
+saneamento_trabalho %>%
+  filter(conta!="patrimônio líquido",
+         conta!="passivos")  %>%
+  group_by(conta,ano)%>%
+  summarise(
+    valor = sum(valor)
+  ) %>%
+  ggplot()+
+  geom_col(aes(x=conta, y=valor/10^6, fill=ano ),position = "dodge",color="white")+
+  scale_fill_discrete_qualitative(palette= "Dark 3")+
+  tema_barra() +
+  theme(
+    legend.position = "bottom"
+  )+
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+  
+ggsave(plot = saneamento_serie_coluna, "./plots/saneamento_serie_coluna.png", h = 6, w = 6)
+
 ##### Energia
 
-energia <- read_excel("other/setores_analise.xlsx", 
+energia <- read_excel("./dados/dados-originais/setores_analise.xlsx", 
                          sheet = "Energia")
 
 energia<- energia[-c(1:2),]
@@ -1577,7 +1603,9 @@ energia_trabalho<-
 
 maximos<-
   energia_trabalho  %>%
-  filter(conta!="patrimônio líquido")  %>%
+  filter(conta!="patrimônio líquido",
+         conta!="passivos",
+         conta!="reforço de capital")  %>%
   group_by(conta,ano) %>%
   summarise(
     valor= max(valor,na.rm=TRUE)) %>%
@@ -1591,7 +1619,9 @@ maximos<-
 
 serie_energia<-
   energia_trabalho %>%
-  filter(conta!="patrimônio líquido") %>%
+  filter(conta!="patrimônio líquido",
+         conta!="passivos",
+         conta!="reforço de capital") %>%
   ggplot()+
   geom_point(aes(x=ano, y=valor/10^6, fill=dependencia),
              color = "white",
@@ -1614,11 +1644,33 @@ serie_energia<-
 
 ggsave(plot = serie_energia, "./plots/serie_energia.png", h = 6, w = 6)
 
+energia_serie_coluna<-
+  energia_trabalho %>%
+  filter(conta!="patrimônio líquido",
+         conta!="passivos",
+         conta!="reforço de capital") %>%
+  group_by(conta,ano)%>%
+  summarise(
+    valor = sum(valor)
+  ) %>%
+  ggplot()+
+  geom_col(aes(x=conta, y=valor/10^6, fill=ano ),position = "dodge",color="white")+
+  scale_fill_discrete_qualitative(palette= "Dark 3")+
+  tema_barra() +
+  theme(
+    legend.position = "bottom"
+  )+
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = energia_serie_coluna, "./plots/energia_serie_coluna.png", h = 6, w = 6)
 
 ##### Transporte
 
 
-transporte <- read_excel("other/setores_analise.xlsx", 
+transporte <- read_excel("./dados/dados-originais/setores_analise.xlsx", 
                               sheet = "Transporte", col_types = c("text", 
                                                                   "text", "text", "text", "text", "text", 
                                                                   "text", "numeric", "numeric", "numeric", 
@@ -1695,9 +1747,33 @@ serie_transporte<-
 
 ggsave(plot = serie_transporte, "./plots/serie_transporte.png", h = 6, w = 6)
 
+
+transporte_serie_coluna<-
+  transporte_trabalho %>%
+  filter(conta!="patrimônio líquido",
+         ano != "2019") %>%
+  group_by(conta,ano)%>%
+  summarise(
+    valor = sum(valor)
+  ) %>%
+  ggplot()+
+  geom_col(aes(x=conta, y=valor/10^6, fill=ano ),position = "dodge",color="white")+
+  tema_barra() +
+  scale_fill_manual(values=vetor_anos_2020_2021)+
+  #scale_fill_discrete_qualitative(palette= "Dark 3")+
+  theme(
+    legend.position = "bottom"
+  )+
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = transporte_serie_coluna, "./plots/transporte_serie_coluna.png", h = 6, w = 6)
+
 ##### Pesquisa e Assistência Técnica
 
-pesquisa_assistencia_tecnica <- read_excel("other/setores_analise.xlsx", 
+pesquisa_assistencia_tecnica <- read_excel("./dados/dados-originais/setores_analise.xlsx", 
                       sheet = "pesquisa_assistencia_tecnica")
 
 pesquisa_assistencia_tecnica<- pesquisa_assistencia_tecnica[-c(1:2),]
@@ -1731,7 +1807,8 @@ pesquisa_assistencia_tecnica_trabalho<-
 
 maximos<-
   pesquisa_assistencia_tecnica_trabalho  %>%
-  filter(conta!="patrimônio líquido")  %>%
+  filter(conta!="patrimônio líquido",
+         conta!="reforço de capital")  %>%
   group_by(conta,ano) %>%
   summarise(
     valor= max(valor,na.rm=TRUE)) %>%
@@ -1745,7 +1822,8 @@ maximos<-
 
 serie_pesquisa_assistencia_tecnica<-
   pesquisa_assistencia_tecnica_trabalho %>%
-  filter(conta!="patrimônio líquido") %>%
+  filter(conta!="patrimônio líquido",
+         conta!="reforço de capital") %>%
   ggplot()+
   geom_point(aes(x=ano, y=valor/10^6, fill=dependencia),
              color = "white",
@@ -1767,3 +1845,25 @@ serie_pesquisa_assistencia_tecnica<-
   )
 
 ggsave(plot = serie_pesquisa_assistencia_tecnica, "./plots/serie_pesquisa_assistencia_tecnica.png", h = 6, w = 6)
+
+pesquisa_assistencia_serie_coluna<-
+  pesquisa_assistencia_tecnica_trabalho %>%
+  filter(conta!="patrimônio líquido",
+         conta!="reforço de capital") %>%
+  group_by(conta,ano)%>%
+  summarise(
+    valor = sum(valor)
+  ) %>%
+  ggplot()+
+  geom_col(aes(x=conta, y=valor/10^6, fill=ano ),position = "dodge",color="white")+
+  scale_fill_discrete_qualitative(palette= "Dark 3")+
+  tema_barra() +
+  theme(
+    legend.position = "bottom"
+  )+
+  labs(
+    x="",
+    y="valores em R$(mi)"
+  )
+
+ggsave(plot = pesquisa_assistencia_serie_coluna, "./plots/pesquisa_assistencia_serie_coluna.png", h = 6, w = 6)
