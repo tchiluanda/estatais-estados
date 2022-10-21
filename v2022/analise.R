@@ -510,7 +510,10 @@ ggsave(plot = graf_qde_emp_est, "./plots/qde_est.png", h = 6.5, w = 5)
 
 # pula para ler o objeto direto
 # brazilmaps não está mais no CRAN, mas pode ser baixado pelo github
-# mapa_regiao <- brazilmaps::get_brmap("Region")
+# mapa_regiao <- brazilmaps::  ::get_brmap("Region")
+# Buscando o mapa pelo geobr
+
+
 # saveRDS(mapa_regiao, "./dados/dados-intermediarios/mapa_regiao.rds")
 # st_crs(mapa_regiao)
 mapa_regiao <- readRDS("./dados/dados-intermediarios/mapa_regiao.rds")
@@ -526,8 +529,16 @@ mapa_regiao <- mapa_regiao %>%
 qde_regiao <- dados_selecionados %>%
   count(REGIAO)
 
+qde_estados<- dados_selecionados %>%
+  count(Estado)
+
+
 mapa_cartograma <- mapa_regiao %>% 
-  left_join(qde_regiao, by = c("name_region" = "REGIAO"))
+   left_join(qde_regiao, by = c("name_region" = "REGIAO"))
+
+mapa_cartograma <- mapa %>% 
+  left_join(qde_estados, by = c("abbrev_state" = "Estado"))
+
 
 #mp_sf <- as_Spatial(mapa_cartograma)
 
@@ -563,8 +574,8 @@ fab <- data.table::rbindlist(list(mp_def_join,mp_nor_join),
 fab<- st_as_sf(mp_duplo)
 
 mp_duplo %>%
-ggplot( aes(fill = Region, group = Region)) +
-  geom_sf(color = NA) +
+ggplot( aes(fill = code_state, group = code_state)) +
+  geom_sf(color = "lightblue") +
   # geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", n, NA)),
   #               size = 6,    
   #               color = "grey20",
@@ -580,8 +591,8 @@ ggplot( aes(fill = Region, group = Region)) +
                     transition_length = 1,
                     state_length = 1)
 
-mapa_duplo_gif <- ggplot(data = mp_duplo, aes(fill = Region, group = Region)) +
-  geom_sf(color = NA) +
+mapa_duplo_gif <- ggplot(data = mp_duplo, aes(fill = code_state, group = code_state)) +
+  geom_sf(color = "lightblue") +
   # geom_sf_label(aes(label = ifelse(tipo_geometria == "deformada", n, NA)),
   #               size = 6,    
   #               color = "grey20",
