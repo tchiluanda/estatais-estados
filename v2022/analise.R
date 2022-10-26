@@ -102,7 +102,8 @@ dados_selecionados_raw <- dados_raw %>%
     capital = `Capital Social Integralizado - Exercício`,
     #var_capital = `Variação Capital Social Integralizado`,
     #var_acoes = `Crescimento ações`,
-    link      = `Link Carta Anual`
+    link      = `Link Carta Anual`,
+    indicio_dependencia = `Indícios de Dependência`
     )
 
 
@@ -1357,28 +1358,32 @@ dados_selecionados %>%
 
 # indicios dependencia ----------------------------------------------------
 
-indicios <- dados_selecionados %>%
-  filter(dep == "Não Dependente", Subvenção > 0) %>%
-  select(emp, dep, setor, Subvenção)
+# indicios <- dados_selecionados %>%
+#   filter(dep == "Não Dependente", Subvenção > 0) %>%
+#   select(emp, dep, setor, Subvenção)
+# 
+# indicios2 <- dados_selecionados %>%
+#   filter(dep == "Não Dependente", `Reforço de Capital` > 0, round(`Reforço de Capital`,0) > round(var_capital,0)) %>%
+#   select(emp, setor, `Reforço de Capital`, var_capital, var_acoes)
+# 
+# indicios2a <- indicios2 %>%
+#   filter(var_capital == 0, var_acoes == 0)
+# 
+# tab_indicios <- data.frame(
+#   emp = c(
+#     indicios$emp,
+#     indicios2a$emp
+#   ),
+#   
+#   tipo_indicio = c(
+#     rep('subvenções', length(indicios$emp)),
+#     rep('reforço capital', length(indicios2a$emp))
+#   )
+# )
 
-indicios2 <- dados_selecionados %>%
-  filter(dep == "Não Dependente", `Reforço de Capital` > 0, round(`Reforço de Capital`,0) > round(var_capital,0)) %>%
-  select(emp, setor, `Reforço de Capital`, var_capital, var_acoes)
-
-indicios2a <- indicios2 %>%
-  filter(var_capital == 0, var_acoes == 0)
-
-tab_indicios <- data.frame(
-  emp = c(
-    indicios$emp,
-    indicios2a$emp
-  ),
-  
-  tipo_indicio = c(
-    rep('subvenções', length(indicios$emp)),
-    rep('reforço capital', length(indicios2a$emp))
-  )
-)
+tab_indicios<-
+  dados_selecionados %>%
+  select(emp, indicio_dependencia)
 
 ggplot(indicios2, aes(y = emp, x = var_capital/`Reforço de Capital`, fill = var_acoes == 0)) + 
   geom_col() +
@@ -1409,8 +1414,9 @@ readr::write_csv(dados_selecionados %>%
                      desp_investimento,
                      lucros,
                      link
-                   ) %>% arrange(dep), #%>%
-                 #left_join(tab_indicios), 
+                   ) %>% arrange(dep) %>%
+                 left_join(tab_indicios %>%
+                             mutate(tipo_indicio=ifelse(indicio_dependencia=="NÃO",NA,"subvenções"))), 
                  "./dados/dados_cards.csv")
 
 # write.csv(dados_selecionados %>%
@@ -1899,3 +1905,4 @@ pesquisa_assistencia_serie_coluna<-
   )
 
 ggsave(plot = pesquisa_assistencia_serie_coluna, "./plots/pesquisa_assistencia_serie_coluna.png", h = 6, w = 6)
+

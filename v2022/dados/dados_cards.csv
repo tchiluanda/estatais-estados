@@ -16,9 +16,9 @@ Alagoas,HABITAÇÃO E URBANIZAÇÃO,COMPANHIA ALAGOANA DE RECURSOS HUMANOS E PAT
 Alagoas,SAÚDE,LABORATORIO INDUSTRIAL FARMACEUTICO DE ALAGOAS S/A - LIFAL,Dependente,EM LIQUIDAÇÃO,0,0,-355535.8,nan,NÃO,NA
 Alagoas,OUTROS,SERVIÇO DE ENGENHARIA DE ALAGOAS S.A - SERVEAL,Dependente,EM LIQUIDAÇÃO,0,0,-164663.09,nan,NÃO,NA
 Amazonas,TURISMO,Empresa Estadual de Turismo - Amazonastur,Dependente,ATIVA,27123375.38,1640134.85,40503.88,nan,NÃO,NA
-Amazonas,SANEAMENTO,Companhia de Saneamento do Amazonas - Cosama,Dependente,ATIVA,532581469.06,1676764.08,2086791.1,WWW.COSAMA.AM.GOV.BR,NÃO,NA
+Amazonas,SANEAMENTO,Companhia de Saneamento do Amazonas - Cosama,Dependente,ATIVA,532581469.06,1676764.08,2086791.1,http://www.cosama.am.gov.br/,NÃO,NA
 Amazonas,DESENVOLVIMENTO REGIONAL,Agência de Desenvolvimento Sustentável do Amazonas - ADS,Dependente,ATIVA,10000000,125021.13,111673.53,nan,NÃO,NA
-Amapá,SANEAMENTO,Companhia de Água e Esgoto do Amapá - CAESA,Dependente,ATIVA,0,0,47289353.51,caesa.portal.ap.gov.br/,NÃO,NA
+Amapá,SANEAMENTO,Companhia de Água e Esgoto do Amapá - CAESA,Dependente,ATIVA,0,0,47289353.51,https://caesa.portal.ap.gov.br/,NÃO,NA
 Bahia,OUTROS,BAHIA PESCA S/A,Dependente,ATIVA,4824688.64,396367,-1302712,http://www.bahiapesca.ba.gov.br/arquivos/File/CARTAANUALBPECERCICIO2020.pdf,NÃO,NA
 Bahia,MINERAÇÃO,Companhia Baiana de Pesquisa Mineral,Dependente,ATIVA,100000000,874376.7,3925487.91,nan,NÃO,NA
 Bahia,SANEAMENTO,COMPANHIA DE ENGENHARIA HIDRICA E DE SANEAMENTO DA BAHIA CERB,Dependente,ATIVA,131206906,62058948.09,378212.65,nan,NÃO,NA
@@ -35,7 +35,7 @@ Distrito Federal,PESQUISA E ASSISTÊNCIA TÉCNICA AGROPECUÁRIA,Empresa de Assis
 Distrito Federal,TRANSPORTE,Companhia do Metropolitano do Distrito Federal - METRÔ,Dependente,ATIVA,2865848110.28,6832407.91,-78023880.17,https://metro.df.gov.br/?page_id=37077,NÃO,NA
 Distrito Federal,HABITAÇÃO E URBANIZAÇÃO,Companhia Urbanizadora da Nova Capital do Brasil - NOVACAP,Dependente,ATIVA,26713076.28,0,3511742.06,nan,NÃO,NA
 Distrito Federal,ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS,Sociedade de Abastecimento de Brasília - SAB,Dependente,EM LIQUIDAÇÃO,16368857.49,0,237447.43,nan,NÃO,NA
-Distrito Federal,TRANSPORTE,Sociedade de Transportes Coletivos de Brasília - TCB,Dependente,ATIVA,38386200,5946158,-4541813.01,tcb.df.gov.br,NÃO,NA
+Distrito Federal,TRANSPORTE,Sociedade de Transportes Coletivos de Brasília - TCB,Dependente,ATIVA,38386200,5946158,-4541813.01,https://tcb.df.gov.br/,NÃO,NA
 Espiríto Santo,ABASTECIMENTO DE ALIMENTOS E OUTROS INSUMOS,CEASA- Centrais de Abastecimento do Espírito Santo S/A,Dependente,ATIVA,3159556.67,24313,162481,https://ceasa.es.gov.br/governanca-corporativa,NÃO,NA
 Espiríto Santo,HABITAÇÃO E URBANIZAÇÃO,COHAB- Companhia de Habitação e Urbanização do Estado do Espírito Santo- em liquidação,Dependente,EM LIQUIDAÇÃO,4525000,0,24000,https://seger.es.gov.br/autarquias,NÃO,NA
 Goiás,HABITAÇÃO E URBANIZAÇÃO,Agência Goiana de Habitação S/A - AGEHAB,Dependente,ATIVA,187256418.03,6603001.13,9454732.76,https://www.agehab.go.gov.br,NÃO,NA
@@ -128,7 +128,7 @@ Sergipe,INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO,Empresa Sergipana de Tecnologi
 Sergipe,PESQUISA E ASSISTÊNCIA TÉCNICA AGROPECUÁRIA,Empresa de Desenvolvimento Agropecuário de Sergipe,Dependente,ATIVA,37572872.11,1340304.34,-33529035.52,https://www.emdagro.se.gov.br/,NÃO,NA
 Sergipe,OUTROS,Companhia Administradora da Zona de Processamento de Exportação de Sergipe,Dependente,ATIVA,500000,0,147.43,nan,NÃO,NA
 São Paulo,OUTROS,COMPANHIA AMBIENTAL DO ESTADO DE SÃO PAULO - CETESB,Dependente,ATIVA,169574763.18,12488859,67239280.95,https://cetesb.sp.gov.br/balancos-patrimoniais,NÃO,NA
-São Paulo,TRANSPORTE,COMPANHIA PAULISTA DE TRENS METROPOLITANOS - CPTM,Dependente,ATIVA,17529009420.09,420842877.72,-469383483.98,https://www.cptm.sp.gov.br/Governanca/BalancosDemonstrativos/Relat%C3%B3rio%20Integrado%20CPTM%202020.zip,NÃO,NA
+São Paulo,TRANSPORTE,COMPANHIA PAULISTA DE TRENS METROPOLITANOS - CPTM,Dependente,ATIVA,17529009420.09,420842877.72,-469383483.98,https://www.cptm.sp.gov.br/,NÃO,NA
 São Paulo,PORTOS E HIDROVIAS,COMPANHIA DOCAS DE SÃO SEBASTIÃO,Dependente,ATIVA,17748161,0,-13485811,nan,NÃO,NA
 São Paulo,TRANSPORTE,"DERSA - DESENVOLVIMENTO RODOVIÁRIO S/A ""EM LIQUIDAÇÃO""",Dependente,EM LIQUIDAÇÃO,1861792600.2,0,-191691968.39,nan,NÃO,NA
 São Paulo,OUTROS,INSTITUTO DE PESQUISAS TECNOLÓGICAS DO ESTADO DE SÃO PAULO S/A - IPT,Dependente,ATIVA,268196636,156282,-1995300.27,nan,NÃO,NA
@@ -137,20 +137,20 @@ Alagoas,COMUNICAÇÃO,COMPANHIA DE EDIÇÃO IMPRESSÃO E PUBLICAÇÃO DE ALAGOAS
 Alagoas,GÁS E DERIVADOS,GÁS DE ALAGOAS S/A - ALGÁS,Não Dependente,ATIVA,11382382.93,11601179.29,29327009.27,https://algas.com.br/servicos/,NÃO,NA
 Alagoas,FINANCEIRO,BANCO DO ESTADO DE ALAGOAS S/A - PRODUBAN,Não Dependente,EM LIQUIDAÇÃO,499811100,0,-4953680.73,nan,NÃO,NA
 Alagoas,SANEAMENTO,COMPANHIA DE SANEAMENTO DE ALAGOAS - CASAL,Não Dependente,ATIVA,347248954.06,17139560.53,23436497.55,https://www.casal.al.gov.br/tipo-de-arquivo/carta-anual/,NÃO,NA
-Amazonas,FINANCEIRO,Agência de Fomento do Estado do Amazonas S.A. - AFEAM,Não Dependente,ATIVA,98065592,184600836.77,1171046.9,WWW.AFEAM.AM.GOV.BR,NÃO,NA
-Amazonas,DESENVOLVIMENTO REGIONAL,Companhia de Desenvolvimento do Estado do Amazonas - CIAMA,Não Dependente,ATIVA,326979280.28,1138586.34,-1568510.74,WWW.CIAMA.AM.GOV.BR,SIM,subvenções
-Amazonas,GESTÃO DE ATIVOS,Companhia Amazonense de Desenvolvimento e Mobilização de Ativos - CADA,Não Dependente,ATIVA,3500000,105860.65,-4107506.08,WWW.CADA.AM.GOV.BR,NÃO,NA
-Amazonas,GÁS E DERIVADOS,Companhia de Gás do Amazonas,Não Dependente,ATIVA,28657424.9,30381439.81,118768534.82,WWW.CIGAS-AM.COM.BR,NÃO,NA
-Amazonas,INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO,PRODAM Processamento de Dados Amazonas S.A.,Não Dependente,ATIVA,45144417,344352.31,7851221,WWW.PRODAM.AM.GOV.BR,NÃO,NA
+Amazonas,FINANCEIRO,Agência de Fomento do Estado do Amazonas S.A. - AFEAM,Não Dependente,ATIVA,98065592,184600836.77,1171046.9,https://www.afeam.am.gov.br/,NÃO,NA
+Amazonas,DESENVOLVIMENTO REGIONAL,Companhia de Desenvolvimento do Estado do Amazonas - CIAMA,Não Dependente,ATIVA,326979280.28,1138586.34,-1568510.74,http://www.ciama.am.gov.br/,SIM,subvenções
+Amazonas,GESTÃO DE ATIVOS,Companhia Amazonense de Desenvolvimento e Mobilização de Ativos - CADA,Não Dependente,ATIVA,3500000,105860.65,-4107506.08,https://www.cada.am.gov.br/,NÃO,NA
+Amazonas,GÁS E DERIVADOS,Companhia de Gás do Amazonas,Não Dependente,ATIVA,28657424.9,30381439.81,118768534.82,https://www.cigas-am.com.br/,NÃO,NA
+Amazonas,INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO,PRODAM Processamento de Dados Amazonas S.A.,Não Dependente,ATIVA,45144417,344352.31,7851221,https://www.prodam.am.gov.br/,NÃO,NA
 Amapá,GÁS E DERIVADOS,Companhia de Gás do Amapá - GASAP,Não Dependente,ATIVA,100,0,-196357.92,nan,NÃO,NA
-Amapá,ENERGIA,Companhia de Eletricidade do Amapá - CEA,Não Dependente,ATIVA,1117875640.18,0,138193922.9,www.cea.amapa.gov.br/,NÃO,NA
-Amapá,FINANCEIRO,Agência de Fomento do Amapá - AFAP,Não Dependente,ATIVA,34455740.38,0,-16357954.4,www.afap.ap.gov.br/,NÃO,NA
+Amapá,ENERGIA,Companhia de Eletricidade do Amapá - CEA,Não Dependente,ATIVA,1117875640.18,0,138193922.9,cea.amapa.gov.br/,NÃO,NA
+Amapá,FINANCEIRO,Agência de Fomento do Amapá - AFAP,Não Dependente,ATIVA,34455740.38,0,-16357954.4,https://www.afap.ap.gov.br/,NÃO,NA
 Bahia,GÁS E DERIVADOS,Companhia de Gás da Bahia - Bahiagás,Não Dependente,ATIVA,484515767.42,74152611.78,117189059.6,nan,NÃO,NA
 Bahia,GESTÃO DE ATIVOS,BAHIAINVESTE - EMPRESA BAIANA DE ATIVOS S.A.,Não Dependente,ATIVA,11530000,8020000,-3851497,http://www.bahiainveste.ba.gov.br/accountability,NÃO,NA
 Bahia,SANEAMENTO,EMPRESA BAIANA DE AGUAS E SANEAMENTO DA BAHIA - EMBASA,Não Dependente,ATIVA,4846641888.14,922129868.63,386266634.58,https://www.embasa.ba.gov.br/index.php/institucional/a-embasa/governanca/carta-anual-de-governanca-corporativa,NÃO,NA
 Bahia,FINANCEIRO,Desenbahia - Agência de Fomento do Estado da Bahia S/A,Não Dependente,ATIVA,569460619.72,0,40532779.14,https://www.desenbahia.ba.gov.br/wp-content/uploads/2022/04/carta-anual-de-politicas-publicas.pdf,NÃO,NA
 Bahia,COMUNICAÇÃO,Empresa Gráfica da Bahia - EGBA,Não Dependente,ATIVA,44726528,0,1196270,nan,NÃO,NA
-Bahia,INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO,COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DA BAHIA - PRODEB,Não Dependente,ATIVA,99605874,4499672.79,15265078.08,prodeb.ba.gov.br,NÃO,NA
+Bahia,INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO,COMPANHIA DE PROCESSAMENTO DE DADOS DO ESTADO DA BAHIA - PRODEB,Não Dependente,ATIVA,99605874,4499672.79,15265078.08,https://prodeb.ba.gov.br/Paginas/Home.aspx,NÃO,NA
 Bahia,HABITAÇÃO E URBANIZAÇÃO,Habitação e Urbanização da Bahia S/A - URBIS,Não Dependente,EM LIQUIDAÇÃO,334986353,0,-12120900.82,nan,NÃO,NA
 Ceará,SANEAMENTO,Companhia de Gestão dos Recursos Hídricos - COGERH,Não Dependente,ATIVA,147615502,13076996.18,7809286,https://portal.cogerh.com.br/wp-content/uploads/2017/12/CARTA-ANUAL-2020-2021.pdf,NÃO,NA
 Ceará,GÁS E DERIVADOS,Companhia de Gás do Ceará - CEGÁS,Não Dependente,ATIVA,161299537.43,31381287.24,124674885.44,https://www.cegas.com.br/carta-anual-de-politicas-publicas-e-governanca-corporativa/,NÃO,NA
@@ -162,7 +162,7 @@ Ceará,DESENVOLVIMENTO REGIONAL,Agência de Desenvilvimento do Estado do Ceará 
 Ceará,GESTÃO DE ATIVOS,Companhia de Participação de Ativos do Ceará - CEARAPAR,Não Dependente,ATIVA,3000000,16876.83,173268,nan,NÃO,NA
 Distrito Federal,FINANCEIRO,Banco Regional de Brasília - BRB,Não Dependente,ATIVA,1466322286.77,180509997,607712381.27,nan,NÃO,NA
 Distrito Federal,OUTROS,Parque Tecnológico de Brasília - BIOTIC,Não Dependente,ATIVA,5804654,30780,-413560,nan,NÃO,NA
-Distrito Federal,FINANCEIRO,Cartão BRB,Não Dependente,ATIVA,506560000,98163443,588686555.21,https://www.brbcard.com.br/Portal/Home/Sic,NÃO,NA
+Distrito Federal,FINANCEIRO,Cartão BRB,Não Dependente,ATIVA,506560000,98163443,588686555.21,https://www.brbcard.com.br/Portal/Home,NÃO,NA
 Distrito Federal,OUTROS,Instituto BRB de Desenvolvimento Humano e Responsabilidade Socioambiental,Não Dependente,ATIVA,0,13932332.88,6328355.37,nan,NÃO,NA
 Distrito Federal,OUTROS,BRB Administradora e Corretora de Seguros,Não Dependente,ATIVA,47178000,0,417092810.91,nan,NÃO,NA
 Distrito Federal,FINANCEIRO,BRB Crédito. Financiamento e Investimento,Não Dependente,ATIVA,150000000,0,57166769.21,nan,NÃO,NA
@@ -177,9 +177,9 @@ Distrito Federal,ENERGIA,CEB Lajeado,Não Dependente,ATIVA,112283997.86,255480.9
 Distrito Federal,ENERGIA,CEB Participações,Não Dependente,ATIVA,21270414.68,1373901.01,16198438.32,http://www.ceb.com.br/index.php/institucional-ceb-separator/companhia-energetica-de-brasilia-ceb,NÃO,NA
 Distrito Federal,GESTÃO DE ATIVOS,DF Gestão de Ativos,Não Dependente,ATIVA,0,0,-354229,nan,NÃO,NA
 Distrito Federal,OUTROS,Florestamento e Reflorestamento - PROFLORA,Não Dependente,EM LIQUIDAÇÃO,3838.27,0,-1448467.2,nan,NÃO,NA
-Distrito Federal,DESENVOLVIMENTO REGIONAL,Companhia Imobiliária de Brasília - Terracap,Não Dependente,ATIVA,1848848613.47,110254557.38,1741509742.08,https://www.terracap.df.gov. br/index.php/acessoinformacao/normas-manuaise-politicas,NÃO,NA
+Distrito Federal,DESENVOLVIMENTO REGIONAL,Companhia Imobiliária de Brasília - Terracap,Não Dependente,ATIVA,1848848613.47,110254557.38,1741509742.08,https://www.terracap.df.gov.br/index.php/acessoinformacao/normas-manuais-e-politicas,NÃO,NA
 Espiríto Santo,FINANCEIRO,Banestes- Banco do Estado do Espírito Santo,Não Dependente,ATIVA,1477920000,64733000,250590000,https://www.banestes.com.br/ri/ri_governanca.html,NÃO,NA
-Espiríto Santo,FINANCEIRO,BANDES Banco de Desenvolvimento do Espírito Santo,Não Dependente,ATIVA,439371000,3232621,50136000,https://www.bandes.com.br/Site/Dinamico/Show/69/Governanca-Corporativa,NÃO,NA
+Espiríto Santo,FINANCEIRO,BANDES Banco de Desenvolvimento do Espírito Santo,Não Dependente,ATIVA,439371000,3232621,50136000,https://www.bandes.com.br/,NÃO,NA
 Espiríto Santo,SANEAMENTO,Cesan - Companhia Espirito Santense de Saneamento,Não Dependente,ATIVA,2477098526.48,371384000,177153000,https://www.cesan.com.br/governanca-corporativa,NÃO,NA
 Espiríto Santo,TRANSPORTE,Ceturb - Companhia Estadual de Transportes Coletivos de Passageiros do Espirito Santo,Não Dependente,ATIVA,93473015.36,452974.25,-4714996.33,https://ceturb.es.gov.br/missao-visao-e-valores,SIM,subvenções
 Espiríto Santo,GÁS E DERIVADOS,ES GÁS - Companhia de Gás do Espirito Santo,Não Dependente,ATIVA,254332619,14760000,98142450.31,https://esgas.com.br/governanca-corporativa,NÃO,NA
@@ -228,7 +228,7 @@ Paraíba,INFORMÁTICA E TECNOLOGIA DA INFORMAÇÃO,Companhia de Processamento de
 Paraíba,PORTOS E HIDROVIAS,Companhia Docas da Paraíba,Não Dependente,ATIVA,1085137,0,65851,nan,NÃO,NA
 Pará,FINANCEIRO,BANCO DO ESTADO DO PARÁ,Não Dependente,ATIVA,1472778726.04,25904916.38,241285177.62,nan,NÃO,NA
 Pará,DESENVOLVIMENTO REGIONAL,COMP. ADM. DA ZONA DE PROCESSAMNETO DE EXP. DE BARCARENA,Não Dependente,ATIVA,28487875,0,36032.5,nan,NÃO,NA
-Pará,SANEAMENTO,COMPANHIA DE SANEAMENTO DO PARÁ,Não Dependente,ATIVA,2300000000,173949225.55,125653656.77,WWW.COSANPA.PA.GOV.BR,NÃO,NA
+Pará,SANEAMENTO,COMPANHIA DE SANEAMENTO DO PARÁ,Não Dependente,ATIVA,2300000000,173949225.55,125653656.77,https://www.cosanpa.pa.gov.br/,NÃO,NA
 Pará,GÁS E DERIVADOS,COMPANHIA DE GÁS DO PARÁ,Não Dependente,ATIVA,382500,1013769,2895,https://gasdopara.com.br/transparencia-publica/carta-anual-de-governanca,NÃO,NA
 Pernambuco,DESENVOLVIMENTO REGIONAL,AGENCIA DE DESENVOLVIMENTO ECONÔMICO DE PERNAMBUCO S/A - ADEPE,Não Dependente,ATIVA,35862477,0,17798389.44,https://www.addiper.pe.gov.br/wp-content/uploads/2022/04/Carta-Anual-de-Pol%c3%adticas-P%c3%bablicas-e-Governan%c3%a7a-Corporativa-2022.pdf,NÃO,NA
 Pernambuco,FINANCEIRO,AGENCIA DE FOMENTO DO ESTADO DE PERNAMBUCO S.A. - AGE,Não Dependente,ATIVA,78310010,0,-4070246.74,http://www.age.pe.gov.br/governancacorporativa,NÃO,NA
