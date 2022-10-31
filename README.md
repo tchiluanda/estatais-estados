@@ -1,8 +1,6 @@
-# Raio-x das Empresas dos Estados Brasileiros 2021
+# estatais-estados-2022
  
-Versão 2021 da história das Empresas dos Estados. Tudo o que foi usado para construí-la está neste repositório, desde os dados originais e o script `R` de análise, até os componentes da página web. A página web foi construída apenas com HTML, CSS e Javascript puros (e D3.js).
-
-Sinta-se à vontade para entrar em contato caso tenha alguma dúvida.
+Versão 2022 da história das Empresas dos Estados. Tudo o que foi usado para construí-la está neste repositório, desde os dados originais e o script `R` de análise, até os arquivos da página web.
 
 Está procurando os dados? Eles estão [aqui](./dados/dados.csv).
 

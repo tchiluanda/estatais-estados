@@ -22,7 +22,7 @@ header img.logo-tt {
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    left: 0;
+    left: 1000px;
     right: 0;
     top: 20px;
 }
@@ -44,22 +44,22 @@ header div.sobre-imagem {
 }
 
 header div.sobre-imagem h1 {
-    font-size: 3.9rem;
+    font-size: 3.1rem;
     margin: 0;
-    line-height: 1.2;
-    color: #f2ac29;
-    text-shadow: 0px 0px 10px rgb(59,55,52);
+    line-height: 1.0;
+    color: rgb(0,51,102);
+    
 }
 
 header div.sobre-imagem h2 {
     font-weight: normal;
-    color: ghostwhite;
+    color: rgb(51,51,51);
     margin: 1em 0;
 }
 
 header div.sobre-imagem p {
     font-weight: normal;
-    color: white;
+    color: rgb(51,51,51);
     font-size: 18px;
 }
 
