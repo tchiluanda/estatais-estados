@@ -108,6 +108,13 @@ dados_selecionados_raw <- dados_raw %>%
 
 
 
+
+# Remove all special characters from the 'Name' column
+dados_selecionados_raw$emp <- str_replace_all(dados_selecionados_raw$emp, "[^[:alnum:] ]", "")
+
+
+
+
 # limpeza -----------------------------------------------------------------
 
 ## Setor
@@ -640,8 +647,19 @@ length(which(is.na(dados_selecionados$lucros)))
 ## importante
 qde_emp_fora_roe <- length(which(
   is.na(dados_selecionados$lucros) | 
+    dados_selecionados$lucros ==0 |
     dados_selecionados$PL<=0 | 
     is.na(dados_selecionados$PL)))
+
+
+fab<-
+  dados_selecionados %>%
+  filter(is.na(lucros)|PL<=0|is.na(PL))
+
+fab%>%
+  arrange(emp) %>%
+  write.csv2("empresas_excluidas_rentabilidade.csv")
+  
 
 top_setores <- dados_qde_setor_estado %>% 
   group_by(setor) %>% 
@@ -653,7 +671,7 @@ principais_setores <- top_setores$setor
 
 dados_roe <- dados_selecionados %>%
   #filter(PL > 0 & dep != "Não Informado") %>%
-  filter(PL > 0) %>%
+  filter(PL > 0, lucros!=0) %>%
   mutate(ROE = lucros / PL,
          PL_formatado = format(PL, big.mark = ".", decimal.mark = ',', scientific = FALSE)) %>%
   filter(!is.na(ROE)) %>%
@@ -739,7 +757,7 @@ dados_roe %>% filter(ROE > 2 | ROE < -2) %>% select(emp, Estado, dep, ROE)
 #   scale_y_continuous(labels = percent, breaks = define_breaks, limits = c(-2,2)) + #, 
 #   tema()
 
-roe2 <- ggplot(dados_roe %>% filter(PL>0), aes(y = ROE, color = sinal_ROE, x = dep, 
+roe2 <- ggplot(dados_roe %>% filter(PL>0, lucros!=0), aes(y = ROE, color = sinal_ROE, x = dep, 
                                                label = Empresa)) +
   geom_quasirandom()+ #beeswarm() + #aes(size = PL), 
   scale_color_manual(values = c("Negativo" = "#DC143C", 
@@ -771,10 +789,14 @@ ggsave(plot = roe2, "./plots/roe2.png", h = 6.5, w = 6.5)
 #para texto do gráfico
 roe_acima_200pct <- length(which(dados_roe$ROE > 2))
 roe_abaixo_200pct_neg <- length(which(dados_roe$ROE < -2))
+
 qde_emp_fora_roe <- length(which(
   is.na(dados_selecionados$lucros) | 
+    dados_selecionados$lucros ==0 |
     dados_selecionados$PL<=0 | 
     is.na(dados_selecionados$PL)))
+
+
 
 # ROE - dotplot -----------------------------------------------------------
 
@@ -1416,6 +1438,42 @@ write.csv2(dados_selecionados, file = "./dados/dados.csv", fileEncoding = "UTF-8
 # exporta dados para cards ------------------------------------------------
 
 
+fab<-
+  dados_selecionados %>%
+  select(
+    Nome_estado,
+    setor,
+    emp,
+    dep,
+    sit,
+    capital,
+    desp_investimento,
+    lucros,
+    link
+  ) %>% arrange(dep) %>%
+  left_join(tab_indicios %>%
+              mutate(tipo_indicio=ifelse(indicio_dependencia=="não",NA,indicio_dependencia)))
+
+
+fab<-
+  dados_selecionados %>%
+  select(
+    Nome_estado,
+    setor,
+    emp,
+    dep,
+    sit,
+    capital,
+    desp_investimento,
+    lucros,
+    link
+  ) %>% arrange(dep) %>%
+  left_join(tab_indicios ) %>%
+  mutate(dep = ifelse(tipo_indicio == "sim",))
+  mutate(tipo_indicio=NA)
+
+
+
 readr::write_csv(dados_selecionados %>%
                    select(
                      Nome_estado,
@@ -1429,7 +1487,7 @@ readr::write_csv(dados_selecionados %>%
                      link
                    ) %>% arrange(dep) %>%
                    left_join(tab_indicios %>%
-                               mutate(tipo_indicio=ifelse(indicio_dependencia=="NÃO",NA,"subvenções"))), 
+                               mutate(tipo_indicio=ifelse(indicio_dependencia=="não",NA,indicio_dependencia))), 
                  "./dados/dados_cards.csv")
 
 # write.csv(dados_selecionados %>%
