@@ -53,13 +53,13 @@ header div.sobre-imagem h1 {
 
 header div.sobre-imagem h2 {
     font-weight: normal;
-    color: rgb(51,51,51);
+    color: rgb(255,255,255);
     margin: 1em 0;
 }
 
 header div.sobre-imagem p {
     font-weight: normal;
-    color: rgb(51,51,51);
+    color: rgb(255,255,255);
     font-size: 18px;
 }
 
